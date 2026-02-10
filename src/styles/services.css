@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════════
+   SERVICES / KAFELKI — glitch hover
+   ═══════════════════════════════════════════ */
+
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.services-header {
+  margin-bottom: 4rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.service-tile {
+  background: var(--bg);
+  padding: 3.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+.service-tile:hover {
+  background: var(--bg);
+}
+
+.service-number {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.service-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  position: relative;
+  display: inline-block;
+  transition: transform 0.4s var(--ease-out);
+}
+
+/* Glitch na tytule kafelka — pseudo elementy */
+.service-tile .service-title::before,
+.service-tile .service-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.service-tile .service-title::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.service-tile .service-title::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+.service-tile:hover .service-title::before {
+  opacity: 1;
+  animation: tile-glitch-blue 0.4s steps(3) forwards;
+}
+
+.service-tile:hover .service-title::after {
+  opacity: 1;
+  animation: tile-glitch-red 0.4s steps(3) forwards;
+}
+
+.service-tile:hover .service-title {
+  transform: translateX(4px);
+}
+
+@keyframes tile-glitch-blue {
+  0% { transform: translate(-4px, 1px); clip-path: inset(20% 0 60% 0); opacity: 1; }
+  25% { transform: translate(2px, -1px); clip-path: inset(50% 0 20% 0); }
+  50% { transform: translate(-2px, 2px); clip-path: inset(10% 0 70% 0); }
+  75% { transform: translate(3px, 0px); clip-path: inset(70% 0 10% 0); }
+  100% { transform: translate(-1px, 0); clip-path: inset(0); opacity: 0.3; }
+}
+
+@keyframes tile-glitch-red {
+  0% { transform: translate(4px, -1px); clip-path: inset(60% 0 20% 0); opacity: 1; }
+  25% { transform: translate(-2px, 1px); clip-path: inset(10% 0 70% 0); }
+  50% { transform: translate(2px, -2px); clip-path: inset(70% 0 10% 0); }
+  75% { transform: translate(-3px, 0px); clip-path: inset(30% 0 40% 0); }
+  100% { transform: translate(1px, 0); clip-path: inset(0); opacity: 0.3; }
+}
+
+/* Arrow icon */
+.service-arrow {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 1.5rem;
+  color: var(--text-dim);
+  transition: color 0.3s ease, transform 0.3s var(--ease-out);
+}
+
+.service-tile:hover .service-arrow {
+  color: var(--text);
+  transform: translate(4px, -4px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-tile {
+    padding: 2.5rem 1.5rem;
+  }
+}

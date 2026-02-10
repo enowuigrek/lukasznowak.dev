@@ -1,0 +1,213 @@
+/* ═══════════════════════════════════════════
+   PROJECTS / KARTY — glitch hover
+   ═══════════════════════════════════════════ */
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projects-header {
+  margin-bottom: 4rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: border-color 0.4s ease;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card:hover {
+  border-color: var(--text-muted);
+}
+
+/* Placeholder background — pattern */
+.project-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s var(--ease-in-out);
+}
+
+.project-card:hover .project-card-bg {
+  transform: scale(1.03);
+}
+
+/* Gradient placeholder patterns */
+.project-card-bg.pattern-1 {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+.project-card-bg.pattern-2 {
+  background: linear-gradient(135deg, #2d1b3d 0%, #1a1a2e 50%, #162447 100%);
+}
+.project-card-bg.pattern-3 {
+  background: linear-gradient(135deg, #1b2631 0%, #17202a 50%, #1c2833 100%);
+}
+.project-card-bg.pattern-4 {
+  background: linear-gradient(135deg, #2c1810 0%, #1a1a2e 50%, #341c1c 100%);
+}
+
+/* Overlay info — zawsze widoczne na dole */
+.project-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(10, 10, 10, 0.6) 60%,
+    transparent 100%
+  );
+  z-index: 2;
+}
+
+.project-card-number {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.project-card-category {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.project-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  position: relative;
+  display: inline-block;
+}
+
+/* Glitch na tytule karty */
+.project-card-title::before,
+.project-card-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.project-card-title::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.project-card-title::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+.project-card:hover .project-card-title::before {
+  opacity: 1;
+  animation: tile-glitch-blue 0.4s steps(3) forwards;
+}
+
+.project-card:hover .project-card-title::after {
+  opacity: 1;
+  animation: tile-glitch-red 0.4s steps(3) forwards;
+}
+
+/* Reuse service tile glitch animations */
+@keyframes tile-glitch-blue {
+  0% { transform: translate(-4px, 1px); clip-path: inset(20% 0 60% 0); opacity: 1; }
+  25% { transform: translate(2px, -1px); clip-path: inset(50% 0 20% 0); }
+  50% { transform: translate(-2px, 2px); clip-path: inset(10% 0 70% 0); }
+  75% { transform: translate(3px, 0px); clip-path: inset(70% 0 10% 0); }
+  100% { transform: translate(-1px, 0); clip-path: inset(0); opacity: 0.3; }
+}
+
+@keyframes tile-glitch-red {
+  0% { transform: translate(4px, -1px); clip-path: inset(60% 0 20% 0); opacity: 1; }
+  25% { transform: translate(-2px, 1px); clip-path: inset(10% 0 70% 0); }
+  50% { transform: translate(2px, -2px); clip-path: inset(70% 0 10% 0); }
+  75% { transform: translate(-3px, 0px); clip-path: inset(30% 0 40% 0); }
+  100% { transform: translate(1px, 0); clip-path: inset(0); opacity: 0.3; }
+}
+
+/* Tagi / hasła */
+.project-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.project-card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover .project-card-tag {
+  color: var(--text-muted);
+  border-color: var(--text-dim);
+}
+
+/* Arrow w rogu */
+.project-card-arrow {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.25rem;
+  color: var(--text-dim);
+  z-index: 3;
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.3s ease, transform 0.3s var(--ease-out);
+}
+
+.project-card:hover .project-card-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-card {
+    aspect-ratio: 16 / 9;
+  }
+}

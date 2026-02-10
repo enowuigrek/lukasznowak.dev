@@ -1,0 +1,247 @@
+/* ═══════════════════════════════════════════
+   GLITCH / RGB SPLIT
+   ═══════════════════════════════════════════ */
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Warstwa niebieska */
+.glitch-text::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+  transform: translate(
+    calc(var(--glitch-x, 0) * -1px),
+    calc(var(--glitch-y, 0) * 0.5px)
+  );
+  clip-path: inset(0);
+  animation: glitch-blue 4s infinite;
+}
+
+/* Warstwa czerwona */
+.glitch-text::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+  transform: translate(
+    calc(var(--glitch-x, 0) * 1px),
+    calc(var(--glitch-y, 0) * -0.5px)
+  );
+  clip-path: inset(0);
+  animation: glitch-red 4s infinite;
+}
+
+@keyframes glitch-blue {
+  0%, 85%, 100% {
+    clip-path: inset(0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+  87% {
+    clip-path: inset(15% 0 75% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px - 3px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+  89% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px + 2px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+  91% {
+    clip-path: inset(30% 0 50% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px - 1px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+}
+
+@keyframes glitch-red {
+  0%, 85%, 100% {
+    clip-path: inset(0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+  88% {
+    clip-path: inset(70% 0 5% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px + 3px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+  90% {
+    clip-path: inset(5% 0 80% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px - 2px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+  92% {
+    clip-path: inset(40% 0 40% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px + 1px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Glitch hover na przyciskach
+   — tekst glitch + kolorowe tło po przekątnej
+   ═══════════════════════════════════════════ */
+
+.glitch-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Kolorowe tło po przekątnej — blue góra-lewo, red dół-prawo */
+.glitch-hover .glitch-bg-blue,
+.glitch-hover .glitch-bg-red {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 0;
+}
+
+.glitch-hover .glitch-bg-blue {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 127, 255, 0.15) 0%,
+    rgba(45, 127, 255, 0.06) 30%,
+    transparent 55%
+  );
+  transform: translate(-4px, -2px);
+}
+
+.glitch-hover .glitch-bg-red {
+  background: linear-gradient(
+    135deg,
+    transparent 45%,
+    rgba(255, 45, 45, 0.06) 70%,
+    rgba(255, 45, 45, 0.15) 100%
+  );
+  transform: translate(4px, 2px);
+}
+
+.glitch-hover:hover .glitch-bg-blue {
+  opacity: 1;
+  animation: bg-glitch-blue 0.35s steps(3) forwards;
+}
+
+.glitch-hover:hover .glitch-bg-red {
+  opacity: 1;
+  animation: bg-glitch-red 0.35s steps(3) forwards;
+}
+
+@keyframes bg-glitch-blue {
+  0%   { transform: translate(-8px, -4px); clip-path: inset(0 50% 0 0); opacity: 0; }
+  25%  { transform: translate(-3px, -1px); clip-path: inset(0); opacity: 0.8; }
+  50%  { transform: translate(-5px, -3px); clip-path: inset(30% 0 40% 0); opacity: 1; }
+  75%  { transform: translate(-2px, -1px); clip-path: inset(0); }
+  100% { transform: translate(-2px, -1px); clip-path: inset(0); opacity: 1; }
+}
+
+@keyframes bg-glitch-red {
+  0%   { transform: translate(8px, 4px); clip-path: inset(0 0 0 50%); opacity: 0; }
+  25%  { transform: translate(3px, 1px); clip-path: inset(0); opacity: 0.8; }
+  50%  { transform: translate(5px, 3px); clip-path: inset(40% 0 30% 0); opacity: 1; }
+  75%  { transform: translate(2px, 1px); clip-path: inset(0); }
+  100% { transform: translate(2px, 1px); clip-path: inset(0); opacity: 1; }
+}
+
+/* Tekst glitch layers */
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: 1;
+}
+
+.glitch-hover::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.glitch-hover::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+.glitch-hover:hover::before {
+  opacity: 1;
+  animation: btn-glitch-blue 0.3s steps(2) forwards;
+}
+
+.glitch-hover:hover::after {
+  opacity: 1;
+  animation: btn-glitch-red 0.3s steps(2) forwards;
+}
+
+/* Tekst content musi być ponad tłem */
+.glitch-hover > span,
+.glitch-hover > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes btn-glitch-blue {
+  0% { transform: translate(-3px, 1px); clip-path: inset(20% 0 60% 0); }
+  25% { transform: translate(2px, -1px); clip-path: inset(50% 0 20% 0); }
+  50% { transform: translate(-1px, 2px); clip-path: inset(10% 0 70% 0); }
+  75% { transform: translate(3px, 0px); clip-path: inset(70% 0 10% 0); }
+  100% { transform: translate(-1px, 0); clip-path: inset(0); opacity: 0.3; }
+}
+
+@keyframes btn-glitch-red {
+  0% { transform: translate(3px, -1px); clip-path: inset(60% 0 20% 0); }
+  25% { transform: translate(-2px, 1px); clip-path: inset(10% 0 70% 0); }
+  50% { transform: translate(1px, -2px); clip-path: inset(70% 0 10% 0); }
+  75% { transform: translate(-3px, 0px); clip-path: inset(30% 0 40% 0); }
+  100% { transform: translate(1px, 0); clip-path: inset(0); opacity: 0.3; }
+}
+
+/* Na kliknięcie — shake + flash */
+.glitch-hover:active .glitch-bg-blue {
+  opacity: 1;
+  transform: translate(-4px, -2px);
+}
+
+.glitch-hover:active .glitch-bg-red {
+  opacity: 1;
+  transform: translate(4px, 2px);
+}
