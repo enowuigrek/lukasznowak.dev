@@ -47,12 +47,13 @@
   font-family: var(--font-display);
   color: var(--text);
   border-bottom: 1px solid var(--border);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease;
   background: transparent;
 }
 
 .form-input:focus {
   border-bottom-color: var(--text);
+  background: rgba(232, 230, 227, 0.03);
 }
 
 .form-input::placeholder {
@@ -63,24 +64,14 @@ textarea.form-input {
   resize: none;
   min-height: 100px;
   line-height: 1.6;
+  padding: 0.75rem 0.5rem;
 }
 
-/* Animated focus line */
-.form-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, var(--glitch-blue), var(--glitch-red));
-  transition: width 0.4s var(--ease-out);
+textarea.form-input:focus {
+  padding: 0.75rem 0.5rem;
 }
 
-.form-group:focus-within .form-line {
-  width: 100%;
-}
-
-/* Submit button — bez zmiany koloru, glitch hover */
+/* Submit button */
 .form-submit {
   align-self: flex-start;
   padding: 1.1rem 3rem;
@@ -94,24 +85,15 @@ textarea.form-input {
   background: var(--text);
   transition: border-color 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .form-submit:hover {
-  /* Nie zmieniamy koloru — glitch-hover z CSS to obsługuje */
+  /* glitch-hover obsluguje */
 }
 
 .form-submit:active {
   animation: btn-shake 0.3s steps(3);
-}
-
-@keyframes btn-shake {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 1px); }
-  40% { transform: translate(2px, -1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(1px, 1px); }
-  100% { transform: translate(0); }
 }
 
 /* Info side */

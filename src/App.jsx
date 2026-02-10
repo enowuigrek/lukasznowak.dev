@@ -13,6 +13,9 @@ function HomePage() {
   const [activeSection, setActiveSection] = useState('hero');
   const scrollRef = useRef(null);
 
+  // Check if mobile (no scroll-snap container)
+  const isMobile = () => window.innerWidth <= 768;
+
   // IntersectionObserver — track active section
   useEffect(() => {
     const sections = document.querySelectorAll('.section[id]');
@@ -25,7 +28,7 @@ function HomePage() {
         });
       },
       {
-        root: scrollRef.current,
+        root: isMobile() ? null : scrollRef.current,
         threshold: 0.4,
       }
     );
@@ -46,7 +49,7 @@ function HomePage() {
         });
       },
       {
-        root: scrollRef.current,
+        root: isMobile() ? null : scrollRef.current,
         threshold: 0.15,
       }
     );

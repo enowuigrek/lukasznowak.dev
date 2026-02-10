@@ -6,29 +6,41 @@ export default function HeroSection() {
     document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const subtitleWords = [
+    { text: 'Strony WWW', key: 'strony' },
+    { text: 'E-commerce', key: 'ecom' },
+    { text: 'Automatyzacje', key: 'auto' },
+    { text: 'Projekty webowe', key: 'web' },
+  ];
+
   return (
     <section className="section hero" id="hero">
       <div className="hero-grid" />
 
       <div className="hero-content fade-in">
-        <span className="label hero-label">Portfolio / {new Date().getFullYear()}</span>
-
-        <GlitchText text="ŁUKASZ" className="hero-title" />
+        <GlitchText text="LUKASZ" className="hero-title" />
         <GlitchText text="NOWAK" className="hero-title" />
 
         <p className="hero-subtitle">
-          Projekty webowe&nbsp;&nbsp;•&nbsp;&nbsp;E-commerce&nbsp;&nbsp;•&nbsp;&nbsp;Automatyzacje
+          {subtitleWords.map((word, i) => (
+            <span key={word.key}>
+              <span className="glitch-word" data-text={word.text}>{word.text}</span>
+              {i < subtitleWords.length - 1 && (
+                <span className="hero-subtitle-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+              )}
+            </span>
+          ))}
         </p>
 
         <button
           className="hero-cta glitch-hover"
-          data-text="POROZMAWIAJMY →"
+          data-text="POROZMAWIAJMY"
           onClick={scrollToContact}
         >
           <div className="glitch-bg-blue" />
           <div className="glitch-bg-red" />
           <span>POROZMAWIAJMY</span>
-          <span className="arrow">→</span>
+          <span className="arrow">&rarr;</span>
         </button>
       </div>
 

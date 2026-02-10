@@ -33,18 +33,17 @@ export default function ContactSection() {
         <div className="contact-wrapper">
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label className="form-label" htmlFor="name">Imię</label>
+              <label className="form-label" htmlFor="name">Imie</label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 className="form-input"
-                placeholder="Twoje imię"
+                placeholder="Twoje imie"
                 value={form.name}
                 onChange={handleChange}
                 required
               />
-              <div className="form-line" />
             </div>
 
             <div className="form-group">
@@ -59,32 +58,30 @@ export default function ContactSection() {
                 onChange={handleChange}
                 required
               />
-              <div className="form-line" />
             </div>
 
             <div className="form-group">
-              <label className="form-label" htmlFor="message">Wiadomość</label>
+              <label className="form-label" htmlFor="message">Wiadomosc</label>
               <textarea
                 id="message"
                 name="message"
                 className="form-input"
-                placeholder="Opisz swój projekt..."
+                placeholder="Twoja wiadomosc"
                 rows="4"
                 value={form.message}
                 onChange={handleChange}
                 required
               />
-              <div className="form-line" />
             </div>
 
             <button
               type="submit"
               className="form-submit glitch-hover"
-              data-text={sent ? 'WYSŁANO ✓' : 'WYŚLIJ WIADOMOŚĆ'}
+              data-text={sent ? 'WYSLANO' : 'WYSLIJ WIADOMOSC'}
             >
               <div className="glitch-bg-blue" />
               <div className="glitch-bg-red" />
-              <span>{sent ? 'WYSŁANO ✓' : 'WYŚLIJ WIADOMOŚĆ'}</span>
+              <span>{sent ? 'WYSLANO' : 'WYSLIJ WIADOMOSC'}</span>
             </button>
           </form>
 
@@ -96,8 +93,8 @@ export default function ContactSection() {
               kontakt@lukasznowak.dev
             </a>
             <p className="contact-description">
-              Masz pomysł na projekt? Napisz do mnie — chętnie porozmawiam
-              o Twoich potrzebach i zaproponuję rozwiązanie.
+              Masz pomysl na projekt? Napisz do mnie — chetnie porozmawiam
+              o Twoich potrzebach i zaproponuje rozwiazanie.
             </p>
           </div>
         </div>

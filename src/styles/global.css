@@ -25,6 +25,10 @@
   /* Transition */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* iOS safe area */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* Reset */
@@ -50,9 +54,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* iOS safe area — przezroczyste gora i dol */
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
 }
 
-/* Scroll container */
+/* Scroll container — desktop only snap */
 .scroll-container {
   height: 100vh;
   overflow-y: scroll;
@@ -90,7 +97,7 @@ h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
   color: var(--text-muted);
 }
 
-/* Brak zaokrągleń globalnie */
+/* Brak zaokraglen globalnie */
 * {
   border-radius: 0 !important;
 }
@@ -114,7 +121,7 @@ h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
   background: var(--border);
 }
 
-/* Animacja wejścia sekcji */
+/* Animacja wejscia sekcji */
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
@@ -148,13 +155,49 @@ input, textarea {
   color: inherit;
 }
 
-/* Responsive */
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE
+   ═══════════════════════════════════════════ */
+
 @media (max-width: 768px) {
   :root {
     --section-padding: 3rem 1.5rem;
   }
 
+  /* Disable scroll-snap on mobile — fixes sluggish scrolling */
+  .scroll-container {
+    height: auto;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
+
   .section {
     min-height: 100svh;
+    scroll-snap-align: none;
+  }
+}
+
+/* iOS notch / dynamic island support */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .navbar {
+    padding-top: calc(1.5rem + env(safe-area-inset-top));
+  }
+
+  .footer {
+    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom));
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      padding-top: calc(1rem + env(safe-area-inset-top));
+    }
+
+    .navbar.scrolled {
+      padding-top: calc(0.75rem + env(safe-area-inset-top));
+    }
+
+    .footer {
+      padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+    }
   }
 }

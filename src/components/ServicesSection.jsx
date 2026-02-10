@@ -12,7 +12,7 @@ export default function ServicesSection() {
     <section className="section services" id="uslugi">
       <div className="fade-in">
         <div className="services-header">
-          <span className="label">Co robię</span>
+          <span className="label">Co robie</span>
         </div>
 
         <div className="services-grid">
@@ -20,7 +20,6 @@ export default function ServicesSection() {
             <div className="service-tile" key={number}>
               <span className="service-number">{number}</span>
               <h3 className="service-title" data-text={title}>{title}</h3>
-              <span className="service-arrow">↗</span>
             </div>
           ))}
         </div>

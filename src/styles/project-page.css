@@ -21,6 +21,7 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
+/* Back link — plain text with glitch-word, no button shape */
 .project-page-back {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -30,18 +31,14 @@
   color: var(--text-muted);
   text-decoration: none;
   transition: color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.4rem 0.8rem;
+  display: inline-block;
 }
 
 .project-page-back:hover {
   color: var(--text);
 }
 
-/* Hero — sam tytuł */
+/* Hero */
 .project-page-hero {
   display: flex;
   flex-direction: column;
@@ -96,7 +93,7 @@
   text-decoration: none;
   transition: border-color 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .project-page-btn:hover {
@@ -150,18 +147,26 @@
   background: var(--text);
   text-decoration: none;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   transition: border-color 0.3s ease;
 }
 
 .coffee-btn:hover {
-  /* glitch hover obsługuje resztę */
+  /* glitch hover */
+}
+
+/* iOS safe area */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .project-page-nav {
+    padding-top: calc(1.5rem + env(safe-area-inset-top));
+  }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   .project-page-nav {
     padding: 1rem 1.5rem;
+    padding-top: calc(1rem + env(safe-area-inset-top, 0px));
   }
 
   .project-page-hero {

@@ -6,17 +6,15 @@ const projects = [
     number: '01',
     title: 'Strzykawa',
     category: 'E-commerce',
-    tags: ['Kawa speciality', 'Shopify API', 'Sklep online', 'InPost'],
-    pattern: 'pattern-1',
+    tags: ['Sklep online', 'Kawa speciality', 'Zamowienia i dostawy', 'Platnosci online'],
     href: 'https://strzykawa.com',
     external: true,
   },
   {
     number: '02',
     title: 'Peria',
-    category: 'PWA',
-    tags: ['Łap myśli', 'AI organizacja', 'Voice input', 'Offline'],
-    pattern: 'pattern-2',
+    category: 'Aplikacja',
+    tags: ['Organizacja mysli', 'Notatki glosowe', 'Asystent AI', 'Praca offline'],
     href: '/projekt/peria',
     external: false,
   },
@@ -24,17 +22,15 @@ const projects = [
     number: '03',
     title: 'Uknuta Magia',
     category: 'E-commerce',
-    tags: ['Sprzedaż książek', 'Supabase', 'Panel admina', 'Checkout'],
-    pattern: 'pattern-3',
+    tags: ['Sprzedaz ksiazek', 'Sklep autorski', 'Koszyk i platnosci', 'Panel zarzadzania'],
     href: 'https://uknutamagia.pl',
     external: true,
   },
   {
     number: '04',
     title: 'Job Odyssey',
-    category: 'Desktop app',
-    tags: ['Tracker rekrutacji', 'Electron', 'Dashboard', 'CRM'],
-    pattern: 'pattern-4',
+    category: 'Aplikacja',
+    tags: ['Sledzenie rekrutacji', 'Dashboard', 'Statystyki aplikacji', 'Organizacja procesow'],
     href: '/projekt/job-odyssey',
     external: false,
   },
@@ -49,11 +45,11 @@ export default function ProjectsSection() {
         </div>
 
         <div className="projects-grid">
-          {projects.map(({ number, title, category, tags, pattern, href, external }) => {
+          {projects.map(({ number, title, category, tags, href, external }) => {
             const content = (
               <>
-                <div className={`project-card-bg ${pattern}`} />
-                <span className="project-card-arrow">↗</span>
+                <div className="project-card-bg" />
+                <span className="project-card-arrow">&nearr;</span>
 
                 <div className="project-card-overlay">
                   <span className="project-card-number">{number}</span>

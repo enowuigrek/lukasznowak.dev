@@ -16,10 +16,6 @@
   z-index: 2;
 }
 
-.hero-label {
-  margin-bottom: 2rem;
-}
-
 .hero-title {
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -36,7 +32,11 @@
   margin-bottom: 3rem;
 }
 
-/* CTA button — bez zmiany koloru, glitch hover */
+.hero-subtitle-dot {
+  color: var(--text-dim);
+}
+
+/* CTA button */
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -52,7 +52,7 @@
   background: transparent;
   transition: border-color 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-cta:hover {
@@ -69,15 +69,6 @@
 
 .hero-cta:hover .arrow {
   transform: translateX(4px);
-}
-
-@keyframes btn-shake {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 1px); }
-  40% { transform: translate(2px, -1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(1px, 1px); }
-  100% { transform: translate(0); }
 }
 
 /* Scroll indicator */

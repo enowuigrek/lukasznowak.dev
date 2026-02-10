@@ -27,10 +27,8 @@ export default function ProjectPage() {
       <div className="project-page">
         <VHSOverlay />
         <nav className="project-page-nav">
-          <Link to="/" className="project-page-back glitch-hover" data-text="← POWRÓT">
-            <div className="glitch-bg-blue" />
-            <div className="glitch-bg-red" />
-            <span>← POWRÓT</span>
+          <Link to="/" className="project-page-back glitch-word" data-text="← POWROT">
+            ← POWROT
           </Link>
         </nav>
         <section className="project-page-hero">
@@ -48,12 +46,10 @@ export default function ProjectPage() {
       <nav className="project-page-nav">
         <Link
           to="/"
-          className="project-page-back glitch-hover"
-          data-text="← POWRÓT"
+          className="project-page-back glitch-word"
+          data-text="← POWROT"
         >
-          <div className="glitch-bg-blue" />
-          <div className="glitch-bg-red" />
-          <span>← POWRÓT</span>
+          ← POWROT
         </Link>
       </nav>
 
@@ -61,12 +57,12 @@ export default function ProjectPage() {
         <GlitchText text={project.title} as="h1" className="project-page-title" />
       </section>
 
-      {/* Placeholdery — tu będą instrukcje, linki do pobrania itp. */}
+      {/* Placeholdery */}
       <section className="project-page-content">
         <div className="project-page-placeholder">
-          <span className="label">Wkrótce</span>
+          <span className="label">Wkrotce</span>
           <p className="project-page-placeholder-text">
-            Instrukcje, szczegóły i linki do pobrania pojawią się tutaj.
+            Instrukcje, szczegoly i linki do pobrania pojawia sie tutaj.
           </p>
         </div>
 
@@ -92,17 +88,17 @@ export default function ProjectPage() {
             Aplikacja jest dla Ciebie przydatna?
           </h2>
           <p className="coffee-text">
-            Możesz mi za nią postawić wirtualną kawę.
+            Mozesz mi za nia postawic wirtualna kawe.
           </p>
           <a
             href="#"
             className="coffee-btn glitch-hover"
-            data-text="☕ POSTAW KAWĘ"
+            data-text="POSTAW KAWE"
             onClick={(e) => e.preventDefault()}
           >
             <div className="glitch-bg-blue" />
             <div className="glitch-bg-red" />
-            <span>☕ POSTAW KAWĘ</span>
+            <span>POSTAW KAWE</span>
           </a>
         </div>
       </section>
