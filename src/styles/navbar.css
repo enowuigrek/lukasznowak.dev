@@ -13,14 +13,12 @@
   align-items: center;
   justify-content: space-between;
   background: var(--bg);
-  transition: padding 0.4s ease, border-color 0.4s ease;
-  border-bottom: 1px solid transparent;
+  transition: padding 0.4s ease;
 }
 
 .navbar.scrolled {
   background: var(--bg);
   padding: 1rem 4rem;
-  border-bottom: 1px solid var(--border);
 }
 
 /* Logo z glitch appear/disappear + cursor-reactive glitch */
@@ -145,6 +143,7 @@
   list-style: none;
 }
 
+/* Navbar link — teraz glitch-word obsługuje hover via pseudo-elements */
 .navbar-link {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -156,25 +155,16 @@
   position: relative;
 }
 
-.navbar-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--text);
-  transition: width 0.4s var(--ease-out);
-}
-
+/* Active / hover — zmiana koloru tekstu */
 .navbar-link:hover,
 .navbar-link.active {
   color: var(--text);
 }
 
-.navbar-link:hover::after,
+/* Aktywna sekcja — stała subtelna czerwona kreska */
+.navbar-link.active::before,
 .navbar-link.active::after {
-  width: 100%;
+  opacity: 0.3 !important;
 }
 
 /* Hamburger — hidden on desktop */
@@ -184,6 +174,7 @@
   gap: 5px;
   padding: 4px;
   z-index: 1001;
+  position: relative;
 }
 
 .hamburger-line {
@@ -192,12 +183,12 @@
   height: 1px;
   background: var(--text);
   transition: transform 0.3s ease, opacity 0.3s ease;
+  position: relative;
 }
 
-/* Hamburger → X z glitch animacją */
+/* Hamburger → X — standardowa animacja kresek */
 .navbar-hamburger.open .hamburger-line:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
-  animation: hamburger-glitch 0.4s steps(3);
 }
 
 .navbar-hamburger.open .hamburger-line:nth-child(2) {
@@ -206,28 +197,135 @@
 
 .navbar-hamburger.open .hamburger-line:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
-  animation: hamburger-glitch 0.4s steps(3);
 }
 
-@keyframes hamburger-glitch {
-  0% { filter: none; }
+/* RGB glitch overlay na hamburgerze podczas kliknięcia */
+.navbar-hamburger::before,
+.navbar-hamburger::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.navbar-hamburger::before {
+  box-shadow: inset 0 0 0 0 var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.navbar-hamburger::after {
+  box-shadow: inset 0 0 0 0 var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+/* RGB flash na open/close */
+.navbar-hamburger.open::before {
+  animation: hamburger-rgb-blue 0.4s ease-out forwards;
+}
+
+.navbar-hamburger.open::after {
+  animation: hamburger-rgb-red 0.4s ease-out forwards;
+}
+
+@keyframes hamburger-rgb-blue {
+  0% {
+    opacity: 0;
+    transform: translate(-3px, 0);
+  }
   15% {
-    transform: translateY(6px) rotate(45deg) translateX(-3px);
-    box-shadow: 2px 0 0 var(--glitch-red), -2px 0 0 var(--glitch-blue);
+    opacity: 0.8;
+    transform: translate(-3px, -1px);
+    box-shadow: -3px 0 6px rgba(45, 127, 255, 0.6);
   }
   30% {
-    transform: translateY(6px) rotate(45deg) translateX(2px);
-    box-shadow: -1px 0 0 var(--glitch-red), 1px 0 0 var(--glitch-blue);
+    opacity: 0.5;
+    transform: translate(2px, 1px);
+    box-shadow: -2px 0 4px rgba(45, 127, 255, 0.4);
   }
   50% {
-    transform: translateY(6px) rotate(45deg) translateX(-1px);
-    box-shadow: 3px 0 0 var(--glitch-blue), -3px 0 0 var(--glitch-red);
+    opacity: 0.3;
+    transform: translate(-1px, 0);
+    box-shadow: -1px 0 3px rgba(45, 127, 255, 0.2);
   }
-  70% {
-    transform: translateY(6px) rotate(45deg) translateX(1px);
+  100% {
+    opacity: 0;
+    transform: translate(0);
     box-shadow: none;
   }
-  100% { filter: none; }
+}
+
+@keyframes hamburger-rgb-red {
+  0% {
+    opacity: 0;
+    transform: translate(3px, 0);
+  }
+  15% {
+    opacity: 0.8;
+    transform: translate(3px, 1px);
+    box-shadow: 3px 0 6px rgba(255, 45, 45, 0.6);
+  }
+  30% {
+    opacity: 0.5;
+    transform: translate(-2px, -1px);
+    box-shadow: 2px 0 4px rgba(255, 45, 45, 0.4);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(1px, 0);
+    box-shadow: 1px 0 3px rgba(255, 45, 45, 0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0);
+    box-shadow: none;
+  }
+}
+
+/* Hamburger line RGB shadows — dodatkowy efekt na samych kreskach */
+.navbar-hamburger.open .hamburger-line:nth-child(1)::before,
+.navbar-hamburger.open .hamburger-line:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glitch-blue);
+  opacity: 0;
+  animation: line-glitch-blue 0.4s steps(3) forwards;
+}
+
+.navbar-hamburger.open .hamburger-line:nth-child(1)::after,
+.navbar-hamburger.open .hamburger-line:nth-child(3)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glitch-red);
+  opacity: 0;
+  animation: line-glitch-red 0.4s steps(3) forwards;
+}
+
+@keyframes line-glitch-blue {
+  0% { opacity: 0; transform: translate(0); }
+  15% { opacity: 0.9; transform: translate(-3px, 1px); }
+  35% { opacity: 0.6; transform: translate(2px, -1px); }
+  55% { opacity: 0.3; transform: translate(-1px, 0); }
+  100% { opacity: 0; transform: translate(0); }
+}
+
+@keyframes line-glitch-red {
+  0% { opacity: 0; transform: translate(0); }
+  15% { opacity: 0.9; transform: translate(3px, -1px); }
+  35% { opacity: 0.6; transform: translate(-2px, 1px); }
+  55% { opacity: 0.3; transform: translate(1px, 0); }
+  100% { opacity: 0; transform: translate(0); }
 }
 
 /* Mobile fullscreen menu */

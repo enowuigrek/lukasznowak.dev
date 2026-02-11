@@ -87,13 +87,14 @@ export default function Navbar({ activeSection }) {
           ŁUKASZ NOWAK
         </button>
 
-        {/* Desktop links */}
+        {/* Desktop links — glitch-word na hover */}
         <ul className="navbar-links">
           {links.map(({ id, label }) => (
             <li key={id}>
               <button
-                className={`navbar-link ${activeSection === id ? 'active' : ''}`}
+                className={`navbar-link glitch-word ${activeSection === id ? 'active' : ''}`}
                 onClick={() => scrollTo(id)}
+                data-text={label}
               >
                 {label}
               </button>

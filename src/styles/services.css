@@ -76,6 +76,7 @@
   mix-blend-mode: screen;
 }
 
+/* Hover glitch */
 .service-tile:hover .service-title::before {
   opacity: 1;
   animation: tile-glitch-blue 0.4s steps(3) forwards;
@@ -88,6 +89,37 @@
 
 .service-tile:hover .service-title {
   transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════════
+   AUTO-GLITCH — losowy, krótki glitch co jakiś czas
+   Triggowany via JS (klasa .auto-glitch)
+   ═══════════════════════════════════════════ */
+
+.service-tile .service-title.auto-glitch::before {
+  opacity: 1;
+  animation: auto-glitch-blue 0.4s steps(3) forwards;
+}
+
+.service-tile .service-title.auto-glitch::after {
+  opacity: 1;
+  animation: auto-glitch-red 0.4s steps(3) forwards;
+}
+
+@keyframes auto-glitch-blue {
+  0% { opacity: 0; transform: translate(0); clip-path: inset(0); }
+  15% { opacity: 0.7; transform: translate(-3px, 1px); clip-path: inset(20% 0 60% 0); }
+  30% { opacity: 0.5; transform: translate(2px, -1px); clip-path: inset(50% 0 20% 0); }
+  50% { opacity: 0.3; transform: translate(-1px, 0); clip-path: inset(10% 0 70% 0); }
+  100% { opacity: 0; transform: translate(0); clip-path: inset(0); }
+}
+
+@keyframes auto-glitch-red {
+  0% { opacity: 0; transform: translate(0); clip-path: inset(0); }
+  15% { opacity: 0.7; transform: translate(3px, -1px); clip-path: inset(60% 0 20% 0); }
+  30% { opacity: 0.5; transform: translate(-2px, 1px); clip-path: inset(10% 0 70% 0); }
+  50% { opacity: 0.3; transform: translate(1px, 0); clip-path: inset(70% 0 10% 0); }
+  100% { opacity: 0; transform: translate(0); clip-path: inset(0); }
 }
 
 @keyframes tile-glitch-blue {

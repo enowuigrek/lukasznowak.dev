@@ -106,15 +106,12 @@
 
 /* ═══════════════════════════════════════════
    Glitch hover na przyciskach
-   — kolory WYCHODZĄ NA ZEWNĄTRZ buttona
-   — BEZ BORDER na glitch layers
    ═══════════════════════════════════════════ */
 
 .glitch-hover {
   position: relative;
 }
 
-/* Kolorowe warstwy NA ZEWNĄTRZ — overflow visible, BEZ BORDER */
 .glitch-hover .glitch-bg-blue,
 .glitch-hover .glitch-bg-red {
   position: absolute;
@@ -202,7 +199,6 @@
   animation: btn-glitch-red 0.3s steps(2) forwards;
 }
 
-/* Tekst content musi być ponad tłem */
 .glitch-hover > span,
 .glitch-hover > * {
   position: relative;
@@ -225,7 +221,6 @@
   100% { transform: translate(1px, 0); clip-path: inset(0); opacity: 0.3; }
 }
 
-/* Na kliknięcie — shake */
 .glitch-hover:active {
   animation: btn-shake 0.3s steps(3);
 }
@@ -287,11 +282,14 @@
 
 /* ═══════════════════════════════════════════
    Scroll glitch — RGB split przy scrollowaniu
+   — nagłówki, tytuły projektów, tytuły usług,
+     labele sekcji, buttony
    ═══════════════════════════════════════════ */
 
 .scroll-glitch-active .glitch-text::before,
 .scroll-glitch-active .service-title::before,
-.scroll-glitch-active .project-card-title::before {
+.scroll-glitch-active .project-card-title::before,
+.scroll-glitch-active .glitch-hover::before {
   transform: translate(-3px, calc(var(--scroll-dir, 1) * 2px)) !important;
   opacity: 0.6;
   transition: none;
@@ -299,164 +297,61 @@
 
 .scroll-glitch-active .glitch-text::after,
 .scroll-glitch-active .service-title::after,
-.scroll-glitch-active .project-card-title::after {
+.scroll-glitch-active .project-card-title::after,
+.scroll-glitch-active .glitch-hover::after {
   transform: translate(3px, calc(var(--scroll-dir, 1) * -2px)) !important;
   opacity: 0.6;
   transition: none;
 }
 
 /* ═══════════════════════════════════════════
-   Staggered glitch-in — z RGB split
+   Staggered glitch-in — delikatny, z RGB flash
+   Nie używa clip-path na głównym elemencie
+   (naprawia bug z niedoczytaniem kart)
    ═══════════════════════════════════════════ */
 
 .glitch-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
-  position: relative;
-}
-
-/* Pseudo-elementy RGB na glitch-in */
-.glitch-in::before,
-.glitch-in::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0;
-  z-index: -1;
-}
-
-.glitch-in::before {
-  background: rgba(45, 127, 255, 0.08);
-  mix-blend-mode: screen;
-}
-
-.glitch-in::after {
-  background: rgba(255, 45, 45, 0.08);
-  mix-blend-mode: screen;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
 }
 
 .glitch-in.visible {
   opacity: 1;
   transform: translateY(0);
-  animation: section-glitch-in 0.5s steps(3) forwards;
 }
 
-.glitch-in.visible::before {
-  animation: glitch-in-blue 0.6s steps(3) forwards;
-}
-
-.glitch-in.visible::after {
-  animation: glitch-in-red 0.6s steps(3) forwards;
-}
-
-/* Stagger delays dla elementów po kolei */
+/* Stagger delays */
 .glitch-in.stagger-1 { transition-delay: 0s; }
-.glitch-in.stagger-2 { transition-delay: 0.1s; }
-.glitch-in.stagger-3 { transition-delay: 0.2s; }
-.glitch-in.stagger-4 { transition-delay: 0.3s; }
+.glitch-in.stagger-2 { transition-delay: 0.08s; }
+.glitch-in.stagger-3 { transition-delay: 0.16s; }
+.glitch-in.stagger-4 { transition-delay: 0.24s; }
+
+/* RGB flash — box-shadow blip przy wjeździe */
+.glitch-in.visible {
+  animation: glitch-in-rgb 0.4s ease-out forwards;
+}
 
 .glitch-in.stagger-1.visible { animation-delay: 0s; }
-.glitch-in.stagger-2.visible { animation-delay: 0.1s; }
-.glitch-in.stagger-3.visible { animation-delay: 0.2s; }
-.glitch-in.stagger-4.visible { animation-delay: 0.3s; }
+.glitch-in.stagger-2.visible { animation-delay: 0.08s; }
+.glitch-in.stagger-3.visible { animation-delay: 0.16s; }
+.glitch-in.stagger-4.visible { animation-delay: 0.24s; }
 
-.glitch-in.stagger-1.visible::before,
-.glitch-in.stagger-1.visible::after { animation-delay: 0s; }
-.glitch-in.stagger-2.visible::before,
-.glitch-in.stagger-2.visible::after { animation-delay: 0.1s; }
-.glitch-in.stagger-3.visible::before,
-.glitch-in.stagger-3.visible::after { animation-delay: 0.2s; }
-.glitch-in.stagger-4.visible::before,
-.glitch-in.stagger-4.visible::after { animation-delay: 0.3s; }
-
-@keyframes section-glitch-in {
+@keyframes glitch-in-rgb {
   0% {
-    clip-path: inset(0 100% 0 0);
-  }
-  20% {
-    clip-path: inset(30% 60% 40% 0);
-  }
-  40% {
-    clip-path: inset(0 30% 50% 0);
-  }
-  60% {
-    clip-path: inset(50% 0 0 0);
-  }
-  80% {
-    clip-path: inset(10% 0 10% 0);
-  }
-  100% {
-    clip-path: inset(0);
-  }
-}
-
-@keyframes glitch-in-blue {
-  0% {
-    opacity: 0;
-    transform: translate(-8px, 2px);
-    clip-path: inset(0 80% 0 0);
-  }
-  15% {
-    opacity: 0.7;
-    transform: translate(-5px, 1px);
-    clip-path: inset(20% 0 60% 0);
+    box-shadow:
+      -4px 0 0 rgba(45, 127, 255, 0.3),
+       4px 0 0 rgba(255, 45, 45, 0.3);
+    filter: blur(0.5px);
   }
   30% {
-    opacity: 0.5;
-    transform: translate(-3px, -1px);
-    clip-path: inset(50% 0 20% 0);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translate(-6px, 2px);
-    clip-path: inset(0);
-  }
-  70% {
-    opacity: 0.3;
-    transform: translate(-2px, 0);
-    clip-path: inset(30% 0 40% 0);
+    box-shadow:
+      -2px 0 0 rgba(45, 127, 255, 0.2),
+       2px 0 0 rgba(255, 45, 45, 0.2);
+    filter: blur(0);
   }
   100% {
-    opacity: 0;
-    transform: translate(0);
-    clip-path: inset(0);
-  }
-}
-
-@keyframes glitch-in-red {
-  0% {
-    opacity: 0;
-    transform: translate(8px, -2px);
-    clip-path: inset(0 0 0 80%);
-  }
-  15% {
-    opacity: 0.7;
-    transform: translate(5px, -1px);
-    clip-path: inset(60% 0 20% 0);
-  }
-  30% {
-    opacity: 0.5;
-    transform: translate(3px, 1px);
-    clip-path: inset(10% 0 70% 0);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translate(6px, -2px);
-    clip-path: inset(0);
-  }
-  70% {
-    opacity: 0.3;
-    transform: translate(2px, 0);
-    clip-path: inset(60% 0 10% 0);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(0);
-    clip-path: inset(0);
+    box-shadow: none;
+    filter: none;
   }
 }

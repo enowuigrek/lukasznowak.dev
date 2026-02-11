@@ -17,7 +17,6 @@
   z-index: 1000;
   padding: 1.5rem 4rem;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
 }
 
 /* Back link — plain text with glitch-word, no button shape */

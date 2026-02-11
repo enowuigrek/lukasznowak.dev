@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import GlitchText from './GlitchText';
 import VHSOverlay from './VHSOverlay';
 import Footer from './Footer';
+import useGlitchEffects from '../hooks/useGlitchEffects';
 import '../styles/project-page.css';
 
 const projectData = {
@@ -31,6 +32,9 @@ const projectData = {
 export default function ProjectPage() {
   const { slug } = useParams();
   const project = projectData[slug];
+
+  // Globalny hook — glitch-in observer + scroll glitch
+  useGlitchEffects();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -67,14 +71,15 @@ export default function ProjectPage() {
         </Link>
       </nav>
 
+      <main>
       <section className="project-page-hero">
         <GlitchText text={project.title} as="h1" className="project-page-title" />
       </section>
 
       {/* Content */}
-      <section className="project-page-content">
+      <section className="project-page-content glitch-in">
         <div className="project-page-placeholder">
-          <span className="label">Wkrótce</span>
+          <span className="label" data-text="Wkrótce">Wkrótce</span>
           <p className="project-page-placeholder-text">
             Instrukcje, szczegóły i linki do pobrania pojawią się tutaj.
           </p>
@@ -111,9 +116,9 @@ export default function ProjectPage() {
 
       {/* Postaw kawę — tylko dla Peria i Job Odyssey */}
       {project.hasCoffee && (
-        <section className="project-page-coffee">
+        <section className="project-page-coffee glitch-in stagger-2">
           <div className="coffee-inner">
-            <span className="label">Wsparcie</span>
+            <span className="label" data-text="Wsparcie">Wsparcie</span>
             <h2 className="coffee-heading">
               Aplikacja jest dla Ciebie przydatna?
             </h2>
@@ -135,6 +140,7 @@ export default function ProjectPage() {
       )}
 
       <Footer />
+      </main>
     </div>
   );
 }

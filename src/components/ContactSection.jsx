@@ -26,7 +26,7 @@ export default function ContactSection() {
   return (
     <section className="section contact" id="kontakt">
       <div className="contact-header glitch-in">
-        <span className="label">Kontakt</span>
+        <span className="label" data-text="Kontakt">Kontakt</span>
       </div>
 
       <div className="contact-wrapper glitch-in stagger-2">
@@ -86,7 +86,7 @@ export default function ContactSection() {
 
         <div className="contact-info">
           <div className="contact-info-label">
-            <span className="label">Email</span>
+            <span className="label" data-text="Email">Email</span>
           </div>
           <a
             href="mailto:kontakt@lukasznowak.dev"

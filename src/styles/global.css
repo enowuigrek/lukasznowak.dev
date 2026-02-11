@@ -58,6 +58,38 @@ body {
   padding-bottom: var(--safe-bottom);
 }
 
+/* ═══════════════════════════════════════════
+   CRT BARREL DISTORTION — subtelne zniekształcenie
+   jak stary telewizor kineskopowy
+   ═══════════════════════════════════════════ */
+
+#root {
+  position: relative;
+}
+
+/* Barrel distortion na main content — NIE na #root,
+   bo transform na #root łamie position:fixed w navbarze */
+main {
+  position: relative;
+  transform: perspective(1800px) rotateX(0.3deg);
+  transform-origin: center center;
+}
+
+/* CRT edge glow — subtelna poświata na krawędziach */
+#root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  box-shadow:
+    inset 0 0 120px rgba(0, 0, 0, 0.25),
+    inset 0 0 60px rgba(0, 0, 0, 0.15);
+}
+
 /* Normalny scroll — bez scroll-snap */
 .scroll-container {
   /* normalny scroll, żadnego snap */
@@ -162,6 +194,17 @@ input, textarea {
 
   .section {
     min-height: 100svh;
+  }
+
+  /* Łagodniejszy barrel distortion na mobile */
+  main {
+    transform: perspective(2400px) rotateX(0.15deg);
+  }
+
+  #root::before {
+    box-shadow:
+      inset 0 0 80px rgba(0, 0, 0, 0.2),
+      inset 0 0 40px rgba(0, 0, 0, 0.1);
   }
 }
 
