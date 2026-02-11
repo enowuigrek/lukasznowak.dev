@@ -5,10 +5,11 @@
 .hero {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
   position: relative;
   overflow: hidden;
+  padding-bottom: 8rem;
 }
 
 .hero-content {
@@ -36,27 +37,27 @@
   color: var(--text-dim);
 }
 
-/* CTA button */
+/* CTA button — biały filled */
 .hero-cta {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
   padding: 1rem 2.5rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--text);
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text);
-  background: transparent;
+  color: var(--bg);
+  background: var(--text);
   transition: border-color 0.3s ease;
   position: relative;
   overflow: visible;
 }
 
 .hero-cta:hover {
-  border-color: var(--text-muted);
+  /* glitch-hover handles */
 }
 
 .hero-cta:active {
@@ -133,6 +134,11 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    justify-content: flex-end;
+    padding-bottom: 6rem;
+  }
+
   .hero-title {
     font-size: clamp(2.5rem, 12vw, 4rem);
   }

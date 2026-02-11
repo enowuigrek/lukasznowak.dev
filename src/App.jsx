@@ -11,10 +11,7 @@ import ProjectPage from './components/ProjectPage';
 
 function HomePage() {
   const [activeSection, setActiveSection] = useState('hero');
-  const scrollRef = useRef(null);
-
-  // Check if mobile (no scroll-snap container)
-  const isMobile = () => window.innerWidth <= 768;
+  const scrollTimeout = useRef(null);
 
   // IntersectionObserver — track active section
   useEffect(() => {
@@ -28,7 +25,7 @@ function HomePage() {
         });
       },
       {
-        root: isMobile() ? null : scrollRef.current,
+        root: null,
         threshold: 0.4,
       }
     );
@@ -37,9 +34,9 @@ function HomePage() {
     return () => observer.disconnect();
   }, []);
 
-  // Fade-in animations
+  // Fade-in / glitch-in animations (staggered)
   useEffect(() => {
-    const fadeElements = document.querySelectorAll('.fade-in');
+    const animElements = document.querySelectorAll('.fade-in, .glitch-in');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -49,21 +46,46 @@ function HomePage() {
         });
       },
       {
-        root: isMobile() ? null : scrollRef.current,
-        threshold: 0.15,
+        root: null,
+        threshold: 0.1,
       }
     );
 
-    fadeElements.forEach((el) => observer.observe(el));
+    animElements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  // Scroll glitch effect — RGB split przy scrollowaniu
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const dir = currentScrollY > lastScrollY ? 1 : -1;
+      lastScrollY = currentScrollY;
+
+      document.documentElement.style.setProperty('--scroll-dir', dir);
+      document.documentElement.classList.add('scroll-glitch-active');
+
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+      scrollTimeout.current = setTimeout(() => {
+        document.documentElement.classList.remove('scroll-glitch-active');
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    };
   }, []);
 
   return (
     <>
       <VHSOverlay />
-      <Navbar activeSection={activeSection} scrollContainerRef={scrollRef} />
+      <Navbar activeSection={activeSection} />
 
-      <main className="scroll-container" ref={scrollRef}>
+      <main>
         <HeroSection />
         <ServicesSection />
         <ProjectsSection />

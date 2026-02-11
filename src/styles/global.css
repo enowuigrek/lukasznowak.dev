@@ -54,21 +54,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  /* iOS safe area — przezroczyste gora i dol */
   padding-top: var(--safe-top);
   padding-bottom: var(--safe-bottom);
 }
 
-/* Scroll container — desktop only snap */
+/* Normalny scroll — bez scroll-snap */
 .scroll-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y proximity;
+  /* normalny scroll, żadnego snap */
 }
 
 .section {
   min-height: 100vh;
-  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,7 +93,7 @@ h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
   color: var(--text-muted);
 }
 
-/* Brak zaokraglen globalnie */
+/* Brak zaokrągleń globalnie */
 * {
   border-radius: 0 !important;
 }
@@ -121,7 +117,7 @@ h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
   background: var(--border);
 }
 
-/* Animacja wejscia sekcji */
+/* Animacja wejścia sekcji */
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
@@ -164,16 +160,8 @@ input, textarea {
     --section-padding: 3rem 1.5rem;
   }
 
-  /* Disable scroll-snap on mobile — fixes sluggish scrolling */
-  .scroll-container {
-    height: auto;
-    overflow-y: visible;
-    scroll-snap-type: none;
-  }
-
   .section {
     min-height: 100svh;
-    scroll-snap-align: none;
   }
 }
 

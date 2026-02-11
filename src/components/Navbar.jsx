@@ -1,24 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import '../styles/navbar.css';
 
-export default function Navbar({ activeSection, scrollContainerRef }) {
+export default function Navbar({ activeSection }) {
   const [scrolled, setScrolled] = useState(false);
   const [logoVisible, setLogoVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const logoRef = useRef(null);
 
+  // Scroll listener na window
   useEffect(() => {
-    const container = scrollContainerRef?.current;
-    if (!container) return;
-
     const handleScroll = () => {
-      setScrolled(container.scrollTop > 50);
+      setScrolled(window.scrollY > 50);
     };
 
-    container.addEventListener('scroll', handleScroll, { passive: true });
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, [scrollContainerRef]);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  // Logo widoczne tylko gdy NIE jestesmy na hero
+  // Logo widoczne tylko gdy NIE jesteśmy na hero
   useEffect(() => {
     setLogoVisible(activeSection !== 'hero');
   }, [activeSection]);
@@ -52,8 +51,24 @@ export default function Navbar({ activeSection, scrollContainerRef }) {
     };
   }, [menuOpen]);
 
+  // Interactive cursor glitch on logo
+  const handleLogoMouseMove = useCallback((e) => {
+    if (!logoRef.current) return;
+    const rect = logoRef.current.getBoundingClientRect();
+    const dx = ((e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2)) * 4;
+    const dy = ((e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2)) * 2;
+    logoRef.current.style.setProperty('--logo-glitch-x', dx.toFixed(2));
+    logoRef.current.style.setProperty('--logo-glitch-y', dy.toFixed(2));
+  }, []);
+
+  const handleLogoMouseLeave = useCallback(() => {
+    if (!logoRef.current) return;
+    logoRef.current.style.setProperty('--logo-glitch-x', '0');
+    logoRef.current.style.setProperty('--logo-glitch-y', '0');
+  }, []);
+
   const links = [
-    { id: 'uslugi', label: 'Uslugi' },
+    { id: 'uslugi', label: 'Usługi' },
     { id: 'projekty', label: 'Projekty' },
     { id: 'kontakt', label: 'Kontakt' },
   ];
@@ -62,11 +77,14 @@ export default function Navbar({ activeSection, scrollContainerRef }) {
     <>
       <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
         <button
+          ref={logoRef}
           className={`navbar-logo glitch-logo ${logoVisible ? 'visible' : ''}`}
           onClick={() => scrollTo('hero')}
-          data-text="LUKASZ NOWAK"
+          data-text="ŁUKASZ NOWAK"
+          onMouseMove={handleLogoMouseMove}
+          onMouseLeave={handleLogoMouseLeave}
         >
-          LUKASZ NOWAK
+          ŁUKASZ NOWAK
         </button>
 
         {/* Desktop links */}
@@ -101,8 +119,9 @@ export default function Navbar({ activeSection, scrollContainerRef }) {
           {links.map(({ id, label }) => (
             <li key={id}>
               <button
-                className={`mobile-menu-link ${activeSection === id ? 'active' : ''}`}
+                className={`mobile-menu-link glitch-word ${activeSection === id ? 'active' : ''}`}
                 onClick={() => scrollTo(id)}
+                data-text={label}
               >
                 {label}
               </button>

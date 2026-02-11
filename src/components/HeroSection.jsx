@@ -18,7 +18,7 @@ export default function HeroSection() {
       <div className="hero-grid" />
 
       <div className="hero-content fade-in">
-        <GlitchText text="LUKASZ" className="hero-title" />
+        <GlitchText text="ŁUKASZ" className="hero-title" />
         <GlitchText text="NOWAK" className="hero-title" />
 
         <p className="hero-subtitle">

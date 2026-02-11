@@ -10,19 +10,17 @@ const services = [
 export default function ServicesSection() {
   return (
     <section className="section services" id="uslugi">
-      <div className="fade-in">
-        <div className="services-header">
-          <span className="label">Co robie</span>
-        </div>
+      <div className="services-header glitch-in">
+        <span className="label">Co robię</span>
+      </div>
 
-        <div className="services-grid">
-          {services.map(({ number, title }) => (
-            <div className="service-tile" key={number}>
-              <span className="service-number">{number}</span>
-              <h3 className="service-title" data-text={title}>{title}</h3>
-            </div>
-          ))}
-        </div>
+      <div className="services-grid">
+        {services.map(({ number, title }, index) => (
+          <div className={`service-tile glitch-in stagger-${index + 1}`} key={number}>
+            <span className="service-number">{number}</span>
+            <h3 className="service-title" data-text={title}>{title}</h3>
+          </div>
+        ))}
       </div>
     </section>
   );
