@@ -9,8 +9,7 @@ export default function HeroSection() {
   const subtitleWords = [
     { text: 'Strony WWW', key: 'strony' },
     { text: 'E-commerce', key: 'ecom' },
-    { text: 'Automatyzacje', key: 'auto' },
-    { text: 'Projekty webowe', key: 'web' },
+    { text: 'Aplikacje webowe', key: 'web' },
   ];
 
   return (
@@ -20,6 +19,10 @@ export default function HeroSection() {
       <div className="hero-content fade-in">
         <GlitchText text="ŁUKASZ" className="hero-title" />
         <GlitchText text="NOWAK" className="hero-title" />
+
+        <p className="hero-description">
+          Tworzę strony, sklepy i narzędzia, które pracują na Twój biznes. A&nbsp;że przy okazji dobrze wyglądają.
+        </p>
 
         <p className="hero-subtitle">
           {subtitleWords.map((word, i) => (

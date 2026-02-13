@@ -23,6 +23,16 @@
   line-height: 0.95;
 }
 
+.hero-description {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.5vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
+
 .hero-subtitle {
   font-family: var(--font-mono);
   font-size: clamp(0.7rem, 1.2vw, 0.875rem);

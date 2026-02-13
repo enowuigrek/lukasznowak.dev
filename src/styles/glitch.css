@@ -291,7 +291,7 @@
 .scroll-glitch-active .project-card-title::before,
 .scroll-glitch-active .glitch-hover::before {
   transform: translate(-3px, calc(var(--scroll-dir, 1) * 2px)) !important;
-  opacity: 0.6;
+  opacity: 0.6 !important;
   transition: none;
 }
 
@@ -300,7 +300,7 @@
 .scroll-glitch-active .project-card-title::after,
 .scroll-glitch-active .glitch-hover::after {
   transform: translate(3px, calc(var(--scroll-dir, 1) * -2px)) !important;
-  opacity: 0.6;
+  opacity: 0.6 !important;
   transition: none;
 }
 

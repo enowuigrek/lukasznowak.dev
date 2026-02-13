@@ -6,6 +6,7 @@ const projects = [
     number: '01',
     title: 'Strzykawa',
     category: 'E-commerce',
+    description: 'Sklep online z kawą specialty — zbudowany na Shopify z autorskim frontendem w React. Filtrowanie produktów, koszyk, płatności online, wszystko dopasowane do marki.',
     tags: ['Sklep online', 'Kawa speciality', 'Zamówienia i dostawy', 'Płatności online'],
     href: '/projekt/strzykawa',
   },
@@ -13,22 +14,25 @@ const projects = [
     number: '02',
     title: 'Peria',
     category: 'Aplikacja',
-    tags: ['Organizacja myśli', 'Notatki głosowe', 'Asystent AI', 'Praca offline'],
+    description: 'Aplikacja do organizacji myśli i notatek głosowych. Transkrypcja mowy przez AI, inteligentny asystent do porządkowania treści. Dane zapisywane lokalnie — Twoje notatki zostają u Ciebie.',
+    tags: ['Organizacja myśli', 'Notatki głosowe', 'Asystent AI', 'Zapis lokalny'],
     href: '/projekt/peria',
   },
   {
     number: '03',
-    title: 'Uknuta Magia',
-    category: 'E-commerce',
-    tags: ['Sprzedaż książek', 'Sklep autorski', 'Koszyk i płatności', 'Panel zarządzania'],
-    href: '/projekt/uknuta-magia',
+    title: 'Job Odyssey',
+    category: 'Aplikacja',
+    description: 'Szukanie pracy potrafi być chaosem — dziesiątki ogłoszeń, różne etapy, maile do śledzenia. Job Odyssey pomaga ogarnąć cały proces: zapisujesz aplikacje, śledzisz statusy, widzisz statystyki. Koniec z arkuszami i karteczkami.',
+    tags: ['Szukanie pracy', 'Śledzenie aplikacji', 'Dashboard', 'Organizacja procesów'],
+    href: '/projekt/job-odyssey',
   },
   {
     number: '04',
-    title: 'Job Odyssey',
-    category: 'Aplikacja',
-    tags: ['Śledzenie rekrutacji', 'Dashboard', 'Statystyki aplikacji', 'Organizacja procesów'],
-    href: '/projekt/job-odyssey',
+    title: 'Uknuta Magia',
+    category: 'E-commerce',
+    description: 'Autorski sklep z książką — prosty i skuteczny. Prezentacja, koszyk, płatności i panel do zarządzania zamówieniami. Bez wielkich platform, bez prowizji — pełna kontrola nad sprzedażą.',
+    tags: ['Sprzedaż książek', 'Sklep autorski', 'Koszyk z płatnościami', 'Panel zarządzania'],
+    href: '/projekt/uknuta-magia',
   },
 ];
 
@@ -40,7 +44,7 @@ export default function ProjectsSection() {
       </div>
 
       <div className="projects-grid">
-        {projects.map(({ number, title, category, tags, href }, index) => (
+        {projects.map(({ number, title, category, description, tags, href }, index) => (
           <Link
             key={number}
             className={`project-card glitch-in stagger-${index + 1}`}
@@ -51,8 +55,8 @@ export default function ProjectsSection() {
 
             <div className="project-card-overlay">
               <span className="project-card-number">{number}</span>
-              <span className="project-card-category">{category}</span>
               <h3 className="project-card-title" data-text={title}>{title}</h3>
+              {description && <p className="project-card-description">{description}</p>}
               <div className="project-card-tags">
                 {tags.map((tag) => (
                   <span key={tag} className="project-card-tag">{tag}</span>

@@ -5,7 +5,8 @@
 .projects {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 8rem;
 }
 
 .projects-header {
@@ -15,17 +16,20 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
   gap: 1.5rem;
+  flex: 1;
 }
 
 .project-card {
   position: relative;
-  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--bg-card);
   border: 1px solid var(--border);
   transition: border-color 0.4s ease;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   text-decoration: none;
   color: inherit;
 }
@@ -51,47 +55,36 @@
 
 /* Overlay info */
 .project-card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 2rem;
-  background: linear-gradient(
-    to top,
-    rgba(10, 10, 10, 0.95) 0%,
-    rgba(10, 10, 10, 0.6) 60%,
-    transparent 100%
-  );
+  position: relative;
+  padding: 2.5rem;
   z-index: 2;
 }
 
 .project-card-number {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
   display: block;
 }
 
-.project-card-category {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
 .project-card-title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--text);
   position: relative;
   display: inline-block;
+}
+
+.project-card-description {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(232, 230, 227, 0.85);
+  margin-top: 0.75rem;
 }
 
 /* Glitch na tytule karty */
@@ -153,13 +146,13 @@
 
 .project-card-tag {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 0.25rem 0.6rem;
-  border: 1px solid rgba(232, 230, 227, 0.2);
+  color: rgba(232, 230, 227, 0.7);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(232, 230, 227, 0.25);
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -191,9 +184,5 @@
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
-  }
-
-  .project-card {
-    aspect-ratio: 16 / 9;
   }
 }

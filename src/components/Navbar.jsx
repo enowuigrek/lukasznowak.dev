@@ -68,6 +68,7 @@ export default function Navbar({ activeSection }) {
   }, []);
 
   const links = [
+    { id: 'o-mnie', label: 'O mnie' },
     { id: 'uslugi', label: 'Usługi' },
     { id: 'projekty', label: 'Projekty' },
     { id: 'kontakt', label: 'Kontakt' },

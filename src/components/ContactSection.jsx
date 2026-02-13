@@ -65,7 +65,7 @@ export default function ContactSection() {
               id="message"
               name="message"
               className="form-input"
-              placeholder="Twoja wiadomość"
+              placeholder="Opisz krótko czego potrzebujesz — stronę, sklep, aplikację? Im więcej napiszesz, tym lepiej będę mógł pomóc."
               rows="4"
               value={form.message}
               onChange={handleChange}
