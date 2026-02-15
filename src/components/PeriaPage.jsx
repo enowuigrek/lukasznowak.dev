@@ -24,19 +24,19 @@ const features = [
     number: '03',
     title: 'WYDARZENIA',
     description:
-      'Na podstawie tego, co powiesz, Peria tworzy wydarzenie z\u00A0datą i\u00A0opisem. Mówisz \u201Espotkanie z\u00A0Anią w\u00A0piątek o\u00A015\u201D — Peria rozumie i\u00A0zapisuje.',
+      'Na podstawie tego, co powiesz, Peria tworzy wydarzenie z\u00A0datą i\u00A0opisem. Mówisz \u201Espotkanie z\u00A0Markiem w\u00A0piątek o\u00A015\u201D — Peria rozumie i\u00A0zapisuje.',
   },
 ];
 
 const installSteps = {
   ios: [
-    'Otwórz peria.netlify.app w\u00A0Safari',
+    'Otwórz Perię w\u00A0Safari (link znajdziesz poniżej)',
     'Kliknij ikonę udostępniania (kwadrat ze strzałką)',
     'Wybierz \u201EDodaj do ekranu początkowego\u201D',
     'Gotowe — Peria pojawi się jako ikona na Twoim ekranie',
   ],
   android: [
-    'Otwórz peria.netlify.app w\u00A0Chrome',
+    'Otwórz Perię w\u00A0Chrome (link znajdziesz poniżej)',
     'Kliknij menu (trzy kropki) w\u00A0prawym górnym rogu',
     'Wybierz \u201EZainstaluj aplikację\u201D lub \u201EDodaj do ekranu głównego\u201D',
     'Gotowe — Peria działa jak natywna aplikacja',
@@ -82,7 +82,7 @@ export default function PeriaPage() {
             <span className="label" data-text="Historia">Historia</span>
           </div>
           <p className="peria-text">
-            Ile razy miałeś myśl — pod prysznicem, w&nbsp;korku, tuż przed snem — i&nbsp;straciłeś ją, zanim zdążyłeś zapisać? Peria powstała dokładnie z&nbsp;tego powodu. Żeby złapać to, co umyka — zanim umknie.
+            Najlepsze pomysły nie przychodzą przy biurku. Przychodzą na spacerze, pod prysznicem, w&nbsp;korku, tuż przed snem — wtedy, gdy umysł odpuszcza. Problem w&nbsp;tym, że równie szybko znikają. Peria powstała dokładnie z&nbsp;tego powodu. Żeby złapać to, co umyka — zanim umknie.
           </p>
         </section>
 
@@ -92,7 +92,7 @@ export default function PeriaPage() {
             <span className="label" data-text="Skąd nazwa?">Skąd nazwa?</span>
           </div>
           <p className="peria-text">
-            Od greckiego apeiria — nieskończoność. Bo myśli nie mają granic. Nie da się ich zamknąć w&nbsp;folderach, kategoriach ani tagach. Peria pozwala im po prostu istnieć.
+            Arystoteles uczył chodząc. Jego szkoła filozoficzna nazywała się perypatetyczną — od greckiego <em>peripatein</em>, czyli spacerować. Wierzył, że ruch ciała uwalnia umysł. Peria to nawiązanie do tego stanu — chwili między ruchem a&nbsp;refleksją, kiedy myśl pojawia się sama, bez wysiłku, bo przestajesz jej szukać.
           </p>
         </section>
 
@@ -101,6 +101,10 @@ export default function PeriaPage() {
           <div className="peria-section-label">
             <span className="label" data-text="Co robi Peria?">Co robi Peria?</span>
           </div>
+
+          <p className="peria-text">
+            Mówisz jedną rzecz — Peria rozbija ją na części. Na przykład: <em>„Muszę zadzwonić do Marka w&nbsp;sprawie projektu, kupić kawę i&nbsp;mleko, i&nbsp;mam spotkanie w&nbsp;czwartek o&nbsp;10"</em> — z&nbsp;tego Peria tworzy notatkę o&nbsp;projekcie, checklistę zakupów i&nbsp;wydarzenie w&nbsp;kalendarzu. Jedna głosówka, trzy kategorie:
+          </p>
 
           <div className="peria-features-grid">
             {features.map(({ number, title, description }) => (
