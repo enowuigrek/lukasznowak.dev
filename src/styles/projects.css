@@ -166,9 +166,10 @@
   position: absolute;
   top: 2rem;
   right: 2rem;
-  width: 60px;
-  height: 60px;
-  opacity: 0.3;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  opacity: 0.5;
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
   z-index: 3;
@@ -176,13 +177,13 @@
 }
 
 .project-card:hover .project-card-logo {
-  opacity: 0.5;
+  opacity: 0.7;
   transform: scale(1.05);
 }
 
 /* Invert dla kolorowych PNG (np. Strzykawa) */
 .project-card-logo.logo-invert {
-  filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255,255,255,0.1));
+  filter: brightness(0) invert(1) contrast(1.2) drop-shadow(0 0 20px rgba(255,255,255,0.15));
 }
 
 /* Mobile */
@@ -190,5 +191,12 @@
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .project-card-logo {
+    width: 70px;
+    height: 70px;
+    top: 1.5rem;
+    right: 1.5rem;
   }
 }
