@@ -1,0 +1,231 @@
+/* ═══════════════════════════════════════════
+   PERIA — dedicated project page
+   ═══════════════════════════════════════════ */
+
+/* Tagline pod tytułem */
+.peria-tagline {
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+}
+
+.peria-intro {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(232, 230, 227, 0.75);
+  max-width: 600px;
+  margin-top: 1.5rem;
+}
+
+/* Sekcje treści */
+.peria-section {
+  padding: 6rem 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.peria-section-label {
+  margin-bottom: 2rem;
+}
+
+.peria-text {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(232, 230, 227, 0.85);
+  max-width: 680px;
+}
+
+/* ═══════════════════════════════════════════
+   FEATURES GRID — 3 kolumny jak services
+   ═══════════════════════════════════════════ */
+
+.peria-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-top: 1rem;
+}
+
+.peria-feature {
+  background: var(--bg);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.peria-feature-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.peria-feature-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.peria-feature-description {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(232, 230, 227, 0.85);
+}
+
+/* ═══════════════════════════════════════════
+   BLOCKQUOTE — filozofia motto
+   ═══════════════════════════════════════════ */
+
+.peria-blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--text-muted);
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 680px;
+}
+
+/* ═══════════════════════════════════════════
+   INSTALL GRID — iOS / Android
+   ═══════════════════════════════════════════ */
+
+.peria-install-intro {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(232, 230, 227, 0.85);
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.peria-install-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.peria-install-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+}
+
+.peria-install-platform {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
+.peria-install-steps {
+  list-style: none;
+  counter-reset: step;
+}
+
+.peria-install-steps li {
+  counter-increment: step;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(232, 230, 227, 0.85);
+}
+
+.peria-install-steps li::before {
+  content: counter(step) '.';
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 1.5rem;
+  padding-top: 0.15rem;
+}
+
+/* ═══════════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════════ */
+
+.peria-cta-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.peria-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.1rem 3rem;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  text-decoration: none;
+  position: relative;
+  overflow: visible;
+  transition: border-color 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .peria-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .peria-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peria-feature {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .peria-install-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peria-install-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .peria-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
