@@ -9,7 +9,7 @@ export default function AboutSection() {
 
       <div className="about-content glitch-in stagger-2">
         <p className="about-text">
-          Jestem Łukasz — projektuję i&nbsp;koduję strony, sklepy internetowe i&nbsp;aplikacje webowe. Pracuję sam, bez pośredników — Ty rozmawiasz wprost z&nbsp;osobą, która zaprojektuje i&nbsp;zakoduje Twój projekt od&nbsp;A&nbsp;do&nbsp;Z.
+          Jestem Łukasz — projektuję i&nbsp;koduję strony, sklepy internetowe i&nbsp;aplikacje webowe. Pracuję sam — Ty rozmawiasz wprost z&nbsp;osobą, która zaprojektuje i&nbsp;zakoduje Twój projekt od&nbsp;A&nbsp;do&nbsp;Z.
         </p>
       </div>
     </section>
