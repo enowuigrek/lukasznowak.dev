@@ -9,6 +9,7 @@ const projects = [
     description: 'Sklep online z kawą specialty — zbudowany na Shopify z autorskim frontendem w React. Filtrowanie produktów, koszyk, płatności online, wszystko dopasowane do marki.',
     tags: ['Sklep online', 'Kawa speciality', 'Zamówienia i dostawy', 'Płatności online'],
     href: '/projekt/strzykawa',
+    logo: '/strzykawa-logo.png',
   },
   {
     number: '02',
@@ -17,6 +18,7 @@ const projects = [
     description: 'Aplikacja do organizacji myśli i notatek głosowych. Transkrypcja mowy przez AI, inteligentny asystent do porządkowania treści. Dane zapisywane lokalnie — Twoje notatki zostają u Ciebie.',
     tags: ['Organizacja myśli', 'Notatki głosowe', 'Asystent AI', 'Zapis lokalny'],
     href: '/projekt/peria',
+    logo: '/peria-logo.png',
   },
   {
     number: '03',
@@ -25,6 +27,7 @@ const projects = [
     description: 'Szukanie pracy potrafi być chaosem — dziesiątki ogłoszeń, różne etapy, maile do śledzenia. Job Odyssey pomaga ogarnąć cały proces: zapisujesz aplikacje, śledzisz statusy, widzisz statystyki. Koniec z arkuszami i karteczkami.',
     tags: ['Szukanie pracy', 'Śledzenie aplikacji', 'Dashboard', 'Organizacja procesów'],
     href: '/projekt/job-odyssey',
+    logo: '/job-odyssey-logo.png',
   },
   {
     number: '04',
@@ -33,6 +36,7 @@ const projects = [
     description: 'Autorski sklep z książką — prosty i skuteczny. Prezentacja, koszyk, płatności i panel do zarządzania zamówieniami. Bez wielkich platform, bez prowizji — pełna kontrola nad sprzedażą.',
     tags: ['Sprzedaż książek', 'Sklep autorski', 'Koszyk z płatnościami', 'Panel zarządzania'],
     href: '/projekt/uknuta-magia',
+    logo: '/uknuta-magia-logo.svg',
   },
 ];
 
@@ -44,14 +48,20 @@ export default function ProjectsSection() {
       </div>
 
       <div className="projects-grid">
-        {projects.map(({ number, title, category, description, tags, href }, index) => (
+        {projects.map(({ number, title, category, description, tags, href, logo }, index) => (
           <Link
             key={number}
             className={`project-card glitch-in stagger-${index + 1}`}
             to={href}
           >
             <div className="project-card-bg" />
-            <span className="project-card-arrow">&nearr;</span>
+            {logo && (
+              <img
+                src={logo}
+                alt={`${title} logo`}
+                className={`project-card-logo ${title === 'Strzykawa' ? 'logo-invert' : ''}`}
+              />
+            )}
 
             <div className="project-card-overlay">
               <span className="project-card-number">{number}</span>

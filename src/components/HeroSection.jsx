@@ -21,7 +21,7 @@ export default function HeroSection() {
         <GlitchText text="NOWAK" className="hero-title" />
 
         <p className="hero-description">
-          Tworzę strony, sklepy i narzędzia, które pracują na Twój biznes. A&nbsp;że przy okazji dobrze wyglądają.
+          Tworzę strony, sklepy i&nbsp;narzędzia, które pracują na Twój biznes — i&nbsp;przy okazji dobrze wyglądają.
         </p>
 
         <p className="hero-subtitle">
