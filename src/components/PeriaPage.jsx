@@ -193,10 +193,11 @@ export default function PeriaPage() {
               Możesz mi za nią postawić wirtualną kawę.
             </p>
             <a
-              href="#"
+              href="https://buymeacoffee.com/thelukaszn8/e/510691"
               className="coffee-btn glitch-hover"
               data-text="POSTAW KAWĘ"
-              onClick={(e) => e.preventDefault()}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="glitch-bg-blue" />
               <div className="glitch-bg-red" />
