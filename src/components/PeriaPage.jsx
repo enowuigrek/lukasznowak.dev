@@ -222,7 +222,7 @@ export default function PeriaPage() {
               Możesz mi za nią postawić wirtualną kawę.
             </p>
             <a
-              href="https://buymeacoffee.com/thelukaszn8/e/510691"
+              href="https://buymeacoffee.com/thelukaszn8"
               className="coffee-btn glitch-hover"
               data-text="POSTAW KAWĘ"
               target="_blank"
