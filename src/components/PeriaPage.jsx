@@ -106,6 +106,19 @@ export default function PeriaPage() {
             Mówisz jedną rzecz — Peria rozbija ją na części. Na przykład: <em>„Muszę zadzwonić do Marka w&nbsp;sprawie projektu, kupić kawę i&nbsp;mleko, i&nbsp;mam spotkanie w&nbsp;czwartek o&nbsp;10"</em> — z&nbsp;tego Peria tworzy notatkę o&nbsp;projekcie, checklistę zakupów i&nbsp;wydarzenie w&nbsp;kalendarzu. Jedna głosówka, trzy kategorie:
           </p>
 
+          <div className="peria-screenshots">
+            <img
+              src="/screenshots/peria/peria-voice-input.png"
+              alt="Peria - wprowadzanie głosem"
+              className="peria-screenshot"
+            />
+            <img
+              src="/screenshots/peria/peria-split-result.png"
+              alt="Peria - podzielone kategorie"
+              className="peria-screenshot"
+            />
+          </div>
+
           <div className="peria-features-grid">
             {features.map(({ number, title, description }) => (
               <div className="peria-feature" key={number}>
@@ -147,6 +160,18 @@ export default function PeriaPage() {
                   <li key={i} dangerouslySetInnerHTML={{ __html: step }} />
                 ))}
               </ol>
+              <div className="peria-install-screenshots">
+                <img
+                  src="/screenshots/peria/peria-ios-install-1.png"
+                  alt="iOS - menu udostępniania"
+                  className="peria-install-screenshot"
+                />
+                <img
+                  src="/screenshots/peria/peria-ios-install-2.png"
+                  alt="iOS - dodaj do ekranu głównego"
+                  className="peria-install-screenshot"
+                />
+              </div>
             </div>
 
             <div className="peria-install-card">
