@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import GlitchText from './GlitchText';
 import VHSOverlay from './VHSOverlay';
@@ -45,6 +45,15 @@ const installSteps = {
 
 export default function PeriaPage() {
   useGlitchEffects();
+  const [lightboxImage, setLightboxImage] = useState(null);
+
+  const openLightbox = (imageSrc) => {
+    setLightboxImage(imageSrc);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImage(null);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -111,11 +120,13 @@ export default function PeriaPage() {
               src="/screenshots/peria/peria-voice-input.png"
               alt="Peria - wprowadzanie głosem"
               className="peria-screenshot"
+              onClick={() => openLightbox('/screenshots/peria/peria-voice-input.png')}
             />
             <img
               src="/screenshots/peria/peria-split-result.png"
               alt="Peria - podzielone kategorie"
               className="peria-screenshot"
+              onClick={() => openLightbox('/screenshots/peria/peria-split-result.png')}
             />
           </div>
 
@@ -222,21 +233,28 @@ export default function PeriaPage() {
               Możesz mi za nią postawić wirtualną kawę.
             </p>
             <a
-              href="https://buymeacoffee.com/thelukaszn8"
-              className="coffee-btn glitch-hover"
-              data-text="POSTAW KAWĘ"
+              href="https://buycoffee.to/lukasznowak.dev"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="glitch-bg-blue" />
-              <div className="glitch-bg-red" />
-              <span>POSTAW KAWĘ</span>
+              <img
+                src="https://buycoffee.to/static/img/share/share-button-white.png"
+                alt="Postaw mi kawę na buycoffee.to"
+                className="buycoffee-btn"
+              />
             </a>
           </div>
         </section>
 
         <Footer />
       </main>
+
+      {/* Lightbox */}
+      {lightboxImage && (
+        <div className="lightbox" onClick={closeLightbox}>
+          <img src={lightboxImage} alt="Powiększony screenshot" className="lightbox-image" />
+        </div>
+      )}
     </div>
   );
 }
