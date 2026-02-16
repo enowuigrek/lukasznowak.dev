@@ -55,13 +55,6 @@ export default function ProjectsSection() {
             to={href}
           >
             <div className="project-card-bg" />
-            {logo && (
-              <img
-                src={logo}
-                alt={`${title} logo`}
-                className={`project-card-logo ${title === 'Strzykawa' ? 'logo-invert' : ''}`}
-              />
-            )}
 
             <div className="project-card-overlay">
               <span className="project-card-number">{number}</span>

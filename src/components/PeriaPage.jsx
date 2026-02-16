@@ -67,7 +67,6 @@ export default function PeriaPage() {
       <main>
         {/* Hero */}
         <section className="project-page-hero">
-          <img src="/peria-logo.png" alt="Peria logo" className="peria-hero-logo" />
           <GlitchText text="PERIA" as="h1" className="project-page-title" />
           <p className="peria-tagline">
             Gdy myśl pojawia się wtedy, gdy jej nie szukasz
@@ -106,11 +105,6 @@ export default function PeriaPage() {
           <p className="peria-text">
             Mówisz jedną rzecz — Peria rozbija ją na części. Na przykład: <em>„Muszę zadzwonić do Marka w&nbsp;sprawie projektu, kupić kawę i&nbsp;mleko, i&nbsp;mam spotkanie w&nbsp;czwartek o&nbsp;10"</em> — z&nbsp;tego Peria tworzy notatkę o&nbsp;projekcie, checklistę zakupów i&nbsp;wydarzenie w&nbsp;kalendarzu. Jedna głosówka, trzy kategorie:
           </p>
-
-          <div className="peria-screenshots">
-            <img src="/peria-voice-input.png" alt="Peria - wprowadzanie głosem" className="peria-screenshot" />
-            <img src="/peria-split-result.png" alt="Peria - podzielone kategorie" className="peria-screenshot" />
-          </div>
 
           <div className="peria-features-grid">
             {features.map(({ number, title, description }) => (
