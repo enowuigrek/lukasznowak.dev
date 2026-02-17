@@ -10,21 +10,21 @@ import '../styles/peria-page.css';
 const features = [
   {
     number: '01',
-    title: 'NOTATKI GŁOSOWE',
+    title: 'PO PROSTU MÓW — PERIA ZAPISUJE',
     description:
-      'Mówisz — Peria zapisuje. Nagrywasz myśl głosem, a\u00A0aplikacja zamienia ją w\u00A0tekst. Nie musisz nic pisać, nie musisz organizować. Urywki, pomysły, refleksje — wszystko ląduje w\u00A0jednym miejscu.',
+      'Urywki, pomysły, refleksje — wszystko ląduje w\u00A0jednym miejscu. Żadnego pisania, żadnego organizowania.',
   },
   {
     number: '02',
-    title: 'CHECKLISTY',
+    title: 'ZAZNACZ I IDŹ DALEJ',
     description:
-      'Prosta lista rzeczy do zrobienia. Bez projektów, bez tablic, bez drag & drop. Dodajesz, odhaczasz, idziesz dalej.',
+      'Prosta lista rzeczy do zrobienia. Bez projektów, bez tablic, bez drag\u00A0&\u00A0drop. Dodajesz, odhaczasz, idziesz dalej.',
   },
   {
     number: '03',
-    title: 'WYDARZENIA',
+    title: 'PERIA ROZUMIE KIEDY I CO',
     description:
-      'Na podstawie tego, co powiesz, Peria tworzy wydarzenie z\u00A0datą i\u00A0opisem. Mówisz \u201Espotkanie z\u00A0Markiem w\u00A0piątek o\u00A015\u201D — Peria rozumie i\u00A0zapisuje.',
+      'Mówisz \u201Espotkanie z\u00A0Markiem w\u00A0piątek o\u00A015\u201D — Peria tworzy wydarzenie z\u00A0datą i\u00A0opisem. Bez formularzy.',
   },
 ];
 
@@ -233,7 +233,7 @@ export default function PeriaPage() {
               Aplikacja jest dla Ciebie przydatna?
             </h2>
             <p className="coffee-text">
-              Możesz mi za nią postawić wirtualną kawę.
+              Jeśli Peria pomogła Ci złapać choć jedną myśl — możesz postawić kawę.
             </p>
             <a
               href="https://buycoffee.to/lukasznowak.dev"
