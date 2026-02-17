@@ -78,10 +78,10 @@ export default function PeriaPage() {
         <section className="project-page-hero">
           <GlitchText text="PERIA" as="h1" className="project-page-title" />
           <p className="peria-tagline">
-            Gdy myśl pojawia się wtedy, gdy jej nie szukasz
+            Powiedz jedno zdanie. Peria zrobi z&nbsp;niego listę, notatkę i&nbsp;wydarzenie.
           </p>
           <p className="peria-intro">
-            Aplikacja, która łapie Twoje myśli — głosem. Mówisz, a&nbsp;Peria zamienia to w&nbsp;notatkę, checklistę lub wydarzenie. Bez pisania, bez organizowania.
+            Głosem. Bez pisania, bez organizowania. Mówisz — ona rozumie i&nbsp;dzieli na części.
           </p>
         </section>
 
@@ -112,7 +112,10 @@ export default function PeriaPage() {
           </div>
 
           <p className="peria-text">
-            Mówisz jedną rzecz — Peria rozbija ją na części. Na przykład: <em>„Muszę zadzwonić do Marka w&nbsp;sprawie projektu, kupić kawę i&nbsp;mleko, i&nbsp;mam spotkanie w&nbsp;czwartek o&nbsp;10"</em> — z&nbsp;tego Peria tworzy notatkę o&nbsp;projekcie, checklistę zakupów i&nbsp;wydarzenie w&nbsp;kalendarzu. Jedna głosówka, trzy kategorie:
+            Mówisz jedną rzecz — Peria rozbija ją na kategorie. Jedna głosówka. Trzy osobne rzeczy. Gotowe.
+          </p>
+          <p className="peria-text" style={{marginTop: '1rem', opacity: 0.75}}>
+            Na przykład: <em>„Muszę zadzwonić do Marka w&nbsp;sprawie projektu, kupić kawę i&nbsp;mleko, i&nbsp;mam spotkanie w&nbsp;czwartek o&nbsp;10"</em> — Peria tworzy notatkę, checklistę zakupów i&nbsp;wydarzenie w&nbsp;kalendarzu.
           </p>
 
           <div className="peria-screenshots">
