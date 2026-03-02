@@ -121,6 +121,26 @@ export default function StrzkawaPage() {
           </p>
         </section>
 
+        {/* CTA */}
+        <section className="peria-section glitch-in">
+          <div className="peria-section-label">
+            <span className="label" data-text="Sklep działa. Możesz zajrzeć.">Sklep działa. Możesz zajrzeć.</span>
+          </div>
+          <a
+            href="https://strzykawa.com"
+            className="strzykawa-cta-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/strzykawa-logo.png"
+              alt="Strzykawa — przejdź do sklepu"
+              className="strzykawa-cta-logo"
+            />
+          </a>
+          <p className="strzykawa-cta-url">strzykawa.com</p>
+        </section>
+
         {/* Stack */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
@@ -131,22 +151,6 @@ export default function StrzkawaPage() {
               <span key={tech} className="strzykawa-stack-tag">{tech}</span>
             ))}
           </div>
-        </section>
-
-        {/* CTA */}
-        <section className="peria-section glitch-in">
-          <h2 className="peria-cta-heading">Zamów kawę</h2>
-          <a
-            href="https://strzykawa.com"
-            className="peria-cta-btn glitch-hover"
-            data-text="OTWÓRZ SKLEP"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="glitch-bg-blue" />
-            <div className="glitch-bg-red" />
-            <span>OTWÓRZ SKLEP</span>
-          </a>
         </section>
 
         <Footer />

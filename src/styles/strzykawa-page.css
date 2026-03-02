@@ -34,6 +34,37 @@
 }
 
 /* ═══════════════════════════════════════════
+   CTA BUTTON — logo na białym tle
+   ═══════════════════════════════════════════ */
+
+.strzykawa-cta-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  background: #fff;
+  padding: 0.6rem 1.25rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.strzykawa-cta-btn:hover {
+  transform: scale(1.03);
+  opacity: 0.92;
+}
+
+.strzykawa-cta-logo {
+  display: block;
+  height: 72px;
+  width: auto;
+}
+
+.strzykawa-cta-url {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+/* ═══════════════════════════════════════════
    MOBILE
    ═══════════════════════════════════════════ */
 
