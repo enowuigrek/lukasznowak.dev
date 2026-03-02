@@ -1,0 +1,18 @@
+/* ═══════════════════════════════════════════
+   JOB ODYSSEY — dedicated project page
+   ═══════════════════════════════════════════ */
+
+/* Tytuł w hero — akcent w kolorze cyjan */
+.jo-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.jo-title span {
+  color: #4dd9c0;
+}

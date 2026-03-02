@@ -12,6 +12,7 @@ import ProjectPage from './components/ProjectPage';
 import PeriaPage from './components/PeriaPage';
 import StrzkawaPage from './components/StrzkawaPage';
 import UknutaMagiaPage from './components/UknutaMagiaPage';
+import JobOdysseyPage from './components/JobOdysseyPage';
 import useGlitchEffects from './hooks/useGlitchEffects';
 
 function HomePage() {
@@ -66,6 +67,7 @@ export default function App() {
         <Route path="/projekt/peria" element={<PeriaPage />} />
         <Route path="/projekt/strzykawa" element={<StrzkawaPage />} />
         <Route path="/projekt/uknuta-magia" element={<UknutaMagiaPage />} />
+        <Route path="/projekt/job-odyssey" element={<JobOdysseyPage />} />
         <Route path="/projekt/:slug" element={<ProjectPage />} />
       </Routes>
     </BrowserRouter>
