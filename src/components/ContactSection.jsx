@@ -3,24 +3,35 @@ import '../styles/contact.css';
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus('sending');
 
-    // Mailto fallback
-    const subject = encodeURIComponent(`Wiadomość od ${form.name}`);
-    const body = encodeURIComponent(
-      `Imię: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
-    );
-    window.location.href = `mailto:kontakt@lukasznowak.dev?subject=${subject}&body=${body}`;
-    setSent(true);
+    try {
+      const body = new URLSearchParams({
+        'form-name': 'contact',
+        ...form,
+      });
 
-    setTimeout(() => setSent(false), 3000);
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      });
+
+      setStatus('sent');
+      setForm({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -30,7 +41,9 @@ export default function ContactSection() {
       </div>
 
       <div className="contact-wrapper glitch-in stagger-2">
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" name="contact" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
           <div className="form-group">
             <label className="form-label" htmlFor="name">Imię</label>
             <input
@@ -76,11 +89,22 @@ export default function ContactSection() {
           <button
             type="submit"
             className="form-submit glitch-hover"
-            data-text={sent ? 'WYSŁANO' : 'WYŚLIJ WIADOMOŚĆ'}
+            disabled={status === 'sending'}
+            data-text={
+              status === 'sent' ? 'WYSŁANO' :
+              status === 'error' ? 'BŁĄD — SPRÓBUJ PONOWNIE' :
+              status === 'sending' ? 'WYSYŁANIE...' :
+              'WYŚLIJ WIADOMOŚĆ'
+            }
           >
             <div className="glitch-bg-blue" />
             <div className="glitch-bg-red" />
-            <span>{sent ? 'WYSŁANO' : 'WYŚLIJ WIADOMOŚĆ'}</span>
+            <span>
+              {status === 'sent' ? 'WYSŁANO' :
+               status === 'error' ? 'BŁĄD — SPRÓBUJ PONOWNIE' :
+               status === 'sending' ? 'WYSYŁANIE...' :
+               'WYŚLIJ WIADOMOŚĆ'}
+            </span>
           </button>
         </form>
 

@@ -1,0 +1,53 @@
+/* ═══════════════════════════════════════════
+   STRZYKAWA — dedicated project page
+   ═══════════════════════════════════════════ */
+
+.strzykawa-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.strzykawa-stack-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════
+   LOGO
+   ═══════════════════════════════════════════ */
+
+.strzykawa-logo {
+  width: 120px;
+  filter: invert(1) brightness(2);
+  opacity: 0.7;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .strzykawa-stack {
+    gap: 0.5rem;
+  }
+
+  .strzykawa-stack-tag {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .peria-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

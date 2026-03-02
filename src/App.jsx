@@ -10,6 +10,7 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ProjectPage from './components/ProjectPage';
 import PeriaPage from './components/PeriaPage';
+import StrzkawaPage from './components/StrzkawaPage';
 import useGlitchEffects from './hooks/useGlitchEffects';
 
 function HomePage() {
@@ -62,6 +63,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projekt/peria" element={<PeriaPage />} />
+        <Route path="/projekt/strzykawa" element={<StrzkawaPage />} />
         <Route path="/projekt/:slug" element={<ProjectPage />} />
       </Routes>
     </BrowserRouter>
