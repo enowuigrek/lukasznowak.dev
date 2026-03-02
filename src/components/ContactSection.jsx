@@ -106,6 +106,19 @@ export default function ContactSection() {
                'WYŚLIJ WIADOMOŚĆ'}
             </span>
           </button>
+
+          {status === 'sent' && (
+            <div className="form-success">
+              <span className="form-success-title">Wiadomość wysłana.</span>
+              <span className="form-success-text">Postaram się odpowiedzieć jak najszybciej.</span>
+            </div>
+          )}
+
+          {status === 'error' && (
+            <div className="form-error">
+              Coś poszło nie tak. Napisz bezpośrednio na kontakt@lukasznowak.dev
+            </div>
+          )}
         </form>
 
         <div className="contact-info">

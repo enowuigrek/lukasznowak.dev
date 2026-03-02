@@ -78,6 +78,22 @@
   display: inline-block;
 }
 
+.project-card-logo {
+  display: block;
+  height: 60px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  filter: invert(1) brightness(2);
+  opacity: 0.85;
+  margin-bottom: 0.25rem;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-card-logo {
+  opacity: 1;
+}
+
 .project-card-description {
   font-family: var(--font-display);
   font-size: 1rem;

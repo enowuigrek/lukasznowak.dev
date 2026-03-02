@@ -48,10 +48,9 @@ export default function StrzkawaPage() {
         <section className="project-page-hero">
           <img
             src="/strzykawa-logo.png"
-            alt="Strzykawa logo"
+            alt="Strzykawa"
             className="strzykawa-logo"
           />
-          <GlitchText text="STRZYKAWA" as="h1" className="project-page-title" />
           <p className="peria-tagline">
             Świeżo palona kawa — prosto pod Twoje drzwi.
           </p>

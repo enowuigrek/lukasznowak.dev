@@ -18,7 +18,6 @@ const projects = [
     description: 'Aplikacja do organizacji myśli i notatek głosowych. Transkrypcja mowy przez AI, inteligentny asystent do porządkowania treści. Dane zapisywane lokalnie — Twoje notatki zostają u Ciebie.',
     tags: ['Organizacja myśli', 'Notatki głosowe', 'Asystent AI', 'Zapis lokalny'],
     href: '/projekt/peria',
-    logo: '/peria-logo.png',
   },
   {
     number: '03',
@@ -27,7 +26,6 @@ const projects = [
     description: 'Szukanie pracy potrafi być chaosem — dziesiątki ogłoszeń, różne etapy, maile do śledzenia. Job Odyssey pomaga ogarnąć cały proces: zapisujesz aplikacje, śledzisz statusy, widzisz statystyki. Koniec z arkuszami i karteczkami.',
     tags: ['Szukanie pracy', 'Śledzenie aplikacji', 'Dashboard', 'Organizacja procesów'],
     href: '/projekt/job-odyssey',
-    logo: '/job-odyssey-logo.png',
   },
   {
     number: '04',
@@ -36,7 +34,6 @@ const projects = [
     description: 'Autorski sklep z książką — prosty i skuteczny. Prezentacja, koszyk, płatności i panel do zarządzania zamówieniami. Bez wielkich platform, bez prowizji — pełna kontrola nad sprzedażą.',
     tags: ['Sprzedaż książek', 'Sklep autorski', 'Koszyk z płatnościami', 'Panel zarządzania'],
     href: '/projekt/uknuta-magia',
-    logo: '/uknuta-magia-logo.svg',
   },
 ];
 
@@ -58,7 +55,15 @@ export default function ProjectsSection() {
 
             <div className="project-card-overlay">
               <span className="project-card-number">{number}</span>
-              <h3 className="project-card-title" data-text={title}>{title}</h3>
+              {logo ? (
+                <img
+                  src={logo}
+                  alt={title}
+                  className="project-card-logo"
+                />
+              ) : (
+                <h3 className="project-card-title" data-text={title}>{title}</h3>
+              )}
               {description && <p className="project-card-description">{description}</p>}
               <div className="project-card-tags">
                 {tags.map((tag) => (
