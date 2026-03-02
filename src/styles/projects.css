@@ -117,11 +117,11 @@
   font-family: 'Cinzel', serif;
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 700;
-  color: #c9a227;
+  color: #E2C275;
   letter-spacing: 0.04em;
   line-height: 1.2;
   margin-bottom: 0.25rem;
-  text-shadow: 0 2px 10px rgba(201, 162, 39, 0.2);
+  text-shadow: 0 2px 10px rgba(226, 194, 117, 0.2);
 }
 
 .project-card-description {

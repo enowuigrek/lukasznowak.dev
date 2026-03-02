@@ -9,11 +9,11 @@
   font-family: 'Cinzel', serif;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
-  color: #c9a227;
+  color: #E2C275;
   letter-spacing: 0.04em;
   line-height: 1.1;
   margin-bottom: 2rem;
-  text-shadow: 0 2px 12px rgba(201, 162, 39, 0.25);
+  text-shadow: 0 2px 12px rgba(226, 194, 117, 0.25);
 }
 
 /* ═══════════════════════════════════════════
@@ -41,23 +41,23 @@
   display: inline-block;
   margin-top: 2rem;
   padding: 1rem 2.5rem;
-  border: 1px solid rgba(201, 162, 39, 0.4);
+  border: 1px solid rgba(226, 194, 117, 0.4);
   text-decoration: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .uknuta-cta-btn:hover {
-  border-color: rgba(201, 162, 39, 0.8);
-  box-shadow: 0 0 20px rgba(201, 162, 39, 0.15);
+  border-color: rgba(226, 194, 117, 0.8);
+  box-shadow: 0 0 20px rgba(226, 194, 117, 0.15);
 }
 
 .uknuta-cta-title {
   font-family: 'Cinzel', serif;
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 700;
-  color: #c9a227;
+  color: #E2C275;
   letter-spacing: 0.04em;
-  text-shadow: 0 2px 12px rgba(201, 162, 39, 0.3);
+  text-shadow: 0 2px 12px rgba(226, 194, 117, 0.3);
   display: block;
 }
 
