@@ -34,6 +34,7 @@ const projects = [
     description: 'Autorski sklep z książką — prosty i skuteczny. Prezentacja, koszyk, płatności i panel do zarządzania zamówieniami. Bez wielkich platform, bez prowizji — pełna kontrola nad sprzedażą.',
     tags: ['Sprzedaż książek', 'Sklep autorski', 'Koszyk z płatnościami', 'Panel zarządzania'],
     href: '/projekt/uknuta-magia',
+    titleClass: 'project-card-title-gold',
   },
 ];
 
@@ -45,7 +46,7 @@ export default function ProjectsSection() {
       </div>
 
       <div className="projects-grid">
-        {projects.map(({ number, title, category, description, tags, href, logo }, index) => (
+        {projects.map(({ number, title, category, description, tags, href, logo, logoClass, titleClass }, index) => (
           <Link
             key={number}
             className={`project-card glitch-in stagger-${index + 1}`}
@@ -59,10 +60,10 @@ export default function ProjectsSection() {
                 <img
                   src={logo}
                   alt={title}
-                  className="project-card-logo"
+                  className={logoClass || 'project-card-logo'}
                 />
               ) : (
-                <h3 className="project-card-title" data-text={title}>{title}</h3>
+                <h3 className={titleClass || 'project-card-title'} data-text={title}>{title}</h3>
               )}
               {description && <p className="project-card-description">{description}</p>}
               <div className="project-card-tags">

@@ -2,6 +2,8 @@
    PROJECTS / KARTY — glitch hover
    ═══════════════════════════════════════════ */
 
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
 .projects {
   display: flex;
   flex-direction: column;
@@ -92,6 +94,34 @@
 
 .project-card:hover .project-card-logo {
   opacity: 1;
+}
+
+/* Okładka książki — portret, bez inwersji */
+.project-card-logo-book {
+  display: block;
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.project-card:hover .project-card-logo-book {
+  opacity: 1;
+}
+
+/* Złoty tytuł Cinzel — Uknuta Magia */
+.project-card-title-gold {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  color: #c9a227;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 2px 10px rgba(201, 162, 39, 0.2);
 }
 
 .project-card-description {
