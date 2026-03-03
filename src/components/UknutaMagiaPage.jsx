@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import VHSOverlay from './VHSOverlay';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
@@ -24,6 +25,14 @@ export default function UknutaMagiaPage() {
 
   return (
     <div className="project-page">
+      <Helmet>
+        <title>Uknuta Magia — Autorski sklep z książką | Łukasz Nowak</title>
+        <meta name="description" content="Prosty sklep internetowy dla autora książki dla dzieci. Supabase, EmailJS, zero kosztów miesięcznych. Zamówienie, płatność, potwierdzenie na maila." />
+        <link rel="canonical" href="https://lukasznowak.dev/projekt/uknuta-magia" />
+        <meta property="og:url" content="https://lukasznowak.dev/projekt/uknuta-magia" />
+        <meta property="og:title" content="Uknuta Magia — Autorski sklep z książką" />
+        <meta property="og:description" content="Sklep z jednym produktem dla autora książki dla dzieci. Supabase + EmailJS, tylko koszt domeny." />
+      </Helmet>
       <VHSOverlay />
 
       <nav className="project-page-nav">

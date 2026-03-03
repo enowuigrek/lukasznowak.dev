@@ -2,8 +2,6 @@
    PROJECTS / KARTY — glitch hover
    ═══════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
-
 .projects {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import VHSOverlay from './VHSOverlay';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
@@ -25,6 +26,14 @@ export default function JobOdysseyPage() {
 
   return (
     <div className="project-page">
+      <Helmet>
+        <title>Job Odyssey — CRM do szukania pracy | Łukasz Nowak</title>
+        <meta name="description" content="Desktopowa aplikacja Electron do zarządzania procesem rekrutacji. Aplikacje, rozmowy, CV, pytania STAR — dane lokalnie, bez chmury, bez subskrypcji." />
+        <link rel="canonical" href="https://lukasznowak.dev/projekt/job-odyssey" />
+        <meta property="og:url" content="https://lukasznowak.dev/projekt/job-odyssey" />
+        <meta property="og:title" content="Job Odyssey — CRM do szukania pracy" />
+        <meta property="og:description" content="Desktopowy CRM do rekrutacji w Electron + React. Kanban, historia STAR, baza CV, dane lokalnie na dysku." />
+      </Helmet>
       <VHSOverlay />
 
       <nav className="project-page-nav">

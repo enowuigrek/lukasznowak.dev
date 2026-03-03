@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import GlitchText from './GlitchText';
 import VHSOverlay from './VHSOverlay';
 import Footer from './Footer';
@@ -31,6 +32,14 @@ export default function StrzkawaPage() {
 
   return (
     <div className="project-page">
+      <Helmet>
+        <title>Strzykawa — Sklep online z kawą specialty | Łukasz Nowak</title>
+        <meta name="description" content="Autorski sklep internetowy palarni Strzykawa — zbudowany na Shopify z własnym frontendem w React. Filtrowanie, koszyk, płatności BLIK i InPost." />
+        <link rel="canonical" href="https://lukasznowak.dev/projekt/strzykawa" />
+        <meta property="og:url" content="https://lukasznowak.dev/projekt/strzykawa" />
+        <meta property="og:title" content="Strzykawa — Sklep online z kawą specialty" />
+        <meta property="og:description" content="Autorski sklep palarni kawy Strzykawa. React frontend na Shopify, płatności BLIK, dostawa InPost." />
+      </Helmet>
       <VHSOverlay />
 
       <nav className="project-page-nav">

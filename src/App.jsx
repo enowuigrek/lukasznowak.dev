@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import VHSOverlay from './components/VHSOverlay';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
@@ -44,6 +45,14 @@ function HomePage() {
 
   return (
     <>
+      <Helmet>
+        <title>Łukasz Nowak — Strony WWW, Sklepy, Aplikacje | Częstochowa</title>
+        <meta name="description" content="Projektuję i koduję strony internetowe, sklepy e-commerce i aplikacje webowe. Pracuję sam — rozmawiasz wprost z osobą, która zrealizuje Twój projekt od A do Z." />
+        <link rel="canonical" href="https://lukasznowak.dev" />
+        <meta property="og:url" content="https://lukasznowak.dev" />
+        <meta property="og:title" content="Łukasz Nowak — Strony WWW, Sklepy, Aplikacje" />
+        <meta property="og:description" content="Projektuję i koduję strony internetowe, sklepy e-commerce i aplikacje webowe. Częstochowa i cała Polska." />
+      </Helmet>
       <VHSOverlay />
       <Navbar activeSection={activeSection} />
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import GlitchText from './GlitchText';
 import VHSOverlay from './VHSOverlay';
 import Footer from './Footer';
@@ -61,6 +62,14 @@ export default function PeriaPage() {
 
   return (
     <div className="project-page">
+      <Helmet>
+        <title>Peria — Aplikacja do organizacji myśli głosem | Łukasz Nowak</title>
+        <meta name="description" content="Peria to aplikacja mobilna, w której mówisz jedno zdanie, a ona rozbija je na listę, notatkę i wydarzenie. Bez pisania, bez organizowania." />
+        <link rel="canonical" href="https://lukasznowak.dev/projekt/peria" />
+        <meta property="og:url" content="https://lukasznowak.dev/projekt/peria" />
+        <meta property="og:title" content="Peria — Aplikacja do organizacji myśli głosem" />
+        <meta property="og:description" content="Mówisz jedno zdanie — Peria rozbija je na listę, notatkę i wydarzenie. Aplikacja mobilna na iOS i Android." />
+      </Helmet>
       <VHSOverlay />
 
       <nav className="project-page-nav">
