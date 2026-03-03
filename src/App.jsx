@@ -14,6 +14,7 @@ import PeriaPage from './components/PeriaPage';
 import StrzkawaPage from './components/StrzkawaPage';
 import UknutaMagiaPage from './components/UknutaMagiaPage';
 import JobOdysseyPage from './components/JobOdysseyPage';
+import CookieBanner from './components/CookieBanner';
 import useGlitchEffects from './hooks/useGlitchEffects';
 
 function HomePage() {
@@ -71,6 +72,7 @@ function HomePage() {
 export default function App() {
   return (
     <BrowserRouter>
+      <CookieBanner />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projekt/peria" element={<PeriaPage />} />
