@@ -42,7 +42,7 @@ export default function ProjectsSection() {
   return (
     <section className="section projects" id="projekty">
       <div className="projects-header glitch-in">
-        <span className="label" data-text="Wybrane projekty">Wybrane projekty</span>
+        <h2 className="label" data-text="Wybrane projekty">Wybrane projekty</h2>
       </div>
 
       <div className="projects-grid">

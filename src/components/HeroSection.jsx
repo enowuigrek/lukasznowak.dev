@@ -17,8 +17,10 @@ export default function HeroSection() {
       <div className="hero-grid" />
 
       <div className="hero-content fade-in">
-        <GlitchText text="ŁUKASZ" className="hero-title" />
-        <GlitchText text="NOWAK" className="hero-title" />
+        <h1 className="hero-title">
+          <GlitchText text="ŁUKASZ" as="span" className="hero-title-line" />
+          <GlitchText text="NOWAK" as="span" className="hero-title-line" />
+        </h1>
 
         <p className="hero-description">
           Tworzę strony, sklepy i&nbsp;narzędzia, które pracują na Twój biznes — i&nbsp;przy okazji dobrze wyglądają.

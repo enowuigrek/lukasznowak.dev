@@ -79,7 +79,7 @@ export default function ProjectPage() {
       {/* Content */}
       <section className="project-page-content glitch-in">
         <div className="project-page-placeholder">
-          <span className="label" data-text="Wkrótce">Wkrótce</span>
+          <h2 className="label" data-text="Wkrótce">Wkrótce</h2>
           <p className="project-page-placeholder-text">
             Instrukcje, szczegóły i linki do pobrania pojawią się tutaj.
           </p>
@@ -118,7 +118,7 @@ export default function ProjectPage() {
       {project.hasCoffee && (
         <section className="project-page-coffee glitch-in stagger-2">
           <div className="coffee-inner">
-            <span className="label" data-text="Wsparcie">Wsparcie</span>
+            <h2 className="label" data-text="Wsparcie">Wsparcie</h2>
             <h2 className="coffee-heading">
               Aplikacja jest dla Ciebie przydatna?
             </h2>

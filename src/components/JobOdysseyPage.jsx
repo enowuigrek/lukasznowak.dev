@@ -61,7 +61,7 @@ export default function JobOdysseyPage() {
         {/* Pomysł */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Pomysł">Pomysł</span>
+            <h2 className="label" data-text="Pomysł">Pomysł</h2>
           </div>
           <p className="peria-text">
             Szukanie pracy wygląda zawsze tak samo — dziesiątki zakładek w przeglądarce, rozmowy w kalendarzu, pytania na karteczkach, CV w czterech wersjach rozrzucone po folderach. Każde narzędzie jest gdzie indziej. Żadne nie rozmawia z drugim.
@@ -74,7 +74,7 @@ export default function JobOdysseyPage() {
         {/* Dashboard */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Dashboard">Dashboard</span>
+            <h2 className="label" data-text="Dashboard">Dashboard</h2>
           </div>
           <p className="peria-text">
             Otwierasz aplikację i od razu widzisz co się dzieje — ile aplikacji wysłanych, ile aktywnych, jaki procent pracodawców w ogóle odpowiada. Wykresy, alerty o dzisiejszych rozmowach, najbliższe zaplanowane spotkania. Rekrutacja jako liczby, nie jako chaos.
@@ -84,7 +84,7 @@ export default function JobOdysseyPage() {
         {/* Aplikacje */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Aplikacje">Aplikacje</span>
+            <h2 className="label" data-text="Aplikacje">Aplikacje</h2>
           </div>
           <p className="peria-text">
             Dwa widoki — lista z rozwijanymi kartami albo kanban z dziewięcioma kolumnami. Drag&#8209;and&#8209;drop między statusami: od "zapisane" przez "rozmowa" aż do "oferta odrzucona" czy "wycofany". Dla każdej aplikacji: firma, stanowisko, link, wynagrodzenie, źródło, notatki, powiązane rozmowy.
@@ -97,7 +97,7 @@ export default function JobOdysseyPage() {
         {/* Rozmowy i więcej */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Rozmowy, CV, pytania">Rozmowy, CV, pytania</span>
+            <h2 className="label" data-text="Rozmowy, CV, pytania">Rozmowy, CV, pytania</h2>
           </div>
           <p className="peria-text">
             Rozmowy kwalifikacyjne mają własny kanban — data, godzina, link do Meet albo Zoom, notatki podzielone na trzy sekcje: co poszło dobrze, co mogło pójść lepiej, uwagi ogólne.
@@ -113,7 +113,7 @@ export default function JobOdysseyPage() {
         {/* Dane lokalne */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Dane lokalne">Dane lokalne</span>
+            <h2 className="label" data-text="Dane lokalne">Dane lokalne</h2>
           </div>
           <p className="peria-text">
             Wszystko siedzi w jednym pliku JSON na Twoim dysku. Żadnego logowania, żadnej synchronizacji, żadnych danych w czyjejś chmurze. Export i import z ustawień — backup kiedy chcesz, przywrócenie w sekundę.
@@ -123,7 +123,7 @@ export default function JobOdysseyPage() {
         {/* Stack */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Stack">Stack</span>
+            <h2 className="label" data-text="Stack">Stack</h2>
           </div>
           <div className="strzykawa-stack">
             {stack.map((tech) => (

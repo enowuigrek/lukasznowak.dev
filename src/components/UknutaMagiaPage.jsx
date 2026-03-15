@@ -60,7 +60,7 @@ export default function UknutaMagiaPage() {
         {/* Historia */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Historia">Historia</span>
+            <h2 className="label" data-text="Historia">Historia</h2>
           </div>
           <div className="uknuta-historia-layout">
             <div>
@@ -82,7 +82,7 @@ export default function UknutaMagiaPage() {
         {/* Co powstało? */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Co powstało?">Co powstało?</span>
+            <h2 className="label" data-text="Co powstało?">Co powstało?</h2>
           </div>
           <p className="peria-text">
             Prosty sklep z&nbsp;jednym produktem. Zamawiasz, płacisz, dostajesz maila z&nbsp;potwierdzeniem. Adrian dostaje powiadomienie i&nbsp;widzi zamówienie w&nbsp;swoim panelu — imię, adres, status. Pakuje i&nbsp;wysyła. Koniec procesu.
@@ -95,7 +95,7 @@ export default function UknutaMagiaPage() {
         {/* Bez kosztów */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Zero kosztów miesięcznych">Zero kosztów miesięcznych</span>
+            <h2 className="label" data-text="Zero kosztów miesięcznych">Zero kosztów miesięcznych</h2>
           </div>
           <p className="peria-text">
             Supabase i&nbsp;Netlify na darmowych planach — zamówienia wpadają do bazy, panel działa, maile idą. Jedyny koszt to domena.
@@ -108,7 +108,7 @@ export default function UknutaMagiaPage() {
         {/* CTA */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Książka jest. Możesz zajrzeć.">Książka jest. Możesz zajrzeć.</span>
+            <h2 className="label" data-text="Książka jest. Możesz zajrzeć.">Książka jest. Możesz zajrzeć.</h2>
           </div>
           <a
             href="https://uknutamagia.pl"
@@ -124,7 +124,7 @@ export default function UknutaMagiaPage() {
         {/* Stack */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Stack">Stack</span>
+            <h2 className="label" data-text="Stack">Stack</h2>
           </div>
           <div className="strzykawa-stack">
             {stack.map((tech) => (

@@ -62,7 +62,7 @@ export default function ServicesSection() {
   return (
     <section className="section services" id="uslugi">
       <div className="services-header glitch-in">
-        <span className="label" data-text="Co robię">Co robię</span>
+        <h2 className="label" data-text="Co robię">Co robię</h2>
       </div>
 
       <div className="services-grid">

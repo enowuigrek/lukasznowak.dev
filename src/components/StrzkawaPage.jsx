@@ -55,6 +55,7 @@ export default function StrzkawaPage() {
       <main>
         {/* Hero */}
         <section className="project-page-hero">
+          <h1 className="sr-only">Strzykawa — Sklep online z kawą specialty</h1>
           <img
             src="/strzykawa-logo.png"
             alt="Strzykawa"
@@ -71,7 +72,7 @@ export default function StrzkawaPage() {
         {/* Historia */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Historia">Historia</span>
+            <h2 className="label" data-text="Historia">Historia</h2>
           </div>
           <p className="peria-text">
             Częstochowska palarnia z&nbsp;charakterem, własnym piecem i&nbsp;ludźmi, którzy wracają po więcej. Brakowało jednego — miejsca, gdzie ktoś z&nbsp;drugiego końca Polski mógłby zamówić tę samą kawę, którą pije przy barze na Dąbrowskiego&nbsp;4.
@@ -84,7 +85,7 @@ export default function StrzkawaPage() {
         {/* Co powstało? */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Co powstało?">Co powstało?</span>
+            <h2 className="label" data-text="Co powstało?">Co powstało?</h2>
           </div>
           <p className="peria-text">
             Sklep internetowy z&nbsp;kompletnym frontendem napisanym ręcznie, podłączonym do Shopify jako silnika e-commerce w&nbsp;tle. Klient widzi Strzykawę. Shopify robi resztę.
@@ -97,7 +98,7 @@ export default function StrzkawaPage() {
         {/* Design */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Design">Design</span>
+            <h2 className="label" data-text="Design">Design</h2>
           </div>
           <p className="peria-text">
             Projekt graficzny od zera pod markę. Ciemna zieleń, ciepłe akcenty, dużo przestrzeni. Na desktopie i&nbsp;na telefonie — ten sam klimat.
@@ -110,7 +111,7 @@ export default function StrzkawaPage() {
         {/* Wyzwania */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Wyzwania">Wyzwania</span>
+            <h2 className="label" data-text="Wyzwania">Wyzwania</h2>
           </div>
           <p className="peria-text">
             Headless Shopify na najtańszym planie to droga, której Shopify oficjalnie nie wspiera. Ograniczony dostęp do checkoutu, ograniczone API. React SPA nie serwuje meta tagów dla social media — crawlery Facebooka czy Messengera widzą pusty HTML.
@@ -123,7 +124,7 @@ export default function StrzkawaPage() {
         {/* Efekt */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Efekt">Efekt</span>
+            <h2 className="label" data-text="Efekt">Efekt</h2>
           </div>
           <p className="peria-text">
             Nowa kawa pojawia się w&nbsp;panelu Shopify — strona się aktualizuje. Klient zamawia. Paczka jedzie. Właściciel nadaje etykietę w&nbsp;InPost Managerze i&nbsp;wraca do tego, co lubi robić — palić kawę, nie walczyć z&nbsp;technologią.
@@ -133,7 +134,7 @@ export default function StrzkawaPage() {
         {/* CTA */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Sklep działa. Możesz zajrzeć.">Sklep działa. Możesz zajrzeć.</span>
+            <h2 className="label" data-text="Sklep działa. Możesz zajrzeć.">Sklep działa. Możesz zajrzeć.</h2>
           </div>
           <a
             href="https://strzykawa.com"
@@ -153,7 +154,7 @@ export default function StrzkawaPage() {
         {/* Stack */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Stack">Stack</span>
+            <h2 className="label" data-text="Stack">Stack</h2>
           </div>
           <div className="strzykawa-stack">
             {stack.map((tech) => (

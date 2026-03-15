@@ -4,7 +4,7 @@ export default function AboutSection() {
   return (
     <section className="section about" id="o-mnie">
       <div className="about-header glitch-in">
-        <span className="label" data-text="Kilka słów o mnie">Kilka słów o mnie</span>
+        <h2 className="label" data-text="Kilka słów o mnie">Kilka słów o mnie</h2>
       </div>
 
       <div className="about-content glitch-in stagger-2">

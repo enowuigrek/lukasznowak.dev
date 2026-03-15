@@ -97,7 +97,7 @@ export default function PeriaPage() {
         {/* Historia */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Historia">Historia</span>
+            <h2 className="label" data-text="Historia">Historia</h2>
           </div>
           <p className="peria-text">
             Najlepsze pomysły nie przychodzą przy biurku. Przychodzą na spacerze, pod prysznicem, w&nbsp;korku, tuż przed snem — wtedy, gdy umysł odpuszcza. Problem w&nbsp;tym, że równie szybko znikają. Peria powstała dokładnie z&nbsp;tego powodu. Żeby złapać to, co umyka — zanim umknie.
@@ -107,7 +107,7 @@ export default function PeriaPage() {
         {/* Skąd nazwa? */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Skąd nazwa?">Skąd nazwa?</span>
+            <h2 className="label" data-text="Skąd nazwa?">Skąd nazwa?</h2>
           </div>
           <p className="peria-text">
             Arystoteles uczył chodząc. Jego szkoła filozoficzna nazywała się perypatetyczną — od greckiego <em>peripatein</em>, czyli spacerować. Wierzył, że ruch ciała uwalnia umysł. Peria to nawiązanie do tego stanu — chwili między ruchem a&nbsp;refleksją, kiedy myśl pojawia się sama, bez wysiłku, bo przestajesz jej szukać.
@@ -117,7 +117,7 @@ export default function PeriaPage() {
         {/* Co robi Peria? */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Co robi Peria?">Co robi Peria?</span>
+            <h2 className="label" data-text="Co robi Peria?">Co robi Peria?</h2>
           </div>
 
           <p className="peria-text">
@@ -156,7 +156,7 @@ export default function PeriaPage() {
         {/* Filozofia */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Filozofia">Filozofia</span>
+            <h2 className="label" data-text="Filozofia">Filozofia</h2>
           </div>
           <p className="peria-text">
             Peria nie każe Ci organizować. Nie ma folderów, tagów, kategorii. Mówisz — ona zapisuje. Wszystko trafia w&nbsp;jedno miejsce, posortowane chronologicznie. Myśl nie powinna wymagać decyzji, gdzie ją włożyć.
@@ -169,7 +169,7 @@ export default function PeriaPage() {
         {/* Jak zainstalować? */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Jak zainstalować?">Jak zainstalować?</span>
+            <h2 className="label" data-text="Jak zainstalować?">Jak zainstalować?</h2>
           </div>
           <p className="peria-install-intro">
             Peria to aplikacja PWA — działa w&nbsp;przeglądarce, ale możesz ją zainstalować na telefonie jak zwykłą aplikację. Bez App Store, bez Google Play.
@@ -211,7 +211,7 @@ export default function PeriaPage() {
         {/* Status */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <span className="label" data-text="Status">Status</span>
+            <h2 className="label" data-text="Status">Status</h2>
           </div>
           <p className="peria-text">
             Peria jest w&nbsp;fazie wczesnego rozwoju. Działa, można jej używać, ale wciąż się zmienia. Nowe funkcje pojawiają się regularnie.
@@ -237,7 +237,7 @@ export default function PeriaPage() {
         {/* Postaw kawę */}
         <section className="project-page-coffee glitch-in">
           <div className="coffee-inner">
-            <span className="label" data-text="Wsparcie">Wsparcie</span>
+            <h2 className="label" data-text="Wsparcie">Wsparcie</h2>
             <h2 className="coffee-heading">
               Aplikacja jest dla Ciebie przydatna?
             </h2>

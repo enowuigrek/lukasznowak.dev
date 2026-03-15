@@ -24,6 +24,10 @@
   line-height: 0.95;
 }
 
+.hero-title-line {
+  display: block;
+}
+
 .hero-description {
   font-family: var(--font-display);
   font-size: clamp(0.95rem, 1.5vw, 1.125rem);
