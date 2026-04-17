@@ -16,3 +16,21 @@
 .jo-title span {
   color: #4dd9c0;
 }
+
+/* CTA button */
+.strzykawa-cta-btn .jo-cta-label {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border: 1px solid #4dd9c0;
+  color: #4dd9c0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+
+.strzykawa-cta-btn:hover .jo-cta-label {
+  background: #4dd9c0;
+  color: #0a0a0a;
+}

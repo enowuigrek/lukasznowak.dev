@@ -9,12 +9,16 @@ import '../styles/peria-page.css';
 import '../styles/job-odyssey-page.css';
 
 const stack = [
-  'Electron',
   'React 19',
   'TypeScript',
   'Vite',
   'Tailwind CSS 4',
   'React Router v7',
+  'Supabase',
+  'PostgreSQL',
+  'Supabase Edge Functions',
+  '@react-pdf/renderer',
+  'Netlify',
 ];
 
 export default function JobOdysseyPage() {
@@ -27,12 +31,12 @@ export default function JobOdysseyPage() {
   return (
     <div className="project-page">
       <Helmet>
-        <title>Job Odyssey — CRM do szukania pracy | Łukasz Nowak</title>
-        <meta name="description" content="Desktopowa aplikacja Electron do zarządzania procesem rekrutacji. Aplikacje, rozmowy, CV, pytania STAR — dane lokalnie, bez chmury, bez subskrypcji." />
+        <title>Job Odyssey — osobisty CRM do rekrutacji | Łukasz Nowak</title>
+        <meta name="description" content="Webowa aplikacja do zarządzania procesem szukania pracy. Kanban aplikacji, generator CV z śledzeniem kliknięć, rozmowy kwalifikacyjne — wszystko w jednym miejscu." />
         <link rel="canonical" href="https://lukasznowak.dev/projekt/job-odyssey" />
         <meta property="og:url" content="https://lukasznowak.dev/projekt/job-odyssey" />
-        <meta property="og:title" content="Job Odyssey — CRM do szukania pracy" />
-        <meta property="og:description" content="Desktopowy CRM do rekrutacji w Electron + React. Kanban, historia STAR, baza CV, dane lokalnie na dysku." />
+        <meta property="og:title" content="Job Odyssey — osobisty CRM do rekrutacji" />
+        <meta property="og:description" content="Webowy CRM do szukania pracy. Kanban, generator CV z tracking linkami, historia rozmów." />
       </Helmet>
       <VHSOverlay />
 
@@ -51,10 +55,10 @@ export default function JobOdysseyPage() {
         <section className="project-page-hero">
           <h1 className="jo-title">Job <span>Odyssey</span></h1>
           <p className="peria-tagline">
-            Osobisty CRM do szukania pracy — wszystko w jednym miejscu, dane tylko u Ciebie.
+            Osobisty CRM do szukania pracy — wszystko w jednym miejscu.
           </p>
           <p className="peria-intro">
-            Desktopowa aplikacja, która zamienia chaos rekrutacyjny w&nbsp;kontrolowany proces. Aplikacje, rozmowy, CV, pytania, historii STAR — bez chmury, bez subskrypcji.
+            Webowa aplikacja, która zamienia chaos rekrutacyjny w&nbsp;kontrolowany proces. Aplikacje na kanbanie, generator CV z&nbsp;własnym edytorem, śledzenie czy rekruter otworzył Twoje linki — bez rozrzuconych zakładek, bez arkuszy.
           </p>
         </section>
 
@@ -64,20 +68,10 @@ export default function JobOdysseyPage() {
             <h2 className="label" data-text="Pomysł">Pomysł</h2>
           </div>
           <p className="peria-text">
-            Szukanie pracy wygląda zawsze tak samo — dziesiątki zakładek w przeglądarce, rozmowy w kalendarzu, pytania na karteczkach, CV w czterech wersjach rozrzucone po folderach. Każde narzędzie jest gdzie indziej. Żadne nie rozmawia z drugim.
+            Szukanie pracy wygląda zawsze tak samo — dziesiątki zakładek, rozmowy w kalendarzu, CV w czterech wersjach rozrzucone po folderach. Każde narzędzie jest gdzie indziej. Żadne nie rozmawia z&nbsp;drugim.
           </p>
           <p className="peria-text" style={{ marginTop: '1.5rem' }}>
-            Job Odyssey to jedno miejsce na cały proces. Nie kolejna aplikacja SaaS z miesięczną opłatą — desktopowy program, który trzyma dane lokalnie na Twoim komputerze. Nic nie idzie do żadnej chmury.
-          </p>
-        </section>
-
-        {/* Dashboard */}
-        <section className="peria-section glitch-in">
-          <div className="peria-section-label">
-            <h2 className="label" data-text="Dashboard">Dashboard</h2>
-          </div>
-          <p className="peria-text">
-            Otwierasz aplikację i od razu widzisz co się dzieje — ile aplikacji wysłanych, ile aktywnych, jaki procent pracodawców w ogóle odpowiada. Wykresy, alerty o dzisiejszych rozmowach, najbliższe zaplanowane spotkania. Rekrutacja jako liczby, nie jako chaos.
+            Job Odyssey to jedno miejsce na cały proces. Bez miesięcznych opłat, bez zbędnych funkcji — narzędzie zbudowane pod własne potrzeby i otwarte dla każdego.
           </p>
         </section>
 
@@ -87,36 +81,49 @@ export default function JobOdysseyPage() {
             <h2 className="label" data-text="Aplikacje">Aplikacje</h2>
           </div>
           <p className="peria-text">
-            Dwa widoki — lista z rozwijanymi kartami albo kanban z dziewięcioma kolumnami. Drag&#8209;and&#8209;drop między statusami: od "zapisane" przez "rozmowa" aż do "oferta odrzucona" czy "wycofany". Dla każdej aplikacji: firma, stanowisko, link, wynagrodzenie, źródło, notatki, powiązane rozmowy.
+            Dwa widoki — lista z&nbsp;rozwijanymi kartami albo kanban z&nbsp;dziewięcioma kolumnami. Drag&#8209;and&#8209;drop między statusami: od "zapisane" przez "zaproszenie do rozmowy" aż do "oferta odrzucona". Dla każdej aplikacji: firma, stanowisko, link do oferty, wynagrodzenie, źródło, notatki.
           </p>
           <blockquote className="peria-blockquote">
-            Zmiana statusu na zaproszenie do rozmowy automatycznie pyta o dodanie wpisu w kalendarzu rozmów.
+            Zmiana statusu na zaproszenie automatycznie pyta o&nbsp;dodanie wpisu w&nbsp;kalendarzu rozmów.
           </blockquote>
         </section>
 
-        {/* Rozmowy i więcej */}
+        {/* Generator CV */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <h2 className="label" data-text="Rozmowy, CV, pytania">Rozmowy, CV, pytania</h2>
+            <h2 className="label" data-text="Generator CV">Generator CV</h2>
           </div>
           <p className="peria-text">
-            Rozmowy kwalifikacyjne mają własny kanban — data, godzina, link do Meet albo Zoom, notatki podzielone na trzy sekcje: co poszło dobrze, co mogło pójść lepiej, uwagi ogólne.
+            Wbudowany edytor CV — bez Canvy, bez Worda. Wypełniasz formularz, podglądasz wynik w&nbsp;HTML, generujesz PDF jednym kliknięciem. Sekcje można zwijać, włączać i&nbsp;wyłączać. Linki kontaktowe zaciągają się z&nbsp;profilu.
           </p>
           <p className="peria-text" style={{ marginTop: '1.5rem' }}>
-            Baza CV śledzi wersje dopasowane do konkretnych stanowisk — słowa kluczowe dla ATS, licznik ile razy dane CV zostało użyte, upload PDF/DOC i otwieranie w domyślnej aplikacji.
-          </p>
-          <p className="peria-text" style={{ marginTop: '1.5rem' }}>
-            Baza pytań rekrutacyjnych z kategoriami, poziomami trudności i licznikiem ile razy dane pytanie padło na rozmowie. Do tego biblioteka historii STAR — Situation, Task, Action, Result — z ratingiem skuteczności i tagami.
+            Możesz mieć kilka wersji CV — każda dostosowana do innego stanowiska, każda z własną nazwą i&nbsp;wygenerowanym plikiem PDF w&nbsp;chmurze.
           </p>
         </section>
 
-        {/* Dane lokalne */}
+        {/* Śledzenie linków */}
         <section className="peria-section glitch-in">
           <div className="peria-section-label">
-            <h2 className="label" data-text="Dane lokalne">Dane lokalne</h2>
+            <h2 className="label" data-text="Śledzenie linków">Śledzenie linków</h2>
           </div>
           <p className="peria-text">
-            Wszystko siedzi w jednym pliku JSON na Twoim dysku. Żadnego logowania, żadnej synchronizacji, żadnych danych w czyjejś chmurze. Export i import z ustawień — backup kiedy chcesz, przywrócenie w sekundę.
+            Przy każdej aplikacji możesz wygenerować otagowane CV — PDF identyczny wizualnie, ale z&nbsp;linkami przekierowującymi przez serwer. Wysyłasz CV rekruterowi. Kliknie LinkedIn albo GitHub — dostajesz powiadomienie.
+          </p>
+          <blockquote className="peria-blockquote">
+            Wiesz, że ktoś przejrzał CV — zanim oddzwoni. Albo nie oddzwoni — też wiesz.
+          </blockquote>
+        </section>
+
+        {/* Rozmowy i pytania */}
+        <section className="peria-section glitch-in">
+          <div className="peria-section-label">
+            <h2 className="label" data-text="Rozmowy i pytania">Rozmowy i pytania</h2>
+          </div>
+          <p className="peria-text">
+            Rozmowy kwalifikacyjne mają własny widok — data, godzina, link do Meet albo Zoom, notatki co poszło dobrze i&nbsp;co mogło pójść lepiej. Powiązane z&nbsp;konkretną aplikacją.
+          </p>
+          <p className="peria-text" style={{ marginTop: '1.5rem' }}>
+            Baza pytań rekrutacyjnych z&nbsp;kategoriami i&nbsp;poziomami trudności. Licznik ile razy dane pytanie padło na rozmowie. Do tego biblioteka historii STAR — Situation, Task, Action, Result — z&nbsp;tagami i&nbsp;ratingiem skuteczności.
           </p>
         </section>
 
@@ -129,6 +136,49 @@ export default function JobOdysseyPage() {
             {stack.map((tech) => (
               <span key={tech} className="strzykawa-stack-tag">{tech}</span>
             ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="peria-section glitch-in">
+          <div className="peria-section-label">
+            <h2 className="label" data-text="Działa. Możesz zajrzeć.">Działa. Możesz zajrzeć.</h2>
+          </div>
+          <p className="peria-text">
+            Aplikacja jest dostępna za darmo — wystarczy konto.
+          </p>
+          <a
+            href="https://job-odyssey.lukasznowak.dev"
+            className="strzykawa-cta-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="jo-cta-label">Otwórz Job Odyssey →</span>
+          </a>
+          <p className="strzykawa-cta-url">job-odyssey.lukasznowak.dev</p>
+        </section>
+
+        {/* Postaw kawę */}
+        <section className="project-page-coffee glitch-in">
+          <div className="coffee-inner">
+            <h2 className="label" data-text="Wsparcie">Wsparcie</h2>
+            <h2 className="coffee-heading">
+              Aplikacja pomogła Ci w&nbsp;rekrutacji?
+            </h2>
+            <p className="coffee-text">
+              Job Odyssey jest darmowe i&nbsp;open source. Jeśli ułatwiło Ci szukanie pracy — możesz postawić kawę.
+            </p>
+            <a
+              href="https://buycoffee.to/lukasznowak.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://buycoffee.to/static/img/share/share-button-white.png"
+                alt="Postaw mi kawę na buycoffee.to"
+                className="buycoffee-btn"
+              />
+            </a>
           </div>
         </section>
 
