@@ -22,15 +22,18 @@
   display: inline-block;
   padding: 0.75rem 2rem;
   border: 1px solid #4dd9c0;
-  color: #4dd9c0;
+  background: #4dd9c0;
+  color: transparent;
   font-family: var(--font-display);
   font-size: 1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  -webkit-text-stroke: 1px #0a0a0a;
 }
 
 .strzykawa-cta-btn:hover .jo-cta-label {
-  background: #4dd9c0;
-  color: #0a0a0a;
+  background: transparent;
+  color: #4dd9c0;
+  -webkit-text-stroke: 0;
 }

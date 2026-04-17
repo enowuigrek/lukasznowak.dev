@@ -148,14 +148,14 @@ export default function JobOdysseyPage() {
             Aplikacja jest dostępna za darmo — wystarczy konto.
           </p>
           <a
-            href="https://job-odyssey.lukasznowak.dev"
+            href="https://job-odyssey.netlify.app"
             className="strzykawa-cta-btn"
             target="_blank"
             rel="noopener noreferrer"
           >
             <span className="jo-cta-label">Otwórz Job Odyssey →</span>
           </a>
-          <p className="strzykawa-cta-url">job-odyssey.lukasznowak.dev</p>
+          <p className="strzykawa-cta-url">job-odyssey.netlify.app</p>
         </section>
 
         {/* Postaw kawę */}
