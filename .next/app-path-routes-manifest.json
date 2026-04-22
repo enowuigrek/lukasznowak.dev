@@ -1,9 +1,8 @@
 {
   "/_not-found/page": "/_not-found",
-  "/projekt/[slug]/page": "/projekt/[slug]",
+  "/projekt/peria/page": "/projekt/peria",
+  "/projekt/uknuta-magia/page": "/projekt/uknuta-magia",
   "/page": "/",
   "/projekt/job-odyssey/page": "/projekt/job-odyssey",
-  "/projekt/peria/page": "/projekt/peria",
-  "/projekt/strzykawa/page": "/projekt/strzykawa",
-  "/projekt/uknuta-magia/page": "/projekt/uknuta-magia"
+  "/projekt/strzykawa/page": "/projekt/strzykawa"
 }

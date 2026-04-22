@@ -3,14 +3,14 @@
     "/_not-found/page": [
       "static/chunks/webpack-44471852539dfd34.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-4f212684648fcab9.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
-      "static/chunks/app/_not-found/page-a7984eb19c6925ac.js"
+      "static/chunks/app/_not-found/page-f187ad254cc1b0eb.js"
     ],
     "/not-found": [
       "static/chunks/webpack-44471852539dfd34.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-4f212684648fcab9.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
       "static/chunks/619-ba102abea3e3d0e4.js",
       "static/chunks/app/not-found-617e520c0b322b7e.js"
@@ -18,7 +18,7 @@
     "/layout": [
       "static/chunks/webpack-44471852539dfd34.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-4f212684648fcab9.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
       "static/css/bde8df18868888f0.css",
       "static/css/bde4b98810e29388.css",
@@ -32,17 +32,32 @@
       "static/css/4c689586d8054189.css",
       "static/chunks/app/layout-b6c24b43dc72fe7f.js"
     ],
-    "/projekt/[slug]/page": [
+    "/projekt/peria/page": [
       "static/chunks/webpack-44471852539dfd34.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-4f212684648fcab9.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
-      "static/chunks/app/projekt/[slug]/page-a7984eb19c6925ac.js"
+      "static/css/bde4b98810e29388.css",
+      "static/css/c608a47ce0fa079a.css",
+      "static/css/73e44cbde579fd25.css",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/projekt/peria/page-f296292860fc8fd1.js"
+    ],
+    "/projekt/uknuta-magia/page": [
+      "static/chunks/webpack-44471852539dfd34.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
+      "static/chunks/main-app-090a3a1369142248.js",
+      "static/css/c608a47ce0fa079a.css",
+      "static/css/73e44cbde579fd25.css",
+      "static/css/302eb6f2ecb8a600.css",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/projekt/uknuta-magia/page-dcb3183d366e85a3.js"
     ],
     "/page": [
       "static/chunks/webpack-44471852539dfd34.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-4f212684648fcab9.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
       "static/css/c608a47ce0fa079a.css",
       "static/css/d23da9235254d3d1.css",
@@ -53,7 +68,7 @@
     "/projekt/job-odyssey/page": [
       "static/chunks/webpack-44471852539dfd34.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-4f212684648fcab9.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
       "static/css/c608a47ce0fa079a.css",
       "static/css/73e44cbde579fd25.css",
@@ -61,21 +76,10 @@
       "static/chunks/619-ba102abea3e3d0e4.js",
       "static/chunks/app/projekt/job-odyssey/page-2c06cffd70677ebf.js"
     ],
-    "/projekt/peria/page": [
-      "static/chunks/webpack-44471852539dfd34.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-4f212684648fcab9.js",
-      "static/chunks/main-app-090a3a1369142248.js",
-      "static/css/bde4b98810e29388.css",
-      "static/css/c608a47ce0fa079a.css",
-      "static/css/73e44cbde579fd25.css",
-      "static/chunks/619-ba102abea3e3d0e4.js",
-      "static/chunks/app/projekt/peria/page-f296292860fc8fd1.js"
-    ],
     "/projekt/strzykawa/page": [
       "static/chunks/webpack-44471852539dfd34.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-4f212684648fcab9.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
       "static/css/bde4b98810e29388.css",
       "static/css/c608a47ce0fa079a.css",
@@ -83,17 +87,6 @@
       "static/css/9c8c45f7a8c3a258.css",
       "static/chunks/619-ba102abea3e3d0e4.js",
       "static/chunks/app/projekt/strzykawa/page-64fd475b85a0db89.js"
-    ],
-    "/projekt/uknuta-magia/page": [
-      "static/chunks/webpack-44471852539dfd34.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-4f212684648fcab9.js",
-      "static/chunks/main-app-090a3a1369142248.js",
-      "static/css/c608a47ce0fa079a.css",
-      "static/css/73e44cbde579fd25.css",
-      "static/css/302eb6f2ecb8a600.css",
-      "static/chunks/619-ba102abea3e3d0e4.js",
-      "static/chunks/app/projekt/uknuta-magia/page-dcb3183d366e85a3.js"
     ]
   }
 }
