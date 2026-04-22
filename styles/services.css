@@ -21,7 +21,7 @@
 }
 
 .service-tile {
-  background: var(--bg);
+  background: var(--bg-card);
   padding: 3.5rem 2.5rem;
   position: relative;
   overflow: hidden;
@@ -31,17 +31,22 @@
 }
 
 .service-tile:hover {
-  background: var(--bg);
+  background: var(--bg-card-hover);
 }
 
 .service-number {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-dim);
+  font-weight: 600;
+  color: var(--text-muted);
   letter-spacing: 0.1em;
   margin-bottom: 1.5rem;
   display: block;
+  transition: color 0.3s ease;
+}
+
+.service-tile:hover .service-number {
+  color: var(--text);
 }
 
 .service-title {

@@ -25,7 +25,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="hero-description">
-          Tworzę strony, sklepy i&nbsp;narzędzia, które pracują na Twój biznes — i&nbsp;przy okazji dobrze wyglądają.
+          React, Next.js, Supabase. Frontend, backend, deploy. Sam.
         </p>
 
         <p className="hero-subtitle">
@@ -38,6 +38,11 @@ export default function HeroSection() {
             </span>
           ))}
         </p>
+
+        <div className="hero-status">
+          <span className="hero-status-dot" />
+          Dostępny do współpracy
+        </div>
 
         <button
           className="hero-cta glitch-hover"

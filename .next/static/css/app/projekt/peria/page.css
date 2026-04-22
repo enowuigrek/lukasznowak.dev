@@ -1,0 +1,1167 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/glitch.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   GLITCH / RGB SPLIT
+   ═══════════════════════════════════════════ */
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Warstwa niebieska */
+.glitch-text::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+  transform: translate(
+    calc(var(--glitch-x, 0) * -1px),
+    calc(var(--glitch-y, 0) * 0.5px)
+  );
+  -webkit-clip-path: inset(0);
+          clip-path: inset(0);
+  animation: glitch-blue 4s infinite;
+}
+
+/* Warstwa czerwona */
+.glitch-text::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+  transform: translate(
+    calc(var(--glitch-x, 0) * 1px),
+    calc(var(--glitch-y, 0) * -0.5px)
+  );
+  -webkit-clip-path: inset(0);
+          clip-path: inset(0);
+  animation: glitch-red 4s infinite;
+}
+
+@keyframes glitch-blue {
+  0%, 85%, 100% {
+    -webkit-clip-path: inset(0);
+            clip-path: inset(0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+  87% {
+    -webkit-clip-path: inset(15% 0 75% 0);
+            clip-path: inset(15% 0 75% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px - 3px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+  89% {
+    -webkit-clip-path: inset(60% 0 10% 0);
+            clip-path: inset(60% 0 10% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px + 2px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+  91% {
+    -webkit-clip-path: inset(30% 0 50% 0);
+            clip-path: inset(30% 0 50% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px - 1px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+}
+
+@keyframes glitch-red {
+  0%, 85%, 100% {
+    -webkit-clip-path: inset(0);
+            clip-path: inset(0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+  88% {
+    -webkit-clip-path: inset(70% 0 5% 0);
+            clip-path: inset(70% 0 5% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px + 3px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+  90% {
+    -webkit-clip-path: inset(5% 0 80% 0);
+            clip-path: inset(5% 0 80% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px - 2px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+  92% {
+    -webkit-clip-path: inset(40% 0 40% 0);
+            clip-path: inset(40% 0 40% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px + 1px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Glitch hover na przyciskach
+   ═══════════════════════════════════════════ */
+
+.glitch-hover {
+  position: relative;
+}
+
+.glitch-hover .glitch-bg-blue,
+.glitch-hover .glitch-bg-red {
+  position: absolute;
+  width: calc(100% + 12px);
+  height: calc(100% + 6px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: -1;
+}
+
+.glitch-hover .glitch-bg-blue {
+  top: -4px;
+  left: -8px;
+  background: rgba(45, 127, 255, 0.5);
+}
+
+.glitch-hover .glitch-bg-red {
+  top: 2px;
+  left: 4px;
+  background: rgba(255, 45, 45, 0.5);
+}
+
+.glitch-hover:hover .glitch-bg-blue {
+  opacity: 1;
+  animation: outer-glitch-blue 0.4s steps(3) forwards;
+}
+
+.glitch-hover:hover .glitch-bg-red {
+  opacity: 1;
+  animation: outer-glitch-red 0.4s steps(3) forwards;
+}
+
+@keyframes outer-glitch-blue {
+  0%   { transform: translate(-6px, -3px); -webkit-clip-path: inset(0 60% 0 0); clip-path: inset(0 60% 0 0); opacity: 0; }
+  25%  { transform: translate(-3px, -1px); -webkit-clip-path: inset(20% 0 50% 0); clip-path: inset(20% 0 50% 0); opacity: 1; }
+  50%  { transform: translate(-5px, -2px); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.8; }
+  75%  { transform: translate(-2px, -1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); }
+  100% { transform: translate(-2px, -1px); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.7; }
+}
+
+@keyframes outer-glitch-red {
+  0%   { transform: translate(6px, 3px); -webkit-clip-path: inset(0 0 0 60%); clip-path: inset(0 0 0 60%); opacity: 0; }
+  25%  { transform: translate(3px, 1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); opacity: 1; }
+  50%  { transform: translate(5px, 2px); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.8; }
+  75%  { transform: translate(2px, 1px); -webkit-clip-path: inset(20% 0 50% 0); clip-path: inset(20% 0 50% 0); }
+  100% { transform: translate(2px, 1px); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.7; }
+}
+
+/* Tekst glitch layers */
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: 1;
+}
+
+.glitch-hover::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.glitch-hover::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+.glitch-hover:hover::before {
+  opacity: 1;
+  animation: btn-glitch-blue 0.3s steps(2) forwards;
+}
+
+.glitch-hover:hover::after {
+  opacity: 1;
+  animation: btn-glitch-red 0.3s steps(2) forwards;
+}
+
+.glitch-hover > span,
+.glitch-hover > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes btn-glitch-blue {
+  0% { transform: translate(-3px, 1px); -webkit-clip-path: inset(20% 0 60% 0); clip-path: inset(20% 0 60% 0); }
+  25% { transform: translate(2px, -1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); }
+  50% { transform: translate(-1px, 2px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  75% { transform: translate(3px, 0px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  100% { transform: translate(-1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+}
+
+@keyframes btn-glitch-red {
+  0% { transform: translate(3px, -1px); -webkit-clip-path: inset(60% 0 20% 0); clip-path: inset(60% 0 20% 0); }
+  25% { transform: translate(-2px, 1px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  50% { transform: translate(1px, -2px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  75% { transform: translate(-3px, 0px); -webkit-clip-path: inset(30% 0 40% 0); clip-path: inset(30% 0 40% 0); }
+  100% { transform: translate(1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+}
+
+.glitch-hover:active {
+  animation: btn-shake 0.3s steps(3);
+}
+
+@keyframes btn-shake {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+/* ═══════════════════════════════════════════
+   Inline glitch — do pojedynczych słów
+   ═══════════════════════════════════════════ */
+
+.glitch-word {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.glitch-word::before,
+.glitch-word::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.glitch-word::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.glitch-word::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+.glitch-word:hover {
+  color: var(--text);
+}
+
+.glitch-word:hover::before {
+  opacity: 1;
+  animation: btn-glitch-blue 0.35s steps(2) forwards;
+}
+
+.glitch-word:hover::after {
+  opacity: 1;
+  animation: btn-glitch-red 0.35s steps(2) forwards;
+}
+
+/* ═══════════════════════════════════════════
+   Scroll glitch — RGB split przy scrollowaniu
+   — nagłówki, tytuły projektów, tytuły usług,
+     labele sekcji, buttony
+   ═══════════════════════════════════════════ */
+
+.scroll-glitch-active .glitch-text::before,
+.scroll-glitch-active .service-title::before,
+.scroll-glitch-active .project-card-title::before,
+.scroll-glitch-active .glitch-hover::before {
+  transform: translate(-3px, calc(var(--scroll-dir, 1) * 2px)) !important;
+  opacity: 0.6 !important;
+  transition: none;
+}
+
+.scroll-glitch-active .glitch-text::after,
+.scroll-glitch-active .service-title::after,
+.scroll-glitch-active .project-card-title::after,
+.scroll-glitch-active .glitch-hover::after {
+  transform: translate(3px, calc(var(--scroll-dir, 1) * -2px)) !important;
+  opacity: 0.6 !important;
+  transition: none;
+}
+
+/* ═══════════════════════════════════════════
+   Staggered glitch-in — delikatny, z RGB flash
+   Nie używa clip-path na głównym elemencie
+   (naprawia bug z niedoczytaniem kart)
+   ═══════════════════════════════════════════ */
+
+.glitch-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.glitch-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.glitch-in.stagger-1 { transition-delay: 0s; }
+.glitch-in.stagger-2 { transition-delay: 0.08s; }
+.glitch-in.stagger-3 { transition-delay: 0.16s; }
+.glitch-in.stagger-4 { transition-delay: 0.24s; }
+
+/* RGB flash — box-shadow blip przy wjeździe */
+.glitch-in.visible {
+  animation: glitch-in-rgb 0.4s ease-out forwards;
+}
+
+.glitch-in.stagger-1.visible { animation-delay: 0s; }
+.glitch-in.stagger-2.visible { animation-delay: 0.08s; }
+.glitch-in.stagger-3.visible { animation-delay: 0.16s; }
+.glitch-in.stagger-4.visible { animation-delay: 0.24s; }
+
+@keyframes glitch-in-rgb {
+  0% {
+    box-shadow:
+      -4px 0 0 rgba(45, 127, 255, 0.3),
+       4px 0 0 rgba(255, 45, 45, 0.3);
+    filter: blur(0.5px);
+  }
+  30% {
+    box-shadow:
+      -2px 0 0 rgba(45, 127, 255, 0.2),
+       2px 0 0 rgba(255, 45, 45, 0.2);
+    filter: blur(0);
+  }
+  100% {
+    box-shadow: none;
+    filter: none;
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/vhs.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   VHS OVERLAY — scan lines + noise
+   ═══════════════════════════════════════════ */
+
+.vhs-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Scan lines — ciemne, jak oryginalne VHS */
+.vhs-scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  opacity: 0.07;
+  animation: scanline-drift 10s linear infinite;
+}
+
+@keyframes scanline-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200px; }
+}
+
+/* Noise — intensywniejsze */
+.vhs-noise {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  filter: url(#vhs-noise-filter);
+  animation: noise-shift 0.5s steps(4) infinite;
+}
+
+@keyframes noise-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5%, -5%); }
+  50% { transform: translate(5%, -10%); }
+  75% { transform: translate(-10%, 5%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Flicker */
+.vhs-flicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(232, 230, 227, 0.015);
+  opacity: 0;
+  animation: flicker 8s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 96%, 100% { opacity: 0; }
+  97% { opacity: 1; }
+  98% { opacity: 0; }
+  99% { opacity: 0.5; }
+}
+
+/* Horizontal glitch bar */
+.vhs-glitch-bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(232, 230, 227, 0.1);
+  opacity: 0;
+  animation: glitch-bar 12s ease-in-out infinite;
+}
+
+@keyframes glitch-bar {
+  0%, 90%, 100% {
+    opacity: 0;
+    top: 30%;
+  }
+  92% {
+    opacity: 1;
+    top: 30%;
+  }
+  94% {
+    opacity: 0.5;
+    top: 65%;
+  }
+  96% {
+    opacity: 0;
+    top: 65%;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   CRT PHOSPHOR SCANLINES — na tle strony
+   Jasne linie jak fosfor w starym CRT
+   ═══════════════════════════════════════════ */
+
+.crt-scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(232, 230, 227, 0.008) 3px,
+    rgba(232, 230, 227, 0.008) 4px
+  );
+  animation: crt-drift 20s linear infinite;
+}
+
+@keyframes crt-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 400px; }
+}
+
+/* CRT vignette — ciemniejsze krawędzie jak stary TV */
+.crt-vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+/* Ukryj na mobile (performance) */
+@media (max-width: 768px) {
+  .vhs-noise {
+    display: none;
+  }
+
+  .crt-vignette {
+    display: none;
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/footer.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+
+.footer {
+  min-height: auto !important;
+  padding: 2.5rem 4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: none;
+}
+
+.footer-copyright {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.footer-copyright:hover {
+  color: var(--text);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/project-page.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   PROJECT PAGE — podstrona projektu
+   ═══════════════════════════════════════════ */
+
+.project-page {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-page-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 4rem;
+  background: var(--bg);
+}
+
+/* Back link — plain text with glitch-word, no button shape */
+.project-page-back {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.project-page-back:hover {
+  color: var(--text);
+}
+
+/* Hero */
+.project-page-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--section-padding);
+  padding-top: 7rem;
+  min-height: 60vh;
+}
+
+.project-page-title {
+  text-transform: uppercase;
+}
+
+/* Content — placeholder */
+.project-page-content {
+  padding: 0 4rem 4rem;
+  border-top: 1px solid var(--border);
+  padding-top: 4rem;
+}
+
+.project-page-placeholder {
+  margin-bottom: 3rem;
+}
+
+.project-page-placeholder-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-top: 1rem;
+  max-width: 500px;
+}
+
+/* Button z glitch — biały filled */
+.project-page-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-page-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  text-decoration: none;
+  transition: border-color 0.3s ease;
+  position: relative;
+  overflow: visible;
+}
+
+.project-page-btn:hover {
+  /* glitch-hover handles */
+}
+
+/* ═══════════════════════════════════════════
+   BUY ME A COFFEE
+   ═══════════════════════════════════════════ */
+
+.project-page-coffee {
+  padding: 6rem 4rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.coffee-inner {
+  max-width: 600px;
+}
+
+.coffee-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.coffee-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.coffee-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.1rem 3rem;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  text-decoration: none;
+  position: relative;
+  overflow: visible;
+  transition: border-color 0.3s ease;
+}
+
+.coffee-btn:hover {
+  /* glitch hover */
+}
+
+/* iOS safe area */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .project-page-nav {
+    padding-top: calc(1.5rem + env(safe-area-inset-top));
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .project-page-nav {
+    padding: 1rem 1.5rem;
+    padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+  }
+
+  .project-page-hero {
+    padding-top: 7rem;
+    min-height: 40vh;
+  }
+
+  .project-page-content {
+    padding: 3rem 1.5rem;
+  }
+
+  .project-page-coffee {
+    padding: 4rem 1.5rem;
+  }
+
+  .coffee-btn,
+  .project-page-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Related projects ── */
+.project-page-related {
+  padding: 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.related-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.related-project-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+
+.related-project-link:hover {
+  border-color: rgba(232, 230, 227, 0.35);
+  background: var(--bg-card);
+}
+
+.related-project-category {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.45;
+}
+
+.related-project-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .project-page-related {
+    padding: 3rem 1.5rem;
+  }
+
+  .related-projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/peria-page.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   PERIA — dedicated project page
+   ═══════════════════════════════════════════ */
+
+/* Tagline pod tytułem */
+.peria-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0;
+  line-height: 1.5;
+  margin-top: 1.5rem;
+}
+
+.peria-intro {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(232, 230, 227, 0.75);
+  max-width: 600px;
+  margin-top: 1.5rem;
+}
+
+/* Sekcje treści */
+.peria-section {
+  padding: 3.5rem 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.peria-section-label {
+  margin-bottom: 2rem;
+}
+
+.peria-text {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(232, 230, 227, 0.85);
+  max-width: 680px;
+}
+
+/* ═══════════════════════════════════════════
+   SCREENSHOTS — przed features grid
+   ═══════════════════════════════════════════ */
+
+.peria-screenshots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  gap: 2rem;
+  margin: 3rem 0;
+  max-width: 600px;
+}
+
+.peria-screenshot {
+  width: 100%;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  max-width: 280px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.peria-screenshot:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+}
+
+/* ═══════════════════════════════════════════
+   FEATURES GRID — 3 kolumny jak services
+   ═══════════════════════════════════════════ */
+
+.peria-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+  gap: 1px;
+  background: var(--border);
+  margin-top: 1rem;
+}
+
+.peria-feature {
+  background: var(--bg);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.peria-feature-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.peria-feature-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.peria-feature-description {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(232, 230, 227, 0.85);
+}
+
+/* ═══════════════════════════════════════════
+   BLOCKQUOTE — filozofia motto
+   ═══════════════════════════════════════════ */
+
+.peria-blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--text-muted);
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 680px;
+}
+
+/* ═══════════════════════════════════════════
+   INSTALL GRID — iOS / Android
+   ═══════════════════════════════════════════ */
+
+.peria-install-intro {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(232, 230, 227, 0.85);
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.peria-install-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+}
+
+.peria-install-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+}
+
+.peria-install-platform {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
+.peria-install-steps {
+  list-style: none;
+  counter-reset: step;
+}
+
+.peria-install-steps li {
+  counter-increment: step;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(232, 230, 227, 0.85);
+}
+
+.peria-install-steps li::before {
+  content: counter(step) '.';
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 1.5rem;
+  padding-top: 0.15rem;
+}
+
+/* Install screenshots */
+.peria-install-screenshots {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.peria-install-screenshot {
+  width: 48%;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  max-width: 200px;
+}
+
+/* ═══════════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════════ */
+
+.peria-cta-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.peria-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.1rem 3rem;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  text-decoration: none;
+  position: relative;
+  overflow: visible;
+  transition: border-color 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════
+   LIGHTBOX — powiększenie screenshotów
+   ═══════════════════════════════════════════ */
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.lightbox-image {
+  max-width: 90%;
+  max-height: 90%;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+}
+
+/* ═══════════════════════════════════════════
+   BUY COFFEE BUTTON
+   ═══════════════════════════════════════════ */
+
+.buycoffee-btn {
+  width: 351px;
+  height: 92px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.buycoffee-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .peria-section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .peria-screenshots {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .buycoffee-btn {
+    width: 280px;
+    height: 73px;
+  }
+
+  .peria-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peria-feature {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .peria-install-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peria-install-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .peria-install-screenshots {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .peria-install-screenshot {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .peria-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

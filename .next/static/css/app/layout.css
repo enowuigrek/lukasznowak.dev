@@ -1,0 +1,3348 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/global.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — lukasznowak.dev
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* Kolory */
+  --bg: #0a0a0a;
+  --bg-card: #181818;
+  --bg-card-hover: #222222;
+  --text: #f5f5f5;
+  --text-muted: rgba(232, 230, 227, 0.85);
+  --text-dim: rgba(232, 230, 227, 0.3);
+  --glitch-red: #ff2d2d;
+  --glitch-blue: #2d7fff;
+  --accent: #e8e6e3;
+  --border: rgba(232, 230, 227, 0.18);
+
+  /* Typografia */
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'Fira Code', monospace;
+
+  /* Spacing */
+  --section-padding: 6rem 4rem;
+
+  /* Transition */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* iOS safe area */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+/* ═══════════════════════════════════════════
+   CRT BARREL DISTORTION — subtelne zniekształcenie
+   jak stary telewizor kineskopowy
+   ═══════════════════════════════════════════ */
+
+#root {
+  position: relative;
+}
+
+/* Barrel distortion na main content — NIE na #root,
+   bo transform na #root łamie position:fixed w navbarze */
+main {
+  position: relative;
+  transform: perspective(1800px) rotateX(0.3deg);
+  transform-origin: center center;
+}
+
+/* CRT edge glow — subtelna poświata na krawędziach */
+#root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  box-shadow:
+    inset 0 0 120px rgba(0, 0, 0, 0.25),
+    inset 0 0 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Normalny scroll — bez scroll-snap */
+.scroll-container {
+  /* normalny scroll, żadnego snap */
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: var(--section-padding);
+}
+
+/* Typografia */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+h1 { font-size: clamp(3rem, 8vw, 7rem); }
+h2 { font-size: clamp(2rem, 5vw, 4rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+/* Reset h2.label — nadpisuje globalne style h2 żeby zachować wygląd labeli */
+h2.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  line-height: inherit;
+  margin: 0;
+}
+
+/* Screen-reader only — ukrywa wizualnie, widoczne dla crawlerów i czytników */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Brak zaokrągleń globalnie */
+* {
+  border-radius: 0 !important;
+}
+
+/* Selection */
+::selection {
+  background: var(--glitch-red);
+  color: var(--bg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+/* Animacja wejścia sekcji */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Link reset */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 3rem 1.5rem;
+  }
+
+  .section {
+    min-height: auto;
+  }
+
+  /* Łagodniejszy barrel distortion na mobile */
+  main {
+    transform: perspective(2400px) rotateX(0.15deg);
+  }
+
+  #root::before {
+    box-shadow:
+      inset 0 0 80px rgba(0, 0, 0, 0.2),
+      inset 0 0 40px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* iOS notch / dynamic island support */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .navbar {
+    padding-top: calc(1.5rem + env(safe-area-inset-top));
+  }
+
+  .footer {
+    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom));
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      padding-top: calc(1rem + env(safe-area-inset-top));
+    }
+
+    .navbar.scrolled {
+      padding-top: calc(0.75rem + env(safe-area-inset-top));
+    }
+
+    .footer {
+      padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/glitch.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   GLITCH / RGB SPLIT
+   ═══════════════════════════════════════════ */
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Warstwa niebieska */
+.glitch-text::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+  transform: translate(
+    calc(var(--glitch-x, 0) * -1px),
+    calc(var(--glitch-y, 0) * 0.5px)
+  );
+  -webkit-clip-path: inset(0);
+          clip-path: inset(0);
+  animation: glitch-blue 4s infinite;
+}
+
+/* Warstwa czerwona */
+.glitch-text::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+  transform: translate(
+    calc(var(--glitch-x, 0) * 1px),
+    calc(var(--glitch-y, 0) * -0.5px)
+  );
+  -webkit-clip-path: inset(0);
+          clip-path: inset(0);
+  animation: glitch-red 4s infinite;
+}
+
+@keyframes glitch-blue {
+  0%, 85%, 100% {
+    -webkit-clip-path: inset(0);
+            clip-path: inset(0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+  87% {
+    -webkit-clip-path: inset(15% 0 75% 0);
+            clip-path: inset(15% 0 75% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px - 3px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+  89% {
+    -webkit-clip-path: inset(60% 0 10% 0);
+            clip-path: inset(60% 0 10% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px + 2px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+  91% {
+    -webkit-clip-path: inset(30% 0 50% 0);
+            clip-path: inset(30% 0 50% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * -1px - 1px),
+      calc(var(--glitch-y, 0) * 0.5px)
+    );
+  }
+}
+
+@keyframes glitch-red {
+  0%, 85%, 100% {
+    -webkit-clip-path: inset(0);
+            clip-path: inset(0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+  88% {
+    -webkit-clip-path: inset(70% 0 5% 0);
+            clip-path: inset(70% 0 5% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px + 3px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+  90% {
+    -webkit-clip-path: inset(5% 0 80% 0);
+            clip-path: inset(5% 0 80% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px - 2px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+  92% {
+    -webkit-clip-path: inset(40% 0 40% 0);
+            clip-path: inset(40% 0 40% 0);
+    transform: translate(
+      calc(var(--glitch-x, 0) * 1px + 1px),
+      calc(var(--glitch-y, 0) * -0.5px)
+    );
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Glitch hover na przyciskach
+   ═══════════════════════════════════════════ */
+
+.glitch-hover {
+  position: relative;
+}
+
+.glitch-hover .glitch-bg-blue,
+.glitch-hover .glitch-bg-red {
+  position: absolute;
+  width: calc(100% + 12px);
+  height: calc(100% + 6px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: -1;
+}
+
+.glitch-hover .glitch-bg-blue {
+  top: -4px;
+  left: -8px;
+  background: rgba(45, 127, 255, 0.5);
+}
+
+.glitch-hover .glitch-bg-red {
+  top: 2px;
+  left: 4px;
+  background: rgba(255, 45, 45, 0.5);
+}
+
+.glitch-hover:hover .glitch-bg-blue {
+  opacity: 1;
+  animation: outer-glitch-blue 0.4s steps(3) forwards;
+}
+
+.glitch-hover:hover .glitch-bg-red {
+  opacity: 1;
+  animation: outer-glitch-red 0.4s steps(3) forwards;
+}
+
+@keyframes outer-glitch-blue {
+  0%   { transform: translate(-6px, -3px); -webkit-clip-path: inset(0 60% 0 0); clip-path: inset(0 60% 0 0); opacity: 0; }
+  25%  { transform: translate(-3px, -1px); -webkit-clip-path: inset(20% 0 50% 0); clip-path: inset(20% 0 50% 0); opacity: 1; }
+  50%  { transform: translate(-5px, -2px); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.8; }
+  75%  { transform: translate(-2px, -1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); }
+  100% { transform: translate(-2px, -1px); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.7; }
+}
+
+@keyframes outer-glitch-red {
+  0%   { transform: translate(6px, 3px); -webkit-clip-path: inset(0 0 0 60%); clip-path: inset(0 0 0 60%); opacity: 0; }
+  25%  { transform: translate(3px, 1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); opacity: 1; }
+  50%  { transform: translate(5px, 2px); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.8; }
+  75%  { transform: translate(2px, 1px); -webkit-clip-path: inset(20% 0 50% 0); clip-path: inset(20% 0 50% 0); }
+  100% { transform: translate(2px, 1px); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.7; }
+}
+
+/* Tekst glitch layers */
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: 1;
+}
+
+.glitch-hover::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.glitch-hover::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+.glitch-hover:hover::before {
+  opacity: 1;
+  animation: btn-glitch-blue 0.3s steps(2) forwards;
+}
+
+.glitch-hover:hover::after {
+  opacity: 1;
+  animation: btn-glitch-red 0.3s steps(2) forwards;
+}
+
+.glitch-hover > span,
+.glitch-hover > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes btn-glitch-blue {
+  0% { transform: translate(-3px, 1px); -webkit-clip-path: inset(20% 0 60% 0); clip-path: inset(20% 0 60% 0); }
+  25% { transform: translate(2px, -1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); }
+  50% { transform: translate(-1px, 2px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  75% { transform: translate(3px, 0px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  100% { transform: translate(-1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+}
+
+@keyframes btn-glitch-red {
+  0% { transform: translate(3px, -1px); -webkit-clip-path: inset(60% 0 20% 0); clip-path: inset(60% 0 20% 0); }
+  25% { transform: translate(-2px, 1px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  50% { transform: translate(1px, -2px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  75% { transform: translate(-3px, 0px); -webkit-clip-path: inset(30% 0 40% 0); clip-path: inset(30% 0 40% 0); }
+  100% { transform: translate(1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+}
+
+.glitch-hover:active {
+  animation: btn-shake 0.3s steps(3);
+}
+
+@keyframes btn-shake {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+/* ═══════════════════════════════════════════
+   Inline glitch — do pojedynczych słów
+   ═══════════════════════════════════════════ */
+
+.glitch-word {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.glitch-word::before,
+.glitch-word::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.glitch-word::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.glitch-word::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+.glitch-word:hover {
+  color: var(--text);
+}
+
+.glitch-word:hover::before {
+  opacity: 1;
+  animation: btn-glitch-blue 0.35s steps(2) forwards;
+}
+
+.glitch-word:hover::after {
+  opacity: 1;
+  animation: btn-glitch-red 0.35s steps(2) forwards;
+}
+
+/* ═══════════════════════════════════════════
+   Scroll glitch — RGB split przy scrollowaniu
+   — nagłówki, tytuły projektów, tytuły usług,
+     labele sekcji, buttony
+   ═══════════════════════════════════════════ */
+
+.scroll-glitch-active .glitch-text::before,
+.scroll-glitch-active .service-title::before,
+.scroll-glitch-active .project-card-title::before,
+.scroll-glitch-active .glitch-hover::before {
+  transform: translate(-3px, calc(var(--scroll-dir, 1) * 2px)) !important;
+  opacity: 0.6 !important;
+  transition: none;
+}
+
+.scroll-glitch-active .glitch-text::after,
+.scroll-glitch-active .service-title::after,
+.scroll-glitch-active .project-card-title::after,
+.scroll-glitch-active .glitch-hover::after {
+  transform: translate(3px, calc(var(--scroll-dir, 1) * -2px)) !important;
+  opacity: 0.6 !important;
+  transition: none;
+}
+
+/* ═══════════════════════════════════════════
+   Staggered glitch-in — delikatny, z RGB flash
+   Nie używa clip-path na głównym elemencie
+   (naprawia bug z niedoczytaniem kart)
+   ═══════════════════════════════════════════ */
+
+.glitch-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.glitch-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.glitch-in.stagger-1 { transition-delay: 0s; }
+.glitch-in.stagger-2 { transition-delay: 0.08s; }
+.glitch-in.stagger-3 { transition-delay: 0.16s; }
+.glitch-in.stagger-4 { transition-delay: 0.24s; }
+
+/* RGB flash — box-shadow blip przy wjeździe */
+.glitch-in.visible {
+  animation: glitch-in-rgb 0.4s ease-out forwards;
+}
+
+.glitch-in.stagger-1.visible { animation-delay: 0s; }
+.glitch-in.stagger-2.visible { animation-delay: 0.08s; }
+.glitch-in.stagger-3.visible { animation-delay: 0.16s; }
+.glitch-in.stagger-4.visible { animation-delay: 0.24s; }
+
+@keyframes glitch-in-rgb {
+  0% {
+    box-shadow:
+      -4px 0 0 rgba(45, 127, 255, 0.3),
+       4px 0 0 rgba(255, 45, 45, 0.3);
+    filter: blur(0.5px);
+  }
+  30% {
+    box-shadow:
+      -2px 0 0 rgba(45, 127, 255, 0.2),
+       2px 0 0 rgba(255, 45, 45, 0.2);
+    filter: blur(0);
+  }
+  100% {
+    box-shadow: none;
+    filter: none;
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/vhs.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   VHS OVERLAY — scan lines + noise
+   ═══════════════════════════════════════════ */
+
+.vhs-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Scan lines — ciemne, jak oryginalne VHS */
+.vhs-scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  opacity: 0.07;
+  animation: scanline-drift 10s linear infinite;
+}
+
+@keyframes scanline-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200px; }
+}
+
+/* Noise — intensywniejsze */
+.vhs-noise {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  filter: url(#vhs-noise-filter);
+  animation: noise-shift 0.5s steps(4) infinite;
+}
+
+@keyframes noise-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5%, -5%); }
+  50% { transform: translate(5%, -10%); }
+  75% { transform: translate(-10%, 5%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Flicker */
+.vhs-flicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(232, 230, 227, 0.015);
+  opacity: 0;
+  animation: flicker 8s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 96%, 100% { opacity: 0; }
+  97% { opacity: 1; }
+  98% { opacity: 0; }
+  99% { opacity: 0.5; }
+}
+
+/* Horizontal glitch bar */
+.vhs-glitch-bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(232, 230, 227, 0.1);
+  opacity: 0;
+  animation: glitch-bar 12s ease-in-out infinite;
+}
+
+@keyframes glitch-bar {
+  0%, 90%, 100% {
+    opacity: 0;
+    top: 30%;
+  }
+  92% {
+    opacity: 1;
+    top: 30%;
+  }
+  94% {
+    opacity: 0.5;
+    top: 65%;
+  }
+  96% {
+    opacity: 0;
+    top: 65%;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   CRT PHOSPHOR SCANLINES — na tle strony
+   Jasne linie jak fosfor w starym CRT
+   ═══════════════════════════════════════════ */
+
+.crt-scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(232, 230, 227, 0.008) 3px,
+    rgba(232, 230, 227, 0.008) 4px
+  );
+  animation: crt-drift 20s linear infinite;
+}
+
+@keyframes crt-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 400px; }
+}
+
+/* CRT vignette — ciemniejsze krawędzie jak stary TV */
+.crt-vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+/* Ukryj na mobile (performance) */
+@media (max-width: 768px) {
+  .vhs-noise {
+    display: none;
+  }
+
+  .crt-vignette {
+    display: none;
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/cursor.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   CUSTOM CURSOR — tymczasowo wyłączony
+   Zostawiamy plik na przyszłe efekty
+   ═══════════════════════════════════════════ */
+
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/navbar.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   NAVBAR
+   ═══════════════════════════════════════════ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg);
+  transition: padding 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: var(--bg);
+  padding: 1rem 4rem;
+}
+
+/* Logo z glitch appear/disappear + cursor-reactive glitch */
+.navbar-logo {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text);
+  position: relative;
+  opacity: 0;
+  transform: translateX(-10px);
+  pointer-events: none;
+  transition: opacity 0.01s, transform 0.01s;
+  --logo-glitch-x: 0;
+  --logo-glitch-y: 0;
+}
+
+.navbar-logo.glitch-logo.visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  animation: logo-glitch-in 0.5s steps(3) forwards;
+}
+
+/* Glitch layers na logo — cursor-reactive */
+.navbar-logo.glitch-logo::before,
+.navbar-logo.glitch-logo::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.navbar-logo.glitch-logo::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+  transform: translate(
+    calc(var(--logo-glitch-x) * -1px),
+    calc(var(--logo-glitch-y) * 0.5px)
+  );
+}
+
+.navbar-logo.glitch-logo::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+  transform: translate(
+    calc(var(--logo-glitch-x) * 1px),
+    calc(var(--logo-glitch-y) * -0.5px)
+  );
+}
+
+/* Na hover — pokaż cursor-reactive glitch */
+.navbar-logo.glitch-logo.visible:hover::before,
+.navbar-logo.glitch-logo.visible:hover::after {
+  opacity: 0.8;
+}
+
+/* Glitch wejście */
+.navbar-logo.glitch-logo.visible::before {
+  animation: logo-layer-blue 0.5s steps(3) forwards;
+}
+
+.navbar-logo.glitch-logo.visible::after {
+  animation: logo-layer-red 0.5s steps(3) forwards;
+}
+
+@keyframes logo-glitch-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+  }
+  20% {
+    opacity: 1;
+    -webkit-clip-path: inset(40% 60% 40% 0);
+            clip-path: inset(40% 60% 40% 0);
+  }
+  40% {
+    -webkit-clip-path: inset(0 30% 60% 0);
+            clip-path: inset(0 30% 60% 0);
+  }
+  60% {
+    -webkit-clip-path: inset(60% 0 0 0);
+            clip-path: inset(60% 0 0 0);
+  }
+  80% {
+    -webkit-clip-path: inset(20% 0 20% 0);
+            clip-path: inset(20% 0 20% 0);
+    transform: translateX(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-clip-path: inset(0);
+            clip-path: inset(0);
+  }
+}
+
+@keyframes logo-layer-blue {
+  0% { opacity: 0; }
+  20% { opacity: 1; transform: translate(-4px, 1px); -webkit-clip-path: inset(30% 0 50% 0); clip-path: inset(30% 0 50% 0); }
+  40% { transform: translate(2px, -1px); -webkit-clip-path: inset(60% 0 10% 0); clip-path: inset(60% 0 10% 0); }
+  60% { transform: translate(-2px, 0); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  80% { transform: translate(1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.4; }
+  100% { opacity: 0; transform: translate(0); }
+}
+
+@keyframes logo-layer-red {
+  0% { opacity: 0; }
+  20% { opacity: 1; transform: translate(4px, -1px); -webkit-clip-path: inset(50% 0 30% 0); clip-path: inset(50% 0 30% 0); }
+  40% { transform: translate(-2px, 1px); -webkit-clip-path: inset(10% 0 60% 0); clip-path: inset(10% 0 60% 0); }
+  60% { transform: translate(2px, 0); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  80% { transform: translate(-1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.4; }
+  100% { opacity: 0; transform: translate(0); }
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+/* Navbar link — teraz glitch-word obsługuje hover via pseudo-elements */
+.navbar-link {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+/* Active / hover — zmiana koloru tekstu */
+.navbar-link:hover,
+.navbar-link.active {
+  color: var(--text);
+}
+
+/* Aktywna sekcja — stała subtelna czerwona kreska */
+.navbar-link.active::before,
+.navbar-link.active::after {
+  opacity: 0.3 !important;
+}
+
+/* Hamburger — hidden on desktop */
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  z-index: 1001;
+  position: relative;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--text);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  position: relative;
+}
+
+/* Hamburger → X — standardowa animacja kresek */
+.navbar-hamburger.open .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.navbar-hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-hamburger.open .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* RGB glitch overlay na hamburgerze podczas kliknięcia */
+.navbar-hamburger::before,
+.navbar-hamburger::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.navbar-hamburger::before {
+  box-shadow: inset 0 0 0 0 var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.navbar-hamburger::after {
+  box-shadow: inset 0 0 0 0 var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+/* RGB flash na open/close */
+.navbar-hamburger.open::before {
+  animation: hamburger-rgb-blue 0.4s ease-out forwards;
+}
+
+.navbar-hamburger.open::after {
+  animation: hamburger-rgb-red 0.4s ease-out forwards;
+}
+
+@keyframes hamburger-rgb-blue {
+  0% {
+    opacity: 0;
+    transform: translate(-3px, 0);
+  }
+  15% {
+    opacity: 0.8;
+    transform: translate(-3px, -1px);
+    box-shadow: -3px 0 6px rgba(45, 127, 255, 0.6);
+  }
+  30% {
+    opacity: 0.5;
+    transform: translate(2px, 1px);
+    box-shadow: -2px 0 4px rgba(45, 127, 255, 0.4);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(-1px, 0);
+    box-shadow: -1px 0 3px rgba(45, 127, 255, 0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0);
+    box-shadow: none;
+  }
+}
+
+@keyframes hamburger-rgb-red {
+  0% {
+    opacity: 0;
+    transform: translate(3px, 0);
+  }
+  15% {
+    opacity: 0.8;
+    transform: translate(3px, 1px);
+    box-shadow: 3px 0 6px rgba(255, 45, 45, 0.6);
+  }
+  30% {
+    opacity: 0.5;
+    transform: translate(-2px, -1px);
+    box-shadow: 2px 0 4px rgba(255, 45, 45, 0.4);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(1px, 0);
+    box-shadow: 1px 0 3px rgba(255, 45, 45, 0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0);
+    box-shadow: none;
+  }
+}
+
+/* Hamburger line RGB shadows — dodatkowy efekt na samych kreskach */
+.navbar-hamburger.open .hamburger-line:nth-child(1)::before,
+.navbar-hamburger.open .hamburger-line:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glitch-blue);
+  opacity: 0;
+  animation: line-glitch-blue 0.4s steps(3) forwards;
+}
+
+.navbar-hamburger.open .hamburger-line:nth-child(1)::after,
+.navbar-hamburger.open .hamburger-line:nth-child(3)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glitch-red);
+  opacity: 0;
+  animation: line-glitch-red 0.4s steps(3) forwards;
+}
+
+@keyframes line-glitch-blue {
+  0% { opacity: 0; transform: translate(0); }
+  15% { opacity: 0.9; transform: translate(-3px, 1px); }
+  35% { opacity: 0.6; transform: translate(2px, -1px); }
+  55% { opacity: 0.3; transform: translate(-1px, 0); }
+  100% { opacity: 0; transform: translate(0); }
+}
+
+@keyframes line-glitch-red {
+  0% { opacity: 0; transform: translate(0); }
+  15% { opacity: 0.9; transform: translate(3px, -1px); }
+  35% { opacity: 0.6; transform: translate(-2px, 1px); }
+  55% { opacity: 0.3; transform: translate(1px, 0); }
+  100% { opacity: 0; transform: translate(0); }
+}
+
+/* Mobile fullscreen menu */
+.mobile-menu {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .navbar.scrolled {
+    padding: 0.75rem 1.5rem;
+  }
+
+  /* Hide desktop links on mobile */
+  .navbar-links {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .navbar-hamburger {
+    display: flex;
+  }
+
+  /* Fullscreen mobile menu — solid background */
+  .mobile-menu {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--bg);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .mobile-menu-link {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+  }
+
+  .mobile-menu-link:hover,
+  .mobile-menu-link.active {
+    color: var(--text);
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/hero.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 8rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  line-height: 0.95;
+}
+
+.hero-title-line {
+  display: block;
+}
+
+.hero-description {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+  max-width: 560px;
+  margin-bottom: 2rem;
+}
+
+.hero-subtitle {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 1.2vw, 0.875rem);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+.hero-subtitle-dot {
+  color: var(--text-dim);
+}
+
+/* CTA button — biały filled */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  transition: border-color 0.3s ease;
+  position: relative;
+  overflow: visible;
+}
+
+.hero-cta:hover {
+  /* glitch-hover handles */
+}
+
+.hero-cta:active {
+  animation: btn-shake 0.3s steps(3);
+}
+
+.hero-cta .arrow {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.hero-cta:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scroll-indicator-text {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  writing-mode: vertical-rl;
+}
+
+.scroll-indicator-line {
+  width: 1px;
+  height: 40px;
+  background: var(--text-dim);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-indicator-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--text);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0% { top: -100%; }
+  50% { top: 100%; }
+  100% { top: 100%; }
+}
+
+/* Background grid dekoracyjny */
+.hero-grid {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  opacity: 0.03;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Status badge — dostępność */
+.hero-status {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.hero-status-dot {
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50% !important;
+  box-shadow: 0 0 6px #4ade80;
+  animation: status-pulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    padding-bottom: 0;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .hero-grid {
+    width: 100%;
+    opacity: 0.02;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/about.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   ABOUT / O MNIE
+   ═══════════════════════════════════════════ */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8rem;
+}
+
+.about-header {
+  margin-bottom: 3rem;
+}
+
+.about-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 680px;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding-top: 5rem;
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/services.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   SERVICES / KAFELKI — glitch hover
+   ═══════════════════════════════════════════ */
+
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8rem;
+}
+
+.services-header {
+  margin-bottom: 4rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+  gap: 1px;
+  background: var(--border);
+}
+
+.service-tile {
+  background: var(--bg-card);
+  padding: 3.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-tile:hover {
+  background: var(--bg-card-hover);
+}
+
+.service-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.service-tile:hover .service-number {
+  color: var(--text);
+}
+
+.service-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  position: relative;
+  display: inline-block;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.service-description {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(232, 230, 227, 0.85);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-example {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(232, 230, 227, 0.7);
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Glitch na tytule kafelka */
+.service-tile .service-title::before,
+.service-tile .service-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.service-tile .service-title::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.service-tile .service-title::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+/* Hover glitch */
+.service-tile:hover .service-title::before {
+  opacity: 1;
+  animation: tile-glitch-blue 0.4s steps(3) forwards;
+}
+
+.service-tile:hover .service-title::after {
+  opacity: 1;
+  animation: tile-glitch-red 0.4s steps(3) forwards;
+}
+
+.service-tile:hover .service-title {
+  transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════════
+   AUTO-GLITCH — losowy, krótki glitch co jakiś czas
+   Triggowany via JS (klasa .auto-glitch)
+   ═══════════════════════════════════════════ */
+
+.service-tile .service-title.auto-glitch::before {
+  opacity: 1;
+  animation: auto-glitch-blue 0.4s steps(3) forwards;
+}
+
+.service-tile .service-title.auto-glitch::after {
+  opacity: 1;
+  animation: auto-glitch-red 0.4s steps(3) forwards;
+}
+
+@keyframes auto-glitch-blue {
+  0% { opacity: 0; transform: translate(0); -webkit-clip-path: inset(0); clip-path: inset(0); }
+  15% { opacity: 0.7; transform: translate(-3px, 1px); -webkit-clip-path: inset(20% 0 60% 0); clip-path: inset(20% 0 60% 0); }
+  30% { opacity: 0.5; transform: translate(2px, -1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); }
+  50% { opacity: 0.3; transform: translate(-1px, 0); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  100% { opacity: 0; transform: translate(0); -webkit-clip-path: inset(0); clip-path: inset(0); }
+}
+
+@keyframes auto-glitch-red {
+  0% { opacity: 0; transform: translate(0); -webkit-clip-path: inset(0); clip-path: inset(0); }
+  15% { opacity: 0.7; transform: translate(3px, -1px); -webkit-clip-path: inset(60% 0 20% 0); clip-path: inset(60% 0 20% 0); }
+  30% { opacity: 0.5; transform: translate(-2px, 1px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  50% { opacity: 0.3; transform: translate(1px, 0); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  100% { opacity: 0; transform: translate(0); -webkit-clip-path: inset(0); clip-path: inset(0); }
+}
+
+@keyframes tile-glitch-blue {
+  0% { transform: translate(-4px, 1px); -webkit-clip-path: inset(20% 0 60% 0); clip-path: inset(20% 0 60% 0); opacity: 1; }
+  25% { transform: translate(2px, -1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); }
+  50% { transform: translate(-2px, 2px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  75% { transform: translate(3px, 0px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  100% { transform: translate(-1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+}
+
+@keyframes tile-glitch-red {
+  0% { transform: translate(4px, -1px); -webkit-clip-path: inset(60% 0 20% 0); clip-path: inset(60% 0 20% 0); opacity: 1; }
+  25% { transform: translate(-2px, 1px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  50% { transform: translate(2px, -2px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  75% { transform: translate(-3px, 0px); -webkit-clip-path: inset(30% 0 40% 0); clip-path: inset(30% 0 40% 0); }
+  100% { transform: translate(1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-tile {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/projects.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   PROJECTS / KARTY — glitch hover
+   ═══════════════════════════════════════════ */
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8rem;
+}
+
+.projects-header {
+  margin-bottom: 4rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  flex: 1 1;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card:hover {
+  border-color: var(--text-muted);
+}
+
+/* Neutral dark background */
+.project-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-card);
+  transition: transform 0.6s var(--ease-in-out);
+}
+
+.project-card:hover .project-card-bg {
+  transform: scale(1.03);
+}
+
+/* Overlay info */
+.project-card-overlay {
+  position: relative;
+  padding: 2.5rem;
+  z-index: 2;
+}
+
+.project-card-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.project-card-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  position: relative;
+  display: inline-block;
+}
+
+.project-card-logo {
+  display: block;
+  height: 80px;
+  width: auto;
+  max-width: 280px;
+  object-fit: contain;
+  filter: invert(1) brightness(2);
+  opacity: 0.85;
+  margin-bottom: 0.25rem;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-card-logo {
+  opacity: 1;
+}
+
+/* Okładka książki — portret, bez inwersji */
+.project-card-logo-book {
+  display: block;
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.project-card:hover .project-card-logo-book {
+  opacity: 1;
+}
+
+/* Złoty tytuł Cinzel — Uknuta Magia */
+.project-card-title-gold {
+  font-family: var(--font-cinzel), serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  color: #E2C275;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 2px 10px rgba(226, 194, 117, 0.2);
+}
+
+.project-card-description {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(232, 230, 227, 0.85);
+  margin-top: 0.75rem;
+}
+
+/* Glitch na tytule karty */
+.project-card-title::before,
+.project-card-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.project-card-title::before {
+  color: var(--glitch-blue);
+  mix-blend-mode: screen;
+}
+
+.project-card-title::after {
+  color: var(--glitch-red);
+  mix-blend-mode: screen;
+}
+
+.project-card:hover .project-card-title::before {
+  opacity: 1;
+  animation: tile-glitch-blue 0.4s steps(3) forwards;
+}
+
+.project-card:hover .project-card-title::after {
+  opacity: 1;
+  animation: tile-glitch-red 0.4s steps(3) forwards;
+}
+
+@keyframes tile-glitch-blue {
+  0% { transform: translate(-4px, 1px); -webkit-clip-path: inset(20% 0 60% 0); clip-path: inset(20% 0 60% 0); opacity: 1; }
+  25% { transform: translate(2px, -1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); }
+  50% { transform: translate(-2px, 2px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  75% { transform: translate(3px, 0px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  100% { transform: translate(-1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+}
+
+@keyframes tile-glitch-red {
+  0% { transform: translate(4px, -1px); -webkit-clip-path: inset(60% 0 20% 0); clip-path: inset(60% 0 20% 0); opacity: 1; }
+  25% { transform: translate(-2px, 1px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
+  50% { transform: translate(2px, -2px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
+  75% { transform: translate(-3px, 0px); -webkit-clip-path: inset(30% 0 40% 0); clip-path: inset(30% 0 40% 0); }
+  100% { transform: translate(1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+}
+
+/* Tagi — rozjasnione */
+.project-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.project-card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--text);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover .project-card-tag {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--text);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/contact.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   CONTACT FORM
+   ═══════════════════════════════════════════ */
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: auto;
+  padding-top: 8rem;
+}
+
+.contact-header {
+  margin-bottom: 4rem;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 6rem;
+  gap: 6rem;
+  align-items: start;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.3s ease, background 0.3s ease;
+  background: transparent;
+}
+
+.form-input:focus {
+  border-bottom-color: var(--text);
+  background: rgba(232, 230, 227, 0.03);
+}
+
+.form-input::placeholder {
+  color: var(--text-dim);
+}
+
+textarea.form-input {
+  resize: none;
+  min-height: 100px;
+  line-height: 1.6;
+  padding: 0.75rem 0.5rem;
+}
+
+textarea.form-input:focus {
+  padding: 0.75rem 0.5rem;
+}
+
+/* Submit button — biały filled */
+.form-submit {
+  align-self: flex-start;
+  padding: 1.1rem 3rem;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  transition: border-color 0.3s ease;
+  position: relative;
+  overflow: visible;
+}
+
+.form-submit:hover {
+  /* glitch-hover obsługuje */
+}
+
+.form-submit:active {
+  animation: btn-shake 0.3s steps(3);
+}
+
+/* Info side */
+.contact-info {
+  padding-top: 1rem;
+}
+
+.contact-info-label {
+  margin-bottom: 1.5rem;
+}
+
+/* Email — glitch zamiast podkreślenia */
+.contact-email {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: var(--text);
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.contact-description {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 360px;
+}
+
+/* Success / error messages */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+  animation: fadeIn 0.4s ease;
+}
+
+.form-success-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.form-success-text {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.form-error {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact-info {
+    order: -1;
+  }
+
+  .form-submit {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/footer.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+
+.footer {
+  min-height: auto !important;
+  padding: 2.5rem 4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: none;
+}
+
+.footer-copyright {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.footer-copyright:hover {
+  color: var(--text);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/project-page.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   PROJECT PAGE — podstrona projektu
+   ═══════════════════════════════════════════ */
+
+.project-page {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-page-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 4rem;
+  background: var(--bg);
+}
+
+/* Back link — plain text with glitch-word, no button shape */
+.project-page-back {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.project-page-back:hover {
+  color: var(--text);
+}
+
+/* Hero */
+.project-page-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--section-padding);
+  padding-top: 7rem;
+  min-height: 60vh;
+}
+
+.project-page-title {
+  text-transform: uppercase;
+}
+
+/* Content — placeholder */
+.project-page-content {
+  padding: 0 4rem 4rem;
+  border-top: 1px solid var(--border);
+  padding-top: 4rem;
+}
+
+.project-page-placeholder {
+  margin-bottom: 3rem;
+}
+
+.project-page-placeholder-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-top: 1rem;
+  max-width: 500px;
+}
+
+/* Button z glitch — biały filled */
+.project-page-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-page-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  text-decoration: none;
+  transition: border-color 0.3s ease;
+  position: relative;
+  overflow: visible;
+}
+
+.project-page-btn:hover {
+  /* glitch-hover handles */
+}
+
+/* ═══════════════════════════════════════════
+   BUY ME A COFFEE
+   ═══════════════════════════════════════════ */
+
+.project-page-coffee {
+  padding: 6rem 4rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.coffee-inner {
+  max-width: 600px;
+}
+
+.coffee-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.coffee-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.coffee-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.1rem 3rem;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  text-decoration: none;
+  position: relative;
+  overflow: visible;
+  transition: border-color 0.3s ease;
+}
+
+.coffee-btn:hover {
+  /* glitch hover */
+}
+
+/* iOS safe area */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .project-page-nav {
+    padding-top: calc(1.5rem + env(safe-area-inset-top));
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .project-page-nav {
+    padding: 1rem 1.5rem;
+    padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+  }
+
+  .project-page-hero {
+    padding-top: 7rem;
+    min-height: 40vh;
+  }
+
+  .project-page-content {
+    padding: 3rem 1.5rem;
+  }
+
+  .project-page-coffee {
+    padding: 4rem 1.5rem;
+  }
+
+  .coffee-btn,
+  .project-page-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Related projects ── */
+.project-page-related {
+  padding: 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.related-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.related-project-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+
+.related-project-link:hover {
+  border-color: rgba(232, 230, 227, 0.35);
+  background: var(--bg-card);
+}
+
+.related-project-category {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.45;
+}
+
+.related-project-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .project-page-related {
+    padding: 3rem 1.5rem;
+  }
+
+  .related-projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/peria-page.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   PERIA — dedicated project page
+   ═══════════════════════════════════════════ */
+
+/* Tagline pod tytułem */
+.peria-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0;
+  line-height: 1.5;
+  margin-top: 1.5rem;
+}
+
+.peria-intro {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(232, 230, 227, 0.75);
+  max-width: 600px;
+  margin-top: 1.5rem;
+}
+
+/* Sekcje treści */
+.peria-section {
+  padding: 3.5rem 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.peria-section-label {
+  margin-bottom: 2rem;
+}
+
+.peria-text {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(232, 230, 227, 0.85);
+  max-width: 680px;
+}
+
+/* ═══════════════════════════════════════════
+   SCREENSHOTS — przed features grid
+   ═══════════════════════════════════════════ */
+
+.peria-screenshots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  gap: 2rem;
+  margin: 3rem 0;
+  max-width: 600px;
+}
+
+.peria-screenshot {
+  width: 100%;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  max-width: 280px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.peria-screenshot:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+}
+
+/* ═══════════════════════════════════════════
+   FEATURES GRID — 3 kolumny jak services
+   ═══════════════════════════════════════════ */
+
+.peria-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+  gap: 1px;
+  background: var(--border);
+  margin-top: 1rem;
+}
+
+.peria-feature {
+  background: var(--bg);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.peria-feature-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.peria-feature-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.peria-feature-description {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(232, 230, 227, 0.85);
+}
+
+/* ═══════════════════════════════════════════
+   BLOCKQUOTE — filozofia motto
+   ═══════════════════════════════════════════ */
+
+.peria-blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--text-muted);
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 680px;
+}
+
+/* ═══════════════════════════════════════════
+   INSTALL GRID — iOS / Android
+   ═══════════════════════════════════════════ */
+
+.peria-install-intro {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(232, 230, 227, 0.85);
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.peria-install-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+}
+
+.peria-install-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+}
+
+.peria-install-platform {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
+.peria-install-steps {
+  list-style: none;
+  counter-reset: step;
+}
+
+.peria-install-steps li {
+  counter-increment: step;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(232, 230, 227, 0.85);
+}
+
+.peria-install-steps li::before {
+  content: counter(step) '.';
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 1.5rem;
+  padding-top: 0.15rem;
+}
+
+/* Install screenshots */
+.peria-install-screenshots {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.peria-install-screenshot {
+  width: 48%;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  max-width: 200px;
+}
+
+/* ═══════════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════════ */
+
+.peria-cta-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.peria-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.1rem 3rem;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  text-decoration: none;
+  position: relative;
+  overflow: visible;
+  transition: border-color 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════
+   LIGHTBOX — powiększenie screenshotów
+   ═══════════════════════════════════════════ */
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.lightbox-image {
+  max-width: 90%;
+  max-height: 90%;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+}
+
+/* ═══════════════════════════════════════════
+   BUY COFFEE BUTTON
+   ═══════════════════════════════════════════ */
+
+.buycoffee-btn {
+  width: 351px;
+  height: 92px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.buycoffee-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .peria-section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .peria-screenshots {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .buycoffee-btn {
+    width: 280px;
+    height: 73px;
+  }
+
+  .peria-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peria-feature {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .peria-install-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peria-install-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .peria-install-screenshots {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .peria-install-screenshot {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .peria-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/strzykawa-page.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   STRZYKAWA — dedicated project page
+   ═══════════════════════════════════════════ */
+
+.strzykawa-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.strzykawa-stack-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════
+   LOGO
+   ═══════════════════════════════════════════ */
+
+.strzykawa-logo {
+  width: 380px;
+  max-width: 80vw;
+  filter: invert(1) brightness(2);
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════
+   CTA BUTTON — logo na białym tle
+   ═══════════════════════════════════════════ */
+
+.strzykawa-cta-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  background: #fff;
+  padding: 0.6rem 1.25rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.strzykawa-cta-btn:hover {
+  transform: scale(1.03);
+  opacity: 0.92;
+}
+
+.strzykawa-cta-logo {
+  display: block;
+  height: 72px;
+  width: auto;
+}
+
+.strzykawa-cta-url {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .strzykawa-stack {
+    gap: 0.5rem;
+  }
+
+  .strzykawa-stack-tag {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .peria-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/uknuta-magia-page.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   UKNUTA MAGIA — dedicated project page
+   ═══════════════════════════════════════════ */
+
+/* Tytuł w hero — złoty, fantasy */
+.uknuta-title {
+  font-family: var(--font-cinzel), serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #E2C275;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 12px rgba(226, 194, 117, 0.25);
+}
+
+/* ═══════════════════════════════════════════
+   HISTORIA — tekst obok okładki
+   ═══════════════════════════════════════════ */
+
+.uknuta-historia-layout {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.uknuta-cover {
+  height: 260px;
+  width: auto;
+  flex-shrink: 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* ═══════════════════════════════════════════
+   CTA — magiczny napis jako button
+   ═══════════════════════════════════════════ */
+
+.uknuta-cta-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  border: 1px solid rgba(226, 194, 117, 0.4);
+  text-decoration: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uknuta-cta-btn:hover {
+  border-color: rgba(226, 194, 117, 0.8);
+  box-shadow: 0 0 20px rgba(226, 194, 117, 0.15);
+}
+
+.uknuta-cta-title {
+  font-family: var(--font-cinzel), serif;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: #E2C275;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 12px rgba(226, 194, 117, 0.3);
+  display: block;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .uknuta-historia-layout {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .uknuta-cover {
+    height: 200px;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/job-odyssey-page.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   JOB ODYSSEY — dedicated project page
+   ═══════════════════════════════════════════ */
+
+/* Tytuł w hero — akcent w kolorze cyjan */
+.jo-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.jo-title span {
+  color: #4dd9c0;
+}
+
+/* CTA button */
+.strzykawa-cta-btn .jo-cta-label {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border: 1px solid #4dd9c0;
+  background: #4dd9c0;
+  color: transparent;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  -webkit-text-stroke: 1px #0a0a0a;
+}
+
+.strzykawa-cta-btn:hover .jo-cta-label {
+  background: transparent;
+  color: #4dd9c0;
+  -webkit-text-stroke: 0;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/cookie-banner.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   COOKIE BANNER
+   ═══════════════════════════════════════════ */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 4rem;
+  animation: cookie-slide-up 0.4s var(--ease-out) both;
+}
+
+@keyframes cookie-slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cookie-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.cookie-banner-text {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex: 1 1;
+  min-width: 0;
+}
+
+.cookie-banner-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cookie-banner-desc {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.5rem;
+  border: 1px solid var(--text);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cookie-btn-accept {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.cookie-btn-accept:hover {
+  background: transparent;
+  color: var(--text);
+}
+
+.cookie-btn-decline {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.cookie-btn-decline:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .cookie-banner-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .cookie-banner-text {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cookie-banner-actions {
+    width: 100%;
+  }
+
+  .cookie-btn {
+    flex: 1 1;
+    text-align: center;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./app/globals.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"app/layout.jsx","import":"Space_Grotesk","arguments":[{"subsets":["latin","latin-ext"],"weight":["400","500","600","700"],"variable":"--font-space-grotesk","display":"swap"}],"variableName":"spaceGrotesk"} ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/e1aab0933260df4d-s.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/b7387a63dd068245-s.p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/36966cca54120369-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/e1aab0933260df4d-s.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/b7387a63dd068245-s.p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/36966cca54120369-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/_next/static/media/e1aab0933260df4d-s.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/_next/static/media/b7387a63dd068245-s.p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/_next/static/media/36966cca54120369-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/e1aab0933260df4d-s.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/b7387a63dd068245-s.p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/36966cca54120369-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {font-family: 'Space Grotesk Fallback';src: local("Arial");ascent-override: 89.71%;descent-override: 26.62%;line-gap-override: 0.00%;size-adjust: 109.69%
+}.__className_751d30 {font-family: 'Space Grotesk', 'Space Grotesk Fallback';font-style: normal
+}.__variable_751d30 {--font-space-grotesk: 'Space Grotesk', 'Space Grotesk Fallback'
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"app/layout.jsx","import":"JetBrains_Mono","arguments":[{"subsets":["latin","latin-ext"],"weight":["400","500","700"],"variable":"--font-jetbrains-mono","display":"swap"}],"variableName":"jetbrainsMono"} ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/edc640959b0c7826-s.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/ac0e76ddaeeb7981-s.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/64d784ea54a4acde-s.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/ff71da380fbe67dd-s.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/6d831b18ae5b01dc-s.p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_next/static/media/558ca1a6aa3cb55e-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/edc640959b0c7826-s.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/ac0e76ddaeeb7981-s.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/64d784ea54a4acde-s.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/ff71da380fbe67dd-s.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/6d831b18ae5b01dc-s.p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/_next/static/media/558ca1a6aa3cb55e-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/edc640959b0c7826-s.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/ac0e76ddaeeb7981-s.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/64d784ea54a4acde-s.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/ff71da380fbe67dd-s.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/6d831b18ae5b01dc-s.p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/558ca1a6aa3cb55e-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {font-family: 'JetBrains Mono Fallback';src: local("Arial");ascent-override: 75.79%;descent-override: 22.29%;line-gap-override: 0.00%;size-adjust: 134.59%
+}.__className_bddf83 {font-family: 'JetBrains Mono', 'JetBrains Mono Fallback';font-style: normal
+}.__variable_bddf83 {--font-jetbrains-mono: 'JetBrains Mono', 'JetBrains Mono Fallback'
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"app/layout.jsx","import":"Cinzel","arguments":[{"subsets":["latin"],"weight":["700"],"variable":"--font-cinzel","display":"swap"}],"variableName":"cinzel"} ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* latin-ext */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/7c9e800010130ba4-s.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/_next/static/media/6b6afb722b10a02f-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {font-family: 'Cinzel Fallback';src: local("Times New Roman");ascent-override: 71.31%;descent-override: 27.18%;line-gap-override: 0.00%;size-adjust: 136.86%
+}.__className_3809db {font-family: 'Cinzel', 'Cinzel Fallback';font-weight: 700;font-style: normal
+}.__variable_3809db {--font-cinzel: 'Cinzel', 'Cinzel Fallback'
+}
+

@@ -30,11 +30,11 @@
 
 .hero-description {
   font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.5vw, 1.125rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
   font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 540px;
+  line-height: 1.5;
+  color: var(--text);
+  max-width: 560px;
   margin-bottom: 2rem;
 }
 
@@ -148,10 +148,40 @@
   pointer-events: none;
 }
 
+/* Status badge — dostępność */
+.hero-status {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.hero-status-dot {
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50% !important;
+  box-shadow: 0 0 6px #4ade80;
+  animation: status-pulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
 @media (max-width: 768px) {
   .hero {
-    justify-content: flex-end;
-    padding-bottom: 6rem;
+    justify-content: center;
+    padding-bottom: 0;
   }
 
   .hero-title {

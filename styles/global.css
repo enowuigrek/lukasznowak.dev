@@ -5,15 +5,15 @@
 :root {
   /* Kolory */
   --bg: #0a0a0a;
-  --bg-card: #111111;
-  --bg-card-hover: #161616;
+  --bg-card: #181818;
+  --bg-card-hover: #222222;
   --text: #f5f5f5;
   --text-muted: rgba(232, 230, 227, 0.85);
-  --text-dim: rgba(232, 230, 227, 0.15);
+  --text-dim: rgba(232, 230, 227, 0.3);
   --glitch-red: #ff2d2d;
   --glitch-blue: #2d7fff;
   --accent: #e8e6e3;
-  --border: rgba(232, 230, 227, 0.12);
+  --border: rgba(232, 230, 227, 0.18);
 
   /* Typografia */
   --font-display: var(--font-space-grotesk), system-ui, sans-serif;
@@ -217,7 +217,7 @@ input, textarea {
   }
 
   .section {
-    min-height: 100svh;
+    min-height: auto;
   }
 
   /* Łagodniejszy barrel distortion na mobile */

@@ -191,18 +191,20 @@
 .project-card-tag {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(232, 230, 227, 0.7);
+  color: var(--bg);
+  background: var(--text);
   padding: 0.35rem 0.85rem;
-  border: 1px solid rgba(232, 230, 227, 0.25);
-  transition: color 0.3s ease, border-color 0.3s ease;
+  border: 1px solid var(--text);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .project-card:hover .project-card-tag {
+  background: transparent;
   color: var(--text);
-  border-color: rgba(232, 230, 227, 0.35);
+  border-color: var(--text);
 }
 
 /* Mobile */
