@@ -1,0 +1,86 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/projekt/[slug]",
+      "regex": "^/projekt/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/projekt/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/projekt/job-odyssey",
+      "regex": "^/projekt/job\\-odyssey(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/projekt/job\\-odyssey(?:/)?$"
+    },
+    {
+      "page": "/projekt/peria",
+      "regex": "^/projekt/peria(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/projekt/peria(?:/)?$"
+    },
+    {
+      "page": "/projekt/strzykawa",
+      "regex": "^/projekt/strzykawa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/projekt/strzykawa(?:/)?$"
+    },
+    {
+      "page": "/projekt/uknuta-magia",
+      "regex": "^/projekt/uknuta\\-magia(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/projekt/uknuta\\-magia(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
