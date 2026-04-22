@@ -16,8 +16,8 @@
   --border: rgba(232, 230, 227, 0.12);
 
   /* Typografia */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'Fira Code', monospace;
 
   /* Spacing */
   --section-padding: 6rem 4rem;

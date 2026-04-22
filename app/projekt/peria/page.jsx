@@ -11,6 +11,23 @@ export const metadata = {
   },
 };
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Peria',
+  url: 'https://peria.netlify.app',
+  applicationCategory: 'ProductivityApplication',
+  operatingSystem: 'iOS, Android',
+  description: 'Aplikacja PWA do organizacji myśli głosem. Mówisz jedno zdanie — Peria rozbija je na listę zadań, notatkę i wydarzenie w kalendarzu.',
+  author: { '@type': 'Person', name: 'Łukasz Nowak', url: 'https://lukasznowak.dev' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'PLN' },
+};
+
 export default function PeriaRoute() {
-  return <PeriaPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <PeriaPage />
+    </>
+  );
 }

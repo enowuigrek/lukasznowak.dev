@@ -55,6 +55,12 @@
       "regex": "^/projekt/uknuta\\-magia(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/projekt/uknuta\\-magia(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
     }
   ],
   "dataRoutes": [],

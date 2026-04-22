@@ -1,14 +1,14 @@
 {
   "pages": {
     "/_not-found/page": [
-      "static/chunks/webpack-44471852539dfd34.js",
+      "static/chunks/webpack-bed53dc69975f6c6.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
-      "static/chunks/app/_not-found/page-f187ad254cc1b0eb.js"
+      "static/chunks/app/_not-found/page-4010b1de8de85956.js"
     ],
     "/not-found": [
-      "static/chunks/webpack-44471852539dfd34.js",
+      "static/chunks/webpack-bed53dc69975f6c6.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
@@ -16,77 +16,84 @@
       "static/chunks/app/not-found-617e520c0b322b7e.js"
     ],
     "/layout": [
-      "static/chunks/webpack-44471852539dfd34.js",
+      "static/chunks/webpack-bed53dc69975f6c6.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
-      "static/css/bde8df18868888f0.css",
+      "static/css/def1b19f18555d05.css",
       "static/css/bde4b98810e29388.css",
       "static/css/c608a47ce0fa079a.css",
       "static/css/ef46db3751d8e999.css",
-      "static/css/d23da9235254d3d1.css",
-      "static/css/73e44cbde579fd25.css",
+      "static/css/88e784428c5aba6d.css",
+      "static/css/54a8dbe5b75f48c1.css",
       "static/css/9c8c45f7a8c3a258.css",
-      "static/css/302eb6f2ecb8a600.css",
+      "static/css/1a7bbd2249cb5434.css",
       "static/css/14640e63a422d895.css",
-      "static/css/4c689586d8054189.css",
-      "static/chunks/app/layout-b6c24b43dc72fe7f.js"
+      "static/css/c9a7c7be24c63b42.css",
+      "static/chunks/app/layout-0a40dc3106e09471.js"
+    ],
+    "/sitemap.xml/route": [
+      "static/chunks/webpack-bed53dc69975f6c6.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
+      "static/chunks/main-app-090a3a1369142248.js",
+      "static/chunks/app/sitemap.xml/route-4010b1de8de85956.js"
+    ],
+    "/projekt/job-odyssey/page": [
+      "static/chunks/webpack-bed53dc69975f6c6.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-6b79f309a27fb98b.js",
+      "static/chunks/main-app-090a3a1369142248.js",
+      "static/css/c608a47ce0fa079a.css",
+      "static/css/54a8dbe5b75f48c1.css",
+      "static/css/14640e63a422d895.css",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/projekt/job-odyssey/page-cce1851a314bcbbc.js"
     ],
     "/projekt/peria/page": [
-      "static/chunks/webpack-44471852539dfd34.js",
+      "static/chunks/webpack-bed53dc69975f6c6.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
       "static/css/bde4b98810e29388.css",
       "static/css/c608a47ce0fa079a.css",
-      "static/css/73e44cbde579fd25.css",
+      "static/css/54a8dbe5b75f48c1.css",
       "static/chunks/619-ba102abea3e3d0e4.js",
-      "static/chunks/app/projekt/peria/page-f296292860fc8fd1.js"
+      "static/chunks/app/projekt/peria/page-b821307e77d8837f.js"
     ],
-    "/projekt/uknuta-magia/page": [
-      "static/chunks/webpack-44471852539dfd34.js",
+    "/projekt/strzykawa/page": [
+      "static/chunks/webpack-bed53dc69975f6c6.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
+      "static/css/bde4b98810e29388.css",
       "static/css/c608a47ce0fa079a.css",
-      "static/css/73e44cbde579fd25.css",
-      "static/css/302eb6f2ecb8a600.css",
+      "static/css/54a8dbe5b75f48c1.css",
+      "static/css/9c8c45f7a8c3a258.css",
       "static/chunks/619-ba102abea3e3d0e4.js",
-      "static/chunks/app/projekt/uknuta-magia/page-dcb3183d366e85a3.js"
+      "static/chunks/app/projekt/strzykawa/page-35862fd17a10fd14.js"
     ],
     "/page": [
-      "static/chunks/webpack-44471852539dfd34.js",
+      "static/chunks/webpack-bed53dc69975f6c6.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
       "static/css/c608a47ce0fa079a.css",
-      "static/css/d23da9235254d3d1.css",
+      "static/css/88e784428c5aba6d.css",
       "static/css/bde4b98810e29388.css",
       "static/chunks/619-ba102abea3e3d0e4.js",
       "static/chunks/app/page-a23e533aaa5eb716.js"
     ],
-    "/projekt/job-odyssey/page": [
-      "static/chunks/webpack-44471852539dfd34.js",
+    "/projekt/uknuta-magia/page": [
+      "static/chunks/webpack-bed53dc69975f6c6.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-6b79f309a27fb98b.js",
       "static/chunks/main-app-090a3a1369142248.js",
       "static/css/c608a47ce0fa079a.css",
-      "static/css/73e44cbde579fd25.css",
-      "static/css/14640e63a422d895.css",
+      "static/css/54a8dbe5b75f48c1.css",
+      "static/css/1a7bbd2249cb5434.css",
       "static/chunks/619-ba102abea3e3d0e4.js",
-      "static/chunks/app/projekt/job-odyssey/page-2c06cffd70677ebf.js"
-    ],
-    "/projekt/strzykawa/page": [
-      "static/chunks/webpack-44471852539dfd34.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-6b79f309a27fb98b.js",
-      "static/chunks/main-app-090a3a1369142248.js",
-      "static/css/bde4b98810e29388.css",
-      "static/css/c608a47ce0fa079a.css",
-      "static/css/73e44cbde579fd25.css",
-      "static/css/9c8c45f7a8c3a258.css",
-      "static/chunks/619-ba102abea3e3d0e4.js",
-      "static/chunks/app/projekt/strzykawa/page-64fd475b85a0db89.js"
+      "static/chunks/app/projekt/uknuta-magia/page-11372cbc9a514635.js"
     ]
   }
 }

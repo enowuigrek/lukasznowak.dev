@@ -1,8 +1,9 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/projekt/peria/page": "app/projekt/peria/page.js",
-  "/projekt/uknuta-magia/page": "app/projekt/uknuta-magia/page.js",
-  "/page": "app/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/projekt/job-odyssey/page": "app/projekt/job-odyssey/page.js",
-  "/projekt/strzykawa/page": "app/projekt/strzykawa/page.js"
+  "/projekt/peria/page": "app/projekt/peria/page.js",
+  "/projekt/strzykawa/page": "app/projekt/strzykawa/page.js",
+  "/page": "app/page.js",
+  "/projekt/uknuta-magia/page": "app/projekt/uknuta-magia/page.js"
 }

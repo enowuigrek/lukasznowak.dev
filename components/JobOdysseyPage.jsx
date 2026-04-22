@@ -5,6 +5,7 @@ import Link from 'next/link';
 import VHSOverlay from './VHSOverlay';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
+import RelatedProjects from './RelatedProjects';
 import '../styles/project-page.css';
 import '../styles/peria-page.css';
 import '../styles/job-odyssey-page.css';
@@ -175,6 +176,7 @@ export default function JobOdysseyPage() {
           </div>
         </section>
 
+        <RelatedProjects currentSlug="job-odyssey" />
         <Footer />
       </main>
     </div>

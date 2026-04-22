@@ -4,7 +4,7 @@
 
 /* Tytuł w hero — złoty, fantasy */
 .uknuta-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-cinzel), serif;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
   color: #E2C275;
@@ -50,7 +50,7 @@
 }
 
 .uknuta-cta-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-cinzel), serif;
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 700;
   color: #E2C275;

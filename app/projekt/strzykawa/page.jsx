@@ -11,6 +11,20 @@ export const metadata = {
   },
 };
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Strzykawa — Kawa Specialty',
+  url: 'https://strzykawa.com',
+  description: 'Sklep internetowy częstochowskiej palarni kawy specialty. Autorski frontend w React na Shopify, płatności BLIK, dostawa InPost.',
+  author: { '@type': 'Person', name: 'Łukasz Nowak', url: 'https://lukasznowak.dev' },
+};
+
 export default function StrzkawaRoute() {
-  return <StrzkawaPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <StrzkawaPage />
+    </>
+  );
 }

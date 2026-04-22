@@ -6,6 +6,7 @@ import GlitchText from './GlitchText';
 import VHSOverlay from './VHSOverlay';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
+import RelatedProjects from './RelatedProjects';
 import '../styles/project-page.css';
 import '../styles/peria-page.css';
 
@@ -123,13 +124,13 @@ export default function PeriaPage() {
           <div className="peria-screenshots">
             <img
               src="/screenshots/peria/peria-voice-input.png"
-              alt="Peria - wprowadzanie głosem"
+              alt="Peria — ekran nagrywania głosowego z przyciskiem mikrofonu"
               className="peria-screenshot"
               onClick={() => openLightbox('/screenshots/peria/peria-voice-input.png')}
             />
             <img
               src="/screenshots/peria/peria-split-result.png"
-              alt="Peria - podzielone kategorie"
+              alt="Peria — wynik rozpoznawania: notatka, lista zadań i wydarzenie w kalendarzu"
               className="peria-screenshot"
               onClick={() => openLightbox('/screenshots/peria/peria-split-result.png')}
             />
@@ -179,12 +180,12 @@ export default function PeriaPage() {
               <div className="peria-install-screenshots">
                 <img
                   src="/screenshots/peria/peria-ios-install-1.png"
-                  alt="iOS - menu udostępniania"
+                  alt="iOS Safari — menu udostępniania, krok 1 instalacji Peria PWA na iPhone"
                   className="peria-install-screenshot"
                 />
                 <img
                   src="/screenshots/peria/peria-ios-install-2.png"
-                  alt="iOS - dodaj do ekranu głównego"
+                  alt="iOS Safari — opcja Dodaj do ekranu głównego, krok 2 instalacji Peria PWA"
                   className="peria-install-screenshot"
                 />
               </div>
@@ -251,6 +252,7 @@ export default function PeriaPage() {
           </div>
         </section>
 
+        <RelatedProjects currentSlug="peria" />
         <Footer />
       </main>
 

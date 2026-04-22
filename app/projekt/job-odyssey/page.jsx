@@ -11,6 +11,23 @@ export const metadata = {
   },
 };
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Job Odyssey',
+  url: 'https://job-odyssey.netlify.app',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description: 'Webowy CRM do zarządzania procesem szukania pracy. Kanban aplikacji, generator CV z śledzeniem kliknięć, historia rozmów kwalifikacyjnych.',
+  author: { '@type': 'Person', name: 'Łukasz Nowak', url: 'https://lukasznowak.dev' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'PLN' },
+};
+
 export default function JobOdysseyRoute() {
-  return <JobOdysseyPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <JobOdysseyPage />
+    </>
+  );
 }

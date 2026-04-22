@@ -6,6 +6,12 @@
       "runtimeExecutable": "bash",
       "runtimeArgs": ["-c", "cd '../job-odyssey' && npm run dev"],
       "port": 5173
+    },
+    {
+      "name": "lukasznowak.dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
     }
   ]
 }

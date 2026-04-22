@@ -11,6 +11,20 @@ export const metadata = {
   },
 };
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Uknuta Magia',
+  url: 'https://uknutamagia.pl',
+  description: 'Autorski sklep internetowy z książką dla dzieci. Supabase + EmailJS, zero kosztów miesięcznych, pełna kontrola nad sprzedażą.',
+  author: { '@type': 'Person', name: 'Łukasz Nowak', url: 'https://lukasznowak.dev' },
+};
+
 export default function UknutaMagiaRoute() {
-  return <UknutaMagiaPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <UknutaMagiaPage />
+    </>
+  );
 }

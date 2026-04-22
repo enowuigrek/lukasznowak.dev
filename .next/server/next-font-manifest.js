@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{},"appUsingSizeAdjust":false,"pagesUsingSizeAdjust":false}';
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/Users/lukasznowak/Documents/Programowanie/Moje projekty/lukasznowak.dev/app/layout":["static/media/6b6afb722b10a02f-s.p.woff2","static/media/b7387a63dd068245-s.p.woff2","static/media/36966cca54120369-s.p.woff2","static/media/6d831b18ae5b01dc-s.p.woff2","static/media/558ca1a6aa3cb55e-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';

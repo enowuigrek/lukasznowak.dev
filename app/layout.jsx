@@ -1,6 +1,28 @@
 import './globals.css';
+import { Space_Grotesk, JetBrains_Mono, Cinzel } from 'next/font/google';
 import CustomCursor from '../components/CustomCursor';
 import CookieBanner from '../components/CookieBanner';
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '700'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+});
+
+const cinzel = Cinzel({
+  subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-cinzel',
+  display: 'swap',
+});
 
 export const metadata = {
   metadataBase: new URL('https://lukasznowak.dev'),
@@ -48,7 +70,7 @@ const structuredData = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pl">
+    <html lang="pl" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${cinzel.variable}`}>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -56,9 +78,6 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="theme-color" content="#0a0a0a" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cinzel:wght@700&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

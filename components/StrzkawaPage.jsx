@@ -6,6 +6,7 @@ import GlitchText from './GlitchText';
 import VHSOverlay from './VHSOverlay';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
+import RelatedProjects from './RelatedProjects';
 import '../styles/project-page.css';
 import '../styles/peria-page.css';
 import '../styles/strzykawa-page.css';
@@ -156,6 +157,7 @@ export default function StrzkawaPage() {
           </div>
         </section>
 
+        <RelatedProjects currentSlug="strzykawa" />
         <Footer />
       </main>
     </div>
