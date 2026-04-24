@@ -11,8 +11,6 @@ export default function VHSOverlay() {
       <div className="vhs-overlay">
         <div className="vhs-scanlines" />
         <div className="vhs-noise" />
-        <div className="vhs-flicker" />
-        <div className="vhs-glitch-bar" />
 
         {/* SVG noise filter */}
         <svg style={{ position: 'absolute', width: 0, height: 0 }} aria-hidden="true">

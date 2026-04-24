@@ -43,34 +43,30 @@ export default function ProjectsSection() {
         <h2 className="label" data-text="Wybrane projekty">Wybrane projekty</h2>
       </div>
 
-      <div className="projects-list">
+      <div className="projects-grid">
         {projects.map(({ number, title, category, description, tags, href }, i) => (
           <Link
             key={number}
             href={href}
-            className="project-row fade-in"
-            style={{ '--row-i': i }}
+            className="project-card fade-in"
+            style={{ '--card-i': i }}
           >
-            <div className="project-row-number">{number}</div>
-
-            <div className="project-row-body">
-              <div className="project-row-top">
-                <h3 className="project-row-title">{title}</h3>
-                <span className="project-row-category">{category}</span>
-              </div>
-              <div className="project-row-reveal">
-                <div>
-                  <p className="project-row-desc">{description}</p>
-                  <div className="project-row-tags">
-                    {tags.map((tag) => (
-                      <span key={tag} className="project-row-tag">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            <div className="project-card-header">
+              <span className="project-card-number">{number}</span>
+              <span className="project-card-category">{category}</span>
             </div>
 
-            <div className="project-row-arrow">→</div>
+            <h3 className="project-card-title">{title}</h3>
+            <p className="project-card-desc">{description}</p>
+
+            <div className="project-card-footer">
+              <div className="project-card-tags">
+                {tags.map((tag) => (
+                  <span key={tag} className="project-card-tag">{tag}</span>
+                ))}
+              </div>
+              <span className="project-card-arrow">→</span>
+            </div>
           </Link>
         ))}
       </div>

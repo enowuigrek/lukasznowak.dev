@@ -39,11 +39,6 @@ export default function HeroSection() {
           ))}
         </p>
 
-        <div className="hero-status">
-          <span className="hero-status-dot" />
-          Dostępny do współpracy
-        </div>
-
         <button
           className="hero-cta glitch-hover"
           data-text="POROZMAWIAJMY"

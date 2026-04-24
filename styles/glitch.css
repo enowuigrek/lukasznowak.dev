@@ -281,30 +281,6 @@
 }
 
 /* ═══════════════════════════════════════════
-   Scroll glitch — RGB split przy scrollowaniu
-   — nagłówki, tytuły projektów, tytuły usług,
-     labele sekcji, buttony
-   ═══════════════════════════════════════════ */
-
-.scroll-glitch-active .glitch-text::before,
-.scroll-glitch-active .service-title::before,
-.scroll-glitch-active .project-card-title::before,
-.scroll-glitch-active .glitch-hover::before {
-  transform: translate(-3px, calc(var(--scroll-dir, 1) * 2px)) !important;
-  opacity: 0.6 !important;
-  transition: none;
-}
-
-.scroll-glitch-active .glitch-text::after,
-.scroll-glitch-active .service-title::after,
-.scroll-glitch-active .project-card-title::after,
-.scroll-glitch-active .glitch-hover::after {
-  transform: translate(3px, calc(var(--scroll-dir, 1) * -2px)) !important;
-  opacity: 0.6 !important;
-  transition: none;
-}
-
-/* ═══════════════════════════════════════════
    Staggered glitch-in — delikatny, z RGB flash
    Nie używa clip-path na głównym elemencie
    (naprawia bug z niedoczytaniem kart)

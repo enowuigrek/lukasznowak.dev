@@ -59,22 +59,6 @@ body {
   position: relative;
 }
 
-/* Animated background grid — full page, drifts diagonally */
-body::before {
-  content: '';
-  position: fixed;
-  top: -10vmax;
-  left: -10vmax;
-  width: calc(100% + 20vmax);
-  height: calc(100% + 20vmax);
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 56px 56px;
-  pointer-events: none;
-  z-index: 0;
-  animation: grid-drift 60s linear infinite;
-}
 
 /* Radial glow — rozjaśnia góra-prawo */
 body::after {
@@ -93,11 +77,6 @@ body::after {
   pointer-events: none;
   z-index: 0;
   filter: blur(60px);
-}
-
-@keyframes grid-drift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(56px, 56px); }
 }
 
 main, .navbar, .mobile-menu, #root::before {
