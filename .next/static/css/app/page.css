@@ -1080,10 +1080,10 @@
 }
 
 .hero-subtitle {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: clamp(0.7rem, 1.2vw, 0.875rem);
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 3rem;
@@ -1100,10 +1100,10 @@
   gap: 1rem;
   padding: 1rem 2.5rem;
   border: 1px solid var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--bg);
   background: var(--text);
@@ -1729,10 +1729,10 @@
 
 
 .faq-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(10, 10, 10, 0.55);
   margin-bottom: 2rem;
@@ -2576,11 +2576,11 @@
 
 .form-label {
   display: block;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.65rem;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
   margin-bottom: 0.75rem;
 }
@@ -2621,10 +2621,10 @@ textarea.form-input:focus {
   align-self: flex-start;
   padding: 1.1rem 3rem;
   border: 1px solid var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--bg);
   background: var(--text);

@@ -145,21 +145,21 @@ h2 { font-size: clamp(2rem, 5vw, 4rem); }
 h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
 
 .label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
 }
 
 /* Reset h2.label — nadpisuje globalne style h2 żeby zachować wygląd labeli */
 h2.label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
   line-height: inherit;
   margin: 0;
@@ -212,6 +212,31 @@ h2.label {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Slide-in z boku — dla list i kroków */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+.slide-in-left.visible,
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Link reset */
@@ -1230,10 +1255,10 @@ input, textarea {
 }
 
 .hero-subtitle {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: clamp(0.7rem, 1.2vw, 0.875rem);
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 3rem;
@@ -1250,10 +1275,10 @@ input, textarea {
   gap: 1rem;
   padding: 1rem 2.5rem;
   border: 1px solid var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--bg);
   background: var(--text);
@@ -1900,11 +1925,11 @@ input, textarea {
 
 .form-label {
   display: block;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.65rem;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
   margin-bottom: 0.75rem;
 }
@@ -1945,10 +1970,10 @@ textarea.form-input:focus {
   align-self: flex-start;
   padding: 1.1rem 3rem;
   border: 1px solid var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--bg);
   background: var(--text);

@@ -8,7 +8,7 @@ import { useEffect } from 'react';
  */
 export default function useGlitchEffects() {
   useEffect(() => {
-    const animElements = document.querySelectorAll('.fade-in, .glitch-in');
+    const animElements = document.querySelectorAll('.fade-in, .glitch-in, .slide-in-left, .slide-in-right');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

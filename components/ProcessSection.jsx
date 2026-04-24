@@ -48,7 +48,7 @@ export default function ProcessSection() {
 
       <div className="process-steps">
         {steps.map((step, i) => (
-          <div key={step.number} className="process-step">
+          <div key={step.number} className="process-step slide-in-left" style={{ '--i': i }}>
             <div className="process-step-left">
               <span className="process-step-number">{step.number}</span>
               {i < steps.length - 1 && <div className="process-step-line" />}

@@ -18,7 +18,7 @@ export default function ForWhomSection() {
 
       <ul className="for-whom-list">
         {forWhom.map((item, i) => (
-          <li key={i} className="for-whom-item">
+          <li key={i} className="for-whom-item slide-in-left" style={{ '--i': i }}>
             <span className="for-whom-number">{String(i + 1).padStart(2, '0')}</span>
             <span className="for-whom-text">{item}</span>
           </li>
