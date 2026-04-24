@@ -4,7 +4,7 @@ import { GeistMono } from 'geist/font/mono';
 import { Cinzel } from 'next/font/google';
 import CustomCursor from '../components/CustomCursor';
 import CookieBanner from '../components/CookieBanner';
-import ChatWidget from '../components/ChatWidget';
+import TawkWidget from '../components/TawkWidget';
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -75,7 +75,7 @@ export default function RootLayout({ children }) {
       <body>
         <CustomCursor />
         <CookieBanner />
-        <ChatWidget />
+        <TawkWidget />
         {children}
         {/* Hidden forms for Netlify Forms detection */}
         <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
@@ -83,11 +83,7 @@ export default function RootLayout({ children }) {
           <input type="email" name="email" />
           <textarea name="message"></textarea>
         </form>
-        <form name="chat" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-          <input type="text" name="name" />
-          <input type="email" name="email" />
-          <textarea name="message"></textarea>
-        </form>
+
       </body>
     </html>
   );
