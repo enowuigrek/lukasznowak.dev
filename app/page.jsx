@@ -1,5 +1,4 @@
 import HomePage from '../components/HomePage';
-import { getPosts } from '../lib/sanity';
 
 export const metadata = {
   title: 'Łukasz Nowak — Strony WWW, Sklepy, Aplikacje | Częstochowa',
@@ -12,7 +11,6 @@ export const metadata = {
   },
 };
 
-export default async function Page() {
-  const posts = await getPosts();
-  return <HomePage posts={posts} />;
+export default function Page() {
+  return <HomePage />;
 }

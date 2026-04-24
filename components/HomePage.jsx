@@ -12,13 +12,11 @@ import FaqSection from './FaqSection';
 import ProcessSection from './ProcessSection';
 import ForWhomSection from './ForWhomSection';
 import PricingSection from './PricingSection';
-// import BlogSection from './BlogSection'; // TODO: przywrócić gdy będą prawdziwe posty (np. seria o Job Odyssey)
-// import TestimonialsSection from './TestimonialsSection'; // TODO: przywrócić gdy będą prawdziwe referencje
 import ContactSection from './ContactSection';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
 
-export default function HomePage({ posts = [] }) {
+export default function HomePage() {
   const [activeSection, setActiveSection] = useState('hero');
 
   useGlitchEffects();
@@ -52,8 +50,6 @@ export default function HomePage({ posts = [] }) {
         <ProcessSection />
         <ForWhomSection />
         <PricingSection />
-        {/* <BlogSection posts={posts} /> — wyłączone do czasu prawdziwych postów */}
-        {/* <TestimonialsSection /> — wyłączone do czasu prawdziwych referencji */}
         <FaqSection />
         <ContactSection />
         <Footer />
