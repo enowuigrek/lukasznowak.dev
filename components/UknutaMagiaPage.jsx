@@ -55,7 +55,7 @@ export default function UknutaMagiaPage() {
 
         {/* Historia */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Historia">Historia</h2>
           </div>
           <div className="uknuta-historia-layout">
@@ -77,7 +77,7 @@ export default function UknutaMagiaPage() {
 
         {/* Co powstało? */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Co powstało?">Co powstało?</h2>
           </div>
           <p className="peria-text">
@@ -90,7 +90,7 @@ export default function UknutaMagiaPage() {
 
         {/* Bez kosztów */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Zero kosztów miesięcznych">Zero kosztów miesięcznych</h2>
           </div>
           <p className="peria-text">
@@ -103,7 +103,7 @@ export default function UknutaMagiaPage() {
 
         {/* CTA */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Książka jest. Możesz zajrzeć.">Książka jest. Możesz zajrzeć.</h2>
           </div>
           <a
@@ -119,7 +119,7 @@ export default function UknutaMagiaPage() {
 
         {/* Stack */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Stack">Stack</h2>
           </div>
           <div className="strzykawa-stack">

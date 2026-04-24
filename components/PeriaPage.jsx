@@ -92,7 +92,7 @@ export default function PeriaPage() {
 
         {/* Historia */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Historia">Historia</h2>
           </div>
           <p className="peria-text">
@@ -102,7 +102,7 @@ export default function PeriaPage() {
 
         {/* Skąd nazwa? */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Skąd nazwa?">Skąd nazwa?</h2>
           </div>
           <p className="peria-text">
@@ -112,7 +112,7 @@ export default function PeriaPage() {
 
         {/* Co robi Peria? */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Co robi Peria?">Co robi Peria?</h2>
           </div>
 
@@ -151,7 +151,7 @@ export default function PeriaPage() {
 
         {/* Filozofia */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Filozofia">Filozofia</h2>
           </div>
           <p className="peria-text">
@@ -164,7 +164,7 @@ export default function PeriaPage() {
 
         {/* Jak zainstalować? */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Jak zainstalować?">Jak zainstalować?</h2>
           </div>
           <p className="peria-install-intro">
@@ -206,7 +206,7 @@ export default function PeriaPage() {
 
         {/* Status */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Status">Status</h2>
           </div>
           <p className="peria-text">

@@ -67,7 +67,7 @@ export default function StrzkawaPage() {
 
         {/* Historia */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Historia">Historia</h2>
           </div>
           <p className="peria-text">
@@ -80,7 +80,7 @@ export default function StrzkawaPage() {
 
         {/* Co powstało? */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Co powstało?">Co powstało?</h2>
           </div>
           <p className="peria-text">
@@ -93,7 +93,7 @@ export default function StrzkawaPage() {
 
         {/* Design */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Design">Design</h2>
           </div>
           <p className="peria-text">
@@ -106,7 +106,7 @@ export default function StrzkawaPage() {
 
         {/* Wyzwania */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Wyzwania">Wyzwania</h2>
           </div>
           <p className="peria-text">
@@ -119,7 +119,7 @@ export default function StrzkawaPage() {
 
         {/* Efekt */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Efekt">Efekt</h2>
           </div>
           <p className="peria-text">
@@ -129,7 +129,7 @@ export default function StrzkawaPage() {
 
         {/* CTA */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Sklep działa. Możesz zajrzeć.">Sklep działa. Możesz zajrzeć.</h2>
           </div>
           <a
@@ -149,7 +149,7 @@ export default function StrzkawaPage() {
 
         {/* Stack */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Stack">Stack</h2>
           </div>
           <div className="strzykawa-stack">

@@ -324,3 +324,16 @@
 .peria-section.section-light .strzykawa-cta-url {
   color: rgba(10, 10, 10, 0.55);
 }
+
+.peria-section.section-light .strzykawa-cta-btn {
+  background: #0a0a0a;
+}
+
+.peria-section.section-light .strzykawa-cta-logo {
+  filter: invert(1) brightness(2);
+}
+
+.peria-section.section-light .uknuta-cta-btn {
+  background: #0a0a0a;
+  border-color: rgba(226, 194, 117, 0.5);
+}

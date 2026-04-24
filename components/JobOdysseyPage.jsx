@@ -60,7 +60,7 @@ export default function JobOdysseyPage() {
 
         {/* Pomysł */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Pomysł">Pomysł</h2>
           </div>
           <p className="peria-text">
@@ -73,7 +73,7 @@ export default function JobOdysseyPage() {
 
         {/* Aplikacje */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Aplikacje">Aplikacje</h2>
           </div>
           <p className="peria-text">
@@ -86,7 +86,7 @@ export default function JobOdysseyPage() {
 
         {/* Generator CV */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Generator CV">Generator CV</h2>
           </div>
           <p className="peria-text">
@@ -99,7 +99,7 @@ export default function JobOdysseyPage() {
 
         {/* Śledzenie linków */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Śledzenie linków">Śledzenie linków</h2>
           </div>
           <p className="peria-text">
@@ -112,7 +112,7 @@ export default function JobOdysseyPage() {
 
         {/* Rozmowy i pytania */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Rozmowy i pytania">Rozmowy i pytania</h2>
           </div>
           <p className="peria-text">
@@ -125,7 +125,7 @@ export default function JobOdysseyPage() {
 
         {/* Stack */}
         <section className="peria-section section-light glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Stack">Stack</h2>
           </div>
           <div className="strzykawa-stack">
@@ -137,7 +137,7 @@ export default function JobOdysseyPage() {
 
         {/* CTA */}
         <section className="peria-section glitch-in">
-          <div className="peria-section-label">
+          <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Działa. Możesz zajrzeć.">Działa. Możesz zajrzeć.</h2>
           </div>
           <p className="peria-text">
