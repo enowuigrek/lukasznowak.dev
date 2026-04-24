@@ -13,6 +13,12 @@
   margin-bottom: 3rem;
 }
 
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .about-text {
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
@@ -20,6 +26,18 @@
   line-height: 1.7;
   color: var(--text);
   max-width: 680px;
+}
+
+/* Meta — subtelna ostatnia linijka z lokalizacją */
+.about-text.about-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {

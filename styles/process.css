@@ -1,0 +1,123 @@
+/* ═══════════════════════════════════════════
+   PROCESS — jak pracuję, timeline
+   ═══════════════════════════════════════════ */
+
+.process {
+  background: #f0eee9;
+  color: #0a0a0a;
+  padding: 8rem 4rem;
+  min-height: auto;
+}
+
+.process-header {
+  margin-bottom: 5rem;
+  max-width: 680px;
+}
+
+.process .label {
+  color: rgba(10, 10, 10, 0.55);
+  margin-bottom: 1.5rem;
+}
+
+.process-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: #0a0a0a;
+  margin-bottom: 1.5rem;
+}
+
+.process-intro {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(10, 10, 10, 0.6);
+}
+
+/* Steps */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  max-width: 860px;
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0 2.5rem;
+}
+
+.process-step-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.25rem;
+}
+
+.process-step-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(10, 10, 10, 0.35);
+  display: block;
+  flex-shrink: 0;
+}
+
+.process-step-line {
+  width: 1px;
+  flex: 1;
+  min-height: 2rem;
+  background: rgba(10, 10, 10, 0.15);
+  margin: 0.75rem 0;
+}
+
+.process-step-content {
+  padding-bottom: 3rem;
+}
+
+.process-step:last-child .process-step-content {
+  padding-bottom: 0;
+}
+
+.process-step-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #0a0a0a;
+  margin-bottom: 0.75rem;
+}
+
+.process-step-desc {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(10, 10, 10, 0.75);
+  max-width: 580px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .process {
+    padding: 5rem 1.5rem;
+  }
+
+  .process-header {
+    margin-bottom: 3rem;
+  }
+
+  .process-step {
+    grid-template-columns: 48px 1fr;
+    gap: 0 1.25rem;
+  }
+
+  .process-step-content {
+    padding-bottom: 2rem;
+  }
+}

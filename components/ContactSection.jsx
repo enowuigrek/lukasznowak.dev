@@ -37,7 +37,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="section contact" id="kontakt">
+    <section className="section contact" id="kontakt" data-guide="Kontakt">
       <div className="contact-header glitch-in">
         <h2 className="label" data-text="Kontakt">Kontakt</h2>
       </div>

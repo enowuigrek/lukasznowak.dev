@@ -19,8 +19,8 @@
   --border: rgba(232, 230, 227, 0.18);
 
   /* Typografia */
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), 'Fira Code', monospace;
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), 'Fira Code', monospace;
 
   /* Spacing */
   --section-padding: 6rem 4rem;
@@ -59,6 +59,53 @@ body {
   overflow-x: hidden;
   padding-top: var(--safe-top);
   padding-bottom: var(--safe-bottom);
+  position: relative;
+}
+
+/* Animated background grid — full page, drifts diagonally */
+body::before {
+  content: '';
+  position: fixed;
+  top: -10vmax;
+  left: -10vmax;
+  width: calc(100% + 20vmax);
+  height: calc(100% + 20vmax);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+  z-index: 0;
+  animation: grid-drift 60s linear infinite;
+}
+
+/* Radial glow — rozjaśnia góra-prawo */
+body::after {
+  content: '';
+  position: fixed;
+  top: -20vmax;
+  right: -20vmax;
+  width: 60vmax;
+  height: 60vmax;
+  background: radial-gradient(
+    circle,
+    rgba(45, 127, 255, 0.06) 0%,
+    rgba(255, 45, 45, 0.03) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+@keyframes grid-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(56px, 56px); }
+}
+
+main, .navbar, .mobile-menu, #root::before {
+  position: relative;
+  z-index: 1;
 }
 
 /* ═══════════════════════════════════════════
@@ -832,19 +879,29 @@ input, textarea {
 
 /* Logo z glitch appear/disappear + cursor-reactive glitch */
 .navbar-logo {
-  font-family: var(--font-display);
-  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-family: var(--font-mono);
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--text);
+  border: 1.5px solid var(--text);
   position: relative;
   opacity: 0;
   transform: translateX(-10px);
   pointer-events: none;
-  transition: opacity 0.01s, transform 0.01s;
+  transition: opacity 0.01s, transform 0.01s, background 0.3s ease, color 0.3s ease;
   --logo-glitch-x: 0;
   --logo-glitch-y: 0;
+}
+
+.navbar-logo.visible:hover {
+  background: var(--text);
+  color: var(--bg);
 }
 
 .navbar-logo.glitch-logo.visible {
@@ -1445,6 +1502,12 @@ input, textarea {
   margin-bottom: 3rem;
 }
 
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .about-text {
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
@@ -1452,6 +1515,18 @@ input, textarea {
   line-height: 1.7;
   color: var(--text);
   max-width: 680px;
+}
+
+/* Meta — subtelna ostatnia linijka z lokalizacją */
+.about-text.about-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
@@ -1483,11 +1558,11 @@ input, textarea {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1px;
   gap: 1px;
-  background: var(--border);
+  background: rgba(10, 10, 10, 0.15);
 }
 
 .service-tile {
-  background: var(--bg-card);
+  background: #f0eee9;
   padding: 3.5rem 2.5rem;
   position: relative;
   overflow: hidden;
@@ -1496,15 +1571,42 @@ input, textarea {
   flex-direction: column;
 }
 
+/* Scan lines — CRT texture */
+.service-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.025) 2px,
+    rgba(255, 255, 255, 0.025) 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+  transition: opacity 0.4s ease;
+}
+
+.service-tile:hover::before {
+  opacity: 1;
+}
+
+.service-tile > * {
+  position: relative;
+  z-index: 2;
+}
+
 .service-tile:hover {
-  background: var(--bg-card-hover);
+  background: #e8e5de;
 }
 
 .service-number {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: rgba(10, 10, 10, 0.35);
   letter-spacing: 0.1em;
   margin-bottom: 1.5rem;
   display: block;
@@ -1512,7 +1614,7 @@ input, textarea {
 }
 
 .service-tile:hover .service-number {
-  color: var(--text);
+  color: rgba(10, 10, 10, 0.7);
 }
 
 .service-title {
@@ -1521,7 +1623,7 @@ input, textarea {
   font-weight: 700;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: var(--text);
+  color: #0a0a0a;
   position: relative;
   display: inline-block;
   transition: transform 0.4s var(--ease-out);
@@ -1532,7 +1634,7 @@ input, textarea {
   font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.7;
-  color: rgba(232, 230, 227, 0.85);
+  color: rgba(10, 10, 10, 0.75);
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -1542,10 +1644,10 @@ input, textarea {
   font-size: 0.95rem;
   font-weight: 400;
   line-height: 1.65;
-  color: rgba(232, 230, 227, 0.7);
+  color: rgba(10, 10, 10, 0.55);
   margin-top: auto;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
 }
 
 /* Glitch na tytule kafelka */
@@ -1648,7 +1750,7 @@ input, textarea {
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/projects.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************/
 /* ═══════════════════════════════════════════
-   PROJECTS / KARTY — glitch hover
+   PROJECTS — alternating rows, hover reveal
    ═══════════════════════════════════════════ */
 
 .projects {
@@ -1656,213 +1758,237 @@ input, textarea {
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 8rem;
+  padding-bottom: 0;
 }
 
 .projects-header {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
+  padding: 0 4rem;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 1.5rem;
-  gap: 1.5rem;
-  flex: 1 1;
-}
-
-.project-card {
-  position: relative;
-  overflow: hidden;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  transition: border-color 0.4s ease;
+/* Row list */
+.projects-list {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+}
+
+/* Single row */
+.project-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: start;
+  grid-gap: 0 2rem;
+  gap: 0 2rem;
+  padding: 2.5rem 4rem;
   text-decoration: none;
-  color: inherit;
-}
-
-.project-card:hover {
-  border-color: var(--text-muted);
-}
-
-/* Neutral dark background */
-.project-card-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-card);
-  transition: transform 0.6s var(--ease-in-out);
-}
-
-.project-card:hover .project-card-bg {
-  transform: scale(1.03);
-}
-
-/* Overlay info */
-.project-card-overlay {
+  border-top: 1px solid;
+  transition: padding 0.4s var(--ease-out);
   position: relative;
-  padding: 2.5rem;
-  z-index: 2;
+  overflow: hidden;
 }
 
-.project-card-number {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-.project-card-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--text);
-  position: relative;
-  display: inline-block;
-}
-
-.project-card-logo {
-  display: block;
-  height: 80px;
-  width: auto;
-  max-width: 280px;
-  object-fit: contain;
-  filter: invert(1) brightness(2);
-  opacity: 0.85;
-  margin-bottom: 0.25rem;
-  transition: opacity 0.3s ease;
-}
-
-.project-card:hover .project-card-logo {
-  opacity: 1;
-}
-
-/* Okładka książki — portret, bez inwersji */
-.project-card-logo-book {
-  display: block;
-  height: 100px;
-  width: auto;
-  object-fit: contain;
-  opacity: 0.9;
-  margin-bottom: 0.25rem;
-  transition: opacity 0.3s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-
-.project-card:hover .project-card-logo-book {
-  opacity: 1;
-}
-
-/* Złoty tytuł Cinzel — Uknuta Magia */
-.project-card-title-gold {
-  font-family: var(--font-cinzel), serif;
-  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-  font-weight: 700;
-  color: #E2C275;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  margin-bottom: 0.25rem;
-  text-shadow: 0 2px 10px rgba(226, 194, 117, 0.2);
-}
-
-.project-card-description {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: rgba(232, 230, 227, 0.85);
-  margin-top: 0.75rem;
-}
-
-/* Glitch na tytule karty */
-.project-card-title::before,
-.project-card-title::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+/* Stagger reveal — wsuwa się od dołu z opóźnieniem per index */
+.project-row.fade-in {
   opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out), padding 0.4s var(--ease-out);
+  transition-delay: calc(var(--row-i, 0) * 90ms);
 }
 
-.project-card-title::before {
-  color: var(--glitch-blue);
-  mix-blend-mode: screen;
-}
-
-.project-card-title::after {
-  color: var(--glitch-red);
-  mix-blend-mode: screen;
-}
-
-.project-card:hover .project-card-title::before {
+.project-row.fade-in.visible {
   opacity: 1;
-  animation: tile-glitch-blue 0.4s steps(3) forwards;
+  transform: translateY(0);
 }
 
-.project-card:hover .project-card-title::after {
-  opacity: 1;
-  animation: tile-glitch-red 0.4s steps(3) forwards;
+.project-row:last-child {
+  border-bottom: 1px solid;
 }
 
-@keyframes tile-glitch-blue {
-  0% { transform: translate(-4px, 1px); -webkit-clip-path: inset(20% 0 60% 0); clip-path: inset(20% 0 60% 0); opacity: 1; }
-  25% { transform: translate(2px, -1px); -webkit-clip-path: inset(50% 0 20% 0); clip-path: inset(50% 0 20% 0); }
-  50% { transform: translate(-2px, 2px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
-  75% { transform: translate(3px, 0px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
-  100% { transform: translate(-1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+/* Alternating colours */
+.projects-list > *:nth-child(odd) {
+  background: var(--bg);
+  color: var(--text);
+  border-color: var(--border);
 }
 
-@keyframes tile-glitch-red {
-  0% { transform: translate(4px, -1px); -webkit-clip-path: inset(60% 0 20% 0); clip-path: inset(60% 0 20% 0); opacity: 1; }
-  25% { transform: translate(-2px, 1px); -webkit-clip-path: inset(10% 0 70% 0); clip-path: inset(10% 0 70% 0); }
-  50% { transform: translate(2px, -2px); -webkit-clip-path: inset(70% 0 10% 0); clip-path: inset(70% 0 10% 0); }
-  75% { transform: translate(-3px, 0px); -webkit-clip-path: inset(30% 0 40% 0); clip-path: inset(30% 0 40% 0); }
-  100% { transform: translate(1px, 0); -webkit-clip-path: inset(0); clip-path: inset(0); opacity: 0.3; }
+.projects-list > *:nth-child(even) {
+  background: #f0eee9;
+  color: #0a0a0a;
+  border-color: rgba(10, 10, 10, 0.12);
 }
 
-/* Tagi — rozjasnione */
-.project-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.75rem;
+/* Scan lines — spójne z resztą kafelków */
+.project-row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.018) 2px,
+    rgba(255, 255, 255, 0.018) 3px
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
-.project-card-tag {
+.projects-list > *:nth-child(even)::before {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.025) 2px,
+    rgba(0, 0, 0, 0.025) 3px
+  );
+}
+
+.project-row > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Number */
+.project-row-number {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bg);
-  background: var(--text);
-  padding: 0.35rem 0.85rem;
-  border: 1px solid var(--text);
-  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  opacity: 0.35;
+  padding-top: 0.35rem;
+  flex-shrink: 0;
 }
 
-.project-card:hover .project-card-tag {
-  background: transparent;
-  color: var(--text);
-  border-color: var(--text);
+/* Body */
+.project-row-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.project-row-top {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-row-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: inherit;
+  transition: letter-spacing 0.4s var(--ease-out);
+}
+
+.project-row:hover .project-row-title {
+  letter-spacing: -0.01em;
+}
+
+.project-row-category {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  white-space: nowrap;
+}
+
+/* Reveal — slides down on hover */
+.project-row-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease-out), margin 0.45s var(--ease-out);
+  margin-top: 0;
+}
+
+.project-row:hover .project-row-reveal {
+  grid-template-rows: 1fr;
+  margin-top: 1.25rem;
+}
+
+.project-row-reveal > * {
+  overflow: hidden;
+}
+
+.project-row-desc {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.65;
+  opacity: 0.75;
+  max-width: 640px;
+  margin-bottom: 0.85rem;
+}
+
+.project-row-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.project-row-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  background: currentColor;
+  color: inherit;
+  /* Inverted trick — text inverts via mix-blend-mode */
+  position: relative;
+}
+
+/* Tags: dark row — white filled */
+.projects-list > *:nth-child(odd) .project-row-tag {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* Tags: light row — dark filled */
+.projects-list > *:nth-child(even) .project-row-tag {
+  background: #0a0a0a;
+  color: #f0eee9;
+}
+
+/* Arrow */
+.project-row-arrow {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 300;
+  opacity: 0.4;
+  padding-top: 0.1rem;
+  transform: translateX(0);
+  transition: transform 0.4s var(--ease-out), opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.project-row:hover .project-row-arrow {
+  transform: translateX(8px);
+  opacity: 1;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .projects-header {
+    padding: 0 1.5rem;
   }
+
+  .project-row {
+    grid-template-columns: 48px 1fr auto;
+    gap: 0 1rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .project-row-top {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
 }
 
 /*!****************************************************************************************************************************************************************************************************************************************************************!*\
@@ -2064,37 +2190,172 @@ textarea.form-input:focus {
 
 .footer {
   min-height: auto !important;
-  padding: 2.5rem 4rem;
   border-top: 1px solid var(--border);
+  background: var(--bg);
+  scroll-snap-align: none;
+}
+
+.footer-inner {
+  padding: 5rem 4rem 3rem;
+  max-width: 100%;
+}
+
+/* Top — 4 kolumny */
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-gap: 4rem;
+  gap: 4rem;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Kolumna 1 — brand */
+.footer-brand {
   display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  scroll-snap-align: none;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.footer-location {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.footer-email {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.footer-email:hover {
+  color: var(--text);
+}
+
+/* Kolumny nawigacji */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-col-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-link {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--text);
+}
+
+.footer-link-external {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* Bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .footer-copyright {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-muted);
-  transition: color 0.3s ease;
 }
 
-.footer-copyright:hover {
-  color: var(--text);
+.footer-stack {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .footer {
-    padding: 2rem 1.5rem;
+  .footer-inner {
+    padding: 3.5rem 1.5rem 2.5rem;
   }
 
-  .footer-copyright {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 
@@ -3037,288 +3298,321 @@ textarea.form-input:focus {
   \*************************************************************************************************************************************************************************************************************************************************************/
 
 
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"app/layout.jsx","import":"Space_Grotesk","arguments":[{"subsets":["latin","latin-ext"],"weight":["400","500","600","700"],"variable":"--font-space-grotesk","display":"swap"}],"variableName":"spaceGrotesk"} ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/* vietnamese */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/e1aab0933260df4d-s.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/b7387a63dd068245-s.p.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/36966cca54120369-s.p.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/_next/static/media/e1aab0933260df4d-s.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/_next/static/media/b7387a63dd068245-s.p.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/_next/static/media/36966cca54120369-s.p.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/_next/static/media/e1aab0933260df4d-s.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/_next/static/media/b7387a63dd068245-s.p.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/_next/static/media/36966cca54120369-s.p.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/_next/static/media/e1aab0933260df4d-s.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/_next/static/media/b7387a63dd068245-s.p.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/_next/static/media/36966cca54120369-s.p.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {font-family: 'Space Grotesk Fallback';src: local("Arial");ascent-override: 89.71%;descent-override: 26.62%;line-gap-override: 0.00%;size-adjust: 109.69%
-}.__className_751d30 {font-family: 'Space Grotesk', 'Space Grotesk Fallback';font-style: normal
-}.__variable_751d30 {--font-space-grotesk: 'Space Grotesk', 'Space Grotesk Fallback'
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./styles/chat-widget.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+/* ═══════════════════════════════════════════
+   CHAT WIDGET — floating async messenger
+   ═══════════════════════════════════════════ */
+
+/* Trigger button — okrągły, ikona koperty */
+.chat-trigger {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  background: var(--text);
+  color: var(--bg);
+  border: 1px solid var(--text);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.25s var(--ease-out);
 }
 
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"app/layout.jsx","import":"JetBrains_Mono","arguments":[{"subsets":["latin","latin-ext"],"weight":["400","500","700"],"variable":"--font-jetbrains-mono","display":"swap"}],"variableName":"jetbrainsMono"} ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/* cyrillic-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/edc640959b0c7826-s.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+.chat-trigger:hover {
+  transform: translateY(-2px);
 }
-/* cyrillic */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/ac0e76ddaeeb7981-s.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+
+/* Status dot — w prawym górnym rogu przycisku */
+.chat-trigger-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
 }
-/* greek */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/64d784ea54a4acde-s.woff2) format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+
+/* Envelope SVG */
+.chat-trigger-svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
-/* vietnamese */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/ff71da380fbe67dd-s.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+
+.chat-trigger:hover,
+.chat-trigger.active {
+  background: var(--bg);
+  color: var(--text);
 }
-/* latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/6d831b18ae5b01dc-s.p.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+
+.chat-trigger-dot {
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50% !important;
+  box-shadow: 0 0 6px #4ade80;
+  animation: status-pulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
 }
-/* latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/558ca1a6aa3cb55e-s.p.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+.chat-trigger-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
 }
-/* cyrillic-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/_next/static/media/edc640959b0c7826-s.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+
+/* Panel */
+.chat-panel {
+  position: fixed;
+  bottom: 5rem;
+  right: 2rem;
+  z-index: 8999;
+  width: 340px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  animation: chat-in 0.2s var(--ease-out);
 }
-/* cyrillic */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/_next/static/media/ac0e76ddaeeb7981-s.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+
+@keyframes chat-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-/* greek */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/_next/static/media/64d784ea54a4acde-s.woff2) format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+
+/* Header */
+.chat-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
 }
-/* vietnamese */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/_next/static/media/ff71da380fbe67dd-s.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/_next/static/media/6d831b18ae5b01dc-s.p.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/_next/static/media/558ca1a6aa3cb55e-s.p.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
+
+.chat-panel-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
   font-weight: 700;
-  font-display: swap;
-  src: url(/_next/static/media/edc640959b0c7826-s.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  color: var(--text);
+  margin-bottom: 0.2rem;
 }
-/* cyrillic */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/_next/static/media/ac0e76ddaeeb7981-s.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+
+.chat-panel-sub {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  text-transform: uppercase;
 }
-/* greek */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/_next/static/media/64d784ea54a4acde-s.woff2) format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+
+.chat-close {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  margin-top: -2px;
+  transition: color 0.2s ease;
 }
-/* vietnamese */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/_next/static/media/ff71da380fbe67dd-s.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+
+.chat-close:hover {
+  color: var(--text);
 }
-/* latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/_next/static/media/6d831b18ae5b01dc-s.p.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+
+/* Form */
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 1.5rem;
 }
-/* latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
+
+.chat-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.chat-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
   font-weight: 700;
-  font-display: swap;
-  src: url(/_next/static/media/558ca1a6aa3cb55e-s.p.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {font-family: 'JetBrains Mono Fallback';src: local("Arial");ascent-override: 75.79%;descent-override: 22.29%;line-gap-override: 0.00%;size-adjust: 134.59%
-}.__className_bddf83 {font-family: 'JetBrains Mono', 'JetBrains Mono Fallback';font-style: normal
-}.__variable_bddf83 {--font-jetbrains-mono: 'JetBrains Mono', 'JetBrains Mono Fallback'
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.chat-opt {
+  font-weight: 400;
+  color: var(--text-dim);
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+}
+
+.chat-input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  padding: 0.6rem 0.75rem;
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--text-muted);
+}
+
+.chat-input:disabled {
+  opacity: 0.5;
+}
+
+.chat-textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+.chat-error {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--glitch-red);
+  line-height: 1.5;
+}
+
+.chat-submit {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  border: 1px solid var(--text);
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  align-self: flex-start;
+}
+
+.chat-submit:hover:not(:disabled) {
+  background: transparent;
+  color: var(--text);
+}
+
+.chat-submit:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Sent state */
+.chat-sent {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.chat-sent-icon {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: #4ade80;
+}
+
+.chat-sent-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.chat-sent-text {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.chat-again {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.chat-again:hover {
+  color: var(--text);
+}
+
+/* FAQ empty placeholder */
+.faq-empty {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: rgba(10, 10, 10, 0.35);
+  padding: 2rem 0;
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .chat-panel {
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+    bottom: 4.5rem;
+  }
+
+  .chat-trigger {
+    right: 1rem;
+    bottom: 1.25rem;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"node_modules/geist/dist/sans.js","import":"","arguments":[{"src":"./fonts/geist-sans/Geist-Variable.woff2","variable":"--font-geist-sans","weight":"100 900"}],"variableName":"GeistSans"} ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+font-family: 'GeistSans';
+src: url(/_next/static/media/27834908180db20f-s.p.woff2) format('woff2');
+font-display: swap;
+font-weight: 100 900;
+}@font-face {font-family: 'GeistSans Fallback';src: local("Arial");ascent-override: 94.56%;descent-override: 27.76%;line-gap-override: 0.00%;size-adjust: 106.28%
+}.__className_245d8d {font-family: 'GeistSans', 'GeistSans Fallback'
+}.__variable_245d8d {--font-geist-sans: 'GeistSans', 'GeistSans Fallback'
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"node_modules/geist/dist/mono.js","import":"","arguments":[{"src":"./fonts/geist-mono/GeistMono-Variable.woff2","variable":"--font-geist-mono","adjustFontFallback":false,"fallback":["ui-monospace","SFMono-Regular","Roboto Mono","Menlo","Monaco","Liberation Mono","DejaVu Sans Mono","Courier New","monospace"],"weight":"100 900"}],"variableName":"GeistMono"} ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+font-family: 'GeistMono';
+src: url(/_next/static/media/78fec81b34c4a365.p.woff2) format('woff2');
+font-display: swap;
+font-weight: 100 900;
+}.__className_97c177 {font-family: 'GeistMono', ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace
+}.__variable_97c177 {--font-geist-mono: 'GeistMono', ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace
 }
 
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\

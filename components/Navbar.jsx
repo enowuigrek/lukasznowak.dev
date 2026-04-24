@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import Link from 'next/link';
 import '../styles/navbar.css';
 
 export default function Navbar({ activeSection }) {
@@ -70,9 +71,9 @@ export default function Navbar({ activeSection }) {
   }, []);
 
   const links = [
-    { id: 'o-mnie', label: 'O mnie' },
     { id: 'uslugi', label: 'Usługi' },
     { id: 'projekty', label: 'Projekty' },
+    { id: 'cennik', label: 'Cennik' },
     { id: 'kontakt', label: 'Kontakt' },
   ];
 
@@ -83,24 +84,28 @@ export default function Navbar({ activeSection }) {
           ref={logoRef}
           className={`navbar-logo glitch-logo ${logoVisible ? 'visible' : ''}`}
           onClick={() => scrollTo('hero')}
-          data-text="ŁUKASZ NOWAK"
+          data-text="LN"
           onMouseMove={handleLogoMouseMove}
           onMouseLeave={handleLogoMouseLeave}
         >
-          ŁUKASZ NOWAK
+          LN
         </button>
 
         {/* Desktop links — glitch-word na hover */}
         <ul className="navbar-links">
-          {links.map(({ id, label }) => (
-            <li key={id}>
-              <button
-                className={`navbar-link glitch-word ${activeSection === id ? 'active' : ''}`}
-                onClick={() => scrollTo(id)}
-                data-text={label}
-              >
-                {label}
-              </button>
+          {links.map(({ id, href, label }) => (
+            <li key={id ?? href}>
+              {href ? (
+                <Link href={href} className="navbar-link glitch-word" data-text={label}>{label}</Link>
+              ) : (
+                <button
+                  className={`navbar-link glitch-word ${activeSection === id ? 'active' : ''}`}
+                  onClick={() => scrollTo(id)}
+                  data-text={label}
+                >
+                  {label}
+                </button>
+              )}
             </li>
           ))}
         </ul>
@@ -120,15 +125,19 @@ export default function Navbar({ activeSection }) {
       {/* Mobile fullscreen menu */}
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
         <ul className="mobile-menu-links">
-          {links.map(({ id, label }) => (
-            <li key={id}>
-              <button
-                className={`mobile-menu-link glitch-word ${activeSection === id ? 'active' : ''}`}
-                onClick={() => scrollTo(id)}
-                data-text={label}
-              >
-                {label}
-              </button>
+          {links.map(({ id, href, label }) => (
+            <li key={id ?? href}>
+              {href ? (
+                <Link href={href} className="mobile-menu-link glitch-word" data-text={label} onClick={() => setMenuOpen(false)}>{label}</Link>
+              ) : (
+                <button
+                  className={`mobile-menu-link glitch-word ${activeSection === id ? 'active' : ''}`}
+                  onClick={() => scrollTo(id)}
+                  data-text={label}
+                >
+                  {label}
+                </button>
+              )}
             </li>
           ))}
         </ul>

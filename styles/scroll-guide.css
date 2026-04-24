@@ -1,0 +1,142 @@
+/* ═══════════════════════════════════════════
+   SCROLL GUIDE — playhead po prawej stronie
+   ═══════════════════════════════════════════ */
+
+.scroll-guide {
+  position: fixed;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out, ease);
+  /* Difference blend zapewnia czytelność na ciemnym i jasnym tle */
+  mix-blend-mode: difference;
+  color: #fff;
+}
+
+.scroll-guide.visible {
+  opacity: 1;
+}
+
+.scroll-guide.hidden {
+  opacity: 0;
+}
+
+/* Pionowa linia z kropką */
+.scroll-guide-rail {
+  position: relative;
+  width: 1px;
+  height: 22vh;
+  min-height: 140px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.06)
+  );
+}
+
+.scroll-guide-dot {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--guide-progress, 0) * 100%);
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  background: var(--text, #fff);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.45);
+  transition: top 0.4s var(--ease-out, ease);
+}
+
+.scroll-guide-dot::before,
+.scroll-guide-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--text, #fff);
+}
+
+.scroll-guide-dot::before {
+  background: var(--glitch-cyan, cyan);
+  transform: translate(-1.5px, 0);
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+
+.scroll-guide-dot::after {
+  background: var(--glitch-red, red);
+  transform: translate(1.5px, 0);
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+
+/* Meta — counter + label + glyph */
+.scroll-guide-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.scroll-guide-counter {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text, #fff);
+}
+
+.scroll-guide-divider {
+  opacity: 0.4;
+  margin: 0 0.1rem;
+}
+
+.scroll-guide-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  max-height: 9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+
+/* Glyph — driftuje raz w lewo, raz w prawo (alternating per sekcja) */
+.scroll-guide-glyph {
+  font-size: 0.7rem;
+  opacity: 0.55;
+  animation: guide-drift 2.4s var(--ease-out, ease) infinite;
+  --guide-dir: 1;
+}
+
+@keyframes guide-drift {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(calc(var(--guide-dir, 1) * 6px), 4px);
+    opacity: 1;
+  }
+}
+
+/* Mobile — chowamy */
+@media (max-width: 900px) {
+  .scroll-guide {
+    display: none;
+  }
+}

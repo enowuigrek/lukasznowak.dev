@@ -5,7 +5,7 @@ const services = [
   {
     number: '01',
     title: 'STRONY WWW',
-    description: 'Projektuję i koduję strony, które przyciągają klientów, budują zaufanie i przekonują do działania. Szybkie, czytelne i z charakterem Twojej marki. Wizytówka firmy, landing page, portfolio — bez szablonów, bez page builderów, od zera.',
+    description: 'Tworzę strony, które przyciągają klientów, budują zaufanie i zamieniają odwiedzających w kontakt lub sprzedaż. Szybkie, czytelne, z charakterem Twojej marki. Wizytówka firmy, landing page, portfolio — bez szablonów, bez page builderów, od zera.',
     example: 'Prowadzisz gabinet, studio albo firmę usługową i klienci Cię nie znajdują? Potrzebujesz strony, która pokaże czym się zajmujesz i przekona do kontaktu. Od tego zaczynam.',
   },
   {
@@ -17,7 +17,7 @@ const services = [
   {
     number: '03',
     title: 'APLIKACJE WEBOWE',
-    description: 'Buduję aplikacje webowe — od prostych narzędzi po rozbudowane panele z bazą danych, logowaniem i integracjami z AI. Działają w przeglądarce i na telefonie.',
+    description: 'Buduję aplikacje webowe, które porządkują procesy, automatyzują pracę i oszczędzają czas — Tobie albo Twoim klientom. Od prostych narzędzi po rozbudowane panele z bazą danych, logowaniem i integracjami z AI. Działają w przeglądarce i na telefonie.',
     example: 'Masz pomysł na narzędzie, które ułatwi Ci pracę albo da wartość Twoim klientom? Tracker, dashboard, system do zarządzania — powiedz co chcesz osiągnąć, a ja zbuduję to od zera.',
   },
 ];
@@ -60,7 +60,7 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <section className="section services" id="uslugi">
+    <section className="section services" id="uslugi" data-guide="Usługi">
       <div className="services-header glitch-in">
         <h2 className="label" data-text="Co robię">Co robię</h2>
       </div>

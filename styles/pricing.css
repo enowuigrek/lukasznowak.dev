@@ -1,0 +1,397 @@
+/* ═══════════════════════════════════════════
+   PRICING — dark section, 3 karty
+   ═══════════════════════════════════════════ */
+
+.pricing {
+  padding: 8rem 4rem;
+  min-height: auto;
+}
+
+.pricing-header {
+  margin-bottom: 4rem;
+  max-width: 720px;
+}
+
+.pricing-intro + .pricing-intro {
+  margin-top: 1rem;
+}
+
+.pricing-header .label {
+  margin-bottom: 1.5rem;
+}
+
+.pricing-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.pricing-intro {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 560px;
+}
+
+/* Grid — 3 karty */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--border);
+  margin-bottom: 2.5rem;
+}
+
+.pricing-card {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scan lines jak reszta kafelków */
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.02) 2px,
+    rgba(255, 255, 255, 0.02) 3px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pricing-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-card:hover {
+  background: var(--bg-card-hover);
+}
+
+/* Featured — wyróżniony środkowy, lekki lift + shadow */
+.pricing-card.featured {
+  background: var(--text);
+  color: var(--bg);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Badge "Najczęściej wybierane" */
+.pricing-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.7rem;
+  background: var(--glitch-red, #ff3939);
+  color: var(--text);
+  z-index: 3;
+}
+
+/* Tagline — co naprawdę kupujesz */
+.pricing-tagline {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.pricing-card.featured .pricing-tagline {
+  color: var(--bg);
+}
+
+/* Audience — dla kogo */
+.pricing-audience {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+}
+
+.pricing-card.featured .pricing-audience {
+  color: rgba(10, 10, 10, 0.55);
+}
+
+/* Price block */
+.pricing-price-block {
+  margin-bottom: 1rem;
+}
+
+.pricing-price-range {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+.pricing-card.featured .pricing-price-range {
+  color: rgba(10, 10, 10, 0.65);
+}
+
+.pricing-card.featured::before {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 3px
+  );
+}
+
+.pricing-card.featured:hover {
+  background: var(--text);
+}
+
+.pricing-card-top {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pricing-card.featured .pricing-card-top {
+  border-bottom-color: rgba(10, 10, 10, 0.2);
+}
+
+.pricing-type {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.pricing-card.featured .pricing-type {
+  color: rgba(10, 10, 10, 0.6);
+}
+
+.pricing-price {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.pricing-card.featured .pricing-price {
+  color: var(--bg);
+}
+
+.pricing-desc {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.pricing-card.featured .pricing-desc {
+  color: rgba(10, 10, 10, 0.7);
+}
+
+/* Lista cech */
+.pricing-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  flex: 1;
+  margin-bottom: 2.5rem;
+}
+
+.pricing-include-item {
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.pricing-card.featured .pricing-include-item {
+  color: rgba(10, 10, 10, 0.8);
+}
+
+.pricing-check {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+.pricing-card.featured .pricing-check {
+  color: rgba(10, 10, 10, 0.4);
+}
+
+/* CTA */
+.pricing-cta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  border: 1px solid var(--text);
+  padding: 0.875rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.pricing-cta:hover {
+  background: transparent;
+  color: var(--text);
+}
+
+.pricing-card.featured .pricing-cta {
+  color: var(--text);
+  background: var(--bg);
+  border-color: var(--bg);
+}
+
+.pricing-card.featured .pricing-cta:hover {
+  background: transparent;
+  color: var(--bg);
+  border-color: var(--bg);
+}
+
+/* Wspólne benefity — to co dostajesz w każdym pakiecie */
+.pricing-shared {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.pricing-shared-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.pricing-shared-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2rem;
+}
+
+.pricing-shared-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.pricing-shared-check {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #4ade80;
+  font-weight: 700;
+}
+
+/* Nota końcowa */
+.pricing-note {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.pricing-note-link {
+  background: none;
+  border: none;
+  font: inherit;
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--text-dim);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  padding: 0;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.pricing-note-link:hover {
+  text-decoration-color: var(--text);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pricing {
+    padding: 5rem 1.5rem;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 1px;
+  }
+
+  .pricing-header {
+    margin-bottom: 3rem;
+  }
+
+  /* Na mobile zdejmujemy lift — featured pozostaje wyróżniony tylko kolorem */
+  .pricing-card.featured {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .pricing-shared-list {
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .pricing-shared {
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+}

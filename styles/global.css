@@ -16,8 +16,8 @@
   --border: rgba(232, 230, 227, 0.18);
 
   /* Typografia */
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), 'Fira Code', monospace;
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), 'Fira Code', monospace;
 
   /* Spacing */
   --section-padding: 6rem 4rem;
@@ -56,6 +56,53 @@ body {
   overflow-x: hidden;
   padding-top: var(--safe-top);
   padding-bottom: var(--safe-bottom);
+  position: relative;
+}
+
+/* Animated background grid — full page, drifts diagonally */
+body::before {
+  content: '';
+  position: fixed;
+  top: -10vmax;
+  left: -10vmax;
+  width: calc(100% + 20vmax);
+  height: calc(100% + 20vmax);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+  z-index: 0;
+  animation: grid-drift 60s linear infinite;
+}
+
+/* Radial glow — rozjaśnia góra-prawo */
+body::after {
+  content: '';
+  position: fixed;
+  top: -20vmax;
+  right: -20vmax;
+  width: 60vmax;
+  height: 60vmax;
+  background: radial-gradient(
+    circle,
+    rgba(45, 127, 255, 0.06) 0%,
+    rgba(255, 45, 45, 0.03) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+@keyframes grid-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(56px, 56px); }
+}
+
+main, .navbar, .mobile-menu, #root::before {
+  position: relative;
+  z-index: 1;
 }
 
 /* ═══════════════════════════════════════════

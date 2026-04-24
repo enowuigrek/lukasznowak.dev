@@ -1,21 +1,10 @@
 import './globals.css';
-import { Space_Grotesk, JetBrains_Mono, Cinzel } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+import { Cinzel } from 'next/font/google';
 import CustomCursor from '../components/CustomCursor';
 import CookieBanner from '../components/CookieBanner';
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['400', '500', '700'],
-  variable: '--font-jetbrains-mono',
-  display: 'swap',
-});
+import ChatWidget from '../components/ChatWidget';
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -70,7 +59,7 @@ const structuredData = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pl" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${cinzel.variable}`}>
+    <html lang="pl" className={`${GeistSans.variable} ${GeistMono.variable} ${cinzel.variable}`}>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -86,9 +75,15 @@ export default function RootLayout({ children }) {
       <body>
         <CustomCursor />
         <CookieBanner />
+        <ChatWidget />
         {children}
-        {/* Hidden form for Netlify Forms detection */}
+        {/* Hidden forms for Netlify Forms detection */}
         <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <textarea name="message"></textarea>
+        </form>
+        <form name="chat" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
           <input type="text" name="name" />
           <input type="email" name="email" />
           <textarea name="message"></textarea>

@@ -6,17 +6,13 @@ export default function sitemap() {
   const projects = ['strzykawa', 'peria', 'job-odyssey', 'uknuta-magia'];
 
   return [
-    {
-      url: base,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1.0,
-    },
+    { url: base, lastModified: new Date(), changeFrequency: 'monthly', priority: 1.0 },
     ...projects.map((slug) => ({
       url: `${base}/projekt/${slug}`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'yearly',
       priority: 0.8,
     })),
+    // TODO: dodać /blog i posty po włączeniu bloga (rename app/_blog_disabled → app/blog)
   ];
 }

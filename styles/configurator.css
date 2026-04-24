@@ -1,0 +1,306 @@
+/* ═══════════════════════════════════════════
+   CONFIGURATOR — interactive pricing
+   ═══════════════════════════════════════════ */
+
+.configurator {
+  background: #f0eee9;
+  color: #0a0a0a;
+  padding: 8rem 4rem;
+  min-height: auto;
+}
+
+.configurator-header {
+  margin-bottom: 4rem;
+  max-width: 680px;
+}
+
+.configurator .label {
+  color: rgba(10, 10, 10, 0.55);
+  margin-bottom: 1.5rem;
+}
+
+.configurator-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: #0a0a0a;
+  margin-bottom: 1rem;
+}
+
+.configurator-intro {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  color: rgba(10, 10, 10, 0.6);
+  line-height: 1.6;
+}
+
+/* Body */
+.configurator-body {
+  max-width: 860px;
+}
+
+/* Step dots */
+.configurator-steps {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.configurator-step-dot {
+  width: 32px;
+  height: 3px;
+  background: rgba(10, 10, 10, 0.15);
+  transition: background 0.3s ease;
+}
+
+.configurator-step-dot.done {
+  background: rgba(10, 10, 10, 0.5);
+}
+
+.configurator-step-dot.active {
+  background: #0a0a0a;
+}
+
+/* Question */
+.configurator-question {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #0a0a0a;
+  margin-bottom: 2rem;
+}
+
+/* Options grid */
+.configurator-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1px;
+  background: rgba(10, 10, 10, 0.15);
+  margin-bottom: 2.5rem;
+}
+
+.configurator-option {
+  background: #f0eee9;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  color: #0a0a0a;
+  transition: background 0.2s ease;
+  position: relative;
+}
+
+.configurator-option:hover {
+  background: #e8e5de;
+}
+
+.configurator-option.selected {
+  background: #0a0a0a;
+  color: #f0eee9;
+}
+
+.configurator-option-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.configurator-option-desc {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(10, 10, 10, 0.6);
+  line-height: 1.4;
+}
+
+.configurator-option.selected .configurator-option-desc {
+  color: rgba(240, 238, 233, 0.65);
+}
+
+.configurator-option-price {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(10, 10, 10, 0.45);
+  margin-top: 0.25rem;
+}
+
+.configurator-option.selected .configurator-option-price {
+  color: rgba(240, 238, 233, 0.5);
+}
+
+.configurator-option-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: var(--glitch-red);
+  color: #fff;
+  padding: 0.2rem 0.4rem;
+}
+
+.configurator-multi-hint {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: rgba(10, 10, 10, 0.45);
+  padding: 1rem 0;
+  grid-column: 1 / -1;
+  background: transparent;
+}
+
+/* Navigation */
+.configurator-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.configurator-next {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f0eee9;
+  background: #0a0a0a;
+  border: 1px solid #0a0a0a;
+  padding: 0.875rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.configurator-next:hover:not(:disabled) {
+  background: transparent;
+  color: #0a0a0a;
+}
+
+.configurator-next:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.configurator-back {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.configurator-back:hover {
+  color: #0a0a0a;
+}
+
+/* Result */
+.configurator-result {
+  padding: 3rem;
+  background: #0a0a0a;
+  color: #f0eee9;
+  max-width: 640px;
+}
+
+.configurator-result-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.5);
+  margin-bottom: 1rem;
+}
+
+.configurator-result-price {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #f0eee9;
+  margin-bottom: 1.5rem;
+}
+
+.configurator-result-note {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(240, 238, 233, 0.65);
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.configurator-result-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.configurator-cta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  background: #f0eee9;
+  border: 1px solid #f0eee9;
+  padding: 0.875rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.configurator-cta:hover {
+  background: transparent;
+  color: #f0eee9;
+}
+
+.configurator-restart {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.45);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.configurator-restart:hover {
+  color: rgba(240, 238, 233, 0.8);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .configurator {
+    padding: 5rem 1.5rem;
+  }
+
+  .configurator-options {
+    grid-template-columns: 1fr;
+  }
+
+  .configurator-result {
+    padding: 2rem;
+  }
+}

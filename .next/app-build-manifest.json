@@ -16,12 +16,6 @@
       "static/chunks/main-app.js",
       "static/css/app/page.css",
       "static/chunks/app/page.js"
-    ],
-    "/projekt/peria/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/projekt/peria/page.css",
-      "static/chunks/app/projekt/peria/page.js"
     ]
   }
 }

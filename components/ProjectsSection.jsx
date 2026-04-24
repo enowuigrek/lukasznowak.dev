@@ -7,71 +7,70 @@ const projects = [
     title: 'Strzykawa',
     category: 'E-commerce',
     description: 'Sklep online z kawą specialty — zbudowany na Shopify z autorskim frontendem w React. Filtrowanie produktów, koszyk, płatności online, wszystko dopasowane do marki.',
-    tags: ['Sklep online', 'Kawa speciality', 'Zamówienia i dostawy', 'Płatności online'],
+    tags: ['Shopify', 'React', 'E-commerce'],
     href: '/projekt/strzykawa',
-    logo: '/strzykawa-logo.png',
   },
   {
     number: '02',
     title: 'Peria',
     category: 'Aplikacja',
-    description: 'Aplikacja do organizacji myśli i notatek głosowych. Transkrypcja mowy przez AI, inteligentny asystent do porządkowania treści. Dane zapisywane lokalnie — Twoje notatki zostają u Ciebie.',
-    tags: ['Organizacja myśli', 'Notatki głosowe', 'Asystent AI', 'Zapis lokalny'],
+    description: 'Aplikacja do organizacji myśli i notatek głosowych. Transkrypcja mowy przez AI, inteligentny asystent do porządkowania treści. Dane zapisywane lokalnie.',
+    tags: ['React', 'AI', 'Notatki głosowe'],
     href: '/projekt/peria',
   },
   {
     number: '03',
     title: 'Job Odyssey',
     category: 'Aplikacja',
-    description: 'Szukanie pracy potrafi być chaosem — dziesiątki ogłoszeń, różne etapy, maile do śledzenia. Job Odyssey pomaga ogarnąć cały proces: zapisujesz aplikacje, śledzisz statusy, widzisz statystyki. Koniec z arkuszami i karteczkami.',
-    tags: ['Szukanie pracy', 'Śledzenie aplikacji', 'Dashboard', 'Organizacja procesów'],
+    description: 'Osobisty CRM do szukania pracy. Kanban aplikacji, generator CV, śledzenie linków. Koniec z arkuszami i rozrzuconymi zakładkami.',
+    tags: ['React', 'Supabase', 'SaaS'],
     href: '/projekt/job-odyssey',
   },
   {
     number: '04',
     title: 'Uknuta Magia',
     category: 'E-commerce',
-    description: 'Autorski sklep z książką — prosty i skuteczny. Prezentacja, koszyk, płatności i panel do zarządzania zamówieniami. Bez wielkich platform, bez prowizji — pełna kontrola nad sprzedażą.',
-    tags: ['Sprzedaż książek', 'Sklep autorski', 'Koszyk z płatnościami', 'Panel zarządzania'],
+    description: 'Autorski sklep z książką dla dzieci. Zamówienie, płatność, panel zarządzania. Zero kosztów miesięcznych — jedyny koszt to domena.',
+    tags: ['React', 'Supabase', 'Sklep autorski'],
     href: '/projekt/uknuta-magia',
-    titleClass: 'project-card-title-gold',
   },
 ];
 
 export default function ProjectsSection() {
   return (
-    <section className="section projects" id="projekty">
+    <section className="section projects" id="projekty" data-guide="Projekty">
       <div className="projects-header glitch-in">
         <h2 className="label" data-text="Wybrane projekty">Wybrane projekty</h2>
       </div>
 
-      <div className="projects-grid">
-        {projects.map(({ number, title, category, description, tags, href, logo, logoClass, titleClass }, index) => (
+      <div className="projects-list">
+        {projects.map(({ number, title, category, description, tags, href }, i) => (
           <Link
             key={number}
-            className={`project-card glitch-in stagger-${index + 1}`}
             href={href}
+            className="project-row fade-in"
+            style={{ '--row-i': i }}
           >
-            <div className="project-card-bg" />
+            <div className="project-row-number">{number}</div>
 
-            <div className="project-card-overlay">
-              <span className="project-card-number">{number}</span>
-              {logo ? (
-                <img
-                  src={logo}
-                  alt={title}
-                  className={logoClass || 'project-card-logo'}
-                />
-              ) : (
-                <h3 className={titleClass || 'project-card-title'} data-text={title}>{title}</h3>
-              )}
-              {description && <p className="project-card-description">{description}</p>}
-              <div className="project-card-tags">
-                {tags.map((tag) => (
-                  <span key={tag} className="project-card-tag">{tag}</span>
-                ))}
+            <div className="project-row-body">
+              <div className="project-row-top">
+                <h3 className="project-row-title">{title}</h3>
+                <span className="project-row-category">{category}</span>
+              </div>
+              <div className="project-row-reveal">
+                <div>
+                  <p className="project-row-desc">{description}</p>
+                  <div className="project-row-tags">
+                    {tags.map((tag) => (
+                      <span key={tag} className="project-row-tag">{tag}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
+
+            <div className="project-row-arrow">→</div>
           </Link>
         ))}
       </div>

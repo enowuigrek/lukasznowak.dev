@@ -15,8 +15,8 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="section hero" id="hero">
-      <div className="hero-grid" />
+    <section className="section hero" id="hero" data-guide="Intro">
+
 
       <div className="hero-content fade-in">
         <h1 className="hero-title">
@@ -25,7 +25,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="hero-description">
-          React, Next.js, Supabase. Frontend, backend, deploy. Sam.
+          Projektuję i koduję strony internetowe, sklepy i narzędzia webowe.
         </p>
 
         <p className="hero-subtitle">

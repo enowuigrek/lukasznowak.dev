@@ -23,19 +23,29 @@
 
 /* Logo z glitch appear/disappear + cursor-reactive glitch */
 .navbar-logo {
-  font-family: var(--font-display);
-  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-family: var(--font-mono);
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--text);
+  border: 1.5px solid var(--text);
   position: relative;
   opacity: 0;
   transform: translateX(-10px);
   pointer-events: none;
-  transition: opacity 0.01s, transform 0.01s;
+  transition: opacity 0.01s, transform 0.01s, background 0.3s ease, color 0.3s ease;
   --logo-glitch-x: 0;
   --logo-glitch-y: 0;
+}
+
+.navbar-logo.visible:hover {
+  background: var(--text);
+  color: var(--bg);
 }
 
 .navbar-logo.glitch-logo.visible {
