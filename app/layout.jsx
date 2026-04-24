@@ -5,7 +5,6 @@ import { Cinzel } from 'next/font/google';
 import CustomCursor from '../components/CustomCursor';
 import CookieBanner from '../components/CookieBanner';
 import TawkWidget from '../components/TawkWidget';
-import ChatWidget from '../components/ChatWidget';
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -77,7 +76,6 @@ export default function RootLayout({ children }) {
         <CustomCursor />
         <CookieBanner />
         <TawkWidget />
-        <ChatWidget />
         {children}
         {/* Hidden forms for Netlify Forms detection */}
         <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
