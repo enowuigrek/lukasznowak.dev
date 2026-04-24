@@ -32,7 +32,7 @@ const navLinks = [
 const socialLinks = [
   { href: 'https://github.com/enowuigrek', label: 'GitHub' },
   { href: 'https://linkedin.com/in/lukasznowak-dev', label: 'LinkedIn' },
-  { href: 'https://useme.com/pl/roles/contractor/lukasz-nowak,205949/', label: 'Useme' },
+  { href: 'https://useme.com/pl/roles/contractor/lukasz-nowak,631474/', label: 'Useme' },
 ];
 
 export default function Footer() {
