@@ -5,14 +5,8 @@ import '../styles/footer.css';
 
 const IconNextjs = () => (
   <svg viewBox="0 0 180 180" fill="none" aria-label="Next.js" className="footer-tech-icon">
-    <mask id="nxt-mask" style={{maskType:'alpha'}} maskUnits="userSpaceOnUse" x="0" y="0" width="180" height="180">
-      <circle cx="90" cy="90" r="90" fill="black"/>
-    </mask>
-    <g mask="url(#nxt-mask)">
-      <circle cx="90" cy="90" r="90" fill="black"/>
-      <path d="M149.508 157.52L69.142 54H54V125.97H66.284V71.3L141.638 166.845C144.395 163.891 147 160.793 149.508 157.52Z" fill="white"/>
-      <rect x="115" y="54" width="12" height="72" fill="white"/>
-    </g>
+    <path d="M149.508 157.52L69.142 54H54V125.97H66.284V71.3L141.638 166.845C144.395 163.891 147 160.793 149.508 157.52Z" fill="currentColor"/>
+    <rect x="115" y="54" width="12" height="72" fill="currentColor"/>
   </svg>
 );
 
