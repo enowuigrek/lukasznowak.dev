@@ -124,7 +124,7 @@ export default function JobOdysseyPage() {
         </section>
 
         {/* Stack */}
-        <section className="peria-section section-light glitch-in">
+        <section className="peria-section glitch-in">
           <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Stack">Stack</h2>
           </div>
@@ -136,7 +136,7 @@ export default function JobOdysseyPage() {
         </section>
 
         {/* CTA */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label slide-in-left">
             <h2 className="label" data-text="Działa. Możesz zajrzeć.">Działa. Możesz zajrzeć.</h2>
           </div>
