@@ -79,13 +79,15 @@ export default function PeriaPage() {
       <main>
         {/* Hero */}
         <section className="project-page-hero">
-          <GlitchText text="PERIA" as="h1" className="project-page-title" />
-          <p className="peria-tagline">
-            Powiedz jedno zdanie. Peria zrobi z&nbsp;niego listę, notatkę i&nbsp;wydarzenie.
-          </p>
-          <p className="peria-intro">
-            Głosem. Bez pisania, bez organizowania. Mówisz — ona rozumie i&nbsp;dzieli na części.
-          </p>
+          <div className="fade-in">
+            <GlitchText text="PERIA" as="h1" className="project-page-title" />
+            <p className="peria-tagline">
+              Powiedz jedno zdanie. Peria zrobi z&nbsp;niego listę, notatkę i&nbsp;wydarzenie.
+            </p>
+            <p className="peria-intro">
+              Głosem. Bez pisania, bez organizowania. Mówisz — ona rozumie i&nbsp;dzieli na części.
+            </p>
+          </div>
         </section>
 
         {/* Historia */}
@@ -99,7 +101,7 @@ export default function PeriaPage() {
         </section>
 
         {/* Skąd nazwa? */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Skąd nazwa?">Skąd nazwa?</h2>
           </div>
@@ -148,7 +150,7 @@ export default function PeriaPage() {
         </section>
 
         {/* Filozofia */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Filozofia">Filozofia</h2>
           </div>
@@ -203,7 +205,7 @@ export default function PeriaPage() {
         </section>
 
         {/* Status */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Status">Status</h2>
           </div>

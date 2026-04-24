@@ -42,13 +42,15 @@ export default function UknutaMagiaPage() {
       <main>
         {/* Hero */}
         <section className="project-page-hero">
-          <h1 className="uknuta-title">Uknuta Magia</h1>
-          <p className="peria-tagline">
-            Bajka dla dzieci — prosto do rąk małego czytelnika.
-          </p>
-          <p className="peria-intro">
-            Sklep internetowy dla autora. Jeden produkt, zero kosztów miesięcznych. Zamówienie, płatność, potwierdzenie — i&nbsp;książka jedzie.
-          </p>
+          <div className="fade-in">
+            <h1 className="uknuta-title">Uknuta Magia</h1>
+            <p className="peria-tagline">
+              Bajka dla dzieci — prosto do rąk małego czytelnika.
+            </p>
+            <p className="peria-intro">
+              Sklep internetowy dla autora. Jeden produkt, zero kosztów miesięcznych. Zamówienie, płatność, potwierdzenie — i&nbsp;książka jedzie.
+            </p>
+          </div>
         </section>
 
         {/* Historia */}
@@ -74,7 +76,7 @@ export default function UknutaMagiaPage() {
         </section>
 
         {/* Co powstało? */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Co powstało?">Co powstało?</h2>
           </div>
@@ -100,7 +102,7 @@ export default function UknutaMagiaPage() {
         </section>
 
         {/* CTA */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Książka jest. Możesz zajrzeć.">Książka jest. Możesz zajrzeć.</h2>
           </div>

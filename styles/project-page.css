@@ -240,3 +240,87 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══════════════════════════════════════════
+   SECTION LIGHT — kremowe sekcje naprzemienne
+   Wysoka specyficzność (2 klasy) bije .peria-section
+   ═══════════════════════════════════════════ */
+
+.peria-section.section-light {
+  background: #f0eee9;
+  color: #0a0a0a;
+  border-top-color: rgba(10, 10, 10, 0.1);
+}
+
+.peria-section.section-light .peria-text,
+.peria-section.section-light .peria-install-intro {
+  color: rgba(10, 10, 10, 0.8);
+}
+
+.peria-section.section-light h2.label,
+.peria-section.section-light .label {
+  color: rgba(10, 10, 10, 0.5);
+}
+
+.peria-section.section-light .peria-blockquote {
+  color: rgba(10, 10, 10, 0.65);
+  border-left-color: rgba(10, 10, 10, 0.2);
+}
+
+.peria-section.section-light .peria-features-grid {
+  background: rgba(10, 10, 10, 0.1);
+}
+
+.peria-section.section-light .peria-feature {
+  background: #f0eee9;
+}
+
+.peria-section.section-light .peria-feature-number {
+  color: rgba(10, 10, 10, 0.35);
+}
+
+.peria-section.section-light .peria-feature-title {
+  color: #0a0a0a;
+}
+
+.peria-section.section-light .peria-feature-description {
+  color: rgba(10, 10, 10, 0.75);
+}
+
+.peria-section.section-light .peria-screenshot {
+  border-color: rgba(10, 10, 10, 0.15);
+}
+
+.peria-section.section-light .peria-install-card {
+  background: rgba(10, 10, 10, 0.04);
+  border-color: rgba(10, 10, 10, 0.12);
+}
+
+.peria-section.section-light .peria-install-platform {
+  color: #0a0a0a;
+}
+
+.peria-section.section-light .peria-install-steps li {
+  color: rgba(10, 10, 10, 0.8);
+}
+
+.peria-section.section-light .peria-install-steps li::before {
+  color: rgba(10, 10, 10, 0.45);
+}
+
+.peria-section.section-light .peria-install-screenshot {
+  border-color: rgba(10, 10, 10, 0.12);
+}
+
+.peria-section.section-light .strzykawa-stack-tag {
+  color: rgba(10, 10, 10, 0.65);
+  border-color: rgba(10, 10, 10, 0.2);
+}
+
+.peria-section.section-light .peria-cta-heading {
+  color: #0a0a0a;
+}
+
+.peria-section.section-light .strzykawa-cta-url {
+  color: rgba(10, 10, 10, 0.55);
+}

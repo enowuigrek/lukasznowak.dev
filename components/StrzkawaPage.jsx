@@ -49,18 +49,20 @@ export default function StrzkawaPage() {
       <main>
         {/* Hero */}
         <section className="project-page-hero">
-          <h1 className="sr-only">Strzykawa — Sklep online z kawą specialty</h1>
-          <img
-            src="/strzykawa-logo.png"
-            alt="Strzykawa"
-            className="strzykawa-logo"
-          />
-          <p className="peria-tagline">
-            Świeżo palona kawa — prosto pod Twoje drzwi.
-          </p>
-          <p className="peria-intro">
-            Sklep internetowy dla częstochowskiej palarni specialty. Projekt graficzny, kod i&nbsp;integracje. Od zera, pod markę.
-          </p>
+          <div className="fade-in">
+            <h1 className="sr-only">Strzykawa — Sklep online z kawą specialty</h1>
+            <img
+              src="/strzykawa-logo.png"
+              alt="Strzykawa"
+              className="strzykawa-logo"
+            />
+            <p className="peria-tagline">
+              Świeżo palona kawa — prosto pod Twoje drzwi.
+            </p>
+            <p className="peria-intro">
+              Sklep internetowy dla częstochowskiej palarni specialty. Projekt graficzny, kod i&nbsp;integracje. Od zera, pod markę.
+            </p>
+          </div>
         </section>
 
         {/* Historia */}
@@ -77,7 +79,7 @@ export default function StrzkawaPage() {
         </section>
 
         {/* Co powstało? */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Co powstało?">Co powstało?</h2>
           </div>
@@ -103,7 +105,7 @@ export default function StrzkawaPage() {
         </section>
 
         {/* Wyzwania */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Wyzwania">Wyzwania</h2>
           </div>
@@ -126,7 +128,7 @@ export default function StrzkawaPage() {
         </section>
 
         {/* CTA */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Sklep działa. Możesz zajrzeć.">Sklep działa. Możesz zajrzeć.</h2>
           </div>

@@ -47,13 +47,15 @@ export default function JobOdysseyPage() {
       <main>
         {/* Hero */}
         <section className="project-page-hero">
-          <h1 className="jo-title">Job <span>Odyssey</span></h1>
-          <p className="peria-tagline">
-            Osobisty CRM do szukania pracy — wszystko w jednym miejscu.
-          </p>
-          <p className="peria-intro">
-            Webowa aplikacja, która zamienia chaos rekrutacyjny w&nbsp;kontrolowany proces. Aplikacje na kanbanie, generator CV z&nbsp;własnym edytorem, śledzenie czy rekruter otworzył Twoje linki — bez rozrzuconych zakładek, bez arkuszy.
-          </p>
+          <div className="fade-in">
+            <h1 className="jo-title">Job <span>Odyssey</span></h1>
+            <p className="peria-tagline">
+              Osobisty CRM do szukania pracy — wszystko w jednym miejscu.
+            </p>
+            <p className="peria-intro">
+              Webowa aplikacja, która zamienia chaos rekrutacyjny w&nbsp;kontrolowany proces. Aplikacje na kanbanie, generator CV z&nbsp;własnym edytorem, śledzenie czy rekruter otworzył Twoje linki — bez rozrzuconych zakładek, bez arkuszy.
+            </p>
+          </div>
         </section>
 
         {/* Pomysł */}
@@ -70,7 +72,7 @@ export default function JobOdysseyPage() {
         </section>
 
         {/* Aplikacje */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Aplikacje">Aplikacje</h2>
           </div>
@@ -96,7 +98,7 @@ export default function JobOdysseyPage() {
         </section>
 
         {/* Śledzenie linków */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Śledzenie linków">Śledzenie linków</h2>
           </div>
@@ -122,7 +124,7 @@ export default function JobOdysseyPage() {
         </section>
 
         {/* Stack */}
-        <section className="peria-section glitch-in">
+        <section className="peria-section section-light glitch-in">
           <div className="peria-section-label">
             <h2 className="label" data-text="Stack">Stack</h2>
           </div>
