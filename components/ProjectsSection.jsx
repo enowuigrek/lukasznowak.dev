@@ -48,8 +48,8 @@ export default function ProjectsSection() {
           <Link
             key={number}
             href={href}
-            className="project-card fade-in"
-            style={{ '--card-i': i }}
+            className={`project-card slide-in-${i % 2 === 0 ? 'left' : 'right'}`}
+            style={{ '--i': 0 }}
           >
             <div className="project-card-header">
               <span className="project-card-number">{number}</span>

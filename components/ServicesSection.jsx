@@ -67,7 +67,7 @@ export default function ServicesSection() {
 
       <div className="services-grid">
         {services.map(({ number, title, description, example }, index) => (
-          <div className={`service-tile glitch-in stagger-${index + 1}`} key={number}>
+          <div className={`service-tile slide-in-${index % 2 === 0 ? 'left' : 'right'}`} style={{ '--i': 0 }} key={number}>
             <span className="service-number">{number}</span>
             <h3
               className="service-title"

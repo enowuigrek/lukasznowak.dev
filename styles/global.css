@@ -264,7 +264,7 @@ input, textarea {
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 3rem 1.5rem;
+    --section-padding: 3rem 2rem;
   }
 
   .section {
