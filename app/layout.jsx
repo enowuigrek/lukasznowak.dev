@@ -55,6 +55,11 @@ const structuredData = {
   },
   areaServed: 'PL',
   serviceType: ['Strony WWW', 'E-commerce', 'Automatyzacje', 'Projekty webowe'],
+  sameAs: [
+    'https://github.com/enowuigrek',
+    'https://linkedin.com/in/lukasznowak-dev',
+    'https://useme.com/pl/roles/contractor/lukasz-nowak,631474/',
+  ],
 };
 
 export default function RootLayout({ children }) {

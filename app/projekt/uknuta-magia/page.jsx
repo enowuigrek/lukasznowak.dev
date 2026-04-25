@@ -3,9 +3,15 @@ import UknutaMagiaPage from '../../../components/UknutaMagiaPage';
 export const metadata = {
   title: 'Uknuta Magia — Autorski sklep z książką',
   description: 'Prosty sklep internetowy dla autora książki dla dzieci. Supabase, EmailJS, zero kosztów miesięcznych. Zamówienie, płatność, potwierdzenie na maila.',
+  keywords: ['sklep internetowy', 'sklep z książką', 'Supabase', 'EmailJS', 'React', 'e-commerce', 'Łukasz Nowak'],
   alternates: { canonical: 'https://lukasznowak.dev/projekt/uknuta-magia' },
   openGraph: {
     url: 'https://lukasznowak.dev/projekt/uknuta-magia',
+    title: 'Uknuta Magia — Autorski sklep z książką',
+    description: 'Sklep z jednym produktem dla autora książki dla dzieci. Supabase + EmailJS, tylko koszt domeny.',
+  },
+  twitter: {
+    card: 'summary_large_image',
     title: 'Uknuta Magia — Autorski sklep z książką',
     description: 'Sklep z jednym produktem dla autora książki dla dzieci. Supabase + EmailJS, tylko koszt domeny.',
   },

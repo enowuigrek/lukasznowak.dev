@@ -3,9 +3,15 @@ import StrzkawaPage from '../../../components/StrzkawaPage';
 export const metadata = {
   title: 'Strzykawa — Sklep online z kawą specialty',
   description: 'Autorski sklep internetowy palarni Strzykawa — zbudowany na Shopify z własnym frontendem w React. Filtrowanie, koszyk, płatności BLIK i InPost.',
+  keywords: ['sklep internetowy', 'headless Shopify', 'React', 'e-commerce', 'kawa specialty', 'Częstochowa', 'Łukasz Nowak'],
   alternates: { canonical: 'https://lukasznowak.dev/projekt/strzykawa' },
   openGraph: {
     url: 'https://lukasznowak.dev/projekt/strzykawa',
+    title: 'Strzykawa — Sklep online z kawą specialty',
+    description: 'Autorski sklep palarni kawy Strzykawa. React frontend na Shopify, płatności BLIK, dostawa InPost.',
+  },
+  twitter: {
+    card: 'summary_large_image',
     title: 'Strzykawa — Sklep online z kawą specialty',
     description: 'Autorski sklep palarni kawy Strzykawa. React frontend na Shopify, płatności BLIK, dostawa InPost.',
   },
