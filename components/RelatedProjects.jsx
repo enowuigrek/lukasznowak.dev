@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 const allProjects = [
+  { slug: 'when', label: 'WHEN', category: 'Narzędzie autorskie' },
   { slug: 'strzykawa', label: 'Strzykawa', category: 'E-commerce' },
   { slug: 'peria', label: 'Peria', category: 'Aplikacja' },
   { slug: 'job-odyssey', label: 'Job Odyssey', category: 'Aplikacja' },

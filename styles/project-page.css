@@ -51,6 +51,22 @@
   text-transform: uppercase;
 }
 
+/* WHEN — logo w hero zamiast tytułu tekstowego */
+.when-hero-logo {
+  height: 80px;
+  width: auto;
+  max-width: 320px;
+  filter: brightness(0) invert(1);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .when-hero-logo {
+    height: 60px;
+    max-width: 240px;
+  }
+}
+
 /* Content — placeholder */
 .project-page-content {
   padding: 0 4rem 4rem;

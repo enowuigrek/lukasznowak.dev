@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import ScrollGuide from './ScrollGuide';
 import HeroSection from './HeroSection';
 import AboutSection from './AboutSection';
+import ToolsSection from './ToolsSection';
 import ServicesSection from './ServicesSection';
 import ProjectsSection from './ProjectsSection';
 import FaqSection from './FaqSection';
@@ -45,6 +46,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <AboutSection />
+        <ToolsSection />
         <ServicesSection />
         <ProjectsSection />
         <ProcessSection />
