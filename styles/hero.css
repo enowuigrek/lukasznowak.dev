@@ -87,6 +87,85 @@
   transform: translateX(4px);
 }
 
+/* ═══════════════════════════════════════════
+   HERO BRANDS — autorskie marki / produkty
+   Klikalne logo z glitchem. Miejsce na kolejne.
+   ═══════════════════════════════════════════ */
+
+.hero-brands {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-brands-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-brands-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--text-dim);
+}
+
+.hero-brands-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hero-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  text-decoration: none;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s var(--ease-out);
+  overflow: visible;
+}
+
+.hero-brand:hover {
+  border-color: var(--text);
+  background: rgba(232, 230, 227, 0.03);
+  transform: translateY(-2px);
+}
+
+.hero-brand-logo {
+  height: 28px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-brand:hover .hero-brand-logo {
+  opacity: 1;
+  animation: brand-flicker 0.4s steps(3);
+}
+
+@keyframes brand-flicker {
+  0%, 100% { opacity: 1; transform: translate(0, 0); }
+  20% { opacity: 0.7; transform: translate(-1px, 0); }
+  40% { opacity: 1; transform: translate(1px, 0); }
+  60% { opacity: 0.85; transform: translate(0, -1px); }
+  80% { opacity: 1; transform: translate(0, 1px); }
+}
+
 /* Scroll indicator */
 .scroll-indicator {
   position: absolute;
@@ -195,5 +274,17 @@
   .hero-grid {
     width: 100%;
     opacity: 0.02;
+  }
+
+  .hero-brands {
+    margin-top: 2.5rem;
+  }
+
+  .hero-brand {
+    padding: 0.4rem 0.85rem;
+  }
+
+  .hero-brand-logo {
+    height: 22px;
   }
 }

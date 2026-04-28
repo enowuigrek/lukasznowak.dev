@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import GlitchText from './GlitchText';
 import '../styles/hero.css';
 
@@ -12,6 +13,11 @@ export default function HeroSection() {
     { text: 'Strony WWW', key: 'strony' },
     { text: 'E-commerce', key: 'ecom' },
     { text: 'Aplikacje webowe', key: 'web' },
+  ];
+
+  // Autorskie marki — klikalne logo. Miejsce na kolejne (Peria, Job Odyssey, etc.)
+  const brands = [
+    { slug: 'when', label: 'WHEN', logo: '/when-logo.svg', href: '/projekt/when' },
   ];
 
   return (
@@ -49,6 +55,26 @@ export default function HeroSection() {
           <span>POROZMAWIAJMY</span>
           <span className="arrow">&rarr;</span>
         </button>
+
+        <div className="hero-brands">
+          <span className="hero-brands-label">Autorskie marki</span>
+          <div className="hero-brands-list">
+            {brands.map(({ slug, label, logo, href }) => (
+              <Link
+                key={slug}
+                href={href}
+                className="hero-brand glitch-hover"
+                data-text={label}
+                aria-label={`Zobacz projekt ${label}`}
+              >
+                <div className="glitch-bg-blue" />
+                <div className="glitch-bg-red" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={logo} alt={`${label} — logo`} className="hero-brand-logo" />
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="scroll-indicator">
