@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import '../styles/faq.css';
 
 const faqs = [
@@ -39,6 +40,11 @@ const faqs = [
   {
     q: 'Czy możesz pomóc też z treściami, SEO albo zdjęciami?',
     a: 'Mam sprawdzone osoby, z którymi współpracuję — copywriterzy, fotografowie, specjaliści od SEO. Mogę podpiąć ich do projektu i koordynować, żebyś nie musiał zarządzać kilkoma freelancerami naraz.',
+  },
+  {
+    q: 'Mam salon / gabinet — możesz dodać rezerwacje online?',
+    a: 'Tak — mam autorski system rezerwacji, który mogę wpiąć w Twoją stronę widgetem (jedna linijka HTML) albo wdrożyć jako osobną stronę rezerwacji. Klient rezerwuje sam, Ty otwierasz panel. Bez miesięcznych opłat za zewnętrzny SaaS, bez vendor lock-inu.',
+    whenLink: true,
   },
 ];
 
@@ -81,7 +87,19 @@ export default function FaqSection() {
               <span className="faq-toggle" aria-hidden="true">+</span>
             </button>
             <div className="faq-answer-wrap">
-              <p className="faq-answer">{item.a}</p>
+              <p className="faq-answer">
+                {item.a}
+                {item.whenLink && (
+                  <>
+                    {' '}
+                    <Link href="/projekt/when" className="faq-when-link" aria-label="Zobacz projekt WHEN">
+                      <span>Zobacz</span>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/when-logo.svg" alt="WHEN" className="faq-when-logo" />
+                    </Link>
+                  </>
+                )}
+              </p>
             </div>
           </div>
         ))}

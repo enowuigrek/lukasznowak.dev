@@ -256,6 +256,67 @@
   color: rgba(10, 10, 10, 0.4);
 }
 
+/* Add-on row — autorskie narzędzie WHEN */
+.pricing-addon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.pricing-addon:hover {
+  border-color: var(--text);
+  background: rgba(232, 230, 227, 0.03);
+}
+
+.pricing-addon-text {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.pricing-addon-logo {
+  height: 18px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  flex-shrink: 0;
+  transition: opacity 0.25s ease;
+}
+
+.pricing-addon:hover .pricing-addon-logo {
+  opacity: 1;
+  animation: brand-flicker 0.4s steps(3);
+}
+
+/* Featured (light) variant */
+.pricing-card.featured .pricing-addon {
+  border-color: rgba(10, 10, 10, 0.2);
+}
+
+.pricing-card.featured .pricing-addon:hover {
+  border-color: rgba(10, 10, 10, 0.6);
+  background: rgba(10, 10, 10, 0.04);
+}
+
+.pricing-card.featured .pricing-addon-text {
+  color: rgba(10, 10, 10, 0.65);
+}
+
+.pricing-card.featured .pricing-addon-logo {
+  filter: brightness(0);
+}
+
 /* CTA */
 .pricing-cta {
   font-family: var(--font-mono);

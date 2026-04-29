@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import '../styles/services.css';
 
 const services = [
@@ -7,6 +8,11 @@ const services = [
     title: 'STRONY WWW',
     description: 'Tworzę strony, które przyciągają klientów, budują zaufanie i zamieniają odwiedzających w kontakt lub sprzedaż. Szybkie, czytelne, z charakterem Twojej marki. Wizytówka firmy, landing page, portfolio — bez szablonów, bez page builderów, od zera.',
     example: 'Prowadzisz gabinet, studio albo firmę usługową i klienci Cię nie znajdują? Potrzebujesz strony, która pokaże czym się zajmujesz i przekona do kontaktu. Od tego zaczynam.',
+    addon: {
+      type: 'when',
+      pre: 'Prowadzisz salon, gabinet albo studio? Mogę dopiąć',
+      post: '— mój autorski system rezerwacji online. Klient rezerwuje sam, Ty otwierasz panel. Bez miesięcznych opłat za zewnętrzny SaaS.',
+    },
   },
   {
     number: '02',
@@ -66,7 +72,7 @@ export default function ServicesSection() {
       </div>
 
       <div className="services-grid">
-        {services.map(({ number, title, description, example }, index) => (
+        {services.map(({ number, title, description, example, addon }, index) => (
           <div className={`service-tile slide-in-${index % 2 === 0 ? 'left' : 'right'}`} style={{ '--i': 0 }} key={number}>
             <span className="service-number">{number}</span>
             <h3
@@ -78,6 +84,16 @@ export default function ServicesSection() {
             </h3>
             <p className="service-description">{description}</p>
             <p className="service-example">{example}</p>
+            {addon?.type === 'when' && (
+              <p className="service-addon">
+                {addon.pre}{' '}
+                <Link href="/projekt/when" className="service-addon-brand" aria-label="Zobacz projekt WHEN">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/when-logo.svg" alt="WHEN" className="service-addon-logo" />
+                </Link>
+                {' '}{addon.post}
+              </p>
+            )}
           </div>
         ))}
       </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import '../styles/pricing.css';
 
 const plans = [
@@ -17,6 +18,10 @@ const plans = [
       'Formularz kontaktowy',
       'Wdrożenie i konfiguracja domeny',
     ],
+    addon: {
+      type: 'when',
+      text: 'Opcjonalnie: integracja z autorskim systemem rezerwacji',
+    },
     cta: 'Zapytaj o wycenę',
   },
   {
@@ -109,6 +114,14 @@ export default function PricingSection() {
                 </li>
               ))}
             </ul>
+
+            {plan.addon?.type === 'when' && (
+              <Link href="/projekt/when" className="pricing-addon" aria-label="Zobacz projekt WHEN">
+                <span className="pricing-addon-text">{plan.addon.text}</span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/when-logo.svg" alt="WHEN" className="pricing-addon-logo" />
+              </Link>
+            )}
 
             <button className="pricing-cta" onClick={scrollToContact}>
               {plan.cta} →

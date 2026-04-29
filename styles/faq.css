@@ -118,6 +118,43 @@
   max-width: 780px;
 }
 
+.faq-when-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  vertical-align: middle;
+  margin-left: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.75);
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.faq-when-link:hover {
+  border-color: rgba(10, 10, 10, 0.85);
+  background: rgba(10, 10, 10, 0.05);
+  color: rgba(10, 10, 10, 1);
+}
+
+.faq-when-logo {
+  height: 12px;
+  width: auto;
+  filter: brightness(0);
+  opacity: 0.85;
+  display: block;
+}
+
+.faq-when-link:hover .faq-when-logo {
+  opacity: 1;
+  animation: brand-flicker 0.4s steps(3);
+}
+
 /* Empty state */
 .faq-empty {
   border-top: 1px solid rgba(10, 10, 10, 0.15);
