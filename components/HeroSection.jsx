@@ -24,37 +24,39 @@ export default function HeroSection() {
     <section className="section hero" id="hero" data-guide="Intro">
 
 
-      <div className="hero-content fade-in">
-        <h1 className="hero-title">
-          <GlitchText text="ŁUKASZ" as="span" className="hero-title-line" />
-          <GlitchText text="NOWAK" as="span" className="hero-title-line" />
-        </h1>
+      <div className="hero-inner fade-in">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            <GlitchText text="ŁUKASZ" as="span" className="hero-title-line" />
+            <GlitchText text="NOWAK" as="span" className="hero-title-line" />
+          </h1>
 
-        <p className="hero-description">
-          Projektuję i koduję strony internetowe, sklepy i narzędzia webowe.
-        </p>
+          <p className="hero-description">
+            Projektuję i koduję strony internetowe, sklepy i narzędzia webowe.
+          </p>
 
-        <p className="hero-subtitle">
-          {subtitleWords.map((word, i) => (
-            <span key={word.key}>
-              <span className="glitch-word" data-text={word.text}>{word.text}</span>
-              {i < subtitleWords.length - 1 && (
-                <span className="hero-subtitle-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
-              )}
-            </span>
-          ))}
-        </p>
+          <p className="hero-subtitle">
+            {subtitleWords.map((word, i) => (
+              <span key={word.key}>
+                <span className="glitch-word" data-text={word.text}>{word.text}</span>
+                {i < subtitleWords.length - 1 && (
+                  <span className="hero-subtitle-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+                )}
+              </span>
+            ))}
+          </p>
 
-        <button
-          className="hero-cta glitch-hover"
-          data-text="POROZMAWIAJMY"
-          onClick={scrollToContact}
-        >
-          <div className="glitch-bg-blue" />
-          <div className="glitch-bg-red" />
-          <span>POROZMAWIAJMY</span>
-          <span className="arrow">&rarr;</span>
-        </button>
+          <button
+            className="hero-cta glitch-hover"
+            data-text="POROZMAWIAJMY"
+            onClick={scrollToContact}
+          >
+            <div className="glitch-bg-blue" />
+            <div className="glitch-bg-red" />
+            <span>POROZMAWIAJMY</span>
+            <span className="arrow">&rarr;</span>
+          </button>
+        </div>
 
         <div className="hero-brands">
           <span className="hero-brands-label">Autorskie marki</span>
