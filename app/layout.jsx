@@ -4,7 +4,7 @@ import { GeistMono } from 'geist/font/mono';
 import { Cinzel } from 'next/font/google';
 import CustomCursor from '../components/CustomCursor';
 import CookieBanner from '../components/CookieBanner';
-import TawkWidget from '../components/TawkWidget';
+// import TawkWidget from '../components/TawkWidget';
 import ShaderBackground from '../components/ShaderBackground';
 
 const cinzel = Cinzel({
@@ -82,7 +82,7 @@ export default function RootLayout({ children }) {
         <ShaderBackground />
         <CustomCursor />
         <CookieBanner />
-        <TawkWidget />
+        {/* <TawkWidget /> */}
         {children}
         {/* Hidden forms for Netlify Forms detection */}
         <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
