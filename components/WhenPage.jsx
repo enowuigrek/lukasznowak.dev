@@ -110,7 +110,7 @@ export default function WhenPage() {
           i&nbsp;wejdź prosto do panelu managera z&nbsp;gotowymi danymi.
         </p>
         <a
-          href="https://when-three.vercel.app"
+          href="https://whenbooking.pl"
           className="peria-cta-btn glitch-hover"
           data-text="OTWÓRZ DEMO"
           target="_blank"

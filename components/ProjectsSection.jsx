@@ -12,11 +12,11 @@ const projects = [
   },
   {
     number: '02',
-    title: 'Peria',
-    category: 'Aplikacja',
-    description: 'Aplikacja do organizacji myśli i notatek głosowych. Transkrypcja mowy przez AI, inteligentny asystent do porządkowania treści. Dane zapisywane lokalnie.',
-    tags: ['React', 'AI', 'Notatki głosowe'],
-    href: '/projekt/peria',
+    title: 'WHEN',
+    category: 'Narzędzie autorskie',
+    description: 'Autorski SaaS jako alternatywa dla Booksy. Twoi klienci, Twoja strona, Twoja baza — bez prowizji od cudzego ruchu. Multi-tenant, embeddable widget, panel admina. Testowany produkcyjnie z pierwszymi klientami w Częstochowie.',
+    tags: ['Next.js', 'Supabase', 'TypeScript', 'SaaS'],
+    href: '/projekt/when',
   },
   {
     number: '03',
@@ -30,9 +30,17 @@ const projects = [
     number: '04',
     title: 'Uknuta Magia',
     category: 'E-commerce',
-    description: 'Autorski sklep z książką dla dzieci. Zamówienie, płatność, panel zarządzania. Zero kosztów miesięcznych — jedyny koszt to domena.',
-    tags: ['React', 'Supabase', 'Sklep autorski'],
+    description: 'Pełny sklep e-commerce zbudowany dla autora książki dziecięcej. Formularz zamówień z kalkulatorem dostawy, panel admina do zarządzania zamówieniami i automatyczne powiadomienia e-mail. Działa produkcyjnie pod domeną uknutamagia.pl.',
+    tags: ['React', 'Supabase', 'Vite', 'SCSS'],
     href: '/projekt/uknuta-magia',
+  },
+  {
+    number: '05',
+    title: 'Peria',
+    category: 'Aplikacja',
+    description: 'Aplikacja do organizacji myśli i notatek głosowych. Transkrypcja mowy przez AI, inteligentny asystent do porządkowania treści. Dane zapisywane lokalnie.',
+    tags: ['React', 'AI', 'Notatki głosowe'],
+    href: '/projekt/peria',
   },
 ];
 

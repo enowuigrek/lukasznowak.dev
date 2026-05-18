@@ -21,7 +21,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'WHEN',
-  url: 'https://when-three.vercel.app',
+  url: 'https://whenbooking.pl',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   description: 'Autorski system rezerwacji online dla salonów, gabinetów i studiów. Widget do osadzenia, grafiki pracowników, ceny per grupa.',
