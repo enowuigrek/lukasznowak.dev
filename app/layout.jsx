@@ -5,6 +5,7 @@ import { Cinzel } from 'next/font/google';
 import CustomCursor from '../components/CustomCursor';
 import CookieBanner from '../components/CookieBanner';
 import TawkWidget from '../components/TawkWidget';
+import ShaderBackground from '../components/ShaderBackground';
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -78,6 +79,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <ShaderBackground />
         <CustomCursor />
         <CookieBanner />
         <TawkWidget />
