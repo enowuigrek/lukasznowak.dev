@@ -21,7 +21,7 @@
 }
 
 .service-tile {
-  background: #f0eee9;
+  background: var(--bg-light);
   padding: 3.5rem 2.5rem;
   position: relative;
   overflow: hidden;
@@ -58,7 +58,7 @@
 }
 
 .service-tile:hover {
-  background: #e8e5de;
+  background: var(--accent);
 }
 
 .service-number {

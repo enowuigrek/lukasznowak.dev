@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════ */
 
 .configurator {
-  background: #f0eee9;
+  background: var(--bg-light);
   color: #0a0a0a;
   padding: 8rem 4rem;
   min-height: auto;
@@ -84,7 +84,7 @@
 }
 
 .configurator-option {
-  background: #f0eee9;
+  background: var(--bg-light);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -99,12 +99,12 @@
 }
 
 .configurator-option:hover {
-  background: #e8e5de;
+  background: var(--accent);
 }
 
 .configurator-option.selected {
   background: #0a0a0a;
-  color: #f0eee9;
+  color: var(--bg-light);
 }
 
 .configurator-option-label {
@@ -148,7 +148,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   background: var(--glitch-red);
-  color: #fff;
+  color: var(--text);
   padding: 0.2rem 0.4rem;
 }
 
@@ -174,7 +174,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #f0eee9;
+  color: var(--bg-light);
   background: #0a0a0a;
   border: 1px solid #0a0a0a;
   padding: 0.875rem 2rem;
@@ -213,7 +213,7 @@
 .configurator-result {
   padding: 3rem;
   background: #0a0a0a;
-  color: #f0eee9;
+  color: var(--bg-light);
   max-width: 640px;
 }
 
@@ -233,7 +233,7 @@
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: #f0eee9;
+  color: var(--bg-light);
   margin-bottom: 1.5rem;
 }
 
@@ -261,8 +261,8 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #0a0a0a;
-  background: #f0eee9;
-  border: 1px solid #f0eee9;
+  background: var(--bg-light);
+  border: 1px solid var(--bg-light);
   padding: 0.875rem 2rem;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
@@ -270,7 +270,7 @@
 
 .configurator-cta:hover {
   background: transparent;
-  color: #f0eee9;
+  color: var(--bg-light);
 }
 
 .configurator-restart {

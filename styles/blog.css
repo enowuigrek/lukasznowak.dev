@@ -5,7 +5,7 @@
 /* ── Homepage teaser ── */
 
 .blog-teaser {
-  background: #f0eee9;
+  background: var(--bg-light);
   color: #0a0a0a;
   padding: 8rem 4rem;
   min-height: auto;
@@ -38,7 +38,7 @@
 }
 
 .blog-card {
-  background: #f0eee9;
+  background: var(--bg-light);
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@
 }
 
 .blog-card:hover {
-  background: #e8e5de;
+  background: var(--accent);
 }
 
 .blog-card-meta {

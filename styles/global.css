@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════ */
 
 :root {
-  /* Kolory */
+  /* Kolory — ciemne (domyślne) */
   --bg: #0a0a0a;
   --bg-card: #181818;
   --bg-card-hover: #222222;
@@ -15,12 +15,19 @@
   --accent: #e8e6e3;
   --border: rgba(232, 230, 227, 0.18);
 
+  /* Kolory — jasne sekcje */
+  --bg-light: #f0eee9;
+
+  /* Kolory — semantyczne */
+  --color-success: #4ade80;
+
   /* Typografia */
   --font-display: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), 'Fira Code', monospace;
+  /* --font-cinzel — injected by Next.js as CSS variable on <html>, używaj var(--font-cinzel) */
 
   /* Spacing */
-  --section-padding: 6rem 4rem;
+  --section-padding: 8rem 4rem;
 
   /* Transition */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

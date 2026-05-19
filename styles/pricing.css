@@ -394,7 +394,7 @@
 .pricing-shared-check {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: #4ade80;
+  color: var(--color-success);
   font-weight: 700;
 }
 

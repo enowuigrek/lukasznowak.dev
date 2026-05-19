@@ -263,7 +263,7 @@
    ═══════════════════════════════════════════ */
 
 .peria-section.section-light {
-  background: #f0eee9;
+  background: var(--bg-light);
   color: #0a0a0a;
   border-top-color: rgba(10, 10, 10, 0.1);
 }
@@ -288,7 +288,7 @@
 }
 
 .peria-section.section-light .peria-feature {
-  background: #f0eee9;
+  background: var(--bg-light);
 }
 
 .peria-section.section-light .peria-feature-number {

@@ -146,6 +146,47 @@ zaktualizuj też ten plik.
 
 ---
 
+## Design System — system wizualny
+
+Plik z opisem systemu wizualnego (technologicznie neutralny):
+`~/Documents/nowy-kontekst/design/lukasznowak-dev.md`
+
+**Czytaj go przed każdą zmianą wizualną** (kolory, typografia, spacing, animacje).
+
+### Tokeny CSS — gdzie żyją
+
+Wszystkie tokeny żyją w `styles/global.css` sekcja `:root`.
+
+**Zdefiniowane tokeny:**
+```
+--bg              #0a0a0a      ciemne tło (domyślne)
+--bg-card         #181818      karty na ciemnym tle
+--bg-card-hover   #222222      hover na kartach
+--bg-light        #f0eee9      jasne tło sekcji (Projekty, Usługi, Proces, FAQ, Cennik)
+--text            #f5f5f5      główny tekst
+--text-muted      rgba(232,230,227,0.85)
+--text-dim        rgba(232,230,227,0.3)
+--glitch-red      #ff2d2d
+--glitch-blue     #2d7fff
+--accent          #e8e6e3
+--border          rgba(232,230,227,0.18)
+--color-success   #4ade80      statusy, sukces formularza, WHEN status dot
+--font-display    Geist Sans   nagłówki, treść, nawigacja
+--font-mono       Geist Mono   kod, logo LN, tagi techniczne
+--font-cinzel     Cinzel       (injected by Next.js na <html>, nie w :root)
+--section-padding 8rem 4rem    padding sekcji (.section używa tej zmiennej)
+--ease-out        cubic-bezier(0.16, 1, 0.3, 1)
+--ease-in-out     cubic-bezier(0.76, 0, 0.24, 1)
+```
+
+**Zasady:**
+- Nigdy nie hardcode'uj `#f0eee9`, `#4ade80`, `#0a0a0a` itp. — zawsze używaj zmiennych
+- Jasne sekcje: `background: var(--bg-light)` — nie inna wartość
+- Padding sekcji: klasa `.section` automatycznie używa `var(--section-padding)`
+- `border-radius: 0 !important` globalnie — jeden wyjątek: okrągłe statusy (`.status-dot`)
+
+---
+
 ## Log zmian (najnowsze na górze)
 
 ```

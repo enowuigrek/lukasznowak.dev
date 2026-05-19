@@ -39,7 +39,7 @@
 
 /* Karta jasna (nieparzyste na desktop = lewa kolumna) */
 .project-card:nth-child(even) {
-  background: #f0eee9;
+  background: var(--bg-light);
   color: #0a0a0a;
   border-right: none;
 }
@@ -55,7 +55,7 @@
 
 /* Hover */
 .project-card:nth-child(odd):hover {
-  background: #111;
+  background: var(--bg-card-hover);
 }
 
 .project-card:nth-child(even):hover {
@@ -155,7 +155,7 @@
 
 .project-card:nth-child(even) .project-card-tag {
   background: #0a0a0a;
-  color: #f0eee9;
+  color: var(--bg-light);
 }
 
 /* Strzałka — pojawia się na hover */
