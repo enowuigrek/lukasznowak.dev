@@ -9,7 +9,8 @@ export default function AboutSection() {
 
       <div className="about-content">
         <p className="about-text slide-in-left" style={{ '--i': 0 }}>
-          Jestem Łukasz — projektuję i&nbsp;koduję strony, sklepy internetowe i&nbsp;aplikacje webowe. Pracuję samodzielnie, więc od&nbsp;początku do&nbsp;końca rozmawiasz z&nbsp;osobą, która realnie buduje projekt. Bez pośredników.
+          13 lat rozmawiałem z&nbsp;firmami o&nbsp;ich problemach. Teraz buduję narzędzia które je rozwiązują.
+          Pracuję samodzielnie — od&nbsp;początku do&nbsp;końca rozmawiasz z&nbsp;osobą, która realnie buduje projekt. Bez pośredników.
         </p>
         <p className="about-text slide-in-left" style={{ '--i': 1 }}>
           Poza pracą dla klientów buduję też własne narzędzia internetowe. Zauważam problemy, upraszczam procesy i&nbsp;tworzę rzeczy, które rozwiązują konkretne potrzeby. Dzięki temu patrzę na projekty nie tylko jak developer, ale też jak ktoś, kto pyta — po&nbsp;co ta funkcja istnieje i&nbsp;czy naprawdę ma sens.

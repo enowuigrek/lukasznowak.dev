@@ -5,8 +5,8 @@ import '../styles/process.css';
 const steps = [
   {
     number: '01',
-    title: 'Rozmowa',
-    description: 'Na początku rozmawiamy o tym, czego potrzebujesz i co chcesz osiągnąć. Sprawdzamy, czy dobrze się rozumiemy i czy to projekt, który warto realizować razem.',
+    title: 'Diagnoza',
+    description: 'Zanim zaproponuję rozwiązanie, pytam co nie działa. Czasem problem leży w technologii, czasem w procesie, czasem strona w ogóle nie jest potrzebna. Mówię o tym wprost.',
   },
   {
     number: '02',

@@ -135,8 +135,9 @@ export default function ContactSection() {
             kontakt@lukasznowak.dev
           </a>
           <p className="contact-description">
-            Masz pomysł na projekt? Napisz do mnie — chętnie porozmawiam
-            o Twoich potrzebach i zaproponuję rozwiązanie.
+            Umów 15-minutową rozmowę diagnostyczną. Bez oferty, bez presji.
+            Jeśli problem nie wymaga programowania — powiem Ci o tym wprost.
+            Jeśli uznam że nie potrzebujesz moich usług — wskażę Ci kierunek.
           </p>
         </div>
       </div>

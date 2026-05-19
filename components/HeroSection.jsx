@@ -32,7 +32,8 @@ export default function HeroSection() {
           </h1>
 
           <p className="hero-description">
-            Projektuję i koduję strony internetowe, sklepy i narzędzia webowe.
+            Zanim zacznę cokolwiek robić, pytam co nie działa.
+            Nie każdy problem rozwiązuje strona.
           </p>
 
           <p className="hero-subtitle">
@@ -48,12 +49,12 @@ export default function HeroSection() {
 
           <button
             className="hero-cta glitch-hover"
-            data-text="POROZMAWIAJMY"
+            data-text="UMÓW 15-MINUTOWĄ DIAGNOZĘ"
             onClick={scrollToContact}
           >
             <div className="glitch-bg-blue" />
             <div className="glitch-bg-red" />
-            <span>POROZMAWIAJMY</span>
+            <span>UMÓW 15-MINUTOWĄ DIAGNOZĘ</span>
             <span className="arrow">&rarr;</span>
           </button>
         </div>
