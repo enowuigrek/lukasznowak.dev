@@ -5,6 +5,23 @@ Kontekst strony: `~/Documents/nowy-kontekst/projekty/lukasznowak-dev.md`
 
 ---
 
+## Treści strony — źródło prawdy
+
+Plik z treściami strony znajduje się w:
+`~/Documents/nowy-kontekst/content/lukasznowak-dev.md`
+
+**Czytaj go przed każdą zmianą tekstów na stronie.**
+Gdy Cowork zaktualizuje ten plik i Łukasz poprosi o synchronizację —
+przepisz zmiany do odpowiednich komponentów (`components/*.jsx`).
+
+Plik zawiera:
+- Aktualne treści każdej sekcji (Hero, O mnie, Usługi, Proces, Dla kogo, Kontakt)
+- Komentarze `> Kierunek` z materiału marketingowego — to propozycje, nie zmieniaj
+  ich bez polecenia Łukasza
+- Sekcję Social Proof (jeszcze niezaimplementowaną — nie dodawaj do kodu bez polecenia)
+
+---
+
 ## Portfolio — źródło prawdy
 
 Opisy projektów żyją w `~/Documents/nowy-kontekst/projekty/*.md`.
