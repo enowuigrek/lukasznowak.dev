@@ -7,16 +7,15 @@ const plans = [
   {
     type: 'Strona WWW',
     tagline: 'Prezentacja firmy',
-    audience: 'Dla małych firm, freelancerów i lokalnych biznesów',
-    priceFrom: 'od 2 500 zł',
-    priceRange: 'Najczęściej: 3 000 – 4 500 zł',
-    desc: 'Wizytówka, strona firmowa, landing page lub portfolio.',
+    priceFrom: '3 000 zł netto',
     includes: [
-      'Projekt i kod od zera',
-      'Responsywna na każdym urządzeniu',
-      'SEO techniczne i meta tagi',
-      'Formularz kontaktowy',
-      'Wdrożenie i konfiguracja domeny',
+      'Do 5 sekcji (Hero, O nas, Usługi, Referencje, Kontakt)',
+      'Projekt i kod — bez szablonów, bez page builderów',
+      'Wersja mobilna, dostosowana do każdego ekranu',
+      'Formularz kontaktowy + integracja z pocztą',
+      'Podstawowe SEO (meta tagi, sitemap, Open Graph)',
+      'Wdrożenie na serwer lub hosting (Vercel/Netlify)',
+      '1 miesiąc wsparcia po wdrożeniu',
     ],
     addon: {
       type: 'when',
@@ -25,43 +24,34 @@ const plans = [
     cta: 'Zapytaj o wycenę',
   },
   {
-    type: 'Sklep internetowy',
+    type: 'E-commerce',
     tagline: 'Sprzedaż online',
-    audience: 'Dla marek, twórców i biznesów sprzedających produkty',
-    priceFrom: 'od 5 500 zł',
-    priceRange: 'Najczęściej: 6 500 – 9 000 zł',
-    desc: 'Shopify lub własny sklep w Next.js z pełną obsługą zamówień.',
+    priceFrom: '6 000 zł netto',
     includes: [
-      'Koszyk, checkout, płatności online',
-      'Panel zarządzania produktami',
-      'Integracja z bramką płatniczą',
-      'E-mail po zamówieniu',
-      'SEO e-commerce',
+      'Shopify z własnym frontendem (Next.js)',
+      'Strona główna, lista produktów, karta produktu, koszyk, checkout',
+      'Integracja z bramką płatniczą (Stripe lub Przelewy24)',
+      'Wersja mobilna i dostosowanie do standardów e-commerce',
+      'Konfiguracja domeny, SSL, środowiska produkcyjnego',
+      '2 miesiące wsparcia po wdrożeniu',
     ],
     cta: 'Zapytaj o wycenę',
   },
   {
     type: 'Aplikacja webowa',
-    tagline: 'Automatyzacja i system biznesowy',
-    audience: 'Dla startupów, SaaS i firm potrzebujących narzędzia',
-    priceFrom: 'od 8 000 zł',
-    priceRange: 'Najczęściej: 10 000 – 18 000 zł',
-    desc: 'Dashboard, SaaS, narzędzie wewnętrzne lub MVP z backendem.',
+    tagline: 'Narzędzie na miarę',
+    priceFrom: '8 000 zł netto',
     includes: [
-      'React / Next.js + baza danych',
-      'Logowanie i konta użytkowników',
-      'API i integracje zewnętrzne',
-      'Panel administracyjny',
-      'Deploy i hosting',
+      'Wycena indywidualna po briefie',
+      'Next.js + baza danych (Supabase / PostgreSQL)',
+      'Logowanie, role użytkowników, panele',
+      'Integracje z API i zewnętrznymi serwisami',
+      'Dokumentacja techniczna i instrukcja użytkowania',
+      '3 miesiące wsparcia po wdrożeniu',
+      'Kod w Twoim repozytorium — bez vendor lock-in',
     ],
     cta: 'Zapytaj o wycenę',
   },
-];
-
-const sharedBenefits = [
-  '3 miesiące wsparcia po wdrożeniu',
-  'Kod w Twoim repozytorium',
-  'Bez vendor lock-in — strona zostaje Twoja',
 ];
 
 export default function PricingSection() {
@@ -96,20 +86,16 @@ export default function PricingSection() {
             <div className="pricing-card-top">
               <p className="pricing-type">{plan.type}</p>
               <p className="pricing-tagline">{plan.tagline}</p>
-              <p className="pricing-audience">{plan.audience}</p>
 
               <div className="pricing-price-block">
                 <p className="pricing-price">{plan.priceFrom}</p>
-                <p className="pricing-price-range">{plan.priceRange}</p>
               </div>
-
-              <p className="pricing-desc">{plan.desc}</p>
             </div>
 
             <ul className="pricing-includes">
               {plan.includes.map((item) => (
                 <li key={item} className="pricing-include-item">
-                  <span className="pricing-check">+</span>
+                  <span className="pricing-check">✓</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -128,19 +114,6 @@ export default function PricingSection() {
             </button>
           </div>
         ))}
-      </div>
-
-      {/* Wspólne benefity — to co dostajesz w każdym pakiecie */}
-      <div className="pricing-shared">
-        <p className="pricing-shared-label">W każdym pakiecie</p>
-        <ul className="pricing-shared-list">
-          {sharedBenefits.map((b) => (
-            <li key={b} className="pricing-shared-item">
-              <span className="pricing-shared-check">✓</span>
-              <span>{b}</span>
-            </li>
-          ))}
-        </ul>
       </div>
 
       <p className="pricing-note">

@@ -5,45 +5,26 @@ import '../styles/process.css';
 const steps = [
   {
     number: '01',
-    title: 'Diagnoza',
-    description: 'Zanim zaproponuję rozwiązanie, pytam co nie działa. Czasem problem leży w technologii, czasem w procesie, czasem strona w ogóle nie jest potrzebna. Mówię o tym wprost.',
+    title: 'PYTAM',
+    description: '15 minut — opisujesz problem swoimi słowami. Nie każdy problem rozwiązuje strona. Jeśli nie Twój — powiem wprost i wskażę kierunek.',
   },
   {
     number: '02',
-    title: 'Brief i wycena',
-    description: 'Na podstawie rozmowy przygotowuję brief z zakresem, propozycją techniczną i wyceną. Dostajesz to na piśmie zanim cokolwiek podpiszesz.',
+    title: 'ROZUMIEM',
+    description: 'Zanim zacznę budować, uczę się Twojego biznesu. Twoje rzemiosło, Twoi klienci, Twój rytm pracy. Nie wchodzę z zewnątrz z ofertą. Wchodzę ze zrozumieniem.',
   },
   {
     number: '03',
-    title: 'Umowa i zaliczka',
-    description: 'Krótka umowa — zakres, terminy, prawa autorskie, gwarancja. Zaliczka 30-50% na start. Wszystko jasne zanim zaczynam pisać pierwszy wiersz kodu.',
-  },
-  {
-    number: '04',
-    title: 'Projektowanie i kod',
-    description: 'Pracuję i na bieżąco pokazuję postępy — przez live demo, staging albo repozytorium. Żadnych niespodzianek na końcu.',
-  },
-  {
-    number: '05',
-    title: 'Demo i korekty',
-    description: 'Udostępniam gotową wersję do oceny. Masz rundę korekt w cenie — zmiany mieszczące się w ustalonym zakresie projektu.',
-  },
-  {
-    number: '06',
-    title: 'Wdrożenie',
-    description: 'Wgrywam na serwer, konfiguruję domenę, SSL, monitoring. Sprawdzam na urządzeniach mobilnych, tabletach i desktopie. Dopiero potem faktura końcowa.',
+    title: 'BUDUJĘ I ZOSTAJĘ',
+    description: 'Strona gotowa — ale nie znikam. Zmiana tekstu, pytanie techniczne, nowy pomysł. Jestem dostępny. Odbiorę po ludzku.',
   },
 ];
 
 export default function ProcessSection() {
   return (
-    <section className="section process" id="proces" data-guide="Proces">
+    <section className="section process" id="proces" data-guide="Jak pracuję">
       <div className="process-header fade-in">
-        <p className="label">Jak pracuję</p>
-        <h2 className="process-heading">Od rozmowy<br />do wdrożenia.</h2>
-        <p className="process-intro">
-          Żadnych niespodzianek, żadnych niejasności. Zawsze wiesz co i kiedy się dzieje.
-        </p>
+        <p className="label">Jak to działa</p>
       </div>
 
       <div className="process-steps">

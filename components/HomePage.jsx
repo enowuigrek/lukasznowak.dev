@@ -5,14 +5,17 @@ import VHSOverlay from './VHSOverlay';
 import Navbar from './Navbar';
 import ScrollGuide from './ScrollGuide';
 import HeroSection from './HeroSection';
-import AboutSection from './AboutSection';
+import ForWhomSection from './ForWhomSection';
+import ProblemSection from './ProblemSection';
+import SolutionSection from './SolutionSection';
 import ServicesSection from './ServicesSection';
 import ProjectsSection from './ProjectsSection';
-import FaqSection from './FaqSection';
 import ProcessSection from './ProcessSection';
-import ForWhomSection from './ForWhomSection';
-import PricingSection from './PricingSection';
+import UspSection from './UspSection';
+import AboutSection from './AboutSection';
 import ContactSection from './ContactSection';
+import PricingSection from './PricingSection';
+import FaqSection from './FaqSection';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
 
@@ -44,14 +47,17 @@ export default function HomePage() {
       <ScrollGuide />
       <main>
         <HeroSection />
-        <AboutSection />
+        <ForWhomSection />
+        <ProblemSection />
+        <SolutionSection />
         <ServicesSection />
         <ProjectsSection />
         <ProcessSection />
-        <ForWhomSection />
+        <UspSection />
+        <AboutSection />
+        <ContactSection />
         <PricingSection />
         <FaqSection />
-        <ContactSection />
         <Footer />
       </main>
     </>

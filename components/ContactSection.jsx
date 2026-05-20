@@ -39,7 +39,8 @@ export default function ContactSection() {
   return (
     <section className="section contact" id="kontakt" data-guide="Kontakt">
       <div className="contact-header glitch-in">
-        <h2 className="label" data-text="Kontakt">Kontakt</h2>
+        <p className="label">Kontakt</p>
+        <h2 className="contact-heading">Umów 15-minutową diagnozę</h2>
       </div>
 
       <div className="contact-wrapper glitch-in stagger-2">
@@ -80,7 +81,7 @@ export default function ContactSection() {
               id="message"
               name="message"
               className="form-input"
-              placeholder="Opisz krótko czego potrzebujesz — stronę, sklep, aplikację? Im więcej napiszesz, tym lepiej będę mógł pomóc."
+              placeholder="Opisz krótko czego potrzebujesz. Im więcej napiszesz, tym lepiej będę mógł pomóc."
               rows="4"
               value={form.message}
               onChange={handleChange}
@@ -93,21 +94,24 @@ export default function ContactSection() {
             className="form-submit glitch-hover"
             disabled={status === 'sending'}
             data-text={
-              status === 'sent' ? 'WYSŁANO' :
+              status === 'sent' ? 'WYSŁANO ✓' :
               status === 'error' ? 'BŁĄD — SPRÓBUJ PONOWNIE' :
               status === 'sending' ? 'WYSYŁANIE...' :
-              'WYŚLIJ WIADOMOŚĆ'
+              'UMÓW DIAGNOZĘ →'
             }
           >
             <div className="glitch-bg-blue" />
             <div className="glitch-bg-red" />
             <span>
-              {status === 'sent' ? 'WYSŁANO' :
+              {status === 'sent' ? 'WYSŁANO ✓' :
                status === 'error' ? 'BŁĄD — SPRÓBUJ PONOWNIE' :
                status === 'sending' ? 'WYSYŁANIE...' :
-               'WYŚLIJ WIADOMOŚĆ'}
+               'UMÓW DIAGNOZĘ →'}
             </span>
           </button>
+          {status === 'idle' && (
+            <p className="form-microcopy">Zazwyczaj odpowiadam w ciągu 24 godzin.</p>
+          )}
 
           {status === 'sent' && (
             <div className="form-success">
@@ -135,9 +139,9 @@ export default function ContactSection() {
             kontakt@lukasznowak.dev
           </a>
           <p className="contact-description">
-            Umów 15-minutową rozmowę diagnostyczną. Bez oferty, bez presji.
-            Jeśli problem nie wymaga programowania — powiem Ci o tym wprost.
-            Jeśli uznam że nie potrzebujesz moich usług — wskażę Ci kierunek.
+            Bezpłatnie. Bez oferty na starcie.<br />
+            Sprawdzimy czy Twój problem w ogóle wymaga strony.<br />
+            Jeśli nie — powiem Ci o tym wprost.
           </p>
         </div>
       </div>

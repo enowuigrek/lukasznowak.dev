@@ -1,50 +1,53 @@
 /* ═══════════════════════════════════════════
-   FOR WHOM — proza edytorska
+   PROBLEM — sekcja edytorska, ciemne tło
    ═══════════════════════════════════════════ */
 
-.for-whom {
+.problem {
   padding: 8rem 4rem;
   min-height: auto;
 }
 
-.for-whom-header {
-  margin-bottom: 3rem;
-}
-
-.for-whom-body {
+.problem-body {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
   max-width: 760px;
 }
 
-.for-whom-lead {
+.problem-question {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--text);
 }
 
-.for-whom-examples {
+.problem-examples {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding-left: 1.5rem;
-  border-left: 2px solid var(--border);
+  gap: 0.4rem;
 }
 
-.for-whom-examples li {
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+.problem-examples li {
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
   font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-muted);
+  line-height: 1.5;
+  color: var(--text-dim);
+  padding-left: 1.25rem;
+  position: relative;
 }
 
-.for-whom-text {
+.problem-examples li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--glitch-red);
+}
+
+.problem-text {
   font-family: var(--font-display);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 400;
@@ -52,20 +55,23 @@
   color: var(--text-muted);
 }
 
-.for-whom-closing {
-  color: var(--text);
+.problem-closing {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 500;
+  line-height: 1.6;
+  color: var(--text);
   padding-top: 1rem;
   border-top: 1px solid var(--border);
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .for-whom {
+  .problem {
     padding: 5rem 1.5rem;
   }
 
-  .for-whom-body {
-    gap: 1.5rem;
+  .problem-body {
+    gap: 2rem;
   }
 }

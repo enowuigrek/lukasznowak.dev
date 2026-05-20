@@ -9,17 +9,30 @@ export default function AboutSection() {
 
       <div className="about-content">
         <p className="about-text slide-in-left" style={{ '--i': 0 }}>
-          13 lat rozmawiałem z&nbsp;firmami o&nbsp;ich problemach. Teraz buduję narzędzia które je rozwiązują.
-          Pracuję samodzielnie — od&nbsp;początku do&nbsp;końca rozmawiasz z&nbsp;osobą, która realnie buduje projekt. Bez pośredników.
+          Przez lata siedziałem naprzeciwko różnych klientów — indywidualnych, małych firm,
+          dużych korporacji. I nauczyłem się jednego: każdy chce żeby ktoś posłuchał
+          zanim zaproponuje rozwiązanie.
         </p>
         <p className="about-text slide-in-left" style={{ '--i': 1 }}>
-          Poza pracą dla klientów buduję też własne narzędzia internetowe. Zauważam problemy, upraszczam procesy i&nbsp;tworzę rzeczy, które rozwiązują konkretne potrzeby. Dzięki temu patrzę na projekty nie tylko jak developer, ale też jak ktoś, kto pyta — po&nbsp;co ta funkcja istnieje i&nbsp;czy naprawdę ma sens.
+          W korporacji to trudne. Tam liczą się wyniki, nie klienci.
+          Zacząłem więc budować narzędzia sam — nie dlatego że chciałem być developerem,
+          dlatego że miałem problemy których nikt inny nie rozwiązywał.
+          Job Odyssey, Peria — oba wyszły z pytania: dlaczego to jeszcze nie istnieje?
         </p>
         <p className="about-text slide-in-left" style={{ '--i': 2 }}>
-          Lubię proste rozwiązania, jasny proces i&nbsp;rzeczy, które mają konkretny cel. Bez nadmiaru funkcji, bez przekombinowania — z&nbsp;naciskiem na czytelność, szybkość i&nbsp;możliwość dalszego rozwoju.
+          Dziś buduję dla małych firm. Z pomocą AI — bo AI robi za mnie rzeczy
+          które nie wymagają myślenia, żebym mógł skupić się na tym co lubię:
+          zrozumieniu problemu.
         </p>
-        <p className="about-text about-meta slide-in-left" style={{ '--i': 3 }}>
-          Mieszkam w&nbsp;Częstochowie, pracuję dla klientów z&nbsp;całej Polski.
+        <p className="about-text slide-in-left" style={{ '--i': 3 }}>
+          Sam parzę specialty, warzę piwo, nagrywam rap, wypiekam na zakwasie.
+          Wiem jak wygląda praca nad sobą przez rzemiosło.
+          Dlatego rozumiem klientów którzy robią to co robią.
+        </p>
+        <p className="about-text about-meta slide-in-left" style={{ '--i': 4 }}>
+          Nadal siedzę po tej samej stronie stołu.<br />
+          Tylko teraz między spotkaniami — narzędzia pracują za klienta.<br />
+          A on może robić to po co założył firmę.
         </p>
       </div>
     </section>

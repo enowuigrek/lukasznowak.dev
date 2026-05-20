@@ -1,71 +1,76 @@
 /* ═══════════════════════════════════════════
-   FOR WHOM — proza edytorska
+   SOLUTION — sekcja edytorska, jasne tło
    ═══════════════════════════════════════════ */
 
-.for-whom {
+.solution {
+  background: var(--bg-light);
+  color: #0a0a0a;
   padding: 8rem 4rem;
   min-height: auto;
 }
 
-.for-whom-header {
-  margin-bottom: 3rem;
+.solution .label {
+  color: rgba(10, 10, 10, 0.55);
 }
 
-.for-whom-body {
+.solution-body {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
   max-width: 760px;
 }
 
-.for-whom-lead {
+.solution-lead {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.2;
-  color: var(--text);
+  line-height: 1.15;
+  color: #0a0a0a;
 }
 
-.for-whom-examples {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding-left: 1.5rem;
-  border-left: 2px solid var(--border);
-}
-
-.for-whom-examples li {
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-
-.for-whom-text {
+.solution-sub {
   font-family: var(--font-display);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 400;
   line-height: 1.7;
-  color: var(--text-muted);
+  color: rgba(10, 10, 10, 0.65);
 }
 
-.for-whom-closing {
-  color: var(--text);
+.solution-benefits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(10, 10, 10, 0.15);
+}
+
+.solution-benefits li {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(10, 10, 10, 0.7);
+}
+
+.solution-closing {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 500;
+  line-height: 1.7;
+  color: #0a0a0a;
   padding-top: 1rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .for-whom {
+  .solution {
     padding: 5rem 1.5rem;
   }
 
-  .for-whom-body {
-    gap: 1.5rem;
+  .solution-body {
+    gap: 2rem;
   }
 }
