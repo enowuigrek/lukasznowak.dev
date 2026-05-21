@@ -80,10 +80,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="scroll-indicator">
-        <span className="scroll-indicator-text">SCROLL</span>
-        <div className="scroll-indicator-line" />
-      </div>
+
     </section>
   );
 }
