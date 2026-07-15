@@ -1,3 +1,11 @@
 [build]
   command = "npm run build"
   publish = "out"
+
+# Krótkie linki śledzące Job Odyssey: lukasznowak.dev/r/<token>
+# przekierowuje do funkcji rejestrującej kliknięcie (ta robi 302 do celu)
+[[redirects]]
+  from = "/r/*"
+  to = "https://pfpaiqbuunpvfksxgeax.supabase.co/functions/v1/track?t=:splat"
+  status = 302
+  force = true
