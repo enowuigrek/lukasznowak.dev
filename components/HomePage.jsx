@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import VHSOverlay from './VHSOverlay';
 import Navbar from './Navbar';
-import ScrollGuide from './ScrollGuide';
 import HeroSection from './HeroSection';
 import ForWhomSection from './ForWhomSection';
 import ProblemSection from './ProblemSection';
@@ -44,7 +43,6 @@ export default function HomePage() {
     <>
       <VHSOverlay />
       <Navbar activeSection={activeSection} />
-      <ScrollGuide />
       <main>
         <HeroSection />
         <ForWhomSection />
