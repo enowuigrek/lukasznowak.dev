@@ -107,11 +107,6 @@
   letter-spacing: -0.03em;
   line-height: 1;
   color: inherit;
-  transition: letter-spacing 0.4s var(--ease-out);
-}
-
-.project-card:hover .project-card-title {
-  letter-spacing: -0.01em;
 }
 
 /* Opis */
@@ -124,19 +119,12 @@
   flex: 1;
 }
 
-/* Footer — tagi + strzałka */
-.project-card-footer {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: auto;
-}
-
+/* Tagi */
 .project-card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
+  margin-top: auto;
 }
 
 .project-card-tag {
@@ -156,22 +144,6 @@
 .project-card:nth-child(even) .project-card-tag {
   background: #0a0a0a;
   color: var(--bg-light);
-}
-
-/* Strzałka — pojawia się na hover */
-.project-card-arrow {
-  font-size: 1.5rem;
-  font-weight: 300;
-  opacity: 0;
-  transform: translate(-8px, 4px);
-  transition: opacity 0.3s var(--ease-out), transform 0.4s var(--ease-out);
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.project-card:hover .project-card-arrow {
-  opacity: 1;
-  transform: translate(0, 0);
 }
 
 /* Mobile */

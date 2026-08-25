@@ -1,23 +1,22 @@
-import Link from 'next/link';
 import '../styles/projects.css';
 
-// show: false — Peria, Job Odyssey, Uknuta Magia (projekty własne bez wdrożeń klientów)
+// Strzykawa i WHEN — linki bezpośrednio do zewnętrznych stron
 const projects = [
   {
     number: '01',
-    title: 'Strzykawa — palarnia kawy, Częstochowa',
-    category: 'E-commerce',
-    description: 'Headless Shopify z własnym frontendem React + Netlify. SEO setup z JSON-LD, Google Merchant Center i AEO Tracker monitorujący widoczność marki w odpowiedziach AI.',
+    title: 'Strzykawa',
+    subtitle: 'Palarnia kawy, Częstochowa',
+    description: 'Headless Shopify z własnym frontendem React. SEO setup z JSON-LD, Google Merchant Center i AEO Tracker monitorujący widoczność marki w odpowiedziach AI.',
     tags: ['Headless', 'Shopify', 'React', 'SEO'],
-    href: '/projekt/strzykawa',
+    href: 'https://strzykawa.com',
   },
   {
     number: '02',
-    title: 'WHEN — system rezerwacji',
-    category: 'Narzędzie autorskie',
-    description: 'Autorski system rezerwacji wdrażany u pierwszych klientów. Multi-tenant, embeddable widget, panel admina. Bez prowizji od cudzego ruchu.',
+    title: 'WHEN',
+    subtitle: 'Autorski system rezerwacji',
+    description: 'Multi-tenant system rezerwacji wdrażany u pierwszych klientów. Bez prowizji, bez vendor lock-in. Panel admina, embeddable widget.',
     tags: ['Next.js', 'Supabase', 'TypeScript'],
-    href: '/projekt/when',
+    href: 'https://whenbooking.pl',
   },
 ];
 
@@ -29,30 +28,29 @@ export default function ProjectsSection() {
       </div>
 
       <div className="projects-grid">
-        {projects.map(({ number, title, category, description, tags, href }, i) => (
-          <Link
+        {projects.map(({ number, title, subtitle, description, tags, href }, i) => (
+          <a
             key={number}
             href={href}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`project-card slide-in-${i % 2 === 0 ? 'left' : 'right'}`}
             style={{ '--i': i }}
           >
             <div className="project-card-header">
               <span className="project-card-number">{number}</span>
-              <span className="project-card-category">{category}</span>
+              <span className="project-card-category">{subtitle}</span>
             </div>
 
             <h3 className="project-card-title">{title}</h3>
             <p className="project-card-desc">{description}</p>
 
-            <div className="project-card-footer">
-              <div className="project-card-tags">
-                {tags.map((tag) => (
-                  <span key={tag} className="project-card-tag">{tag}</span>
-                ))}
-              </div>
-              <span className="project-card-arrow">→</span>
+            <div className="project-card-tags">
+              {tags.map((tag) => (
+                <span key={tag} className="project-card-tag">{tag}</span>
+              ))}
             </div>
-          </Link>
+          </a>
         ))}
       </div>
     </section>

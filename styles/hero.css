@@ -3,14 +3,13 @@
    ═══════════════════════════════════════════ */
 
 .hero {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
   position: relative;
   overflow: hidden;
-  padding-bottom: 8rem;
+  padding: 14rem 4rem 6rem;
 }
 
 .hero-inner {
@@ -52,7 +51,6 @@
 
 @media (max-width: 768px) {
   .hero {
-    justify-content: center;
-    padding-bottom: 0;
+    padding: 8rem 1.5rem 4rem;
   }
 }

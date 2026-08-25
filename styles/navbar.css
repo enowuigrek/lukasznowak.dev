@@ -12,12 +12,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: transparent;
-  transition: background 0.4s ease, padding 0.4s ease;
+  background: var(--bg);
+  transition: padding 0.4s ease;
 }
 
 .navbar.scrolled {
-  background: var(--bg);
   padding: 1rem 4rem;
 }
 

@@ -10,12 +10,6 @@ const navLinks = [
   { href: '/#kontakt', label: 'Kontakt' },
 ];
 
-const socialLinks = [
-  { href: 'https://whenbooking.pl', label: 'WHEN' },
-  { href: 'https://github.com/enowuigrek', label: 'GitHub' },
-  { href: 'https://linkedin.com/in/lukasznowak-dev', label: 'LinkedIn' },
-];
-
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -41,20 +35,6 @@ export default function Footer() {
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="footer-link">{label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div className="footer-col">
-            <p className="footer-col-label">Social</p>
-            <ul className="footer-links">
-              {socialLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <a href={href} className="footer-link footer-link-external" target="_blank" rel="noopener noreferrer">
-                    {label} ↗
-                  </a>
                 </li>
               ))}
             </ul>
