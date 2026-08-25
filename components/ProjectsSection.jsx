@@ -41,13 +41,24 @@ export default function ProjectsSection() {
             className={`project-card slide-in-${i % 2 === 0 ? 'left' : 'right'}`}
             style={{ '--i': i }}
           >
-            {/* Mockup — desktop + mobile side by side */}
+            {/* Mockup — laptop + phone device frames */}
             <div className="project-card-mockup">
-              <div className="project-card-mockup-desktop">
-                <Image src={desktopImg} alt={`${title} — desktop`} width={1280} height={480} className="project-card-mockup-img" unoptimized />
+              {/* Laptop */}
+              <div className="mockup-laptop">
+                <div className="mockup-laptop-lid">
+                  <div className="mockup-laptop-screen">
+                    <Image src={desktopImg} alt={`${title} — desktop`} width={1280} height={480} className="project-card-mockup-img" unoptimized />
+                  </div>
+                </div>
+                <div className="mockup-laptop-base" />
               </div>
-              <div className="project-card-mockup-mobile">
-                <Image src={mobileImg} alt={`${title} — mobile`} width={375} height={812} className="project-card-mockup-img" unoptimized />
+              {/* Phone */}
+              <div className="mockup-phone">
+                <div className="mockup-phone-island" />
+                <div className="mockup-phone-screen">
+                  <Image src={mobileImg} alt={`${title} — mobile`} width={375} height={812} className="project-card-mockup-img" unoptimized />
+                </div>
+                <div className="mockup-phone-home" />
               </div>
             </div>
 
