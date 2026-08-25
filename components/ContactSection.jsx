@@ -40,7 +40,7 @@ export default function ContactSection() {
     <section className="section contact" id="kontakt" data-guide="Kontakt">
       <div className="contact-header glitch-in">
         <p className="label">Kontakt</p>
-        <h2 className="contact-heading">Napisz co Cię uwiera. Odpiszę.</h2>
+        <h2 className="contact-heading">Napisz do mnie.</h2>
       </div>
 
       <div className="contact-wrapper glitch-in stagger-2">

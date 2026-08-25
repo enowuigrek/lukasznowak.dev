@@ -5,6 +5,7 @@ const services = [
   'Sklepy internetowe',
   'Panele i automatyzacje',
   'Strony',
+  'Może coś jeszcze - wykminim razem.',
 ];
 
 export default function ServicesSection() {

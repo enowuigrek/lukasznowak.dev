@@ -75,6 +75,37 @@
   transform: translateY(0);
 }
 
+/* Mockup — desktop + mobile screenshoty */
+.project-card-mockup {
+  display: flex;
+  align-items: stretch;
+  margin: -2.5rem -2.5rem 1.5rem -2.5rem;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.project-card-mockup-desktop {
+  flex: 0 0 71%;
+  overflow: hidden;
+  border-right: 1px solid var(--border);
+}
+
+.project-card-mockup-mobile {
+  flex: 0 0 29%;
+  overflow: hidden;
+}
+
+.project-card-mockup-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  max-width: none !important;
+}
+
 /* Header — numer + kategoria */
 .project-card-header {
   display: flex;
@@ -155,6 +186,11 @@
   .project-card {
     border-right: none;
     padding: 2rem 1.5rem;
+  }
+
+  .project-card-mockup {
+    margin: -2rem -1.5rem 1.25rem -1.5rem;
+    height: 180px;
   }
 
   .project-card:nth-child(n+2) {
