@@ -10,7 +10,7 @@
 }
 
 .footer-inner {
-  padding: 5rem 4rem 1.5rem;
+  padding: 5rem 4rem 1rem;
   max-width: 100%;
 }
 
@@ -19,8 +19,8 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 4rem;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
 

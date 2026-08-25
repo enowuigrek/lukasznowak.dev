@@ -1,8 +1,11 @@
 import '../styles/services.css';
 
 const services = [
-  'Systemy rezerwacji, sklepy, strony, panele i automatyzacje.',
-  'Przejmuję to, co odciąga Cię od tego, co naprawdę robisz.',
+  'Systemy rezerwacji',
+  'Sklepy internetowe',
+  'Panele i automatyzacje',
+  'Strony',
+  'I to, co powtarzasz od nowa za każdym razem.',
 ];
 
 export default function ServicesSection() {
