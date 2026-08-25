@@ -119,7 +119,7 @@ textarea.form-input:focus {
 
 /* Info side */
 .contact-info {
-  padding-top: 1rem;
+  padding-top: 0;
 }
 
 .contact-info-label {
