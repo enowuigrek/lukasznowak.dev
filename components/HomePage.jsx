@@ -4,17 +4,11 @@ import { useState, useEffect } from 'react';
 import VHSOverlay from './VHSOverlay';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
-import ForWhomSection from './ForWhomSection';
-import ProblemSection from './ProblemSection';
-import SolutionSection from './SolutionSection';
 import ServicesSection from './ServicesSection';
+import TimeSection from './TimeSection';
 import ProjectsSection from './ProjectsSection';
-import ProcessSection from './ProcessSection';
-import UspSection from './UspSection';
 import AboutSection from './AboutSection';
 import ContactSection from './ContactSection';
-import PricingSection from './PricingSection';
-import FaqSection from './FaqSection';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
 
@@ -45,17 +39,11 @@ export default function HomePage() {
       <Navbar activeSection={activeSection} />
       <main>
         <HeroSection />
-        <ForWhomSection />
-        <ProblemSection />
-        <SolutionSection />
         <ServicesSection />
+        <TimeSection />
         <ProjectsSection />
-        <ProcessSection />
-        <UspSection />
         <AboutSection />
         <ContactSection />
-        <PricingSection />
-        <FaqSection />
         <Footer />
       </main>
     </>

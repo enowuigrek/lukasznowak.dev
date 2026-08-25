@@ -1,68 +1,40 @@
 import Link from 'next/link';
 import '../styles/projects.css';
 
+// show: false — Peria, Job Odyssey, Uknuta Magia (projekty własne bez wdrożeń klientów)
 const projects = [
   {
     number: '01',
-    title: 'Strzykawa — headless Shopify dla lokalnej palarni kawy',
+    title: 'Strzykawa — palarnia kawy, Częstochowa',
     category: 'E-commerce',
-    description: 'Migracja z domyślnego Shopify na headless React + Netlify, SEO setup z JSON-LD, Google Merchant Center i autorski AEO Tracker monitorujący widoczność marki w odpowiedziach AI na tle 30 polskich palarni.',
-    tags: ['Headless', 'Shopify', 'React', 'SEO', 'AEO'],
+    description: 'Headless Shopify z własnym frontendem React + Netlify. SEO setup z JSON-LD, Google Merchant Center i AEO Tracker monitorujący widoczność marki w odpowiedziach AI.',
+    tags: ['Headless', 'Shopify', 'React', 'SEO'],
     href: '/projekt/strzykawa',
-    featured: true,
   },
   {
     number: '02',
-    title: 'WHEN — system rezerwacji bez prowizji dla mikrofirm',
+    title: 'WHEN — system rezerwacji',
     category: 'Narzędzie autorskie',
-    description: 'Autorski SaaS jako alternatywa dla Booksy. Twoi klienci, Twoja strona, Twoja baza — bez prowizji od cudzego ruchu. Multi-tenant, embeddable widget, panel admina. Testowany produkcyjnie z pierwszymi klientami w Częstochowie.',
-    tags: ['Next.js', 'Supabase', 'TypeScript', 'SaaS'],
+    description: 'Autorski system rezerwacji wdrażany u pierwszych klientów. Multi-tenant, embeddable widget, panel admina. Bez prowizji od cudzego ruchu.',
+    tags: ['Next.js', 'Supabase', 'TypeScript'],
     href: '/projekt/when',
-    featured: true,
-  },
-  {
-    number: '03',
-    title: 'Peria — voice-first PWA inspirowana filozofią perypatetyków',
-    category: 'Aplikacja',
-    description: 'Progressive Web App z głosowym interfejsem i integracją OpenAI. Głos jako świadoma decyzja designerska, nie skrót — inspiracja: Arystoteles i filozofia myślenia w ruchu.',
-    tags: ['PWA', 'OpenAI', 'Voice'],
-    href: '/projekt/peria',
-    featured: false,
-  },
-  {
-    number: '04',
-    title: 'Job Odyssey — tracker aplikacji rekrutacyjnych z CV trackowaniem',
-    category: 'Aplikacja',
-    description: 'Zbudowany dla siebie podczas szukania pracy. Generuje CV z otagowanymi linkami per aplikacja — widzisz kto kliknął co i kiedy. Koniec wysyłania CV w próżnię.',
-    tags: ['React', 'Vite', 'SaaS', 'AI tooling'],
-    href: '/projekt/job-odyssey',
-    featured: false,
-  },
-  {
-    number: '05',
-    title: 'Uknuta Magia — e-commerce MVP dla autora książki dziecięcej',
-    category: 'E-commerce',
-    description: 'Pełny sklep bez Shopify: strona produktowa, formularz zamówień z kalkulatorem dostawy, panel admina ze statusami i automatyczne powiadomienia e-mail. Produkcja na uknutamagia.pl.',
-    tags: ['React', 'Vite', 'Supabase', 'SCSS'],
-    href: '/projekt/uknuta-magia',
-    featured: false,
   },
 ];
 
 export default function ProjectsSection() {
   return (
-    <section className="section projects" id="projekty" data-guide="Projekty">
-      <div className="projects-header glitch-in">
-        <h2 className="label" data-text="Wybrane projekty">Wybrane projekty</h2>
+    <section className="section section--light projects" id="realizacje" data-guide="Realizacje">
+      <div className="projects-header">
+        <p className="label">Realizacje</p>
       </div>
 
       <div className="projects-grid">
-        {projects.map(({ number, title, category, description, tags, href, featured }, i) => (
+        {projects.map(({ number, title, category, description, tags, href }, i) => (
           <Link
             key={number}
             href={href}
-            className={`project-card slide-in-${i % 2 === 0 ? 'left' : 'right'}${featured ? ' project-card--featured' : ''}`}
-            style={{ '--i': 0 }}
+            className={`project-card slide-in-${i % 2 === 0 ? 'left' : 'right'}`}
+            style={{ '--i': i }}
           >
             <div className="project-card-header">
               <span className="project-card-number">{number}</span>

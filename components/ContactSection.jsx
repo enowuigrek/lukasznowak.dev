@@ -40,7 +40,7 @@ export default function ContactSection() {
     <section className="section contact" id="kontakt" data-guide="Kontakt">
       <div className="contact-header glitch-in">
         <p className="label">Kontakt</p>
-        <h2 className="contact-heading">Umów 15-minutową diagnozę</h2>
+        <h2 className="contact-heading">Napisz co Cię uwiera. Odpiszę.</h2>
       </div>
 
       <div className="contact-wrapper glitch-in stagger-2">
@@ -95,18 +95,18 @@ export default function ContactSection() {
             disabled={status === 'sending'}
             data-text={
               status === 'sent' ? 'WYSŁANO ✓' :
-              status === 'error' ? 'BŁĄD — SPRÓBUJ PONOWNIE' :
+              status === 'error' ? 'BŁĄD - SPRÓBUJ PONOWNIE' :
               status === 'sending' ? 'WYSYŁANIE...' :
-              'UMÓW DIAGNOZĘ →'
+              'WYŚLIJ →'
             }
           >
             <div className="glitch-bg-blue" />
             <div className="glitch-bg-red" />
             <span>
               {status === 'sent' ? 'WYSŁANO ✓' :
-               status === 'error' ? 'BŁĄD — SPRÓBUJ PONOWNIE' :
+               status === 'error' ? 'BŁĄD - SPRÓBUJ PONOWNIE' :
                status === 'sending' ? 'WYSYŁANIE...' :
-               'UMÓW DIAGNOZĘ →'}
+               'WYŚLIJ →'}
             </span>
           </button>
           {status === 'idle' && (
@@ -138,11 +138,6 @@ export default function ContactSection() {
           >
             kontakt@lukasznowak.dev
           </a>
-          <p className="contact-description">
-            Bezpłatnie. Bez oferty na starcie.<br />
-            Sprawdzimy czy Twój problem w ogóle wymaga strony.<br />
-            Jeśli nie — powiem Ci o tym wprost.
-          </p>
         </div>
       </div>
     </section>

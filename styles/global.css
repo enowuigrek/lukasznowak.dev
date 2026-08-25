@@ -136,6 +136,17 @@ main {
   padding: var(--section-padding);
 }
 
+/* Light surface — jasna powierzchnia sekcji */
+.section--light {
+  background: var(--bg-light);
+  --text: #0a0a0a;
+  --text-muted: rgba(10, 10, 10, 0.55);
+  --text-dim: rgba(10, 10, 10, 0.3);
+  --border: rgba(10, 10, 10, 0.12);
+  --accent: #d8d5cf;
+  color: #0a0a0a;
+}
+
 /* Typografia */
 h1, h2, h3, h4 {
   font-family: var(--font-display);

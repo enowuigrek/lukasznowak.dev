@@ -71,9 +71,9 @@ export default function Navbar({ activeSection }) {
   }, []);
 
   const links = [
-    { id: 'uslugi', label: 'Usługi' },
-    { id: 'projekty', label: 'Projekty' },
-    { id: 'cennik', label: 'Cennik' },
+    { id: 'co-robie', label: 'Co robię' },
+    { id: 'realizacje', label: 'Realizacje' },
+    { id: 'o-mnie', label: 'O mnie' },
     { id: 'kontakt', label: 'Kontakt' },
   ];
 
