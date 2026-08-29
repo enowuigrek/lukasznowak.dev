@@ -12,13 +12,17 @@
 
 .time-text {
   font-family: var(--font-display);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.55;
   color: var(--text);
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .time-text:last-child {
   margin-bottom: 0;
+}
+
+.time-body {
+  max-width: 760px;
 }
