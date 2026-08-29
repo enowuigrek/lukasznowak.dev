@@ -21,11 +21,11 @@
 
 .about-text {
   font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.55;
   color: var(--text);
-  max-width: 680px;
+  max-width: 760px;
 }
 
 /* Meta — subtelna ostatnia linijka z lokalizacją */

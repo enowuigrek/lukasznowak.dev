@@ -5,7 +5,7 @@ const services = [
   'Sklepy internetowe',
   'Panele i automatyzacje',
   'Strony',
-  'Własne oprogramowanie i integracje.',
+  'Własne oprogramowanie i integracje',
 ];
 
 export default function ServicesSection() {
