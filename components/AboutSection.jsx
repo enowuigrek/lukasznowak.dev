@@ -2,7 +2,7 @@ import '../styles/about.css';
 
 export default function AboutSection() {
   return (
-    <section className="section section--light about" id="o-mnie" data-guide="O mnie">
+    <section className="section about" id="o-mnie" data-guide="O mnie">
       <div className="about-header">
         <p className="label">O mnie</p>
       </div>

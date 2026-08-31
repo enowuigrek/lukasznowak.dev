@@ -39,10 +39,10 @@ export default function HomePage() {
       <Navbar activeSection={activeSection} />
       <main>
         <HeroSection />
+        <AboutSection />
         <ServicesSection />
         <TimeSection />
         <ProjectsSection />
-        <AboutSection />
         <ContactSection />
         <Footer />
       </main>
