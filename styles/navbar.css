@@ -323,6 +323,11 @@
     display: none;
   }
 
+  .navbar-logo-svg {
+    height: 36px;
+    max-width: 200px;
+  }
+
   /* Show hamburger */
   .navbar-hamburger {
     display: flex;
