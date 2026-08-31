@@ -9,6 +9,7 @@ export default function Navbar({ activeSection }) {
   const [scrolled, setScrolled] = useState(false);
   const [logoVisible, setLogoVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
   const logoRef = useRef(null);
 
   // Scroll listener na window
@@ -25,6 +26,18 @@ export default function Navbar({ activeSection }) {
   useEffect(() => {
     setLogoVisible(activeSection !== 'hero');
   }, [activeSection]);
+
+  // Chowaj navbar gdy footer wchodzi w widok
+  useEffect(() => {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -80,7 +93,7 @@ export default function Navbar({ activeSection }) {
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''} ${footerVisible ? 'navbar--hidden' : ''}`}>
         <button
           ref={logoRef}
           className={`navbar-logo ${logoVisible ? 'visible' : ''}`}
