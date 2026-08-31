@@ -7,7 +7,7 @@ export default function HeroSection() {
     <section className="section section--light hero" id="hero" data-guide="Intro">
       <div className="hero-inner">
         <h1 className="hero-title">Łukasz Nowak</h1>
-        <p className="hero-subtitle">Systemy rezerwacji, sklepy, panele.</p>
+        <p className="hero-subtitle">Systemy rezerwacji, e-commerce, panele, SEO.</p>
         <p className="hero-description">
           Żebyś mógł skupić się na tym, co naprawdę robisz.
         </p>
