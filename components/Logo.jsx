@@ -2,14 +2,15 @@ export default function Logo({ className = "" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 480 65"
+      viewBox="0 0 430 65"
       fill="none"
       aria-label="Łukasz Nowak .dev"
       className={className}
       style={{ display: 'block' }}
     >
       <g transform="translate(0,65) scale(0.02766,-0.02766)">
-        <path d="M386 1972 c-9 -14 35 -156 73 -237 60 -127 144 -295 163 -330 13 -22
+        <path
+          d="M386 1972 c-9 -14 35 -156 73 -237 60 -127 144 -295 163 -330 13 -22
 48 -85 77 -140 30 -55 62 -112 73 -127 20 -29 23 -48 7 -48 -6 0 -53 20 -106
 45 -91 43 -143 56 -143 35 0 -5 6 -10 14 -10 7 0 62 -24 122 -54 60 -29 119
 -56 131 -60 12 -4 32 -21 44 -37 38 -54 98 -169 90 -174 -9 -5 -215 74 -326
@@ -99,10 +100,17 @@ m117 -405 c43 -151 85 -315 86 -335 0 -45 -17 -22 -33 45 -10 37 -33 126 -52
 m-509 -89 c24 -24 29 -38 29 -76 0 -82 -45 -141 -147 -194 -53 -27 -132 -28
 -163 -3 -22 18 -22 18 -4 72 9 29 26 62 36 72 10 10 18 24 18 31 0 23 49 81
 88 104 54 33 106 30 143 -6z M1312 848 c2 -24 9 -43 17 -46 10 -3 12 2 7 21
--3 15 -1 27 5 29 15 5 0 38 -18 38 -10 0 -13 -11 -11 -42z" fill="currentColor" />
+-3 15 -1 27 5 29 15 5 0 38 -18 38 -10 0 -13 -11 -11 -42z"
+          fill="currentColor"
+          stroke="currentColor"
+          strokeWidth="60"
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+          style={{ vectorEffect: 'non-scaling-stroke', strokeWidth: '2.2px' }}
+        />
       </g>
       <text
-        x="310"
+        x="215"
         y="50"
         fontFamily="monospace"
         fontSize="38"
