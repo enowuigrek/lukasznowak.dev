@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Logo from './Logo';
 import '../styles/footer.css';
 
 const navLinks = [
@@ -20,8 +21,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="footer-brand">
-            <div className="footer-logo">LN</div>
-            <p className="footer-name">Łukasz Nowak</p>
+            <Logo className="footer-logo-svg" />
             <p className="footer-location">Częstochowa · Polska</p>
             <a href="mailto:kontakt@lukasznowak.dev" className="footer-email">
               kontakt@lukasznowak.dev

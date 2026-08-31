@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import Logo from './Logo';
 import '../styles/navbar.css';
 
 export default function Navbar({ activeSection }) {
@@ -82,13 +83,12 @@ export default function Navbar({ activeSection }) {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
         <button
           ref={logoRef}
-          className={`navbar-logo glitch-logo ${logoVisible ? 'visible' : ''}`}
+          className={`navbar-logo ${logoVisible ? 'visible' : ''}`}
           onClick={() => scrollTo('hero')}
-          data-text="LN"
           onMouseMove={handleLogoMouseMove}
           onMouseLeave={handleLogoMouseLeave}
         >
-          LN
+          <Logo className="navbar-logo-svg" />
         </button>
 
         {/* Desktop links — glitch-word na hover */}

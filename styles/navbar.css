@@ -24,81 +24,31 @@
 .navbar-logo {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  background: none;
+  border: none;
+  padding: 0;
   color: var(--text);
-  border: 1.5px solid var(--text);
   position: relative;
   opacity: 0;
   transform: translateX(-10px);
   pointer-events: none;
-  transition: opacity 0.01s, transform 0.01s, background 0.3s ease, color 0.3s ease;
-  --logo-glitch-x: 0;
-  --logo-glitch-y: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
 }
 
-.navbar-logo.visible:hover {
-  background: var(--text);
-  color: var(--bg);
+.navbar-logo-svg {
+  height: 32px;
+  width: auto;
 }
 
-.navbar-logo.glitch-logo.visible {
+.navbar-logo.visible {
   opacity: 1;
   transform: translateX(0);
   pointer-events: auto;
-  animation: logo-glitch-in 0.5s steps(3) forwards;
 }
 
-/* Glitch layers na logo — cursor-reactive */
-.navbar-logo.glitch-logo::before,
-.navbar-logo.glitch-logo::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.15s ease;
-}
-
-.navbar-logo.glitch-logo::before {
-  color: var(--glitch-blue);
-  mix-blend-mode: screen;
-  transform: translate(
-    calc(var(--logo-glitch-x) * -1px),
-    calc(var(--logo-glitch-y) * 0.5px)
-  );
-}
-
-.navbar-logo.glitch-logo::after {
-  color: var(--glitch-red);
-  mix-blend-mode: screen;
-  transform: translate(
-    calc(var(--logo-glitch-x) * 1px),
-    calc(var(--logo-glitch-y) * -0.5px)
-  );
-}
-
-/* Na hover — pokaż cursor-reactive glitch */
-.navbar-logo.glitch-logo.visible:hover::before,
-.navbar-logo.glitch-logo.visible:hover::after {
-  opacity: 0.8;
-}
-
-/* Glitch wejście */
-.navbar-logo.glitch-logo.visible::before {
-  animation: logo-layer-blue 0.5s steps(3) forwards;
-}
-
-.navbar-logo.glitch-logo.visible::after {
-  animation: logo-layer-red 0.5s steps(3) forwards;
+.navbar-logo:hover {
+  opacity: 0.75;
 }
 
 @keyframes logo-glitch-in {

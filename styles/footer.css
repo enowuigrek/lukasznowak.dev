@@ -31,19 +31,10 @@
   gap: 0.75rem;
 }
 
-.footer-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1.5px solid var(--text);
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.02em;
-  margin-bottom: 0.5rem;
+.footer-logo-svg {
+  height: 36px;
+  width: auto;
+  margin-bottom: 0.75rem;
 }
 
 .footer-name {

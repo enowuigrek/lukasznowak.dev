@@ -97,7 +97,7 @@ export default function ContactSection() {
               status === 'sent' ? 'WYSŁANO ✓' :
               status === 'error' ? 'BŁĄD - SPRÓBUJ PONOWNIE' :
               status === 'sending' ? 'WYSYŁANIE...' :
-              'WYŚLIJ →'
+              'WYŚLIJ'
             }
           >
             <div className="glitch-bg-blue" />
@@ -106,7 +106,7 @@ export default function ContactSection() {
               {status === 'sent' ? 'WYSŁANO ✓' :
                status === 'error' ? 'BŁĄD - SPRÓBUJ PONOWNIE' :
                status === 'sending' ? 'WYSYŁANIE...' :
-               'WYŚLIJ →'}
+               'WYŚLIJ'}
             </span>
           </button>
           {status === 'idle' && (
