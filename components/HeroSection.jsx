@@ -9,7 +9,7 @@ export default function HeroSection() {
         <h1 className="hero-title">Łukasz Nowak</h1>
         <p className="hero-subtitle">Systemy rezerwacji, sklepy, panele.</p>
         <p className="hero-description">
-          Przejmują to co odciąga Cię od tego, co naprawdę robisz.
+          Żebyś mógł skupić się na tym, co naprawdę robisz.
         </p>
       </div>
     </section>
