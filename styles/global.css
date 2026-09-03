@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@700&display=swap');
 
 /* Logo wordmark */
 .logo-wordmark {
@@ -10,9 +10,9 @@
 }
 
 .logo-signature {
-  font-family: 'Dancing Script', cursive;
-  font-weight: 600;
-  font-size: 1.5em;
+  font-family: 'Corinthia', cursive;
+  font-weight: 700;
+  font-size: 1.9em;
   letter-spacing: 0.01em;
   color: currentColor;
 }
