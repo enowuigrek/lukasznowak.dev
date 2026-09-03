@@ -32,10 +32,7 @@
 }
 
 .footer-logo-svg {
-  height: 68px;
-  width: auto;
-  max-width: 380px;
-  align-self: flex-start;
+  font-size: 1.6rem;
   margin-bottom: 0.75rem;
 }
 

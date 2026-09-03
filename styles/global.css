@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+/* Logo wordmark */
+.logo-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15em;
+  color: currentColor;
+  line-height: 1;
+}
+
+.logo-signature {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+  font-size: 1.5em;
+  letter-spacing: 0.01em;
+  color: currentColor;
+}
+
+.logo-dev {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.75em;
+  letter-spacing: -0.02em;
+  color: currentColor;
+  opacity: 0.85;
+}
+
 /* ═══════════════════════════════════════════
    DESIGN SYSTEM — lukasznowak.dev
    ═══════════════════════════════════════════ */

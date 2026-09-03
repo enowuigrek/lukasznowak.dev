@@ -50,8 +50,7 @@
 }
 
 .navbar-logo-svg {
-  height: 52px;
-  width: auto;
+  font-size: 1.25rem;
 }
 
 .navbar-logo.visible {
@@ -324,8 +323,7 @@
   }
 
   .navbar-logo-svg {
-    height: 36px;
-    max-width: 200px;
+    font-size: 1.1rem;
   }
 
   /* Show hamburger */
