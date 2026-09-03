@@ -20,10 +20,15 @@
 .logo-dev {
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: 0.75em;
+  font-size: 0.85em;
   letter-spacing: -0.02em;
   color: currentColor;
   opacity: 0.85;
+}
+
+.logo-dev-dot {
+  color: var(--glitch-red);
+  opacity: 1;
 }
 
 /* ═══════════════════════════════════════════
