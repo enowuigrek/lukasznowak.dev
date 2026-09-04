@@ -13,11 +13,11 @@
   font-family: 'Corinthia', cursive;
   font-weight: 700;
   font-size: 1.9em;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.05em;
   color: currentColor;
-  transform: scaleX(0.82);
-  transform-origin: left center;
   display: inline-block;
+  transform: scaleX(0.68);
+  transform-origin: left center;
 }
 
 .logo-dev {
