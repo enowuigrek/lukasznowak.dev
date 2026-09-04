@@ -23,7 +23,6 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <Logo className="footer-logo-svg" />
-            <p className="footer-tagline">Systemy rezerwacji, e-commerce, panele, strony, SEO. Żebyś mógł skupić się na tym, co naprawdę robisz.</p>
             <p className="footer-location">Częstochowa · Polska</p>
           </div>
 
@@ -36,28 +35,6 @@ export default function Footer() {
                   <Link href={href} className="footer-link">{label}</Link>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          {/* Kontakt */}
-          <div className="footer-col">
-            <p className="footer-col-label">Kontakt</p>
-            <ul className="footer-links">
-              <li>
-                <a href="mailto:kontakt@lukasznowak.dev" className="footer-link">
-                  kontakt@lukasznowak.dev
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/enowuigrek"
-                  className="footer-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </li>
             </ul>
           </div>
 
