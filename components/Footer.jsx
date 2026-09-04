@@ -17,15 +17,14 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <div className="footer-top">
+
+        <div className="footer-grid">
 
           {/* Brand */}
           <div className="footer-brand">
             <Logo className="footer-logo-svg" />
+            <p className="footer-tagline">Systemy rezerwacji, e-commerce, panele, strony, SEO. Żebyś mógł skupić się na tym, co naprawdę robisz.</p>
             <p className="footer-location">Częstochowa · Polska</p>
-            <a href="mailto:kontakt@lukasznowak.dev" className="footer-email">
-              kontakt@lukasznowak.dev
-            </a>
           </div>
 
           {/* Nawigacja */}
@@ -40,11 +39,38 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Kontakt */}
+          <div className="footer-col">
+            <p className="footer-col-label">Kontakt</p>
+            <ul className="footer-links">
+              <li>
+                <a href="mailto:kontakt@lukasznowak.dev" className="footer-link">
+                  kontakt@lukasznowak.dev
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/enowuigrek"
+                  className="footer-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
         <div className="footer-bottom">
           <span className="footer-copyright">© {year} Łukasz Nowak</span>
+          <span className="footer-status">
+            <span className="footer-status-dot" />
+            dostępny do współpracy
+          </span>
         </div>
+
       </div>
     </footer>
   );
