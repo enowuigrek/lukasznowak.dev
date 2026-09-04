@@ -65,10 +65,6 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span className="footer-copyright">© {year} Łukasz Nowak</span>
-          <span className="footer-status">
-            <span className="footer-status-dot" />
-            dostępny do współpracy
-          </span>
         </div>
 
       </div>
