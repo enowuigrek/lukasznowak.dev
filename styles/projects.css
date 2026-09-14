@@ -18,10 +18,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  background: var(--border); /* gap kolor = border */
+  background: var(--border);
 }
 
-/* ═══ KARTA — mockup wypełnia wszystko ═══ */
+/* ═══ KARTA ═══ */
 
 .project-card {
   position: relative;
@@ -29,128 +29,72 @@
   text-decoration: none;
   color: inherit;
   background: #111;
-  height: 400px;
+  height: 380px;
   display: block;
   cursor: pointer;
 }
 
-/* Subtelne rozjaśnienie mocku na hover */
+/* Subtelne powiększenie na hover */
 .project-card:hover .project-card-mockup {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
-/* ─── Mockup — wypełnia całą kartę ─── */
+/* ─── Mockup — browser chrome wypełnia kartę ─── */
 .project-card-mockup {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 1rem;
-  padding: 2.5rem 2rem 0;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 2.5rem 2.5rem 0;
   background: #0c0c0c;
   overflow: hidden;
   transition: transform 0.6s var(--ease-out);
   transform-origin: center bottom;
 }
 
-/* ─── Laptop ─── */
-.mockup-laptop {
+/* Browser window */
+.mockup-browser {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  flex: 1 1 0;
-  min-width: 0;
-  height: 100%;
-  justify-content: flex-end;
-}
-
-.mockup-laptop-lid {
-  position: relative;
-  width: 100%;
-  flex: 1 1 0;
-  min-height: 0;
-  border: 2px solid #3c3c3c;
+  border: 1.5px solid #2e2e2e;
   border-bottom: none;
   border-radius: 7px 7px 0 0;
+  overflow: hidden;
   background: #111;
-  padding: 14px 8px 8px;
-  overflow: hidden;
-}
-
-/* Kamerka w górnej belce */
-.mockup-laptop-lid::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  background: #2e2e2e;
-  border: 1px solid #484848;
-  border-radius: 50%;
-}
-
-.mockup-laptop-screen {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 2px;
-}
-
-.mockup-laptop-base {
-  width: calc(100% + 12px);
-  height: 11px;
-  background: linear-gradient(to bottom, #3c3c3c, #2c2c2c);
-  border: 2px solid #3c3c3c;
-  border-top: 2px solid #555;
-  border-radius: 0 0 4px 4px;
-  flex-shrink: 0;
-}
-
-/* ─── Telefon ─── */
-.mockup-phone {
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 auto;
-  width: clamp(64px, 22%, 88px);
-  height: calc(100% - 11px);
-  border: 2.5px solid #3c3c3c;
-  border-radius: 18px;
-  background: #0a0a0a;
-  padding: 9px 5px 7px;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px #222, 0 0 0 0.5px #555;
-}
-
-.mockup-phone-island {
-  width: 42%;
-  height: 7px;
-  background: #000;
-  border-radius: 3.5px;
-  border: 1px solid #2a2a2a;
-  margin: 0 auto 5px;
-  flex-shrink: 0;
-}
-
-.mockup-phone-screen {
-  flex: 1;
-  overflow: hidden;
-  border-radius: 3px;
   min-height: 0;
 }
 
-.mockup-phone-home {
-  width: 38%;
-  height: 3px;
-  background: #3a3a3a;
-  border-radius: 2px;
-  margin: 5px auto 0;
+/* Pasek tytułowy z kółkami */
+.mockup-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  height: 28px;
+  background: #1c1c1c;
+  border-bottom: 1px solid #2e2e2e;
   flex-shrink: 0;
 }
 
-/* Obrazki wewnątrz mockupów */
+.mockup-browser-dot {
+  width: 8px;
+  height: 8px;
+  background: #3a3a3a;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Screenshot */
+.mockup-browser-screen {
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Obrazek wewnątrz */
 .project-card-mockup-img {
   width: 100% !important;
   height: 100% !important;
@@ -167,7 +111,9 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(10, 10, 10, 0.96);
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   transform: translateY(100%);
   transition: transform 0.45s var(--ease-out);
   display: flex;
@@ -255,8 +201,8 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.2rem 0.55rem;
-  background: rgba(232, 230, 227, 0.1);
-  color: rgba(232, 230, 227, 0.6);
+  background: rgba(232, 230, 227, 0.08);
+  color: rgba(232, 230, 227, 0.55);
   border: 1px solid rgba(232, 230, 227, 0.12);
 }
 
@@ -267,19 +213,14 @@
   }
 
   .project-card {
-    height: 320px;
+    height: 280px;
   }
 
   .project-card-mockup {
-    padding: 2rem 1.5rem 0;
-    gap: 0.75rem;
+    padding: 2rem 2rem 0;
   }
 
-  .mockup-phone {
-    width: clamp(54px, 20%, 72px);
-  }
-
-  /* Na mobile overlay zawsze widoczny (nie ma hover) */
+  /* Na mobile overlay zawsze widoczny */
   .project-card-overlay {
     transform: translateY(0);
   }

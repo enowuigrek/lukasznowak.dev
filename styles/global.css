@@ -203,6 +203,7 @@ h3 { font-size: clamp(1rem, 2.5vw, 1.5rem); }
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--glitch-red);
+  display: inline-block;
 }
 
 /* Reset h2.label — nadpisuje globalne style h2 żeby zachować wygląd labeli */
@@ -215,6 +216,14 @@ h2.label {
   color: var(--glitch-red);
   line-height: inherit;
   margin: 0;
+  display: inline-block;
+}
+
+/* Jasne sekcje — label dostaje czarny badge */
+.section--light .label {
+  background: #0a0a0a;
+  color: #f5f5f5;
+  padding: 0.25em 0.75em;
 }
 
 /* Screen-reader only — ukrywa wizualnie, widoczne dla crawlerów i czytników */
