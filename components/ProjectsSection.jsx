@@ -43,7 +43,6 @@ export default function ProjectsSection() {
           >
             {/* Mockup — laptop + phone device frames */}
             <div className="project-card-mockup">
-              {/* Laptop */}
               <div className="mockup-laptop">
                 <div className="mockup-laptop-lid">
                   <div className="mockup-laptop-screen">
@@ -52,7 +51,6 @@ export default function ProjectsSection() {
                 </div>
                 <div className="mockup-laptop-base" />
               </div>
-              {/* Phone */}
               <div className="mockup-phone">
                 <div className="mockup-phone-island" />
                 <div className="mockup-phone-screen">
@@ -62,18 +60,22 @@ export default function ProjectsSection() {
               </div>
             </div>
 
-            <div className="project-card-header">
-              <span className="project-card-number">{number}</span>
-              <span className="project-card-category">{subtitle}</span>
-            </div>
-
-            <h3 className="project-card-title">{title}</h3>
-            <p className="project-card-desc">{description}</p>
-
-            <div className="project-card-tags">
-              {tags.map((tag) => (
-                <span key={tag} className="project-card-tag">{tag}</span>
-              ))}
+            {/* Hover overlay — slides up */}
+            <div className="project-card-overlay">
+              <div className="project-card-overlay-accent" />
+              <div className="project-card-overlay-inner">
+                <div className="project-card-header">
+                  <span className="project-card-number">{number}</span>
+                  <span className="project-card-category">{subtitle}</span>
+                </div>
+                <h3 className="project-card-title">{title}</h3>
+                <p className="project-card-desc">{description}</p>
+                <div className="project-card-tags">
+                  {tags.map((tag) => (
+                    <span key={tag} className="project-card-tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
             </div>
           </a>
         ))}

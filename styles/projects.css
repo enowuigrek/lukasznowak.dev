@@ -18,77 +18,40 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  border: 1px solid var(--border);
+  background: var(--border); /* gap kolor = border */
 }
 
-/* Karta */
+/* ═══ KARTA — mockup wypełnia wszystko ═══ */
+
 .project-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  padding: 2.5rem;
-  text-decoration: none;
-  color: inherit;
-  background: var(--bg);
-  border: none;
-  border-right: 1px solid var(--border);
   position: relative;
   overflow: hidden;
-  transition: background 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  background: #111;
+  height: 400px;
+  display: block;
+  cursor: pointer;
 }
 
-/* Karta jasna (nieparzyste na desktop = lewa kolumna) */
-.project-card:nth-child(even) {
-  background: var(--bg-light);
-  color: #0a0a0a;
-  border-right: none;
+/* Subtelne rozjaśnienie mocku na hover */
+.project-card:hover .project-card-mockup {
+  transform: scale(1.04);
 }
 
-/* Separator poziomy między rzędami */
-.project-card:nth-child(n+3) {
-  border-top: 1px solid var(--border);
-}
-
-.project-card:nth-child(even):nth-child(n+3) {
-  border-top: 1px solid rgba(10, 10, 10, 0.12);
-}
-
-/* Hover */
-.project-card:nth-child(odd):hover {
-  background: var(--bg-card-hover);
-}
-
-.project-card:nth-child(even):hover {
-  background: #e5e3de;
-}
-
-/* Stagger fade-in */
-.project-card.fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out), background 0.3s ease;
-  transition-delay: calc(var(--card-i, 0) * 80ms);
-}
-
-.project-card.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ═══ DEVICE MOCKUPS ═══ */
-
+/* ─── Mockup — wypełnia całą kartę ─── */
 .project-card-mockup {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 0.75rem;
-  margin: -2.5rem -2.5rem 1.5rem -2.5rem;
-  padding: 1.75rem 1.5rem 0;
-  height: 270px;
+  gap: 1rem;
+  padding: 2.5rem 2rem 0;
+  background: #0c0c0c;
   overflow: hidden;
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
-  background: #0e0e0e;
+  transition: transform 0.6s var(--ease-out);
+  transform-origin: center bottom;
 }
 
 /* ─── Laptop ─── */
@@ -100,18 +63,6 @@
   min-width: 0;
   height: 100%;
   justify-content: flex-end;
-}
-
-.mockup-laptop-camera {
-  width: 5px;
-  height: 5px;
-  background: #1e1e1e;
-  border: 1.5px solid #444;
-  border-radius: 50%;
-  margin-bottom: 0;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
 }
 
 .mockup-laptop-lid {
@@ -127,7 +78,7 @@
   overflow: hidden;
 }
 
-/* Kamerka umieszczona w górnej belce */
+/* Kamerka w górnej belce */
 .mockup-laptop-lid::before {
   content: '';
   position: absolute;
@@ -164,7 +115,7 @@
   flex-direction: column;
   flex: 0 0 auto;
   width: clamp(64px, 22%, 88px);
-  height: calc(100% - 11px);  /* wyrównaj do góry laptopa (baza = 11px) */
+  height: calc(100% - 11px);
   border: 2.5px solid #3c3c3c;
   border-radius: 18px;
   background: #0a0a0a;
@@ -209,7 +160,41 @@
   max-width: none !important;
 }
 
-/* Header — numer + kategoria */
+/* ═══ OVERLAY — wyjeżdża od dołu na hover ═══ */
+
+.project-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.96);
+  transform: translateY(100%);
+  transition: transform 0.45s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Teal linia na górze overlaya */
+.project-card-overlay-accent {
+  height: 2px;
+  background: var(--glitch-red);
+  flex-shrink: 0;
+}
+
+.project-card-overlay-inner {
+  padding: 1.5rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: #f5f5f5;
+}
+
+/* Pokazanie overlaya */
+.project-card:hover .project-card-overlay {
+  transform: translateY(0);
+}
+
+/* Nagłówek — numer + kategoria */
 .project-card-header {
   display: flex;
   align-items: center;
@@ -221,7 +206,7 @@
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  opacity: 0.35;
+  color: var(--glitch-red);
 }
 
 .project-card-category {
@@ -231,26 +216,28 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   opacity: 0.45;
+  color: #f5f5f5;
 }
 
 /* Tytuł */
 .project-card-title {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-size: clamp(1.15rem, 2vw, 1.65rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
-  color: inherit;
+  color: #f5f5f5;
+  margin: 0;
 }
 
 /* Opis */
 .project-card-desc {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 400;
-  line-height: 1.65;
-  opacity: 0.7;
-  flex: 1;
+  line-height: 1.6;
+  color: rgba(232, 230, 227, 0.7);
+  margin: 0;
 }
 
 /* Tagi */
@@ -258,26 +245,19 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  margin-top: auto;
+  margin-top: 0.25rem;
 }
 
 .project-card-tag {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.25rem 0.6rem;
-}
-
-.project-card:nth-child(odd) .project-card-tag {
-  background: var(--text);
-  color: var(--bg);
-}
-
-.project-card:nth-child(even) .project-card-tag {
-  background: #0a0a0a;
-  color: var(--bg-light);
+  padding: 0.2rem 0.55rem;
+  background: rgba(232, 230, 227, 0.1);
+  color: rgba(232, 230, 227, 0.6);
+  border: 1px solid rgba(232, 230, 227, 0.12);
 }
 
 /* Mobile */
@@ -287,52 +267,24 @@
   }
 
   .project-card {
-    border-right: none;
-    padding: 2rem 1.5rem;
+    height: 320px;
   }
 
   .project-card-mockup {
-    margin: -2rem -1.5rem 1.25rem -1.5rem;
-    height: 220px;
-    padding: 1.25rem 1.25rem 0;
-    gap: 0.5rem;
+    padding: 2rem 1.5rem 0;
+    gap: 0.75rem;
   }
 
   .mockup-phone {
     width: clamp(54px, 20%, 72px);
   }
 
-  .project-card:nth-child(n+2) {
-    border-top: 1px solid var(--border);
+  /* Na mobile overlay zawsze widoczny (nie ma hover) */
+  .project-card-overlay {
+    transform: translateY(0);
   }
 
-  .project-card:nth-child(even):nth-child(n+2) {
-    border-top: 1px solid rgba(10, 10, 10, 0.12);
+  .project-card-overlay-inner {
+    padding: 1.25rem 1.5rem 1.5rem;
   }
-
-  .project-card:nth-child(n+3) {
-    border-top: none;
-  }
-
-  .project-card-arrow {
-    opacity: 0.4;
-    transform: translate(0, 0);
-  }
-}
-
-/* Featured — cienka górna linia akcentu */
-.project-card--featured {
-  border-top: 2px solid rgba(255, 255, 255, 0.5) !important;
-}
-
-.project-card--featured:nth-child(even) {
-  border-top: 2px solid rgba(10, 10, 10, 0.2) !important;
-}
-
-/* Ciemna karta na jasnej sekcji — resetuj tokeny do wartości dark */
-.section--light .project-card:nth-child(odd) {
-  --text: #f5f5f5;
-  --text-muted: rgba(232, 230, 227, 0.85);
-  --border: rgba(232, 230, 227, 0.18);
-  color: #f5f5f5;
 }
