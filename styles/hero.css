@@ -43,6 +43,36 @@
   z-index: 2;
 }
 
+/* Label nad tytułem — kontekst/anchor */
+.hero-label {
+  margin-bottom: -0.25rem; /* zbliż do tytułu */
+}
+
+/* Pills — lista usług */
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.hero-pill {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-pill:hover {
+  border-color: var(--glitch-red);
+  color: var(--text);
+}
+
 .hero-title {
   font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 7rem);
