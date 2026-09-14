@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/lukasznowak/Documents/Programowanie/Moje projekty/lukasznowak.dev/app/layout\":[\"static/media/6b6afb722b10a02f-s.p.woff2\",\"static/media/78fec81b34c4a365.p.woff2\",\"static/media/27834908180db20f-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{},\"appUsingSizeAdjust\":false,\"pagesUsingSizeAdjust\":false}"
