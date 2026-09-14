@@ -71,9 +71,9 @@
 }
 
 .hero-pill:hover {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
-  color: #f5f5f5;
+  background: var(--glitch-red);
+  border-color: var(--glitch-red);
+  color: #0a0a0a;
 }
 
 .hero-title {
