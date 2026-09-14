@@ -132,7 +132,7 @@
 .glitch-hover .glitch-bg-red {
   top: 2px;
   left: 4px;
-  background: rgba(255, 45, 45, 0.5);
+  background: rgba(0, 201, 181, 0.5);
 }
 
 .glitch-hover:hover .glitch-bg-blue {
@@ -317,13 +317,13 @@
   0% {
     box-shadow:
       -4px 0 0 rgba(45, 127, 255, 0.3),
-       4px 0 0 rgba(255, 45, 45, 0.3);
+       4px 0 0 rgba(0, 201, 181, 0.3);
     filter: blur(0.5px);
   }
   30% {
     box-shadow:
       -2px 0 0 rgba(45, 127, 255, 0.2),
-       2px 0 0 rgba(255, 45, 45, 0.2);
+       2px 0 0 rgba(0, 201, 181, 0.2);
     filter: blur(0);
   }
   100% {

@@ -107,7 +107,7 @@ export function OgTemplate({ title, subtitle, label, domain = 'lukasznowak.dev' 
               fontSize: '80px',
               fontWeight: '700',
               letterSpacing: '-0.03em',
-              color: '#ff2d2d',
+              color: '#00c9b5',
               opacity: 0.25,
               lineHeight: 1.05,
               left: '-2px',

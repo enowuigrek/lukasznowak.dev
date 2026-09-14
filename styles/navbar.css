@@ -237,17 +237,17 @@
   15% {
     opacity: 0.8;
     transform: translate(3px, 1px);
-    box-shadow: 3px 0 6px rgba(255, 45, 45, 0.6);
+    box-shadow: 3px 0 6px rgba(0, 201, 181, 0.6);
   }
   30% {
     opacity: 0.5;
     transform: translate(-2px, -1px);
-    box-shadow: 2px 0 4px rgba(255, 45, 45, 0.4);
+    box-shadow: 2px 0 4px rgba(0, 201, 181, 0.4);
   }
   50% {
     opacity: 0.3;
     transform: translate(1px, 0);
-    box-shadow: 1px 0 3px rgba(255, 45, 45, 0.2);
+    box-shadow: 1px 0 3px rgba(0, 201, 181, 0.2);
   }
   100% {
     opacity: 0;
