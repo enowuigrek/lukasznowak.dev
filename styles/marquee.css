@@ -1,0 +1,45 @@
+/* ═══════════════════════════════════════════
+   MARQUEE STRIP — pasek pod hero
+   ═══════════════════════════════════════════ */
+
+.marquee-strip {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  padding: 0.85rem 0;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+
+.marquee-item {
+  font-family: var(--font-retro);
+  font-size: 18px;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0 0.85rem;
+  line-height: 1;
+}
+
+.marquee-sep {
+  color: var(--glitch-red);
+  opacity: 0.8;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}

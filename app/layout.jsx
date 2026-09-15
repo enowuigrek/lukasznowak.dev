@@ -1,7 +1,7 @@
 import './globals.css';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { Cinzel } from 'next/font/google';
+import { Cinzel, VT323 } from 'next/font/google';
 import CustomCursor from '../components/CustomCursor';
 import CookieBanner from '../components/CookieBanner';
 // import TawkWidget from '../components/TawkWidget';
@@ -11,6 +11,13 @@ const cinzel = Cinzel({
   subsets: ['latin'],
   weight: ['700'],
   variable: '--font-cinzel',
+  display: 'swap',
+});
+
+const vt323 = VT323({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-retro',
   display: 'swap',
 });
 
@@ -65,7 +72,7 @@ const structuredData = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pl" className={`${GeistSans.variable} ${GeistMono.variable} ${cinzel.variable}`}>
+    <html lang="pl" className={`${GeistSans.variable} ${GeistMono.variable} ${cinzel.variable} ${vt323.variable}`}>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/favicon.svg" />

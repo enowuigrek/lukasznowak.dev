@@ -86,8 +86,8 @@ export default function Navbar({ activeSection }) {
 
   const links = [
     { id: 'co-robie', label: 'Co robię' },
-    { id: 'realizacje', label: 'Realizacje' },
     { id: 'o-mnie', label: 'O mnie' },
+    { id: 'realizacje', label: 'Realizacje' },
     { id: 'kontakt', label: 'Kontakt' },
   ];
 

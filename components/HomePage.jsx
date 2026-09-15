@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react';
 import VHSOverlay from './VHSOverlay';
 import Navbar from './Navbar';
+import ScrollProgress from './ScrollProgress';
 import HeroSection from './HeroSection';
+import MarqueeStrip from './MarqueeStrip';
 import ServicesSection from './ServicesSection';
 import TimeSection from './TimeSection';
-import ProjectsSection from './ProjectsSection';
 import AboutSection from './AboutSection';
+import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
@@ -36,12 +38,14 @@ export default function HomePage() {
   return (
     <>
       <VHSOverlay />
+      <ScrollProgress />
       <Navbar activeSection={activeSection} />
       <main>
         <HeroSection />
-        <AboutSection />
+        <MarqueeStrip />
         <ServicesSection />
         <TimeSection />
+        <AboutSection />
         <ProjectsSection />
         <ContactSection />
         <Footer />
