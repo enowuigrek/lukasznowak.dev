@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   PROJECTS — grid kart
+   PROJECTS — case study rows
    ═══════════════════════════════════════════ */
 
 .projects {
@@ -10,65 +10,160 @@
 }
 
 .projects-header {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
-/* Grid kart */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--border);
-}
+/* ═══ ROWS ═══ */
 
-/* ═══ KARTA ═══ */
-
-.project-card {
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  background: #111;
-  height: 380px;
-  display: block;
-  cursor: pointer;
-}
-
-/* Subtelne powiększenie na hover */
-.project-card:hover .project-card-mockup {
-  transform: scale(1.03);
-}
-
-/* ─── Mockup — browser chrome wypełnia kartę ─── */
-.project-card-mockup {
-  position: absolute;
-  inset: 0;
+.project-rows {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  padding: 1.5rem 0 0;
-  background: #0c0c0c;
-  overflow: hidden;
-  transition: transform 0.6s var(--ease-out);
-  transform-origin: center bottom;
 }
 
-/* Browser window */
-.mockup-browser {
-  flex: 1;
+.project-row {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 5rem;
+  padding: 5rem 0;
+  border-top: 1px solid var(--border);
+  align-items: center;
+}
+
+.project-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+/* Naprzemienne odwrócenie kolumn */
+.project-row:nth-child(even) .project-row-content {
+  order: 2;
+}
+.project-row:nth-child(even) .project-row-visual {
+  order: 1;
+}
+
+/* ═══ KOLUMNA TEKSTOWA ═══ */
+
+.project-row-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.project-row-number {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--glitch-red);
+}
+
+.project-row-category {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.project-row-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0;
+}
+
+.project-row-desc {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Siatka metryk */
+.project-row-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+}
+
+.project-row-metric {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.project-row-metric + .project-row-metric {
+  border-left: 1px solid var(--border);
+}
+
+.project-row-metric-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.project-row-metric-value {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Link */
+.project-row-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--glitch-red);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: opacity 0.2s ease;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.project-row-link:hover {
+  opacity: 0.65;
+}
+
+/* ═══ KOLUMNA WIZUALNA ═══ */
+
+.project-row-visual {
+  position: relative;
+  height: 380px;
+}
+
+/* Browser chrome — zachowany z poprzedniej wersji */
+.project-row-visual .mockup-browser {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   border: 1.5px solid #2e2e2e;
   border-bottom: none;
-  border-left: none;
-  border-right: none;
-  border-radius: 0;
   overflow: hidden;
   background: #111;
-  min-height: 0;
 }
 
-/* Pasek tytułowy z kółkami */
 .mockup-browser-bar {
   display: flex;
   align-items: center;
@@ -89,15 +184,14 @@
   flex-shrink: 0;
 }
 
-/* Screenshot */
 .mockup-browser-screen {
   flex: 1;
   overflow: hidden;
   min-height: 0;
 }
 
-/* Obrazek wewnątrz */
-.project-card-mockup-img {
+/* Screenshot wewnątrz mockupa */
+.project-row-img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover;
@@ -106,128 +200,63 @@
   max-width: none !important;
 }
 
-/* ═══ OVERLAY — wyjeżdża od dołu na hover ═══ */
-
-.project-card-overlay {
+/* Mini telefon w rogu */
+.mockup-phone-mini {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(10, 10, 10, 0.88);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transform: translateY(100%);
-  transition: transform 0.45s var(--ease-out);
-  display: flex;
-  flex-direction: column;
+  bottom: -1.5rem;
+  right: -1.25rem;
+  width: 72px;
+  height: 148px;
+  border: 2px solid #3c3c3c;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  z-index: 2;
 }
 
-/* Teal linia na górze overlaya */
-.project-card-overlay-accent {
-  height: 2px;
-  background: var(--glitch-red);
-  flex-shrink: 0;
+/* Naprzemiennie — mini telefon po lewej dla even rows */
+.project-row:nth-child(even) .mockup-phone-mini {
+  right: auto;
+  left: -1.25rem;
 }
 
-.project-card-overlay-inner {
-  padding: 1.5rem 2rem 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  color: #f5f5f5;
-}
+/* ═══ MOBILE ═══ */
 
-/* Pokazanie overlaya */
-.project-card:hover .project-card-overlay {
-  transform: translateY(0);
-}
-
-/* Nagłówek — numer + kategoria */
-.project-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.project-card-number {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--glitch-red);
-}
-
-.project-card-category {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.45;
-  color: #f5f5f5;
-}
-
-/* Tytuł */
-.project-card-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.15rem, 2vw, 1.65rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: #f5f5f5;
-  margin: 0;
-}
-
-/* Opis */
-.project-card-desc {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: rgba(232, 230, 227, 0.7);
-  margin: 0;
-}
-
-/* Tagi */
-.project-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-top: 0.25rem;
-}
-
-.project-card-tag {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.55rem;
-  background: rgba(232, 230, 227, 0.08);
-  color: rgba(232, 230, 227, 0.55);
-  border: 1px solid rgba(232, 230, 227, 0.12);
-}
-
-/* Mobile */
 @media (max-width: 768px) {
-  .projects-grid {
+  .projects {
+    padding-top: 4rem;
+  }
+
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+
+  /* Na mobile zawsze content najpierw */
+  .project-row:nth-child(even) .project-row-content { order: 1; }
+  .project-row:nth-child(even) .project-row-visual  { order: 2; }
+
+  .project-row-visual {
+    height: 240px;
+  }
+
+  .mockup-phone-mini {
+    display: none;
+  }
+
+  .project-row-metrics {
     grid-template-columns: 1fr;
   }
 
-  .project-card {
-    height: 280px;
+  .project-row-metric + .project-row-metric {
+    border-left: none;
+    border-top: 1px solid var(--border);
   }
+}
 
-  .project-card-mockup {
-    padding: 2rem 2rem 0;
-  }
-
-  /* Na mobile overlay zawsze widoczny */
-  .project-card-overlay {
-    transform: translateY(0);
-  }
-
-  .project-card-overlay-inner {
-    padding: 1.25rem 1.5rem 1.5rem;
+@media (prefers-reduced-motion: reduce) {
+  .project-row {
+    transition: none;
   }
 }
