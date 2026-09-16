@@ -26,7 +26,7 @@ export default function useScrollEffects() {
           wipeObserver.unobserve(entry.target);
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0 }
     );
     const labels = document.querySelectorAll('.label');
     labels.forEach(el => {

@@ -3,26 +3,121 @@
    ═══════════════════════════════════════════ */
 
 .time {
+  background: #0a0a0a;
   padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
-.time-body {
-  max-width: 680px;
+.time-header {
+  margin-bottom: 3rem;
 }
 
-.time-text {
+/* Na ciemnym tle label dostaje odwrócone kolory */
+.time .label {
+  background: #f0eee9;
+  color: #0a0a0a;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  margin-bottom: 56px;
+}
+
+/* ── Lead ─────────────────────────────────── */
+
+.time-lead-text {
   font-family: var(--font-display);
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
-  font-weight: 400;
-  line-height: 1.55;
-  color: var(--text);
-  margin-bottom: 2rem;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #f5f5f5;
+  text-wrap: pretty;
+  margin: 0;
 }
 
-.time-text:last-child {
-  margin-bottom: 0;
-}
+/* ── Body numbered paragraphs ─────────────── */
 
 .time-body {
-  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+}
+
+.time-body-item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0 16px;
+  padding: 20px 0;
+}
+
+.time-body-sep {
+  height: 1px;
+  background: rgba(232, 230, 227, 0.14);
+  margin: 0;
+}
+
+.time-body-number {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(232, 230, 227, 0.35);
+  padding-top: 3px;
+}
+
+.time-body-text {
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(232, 230, 227, 0.78);
+  text-wrap: pretty;
+  margin: 0;
+}
+
+/* ── Conclusion box ───────────────────────── */
+
+.time-conclusion {
+  border-top: 2px solid var(--glitch-red);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 201, 181, 0.06),
+    transparent 80%
+  );
+  padding: 28px 30px;
+}
+
+.time-conclusion-text {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: rgba(232, 230, 227, 0.9);
+  max-width: 640px;
+  text-wrap: pretty;
+  margin: 0;
+}
+
+.time-conclusion-accent {
+  color: var(--glitch-red);
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (max-width: 900px) {
+  .time-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .time-lead-text {
+    font-size: 22px;
+  }
+
+  .time-conclusion {
+    padding: 20px 20px;
+  }
 }

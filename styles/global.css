@@ -305,19 +305,19 @@ h2.label {
 
 /* wipeIn — etykiety sekcji wjeżdżają jak pasek tytułowy na taśmie (dodawane przez useScrollEffects) */
 .label.wipe-in {
-  clip-path: inset(0 100% 0 0);
+  opacity: 0;
 }
 .label.wipe-in.visible {
   animation: wipeIn .55s var(--ease-out) forwards;
 }
 
 @keyframes wipeIn {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0 0 0); }
+  from { opacity: 1; clip-path: inset(0 100% 0 0); }
+  to   { opacity: 1; clip-path: inset(0 0 0 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .label.wipe-in { clip-path: none; }
+  .label.wipe-in { opacity: 1; }
   .label.wipe-in.visible { animation: none; }
 }
 
