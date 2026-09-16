@@ -9,22 +9,24 @@ const projects = [
     title: 'Strzykawa',
     subtitle: 'Palarnia kawy, Częstochowa',
     description: 'Headless Shopify z własnym frontendem React. SEO setup z JSON-LD, Google Merchant Center i AEO Tracker monitorujący widoczność marki w odpowiedziach AI.',
+    reveal: 'Frontend odpięty od Shopify, dane przez Storefront API. Feed produktowy do Merchant Center, dane strukturalne JSON-LD, własny tracker widoczności w odpowiedziach AI.',
     role: 'Frontend + SEO',
     stack: 'Headless Shopify · React · Next.js',
     href: 'https://strzykawa.com',
-    desktopImg: '/screenshots/strzykawa-desktop.png',
-    mobileImg: '/screenshots/strzykawa-mobile.png',
+    desktopImg: '/screenshots/strzykawa-shop.png',
+    mobileImg: '/screenshots/strzykawa-mobile-shop.png',
   },
   {
     number: '02',
     title: 'WHEN',
     subtitle: 'Autorski system rezerwacji',
     description: 'Multi-tenant system rezerwacji wdrażany u pierwszych klientów. Bez prowizji, bez vendor lock-in. Panel admina, embeddable widget.',
+    reveal: 'Jedna instancja obsługuje wielu klientów, dane rozdzielone przez Row Level Security. Widget do osadzenia na cudzej stronie, panel admina z harmonogramem i powiadomieniami.',
     role: 'Fullstack',
     stack: 'Next.js · Supabase · TypeScript',
     href: 'https://whenbooking.pl',
-    desktopImg: '/screenshots/when-desktop.png',
-    mobileImg: '/screenshots/when-mobile.png',
+    desktopImg: '/screenshots/when-panel.png',
+    mobileImg: '/screenshots/when-mobile-panel.png',
   },
 ];
 
@@ -108,9 +110,9 @@ function ProjectRow({ project, index }) {
         <div className="project-reveal" aria-hidden="true">
           <span className="project-reveal-scan" />
           <div className="project-reveal-panel">
-            <span className="project-reveal-label">{project.number} — {project.title}</span>
+            <span className="project-reveal-label">{project.number} — pod maską</span>
             <div className="project-reveal-line" />
-            <p className="project-reveal-desc">{project.description}</p>
+            <p className="project-reveal-desc">{project.reveal}</p>
             <div className="project-reveal-tags">
               {stackTags.map(tag => (
                 <span key={tag} className="project-reveal-tag">{tag}</span>

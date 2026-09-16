@@ -77,7 +77,7 @@ export default function AboutSection() {
             Wszystko rzeczy które nie wychodzą za pierwszym razem.
           </p>
           <p className="about-text about-meta">
-            Częstochowa · dostępny do nowych projektów
+            Częstochowa · zdalnie w całej Polsce
           </p>
         </div>
 
