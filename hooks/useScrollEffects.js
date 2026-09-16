@@ -4,7 +4,7 @@ export default function useScrollEffects() {
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // ─── vhsIn — wejście elementów jak sygnał łapiący ostrość ───
+    // ─── vhsIn / cardIn — wejście elementów ───
     const vhsObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -15,7 +15,7 @@ export default function useScrollEffects() {
       },
       { threshold: 0.15 }
     );
-    document.querySelectorAll('.vhs-in').forEach(el => vhsObserver.observe(el));
+    document.querySelectorAll('.vhs-in, .card-in').forEach(el => vhsObserver.observe(el));
 
     // ─── wipeIn — etykiety sekcji wjeżdżają jak pasek na taśmie ───
     const wipeObserver = new IntersectionObserver(
@@ -39,20 +39,20 @@ export default function useScrollEffects() {
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          const browser = entry.target;
-          const bar = browser.querySelector('.tracking-bar');
+          const visual = entry.target;
+          const bar = visual.querySelector('.tracking-bar');
           if (bar) {
             bar.style.animation = 'none';
             void bar.offsetWidth;
             bar.style.animation = '';
-            browser.classList.add('tracking-active');
+            visual.classList.add('tracking-active');
           }
-          trackingObserver.unobserve(browser);
+          trackingObserver.unobserve(visual);
         });
       },
       { threshold: 0.3 }
     );
-    document.querySelectorAll('.mockup-browser').forEach(el => trackingObserver.observe(el));
+    document.querySelectorAll('.project-card-visual').forEach(el => trackingObserver.observe(el));
 
     // ─── rgbSplit — rozjazd kanałów RGB na tytule projektu ───
     const rgbObserver = new IntersectionObserver(
@@ -70,7 +70,7 @@ export default function useScrollEffects() {
     // ─── Parallax na mockupach (skip gdy reduced-motion) ───
     let parallaxHandler = null;
     if (!prefersReduced) {
-      const mockups = Array.from(document.querySelectorAll('.project-row-visual'));
+      const mockups = Array.from(document.querySelectorAll('.project-card-visual'));
       parallaxHandler = () => {
         mockups.forEach(el => {
           const rect = el.getBoundingClientRect();
