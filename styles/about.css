@@ -31,6 +31,7 @@
 .about-photo-frame {
   position: relative;
   display: block;
+  cursor: default;
 }
 
 /* Teal offset frame — wariant ciemny [B] */
@@ -51,13 +52,125 @@
   aspect-ratio: 4 / 5;
 }
 
+/* Zdjęcie — duotone teal w stanie spoczynku */
 .about-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 22%;
   display: block;
-  filter: grayscale(15%);
+  filter: grayscale(1) contrast(1.15) brightness(.9);
+  transition: filter .55s cubic-bezier(.16,1,.3,1);
+}
+
+.about-photo-frame.is-hovered .about-photo {
+  filter: saturate(1.25) contrast(1.08);
+  animation: photoGlitch .5s steps(5);
+}
+
+/* Duotone overlay — teal zabarwienie */
+.about-photo-duo {
+  position: absolute;
+  inset: 0;
+  background: var(--glitch-red);
+  mix-blend-mode: color;
+  opacity: .55;
+  transition: opacity .55s cubic-bezier(.16,1,.3,1);
+  pointer-events: none;
+}
+
+.about-photo-frame.is-hovered .about-photo-duo {
+  opacity: 0;
+}
+
+/* Scanlines texture */
+.about-photo-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,.2) 0 1px,
+    transparent 1px 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scan bar — przejeżdza z dołu do góry na hover */
+.about-photo-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--glitch-red);
+  box-shadow: 0 0 18px 4px rgba(0,201,181,.5);
+  top: 100%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.about-photo-frame.is-hovered .about-photo-scan {
+  animation: photoScan .62s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+/* Gradient ciemny od dołu — pojawia się na hover */
+.about-photo-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10,10,10,.92) 4%,
+    rgba(10,10,10,.25) 45%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity .55s cubic-bezier(.16,1,.3,1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.about-photo-frame.is-hovered .about-photo-gradient {
+  opacity: 1;
+}
+
+/* REC indicator */
+.about-photo-rec {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-family: var(--font-retro);
+  font-size: 16px;
+  color: var(--glitch-red);
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .3s cubic-bezier(.16,1,.3,1) .25s,
+              transform .3s cubic-bezier(.16,1,.3,1) .25s;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.about-photo-frame.is-hovered .about-photo-rec {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Keyframes ─── */
+
+@keyframes photoGlitch {
+  0%   { transform: translate(0,0);    filter: grayscale(1) contrast(1.15) brightness(.9); }
+  18%  { transform: translate(-5px,2px); filter: hue-rotate(40deg) saturate(2); }
+  36%  { transform: translate(4px,-2px); filter: hue-rotate(-30deg) saturate(1.6); }
+  54%  { transform: translate(-2px,1px); filter: none; }
+  72%  { transform: translate(3px,0);  filter: saturate(1.4); }
+  100% { transform: translate(0,0);   filter: saturate(1.25) contrast(1.08); }
+}
+
+@keyframes photoScan {
+  0%       { top: 110%; opacity: 0; }
+  12%, 88% { opacity: 1; }
+  100%     { top: -12%; opacity: 0; }
 }
 
 /* ─── Kolumna tekstu ─── */
@@ -89,7 +202,21 @@
   border-top: 1px solid var(--border);
 }
 
-/* ─── Mobile ─── */
+/* ─── Touch / mobile — od razu kolorowe, bez duotone ─── */
+
+@media (hover: none) {
+  .about-photo {
+    filter: none;
+  }
+  .about-photo-duo {
+    display: none;
+  }
+  .about-photo-rec {
+    display: none;
+  }
+}
+
+/* ─── Mobile layout ─── */
 
 @media (max-width: 768px) {
   .about {
@@ -113,4 +240,13 @@
   .about-photo-frame::after {
     transform: translate(8px, 8px);
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-photo { transition: none; filter: none; }
+  .about-photo-duo { display: none; }
+  .about-photo-gradient { transition: none; }
+  .about-photo-rec { transition: none; }
+  .about-photo-scan { display: none; }
+  .about-photo-frame.is-hovered .about-photo { animation: none; }
 }

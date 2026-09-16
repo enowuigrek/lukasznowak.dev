@@ -1,7 +1,28 @@
+'use client';
+import { useRef, useCallback } from 'react';
 import Image from 'next/image';
 import '../styles/about.css';
 
 export default function AboutSection() {
+  const frameRef = useRef(null);
+
+  const handleMouseEnter = useCallback(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    // Restart scan animation
+    const scan = frame.querySelector('.about-photo-scan');
+    if (scan) {
+      scan.style.animation = 'none';
+      void scan.offsetWidth;
+      scan.style.animation = '';
+    }
+    frame.classList.add('is-hovered');
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    frameRef.current?.classList.remove('is-hovered');
+  }, []);
+
   return (
     <section className="section about" id="o-mnie" data-guide="O mnie">
       <div className="about-header">
@@ -12,10 +33,15 @@ export default function AboutSection() {
 
         {/* Kolumna ze zdjęciem — sticky na desktopie */}
         <div className="about-photo-col">
-          <div className="about-photo-frame">
+          <div
+            ref={frameRef}
+            className="about-photo-frame"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <div className="about-photo-inner">
               <Image
-                src="/photos/portrait.jpg"
+                src="/photos/portrait.png"
                 alt="Łukasz Nowak"
                 width={600}
                 height={750}
@@ -23,6 +49,11 @@ export default function AboutSection() {
                 priority
                 unoptimized
               />
+              <div className="about-photo-duo" aria-hidden="true" />
+              <div className="about-photo-lines" aria-hidden="true" />
+              <span className="about-photo-scan" aria-hidden="true" />
+              <div className="about-photo-gradient" aria-hidden="true" />
+              <span className="about-photo-rec" aria-hidden="true">REC ●</span>
             </div>
           </div>
         </div>

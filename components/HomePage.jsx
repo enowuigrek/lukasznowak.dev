@@ -13,11 +13,13 @@ import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
 import useGlitchEffects from '../hooks/useGlitchEffects';
+import useScrollEffects from '../hooks/useScrollEffects';
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState('hero');
 
   useGlitchEffects();
+  useScrollEffects();
 
   useEffect(() => {
     const sections = document.querySelectorAll('.section[id]');

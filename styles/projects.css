@@ -82,6 +82,10 @@
   margin: 0;
 }
 
+.project-row-title.rgb-split {
+  animation: rgbSplit .45s steps(4) .35s both;
+}
+
 .project-row-desc {
   font-family: var(--font-display);
   font-size: 0.95rem;
@@ -149,17 +153,16 @@
 
 .project-row-visual {
   position: relative;
-  height: 380px;
+  overflow: visible;
 }
 
-/* Browser chrome — zachowany z poprzedniej wersji */
-.project-row-visual .mockup-browser {
+/* ═══ BROWSER MOCKUP ═══ */
+
+.mockup-browser {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   border: 1.5px solid #2e2e2e;
-  border-bottom: none;
   overflow: hidden;
   background: #111;
 }
@@ -184,20 +187,51 @@
   flex-shrink: 0;
 }
 
-.mockup-browser-screen {
-  flex: 1;
+.mockup-browser-url {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: #555;
+  letter-spacing: 0.02em;
+  margin-left: 8px;
+  white-space: nowrap;
   overflow: hidden;
-  min-height: 0;
+  text-overflow: ellipsis;
 }
 
-/* Screenshot wewnątrz mockupa */
+.mockup-browser-screen {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Screenshot — pełny, height:auto, widoczny od góry */
 .project-row-img {
   width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
-  object-position: top center;
+  height: auto !important;
   display: block;
   max-width: none !important;
+}
+
+/* Tracking bar — CRT scan przechodzący przez screenshot przy wejściu w viewport */
+.tracking-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 36px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, .18),
+    rgba(0, 201, 181, .22),
+    transparent
+  );
+  top: -36px;
+  opacity: 0;
+}
+
+.mockup-browser.tracking-active .tracking-bar {
+  animation: trackingBar .85s var(--ease-out) .15s forwards;
 }
 
 /* Mini telefon w rogu */
@@ -212,12 +246,231 @@
   background: #0a0a0a;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
   z-index: 2;
+  transition: none;
+}
+
+.project-phone-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 /* Naprzemiennie — mini telefon po lewej dla even rows */
 .project-row:nth-child(even) .mockup-phone-mini {
   right: auto;
   left: -1.25rem;
+}
+
+/* ═══ HOVER REVEAL OVERLAY ═══ */
+
+.project-reveal {
+  position: absolute;
+  top: 28px; /* poniżej paska przeglądarki */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.project-reveal-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--glitch-red);
+  box-shadow: 0 0 20px 5px rgba(0, 201, 181, .5);
+  top: 100%;
+  opacity: 0;
+}
+
+.project-reveal-panel {
+  position: absolute;
+  inset: 0;
+  background: #0a0a0a;
+  border-top: 2px solid var(--glitch-red);
+  clip-path: inset(100% 0 0 0);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-reveal-label {
+  font-family: var(--font-retro);
+  font-size: 18px;
+  color: var(--glitch-red);
+  opacity: 0;
+  letter-spacing: 0.04em;
+}
+
+.project-reveal-line {
+  width: 90px;
+  height: 2px;
+  background: var(--glitch-red);
+  opacity: 0;
+}
+
+.project-reveal-desc {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #f5f5f5;
+  max-width: 460px;
+  margin: 0;
+  opacity: 0;
+}
+
+.project-reveal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  opacity: 0;
+}
+
+.project-reveal-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(245, 245, 245, .7);
+  border: 1px solid rgba(245, 245, 245, .2);
+  padding: 0.2em 0.6em;
+}
+
+/* ═══ HOVER STATES ═══ */
+
+/* Skan wjeżdża od razu */
+.project-row-visual.is-hovered .project-reveal-scan {
+  animation: scanPass .6s var(--ease-out) forwards;
+}
+
+/* Panel wjeżdża po .1s */
+.project-row-visual.is-hovered .project-reveal-panel {
+  animation: panelReveal .52s var(--ease-out) .1s forwards;
+}
+
+/* Treść panelu po kolei */
+.project-row-visual.is-hovered .project-reveal-label {
+  animation: lineRise .4s var(--ease-out) .34s forwards;
+}
+.project-row-visual.is-hovered .project-reveal-line {
+  animation: lineRise .35s var(--ease-out) .42s forwards;
+}
+.project-row-visual.is-hovered .project-reveal-desc {
+  animation: lineRise .35s var(--ease-out) .5s forwards;
+}
+.project-row-visual.is-hovered .project-reveal-tags {
+  animation: lineRise .35s var(--ease-out) .59s forwards;
+}
+
+/* Telefon zsuwa się */
+.project-row-visual.is-hovered .mockup-phone-mini {
+  animation: phoneOutRight .35s var(--ease-out) forwards;
+}
+.project-row:nth-child(even) .project-row-visual.is-hovered .mockup-phone-mini {
+  animation: phoneOutLeft .35s var(--ease-out) forwards;
+}
+
+/* ═══ LEAVE STATES ═══ */
+
+.project-row-visual.is-leaving .project-reveal-panel {
+  animation: panelHide .34s var(--ease-out) forwards;
+}
+.project-row-visual.is-leaving .project-reveal-label,
+.project-row-visual.is-leaving .project-reveal-line,
+.project-row-visual.is-leaving .project-reveal-desc,
+.project-row-visual.is-leaving .project-reveal-tags {
+  animation: none;
+  opacity: 0;
+}
+.project-row-visual.is-leaving .project-reveal-scan {
+  animation: none;
+  opacity: 0;
+}
+
+/* Telefon wraca */
+.project-row-visual.is-leaving .mockup-phone-mini {
+  animation: phoneInRight .42s var(--ease-out) forwards;
+}
+.project-row:nth-child(even) .project-row-visual.is-leaving .mockup-phone-mini {
+  animation: phoneInLeft .42s var(--ease-out) forwards;
+}
+
+/* ═══ KEYFRAMES ═══ */
+
+@keyframes panelReveal {
+  from { clip-path: inset(100% 0 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes panelHide {
+  from { clip-path: inset(0 0 0 0); }
+  to   { clip-path: inset(0 0 100% 0); }
+}
+
+@keyframes scanPass {
+  0%       { top: 100%; opacity: 0; }
+  14%, 86% { opacity: 1; }
+  100%     { top: 0; opacity: 0; }
+}
+
+@keyframes lineRise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes phoneOutRight {
+  from { transform: translate(0, 0); opacity: 1; }
+  to   { transform: translate(60px, 20px); opacity: 0; }
+}
+@keyframes phoneInRight {
+  from { transform: translate(60px, 20px); opacity: 0; }
+  to   { transform: translate(0, 0); opacity: 1; }
+}
+@keyframes phoneOutLeft {
+  from { transform: translate(0, 0); opacity: 1; }
+  to   { transform: translate(-60px, 20px); opacity: 0; }
+}
+@keyframes phoneInLeft {
+  from { transform: translate(-60px, 20px); opacity: 0; }
+  to   { transform: translate(0, 0); opacity: 1; }
+}
+
+@keyframes trackingBar {
+  0%       { top: -10%; opacity: 0; }
+  10%, 90% { opacity: .85; }
+  100%     { top: 110%; opacity: 0; }
+}
+
+@keyframes rgbSplit {
+  0%   { text-shadow: -4px 0 var(--glitch-red), 4px 0 var(--glitch-blue); transform: translateX(-2px); }
+  25%  { text-shadow:  3px 0 var(--glitch-red), -3px 0 var(--glitch-blue); transform: translateX(2px); }
+  50%  { text-shadow: -2px 0 var(--glitch-red), 2px 0 var(--glitch-blue); transform: translateX(-1px); }
+  75%  { text-shadow:  1px 0 var(--glitch-red), -1px 0 var(--glitch-blue); transform: translateX(1px); }
+  100% { text-shadow: none; transform: translateX(0); }
+}
+
+@keyframes vhsIn {
+  0%   { opacity: 0; transform: translateY(26px); filter: blur(6px); }
+  35%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes wipeIn {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+/* VHS scroll reveal */
+.vhs-in {
+  opacity: 0;
+}
+.vhs-in.visible {
+  animation: vhsIn .7s var(--ease-out) calc(var(--i, 0) * .12s) both;
 }
 
 /* ═══ MOBILE ═══ */
@@ -237,10 +490,6 @@
   .project-row:nth-child(even) .project-row-content { order: 1; }
   .project-row:nth-child(even) .project-row-visual  { order: 2; }
 
-  .project-row-visual {
-    height: 240px;
-  }
-
   .mockup-phone-mini {
     display: none;
   }
@@ -253,10 +502,25 @@
     border-left: none;
     border-top: 1px solid var(--border);
   }
+
+  /* Na mobile reveal widoczny bez hovera */
+  @media (hover: none) {
+    .project-reveal-panel {
+      clip-path: inset(0 0 0 0);
+    }
+    .project-reveal-label,
+    .project-reveal-line,
+    .project-reveal-desc,
+    .project-reveal-tags {
+      opacity: 1;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-row {
-    transition: none;
-  }
+  .project-reveal-scan { display: none; }
+  .tracking-bar { display: none; }
+  .vhs-in { opacity: 1; }
+  .vhs-in.visible { animation: none; }
+  .project-row-title.rgb-split { animation: none; }
 }
