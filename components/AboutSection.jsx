@@ -73,8 +73,7 @@ export default function AboutSection() {
             Szukam miejsc gdzie coś zajmuje trzy godziny, a mogłoby pięć minut.
           </p>
           <p className="about-text slide-in-left" style={{ '--i': 3 }}>
-            Poza pracą warzę piwo, wypiekam na zakwasie i nagrywam rap.
-            Wszystko rzeczy które nie wychodzą za pierwszym razem.
+            Poza pracą nagrywam rap, jeżdżę na rowerze i dużo chodzę. I warzę piwo.
           </p>
           <p className="about-text about-meta">
             Częstochowa · zdalnie w całej Polsce
