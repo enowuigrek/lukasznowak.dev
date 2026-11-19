@@ -42,6 +42,9 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span className="footer-copyright">© {year} Łukasz Nowak</span>
+          <span className="footer-legal">
+            Łukasz Nowak lukasznowak.dev · NIP 5732581861 · REGON 546196813
+          </span>
         </div>
 
       </div>

@@ -108,6 +108,15 @@
   color: var(--text-dim);
 }
 
+.footer-legal {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  text-align: right;
+}
+
 /* Status badge */
 .footer-status {
   display: flex;
